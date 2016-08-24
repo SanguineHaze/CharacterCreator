@@ -30,4 +30,6 @@ public class race {
 		subRaceArray[5] = "High Elf";
 		subRaceArray[6] = "Wood Elf";
 	}
+	
+	//Lunar suggests looking into Enums - as there may be a better way to do this.
 }
