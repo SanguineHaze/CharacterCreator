@@ -32,4 +32,7 @@ public class race {
 	}
 	
 	//Lunar suggests looking into Enums - as there may be a better way to do this.
+	
+	//I should also look into how to load from a file. http://stackoverflow.com/questions/4716503/reading-a-plain-text-file-in-java
+    }
 }
