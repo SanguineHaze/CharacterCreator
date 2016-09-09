@@ -1,34 +1,32 @@
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Vector;
-import java.io.FileReader;
-import java.io.BufferedReader;
+
+import java.io.File;
+
 
 public class ReadFromFile {
+
+    private String path;
+
+    public ReadFromFile(String filePath) {
+        path = filePath;
+    }
+
+    public Vector<String> OpenFile() throws IOException {
+        Vector<String> output = new Vector<String>();
+        File fr = new File(path);
+        Scanner textReader = new Scanner(fr);
+
+        while(textReader.hasNext()){
+            output.add(textReader.nextLine());
+        }
+        textReader.close();
+        return output;
+    }
+
 	
-	private String path;
-	
-	public ReadFromFile(String filePath) {
-		path = filePath;
-	}
-	
-	public String[] OpenFile() throws IOException {
-		FileReader fr = new FileReader(path);
-		BufferedReader textReader = new BufferedReader(fr);
-		
-		int numOfLines = readLines(); //We'll collect this info slightly later!
-		Vector<String> textData = new Vector<numOfLines>; //Create the array for textData
-		
-		int i;
-		for(i=0; i<numOfLines; i++) {
-			textData = textReader.readLine(); //populate the array with data
-		}
-		
-		textReader.close(); 
-		return textData; // spit out that data		
-		
-	}
-	
-	
+	/*
 	//We need to know how many lines to read.
 	//Recall that this means we need to call FileReader and FileBuffer to do this.
 	//Then, we need to count it, and spit it back into OpenFile() as readLines()
@@ -47,5 +45,5 @@ public class ReadFromFile {
 		bf.close();
 		return numberOfLines; //boom! We know how many lines we gotta read dawg!
 		
-	}
+	}*/
 }
