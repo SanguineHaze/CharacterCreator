@@ -1,10 +1,10 @@
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class race {
 
 
-    Vector<String> raceList = new Vector<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
+    ArrayList<String> raceList = new ArrayList<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
 
      race() throws IOException {
         String targetFile = "C:/users/dylanc/Desktop/test.txt";

@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import java.io.File;
 
@@ -13,8 +13,8 @@ public class ReadFromFile {
         path = filePath;
     }
 
-    public Vector<String> OpenFile() throws IOException {
-        Vector<String> output = new Vector<String>();
+    public ArrayList<String> OpenFile() throws IOException {
+        ArrayList<String> output = new ArrayList<String>();
         File fr = new File(path);
         Scanner textReader = new Scanner(fr);
 
