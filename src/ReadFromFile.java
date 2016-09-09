@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Vector;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
@@ -15,11 +16,11 @@ public class ReadFromFile {
 		BufferedReader textReader = new BufferedReader(fr);
 		
 		int numOfLines = readLines(); //We'll collect this info slightly later!
-		String[] textData = new String[numOfLines]; //Create the array for textData
+		Vector<String> textData = new Vector<numOfLines>; //Create the array for textData
 		
 		int i;
 		for(i=0; i<numOfLines; i++) {
-			textData[i] = textReader.readLine(); //populate the array with data
+			textData = textReader.readLine(); //populate the array with data
 		}
 		
 		textReader.close(); 
