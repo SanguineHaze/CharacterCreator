@@ -7,7 +7,7 @@ public class race {
     ArrayList<String> raceList = new ArrayList<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
 
      race() throws IOException {
-        String targetFile = "C:/users/dylanc/Desktop/test.txt";
+        String targetFile = "C:/users/dylanc/Desktop/test.txt"; //path to the file on local environment.
 
         try {
             ReadFromFile file = new ReadFromFile(targetFile);
@@ -19,7 +19,7 @@ public class race {
                 System.out.println(out);
             }
         }
-
+        
         catch (IOException e) {
             //Default error message
             System.out.println(e.getMessage());
@@ -27,6 +27,7 @@ public class race {
             //Let's make our own error
             //System.out.println("ERROR: Dude, where's my file?! Better check that spelling!");
         } //End catch
+
     }//End race()
 
     public static void main(String[] args) {
@@ -36,6 +37,7 @@ public class race {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
     }// End main()
 
 }// End class
