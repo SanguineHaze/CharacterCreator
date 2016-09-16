@@ -18,7 +18,7 @@ public class race {
             for(String out: raceList){
                 System.out.println(out);
             }
-        }
+        }//End Try
         
         catch (IOException e) {
             //Default error message
