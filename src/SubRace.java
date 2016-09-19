@@ -8,7 +8,7 @@ public class SubRace {
 	
 	ArrayList<String> subRaceList = new ArrayList<String>();
 	
-	SubRace() throws IOException {
+	public SubRace() throws IOException {
 		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		
 		try {

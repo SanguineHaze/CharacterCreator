@@ -8,7 +8,7 @@ public class Race {
 	static String chosenRace;
 	ArrayList<String> raceList = new ArrayList<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
 
-     Race() throws IOException {
+     public Race() throws IOException {
         String targetFile = "C:/users/dylanc/Desktop/test.txt"; //path to the file on local environment.
 
         try {
