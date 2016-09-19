@@ -25,9 +25,9 @@ public class SubRace {
 			}*/
 			
 			//This section isn't working. It's not comparing the strings correctly. TODO: Solve this.
-			if(race.chosenRace == "Dragonborn"){
+			if(race.chosenRace.equals("Dragonborn")){
 				System.out.println("ALL HAIL THE DRAGON");
-			} else if(race.chosenRace == "Dwarf") {
+			} else if(race.chosenRace.equals("Dwarf")) {
 				System.out.println("Dig all the gold!");
 			} else {
 				System.out.println("I find your lack of tests disturbing.");
