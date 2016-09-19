@@ -22,16 +22,7 @@ public class SubRace {
             /*System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}*/
-			
-			//This section isn't working. It's not comparing the strings correctly. TODO: Solve this.
-			if(race.chosenRace.equals("Dragonborn")){
-				System.out.println("ALL HAIL THE DRAGON");
-			} else if(race.chosenRace.equals("Dwarf")) {
-				System.out.println("Dig all the gold!");
-			} else {
-				System.out.println("I find your lack of tests disturbing.");
-			}
+			}*/		
 			
 		} catch (IOException e) {
             //Default error message
@@ -42,5 +33,25 @@ public class SubRace {
         } //End Try / Catch
 		
 	}//End SubRace()
+	
+	//this doesn't do anything! argh.
+	public String getRace(String thisRace){
+		String output = "";
+		if(thisRace.equals("Dragonborn")){
+			output = "Here there be dragons";
+		} else if(thisRace.equals("Dwarf")) {
+			output = "Digging that gold!";
+		} else if(thisRace.equals("Half-Elf")) {
+			output = "Half-Elves are the best!";
+		} else if(thisRace.equals("Half-Orc")){
+			output = "Half Human, half Orc, all rage.";
+		} else if(thisRace.equals("Human")){
+			output = "Puny meatbags!";
+		} else {
+			output = "I can't tell you anything about " + thisRace;
+		}
+		
+		return output;
+	}
 		
 }//End class

@@ -2,13 +2,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class race {
+public class Race {
 	
 	Random randomGenerator = new Random();
 	static String chosenRace;
 	ArrayList<String> raceList = new ArrayList<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
 
-     race() throws IOException {
+     Race() throws IOException {
         String targetFile = "C:/users/dylanc/Desktop/test.txt"; //path to the file on local environment.
 
         try {
