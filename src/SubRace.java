@@ -8,14 +8,14 @@ public class SubRace {
 	public String chosenSubRace;
 	ArrayList<String> subRaceList = new ArrayList<String>();
 	
-	public SubRace() throws Exception {
+	public SubRace() {
 		chosenSubRace = "";
 		loadRaceList();
 	}//End SubRace()
 	
 	public void loadRaceList(){
 		
-		String subRaceTargetFile = "C:/Users/sangu_000/Desktop/test2.txt";
+		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		
    	 	//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
 		//Work Location "C:/users/dylanc/Desktop/test2.txt"; 
@@ -43,20 +43,21 @@ public class SubRace {
 		
 	}//End loadRaceList()
 	
-	public String getChosenRace(String chosenRace){
+	//Attempting to use thisRace to find out the motherfucking race! Unsuccessful, of course.
+	public String getChosenRace(String thisRace){
 		String output = "";
-		if(chosenRace.equals("Dragonborn")){
+		if(thisRace.equals("Dragonborn")){
 			output = "Here there be dragons";
-		} else if(chosenRace.equals("Dwarf")) {
+		} else if(thisRace.equals("Dwarf")) {
 			output = "Digging that gold!";
-		} else if(chosenRace.equals("Half-Elf")) {
+		} else if(thisRace.equals("Half-Elf")) {
 			output = "Half-Elves are the best!";
-		} else if(chosenRace.equals("Half-Orc")){
+		} else if(thisRace.equals("Half-Orc")){
 			output = "Half Human, half Orc, all rage.";
-		} else if(chosenRace.equals("Human")){
+		} else if(thisRace.equals("Human")){
 			output = "Puny meatbags!";
 		} else {
-			output = "I can't tell you anything about " + chosenRace;
+			output = "I can't tell you anything about " + thisRace;
 		}
 		
 		return output;
