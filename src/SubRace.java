@@ -5,11 +5,20 @@ import java.util.Random;
 public class SubRace {
 	
 	Random randomSubRace = new Random();
-	
+	public String chosenSubRace;
 	ArrayList<String> subRaceList = new ArrayList<String>();
 	
-	public SubRace() throws IOException {
-		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
+	public SubRace() throws Exception {
+		chosenSubRace = "";
+		loadRaceList();
+	}//End SubRace()
+	
+	public void loadRaceList(){
+		
+		String subRaceTargetFile = "C:/Users/sangu_000/Desktop/test2.txt";
+		
+   	 	//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
+		//Work Location "C:/users/dylanc/Desktop/test2.txt"; 
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
@@ -24,7 +33,7 @@ public class SubRace {
 				System.out.println(out);
 			}*/		
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
             //Default error message
             System.out.println(e.getMessage());
 
@@ -32,23 +41,22 @@ public class SubRace {
             //System.out.println("ERROR: Dude, where's my file?! Better check that spelling!");
         } //End Try / Catch
 		
-	}//End SubRace()
+	}//End loadRaceList()
 	
-	//this doesn't do anything! argh.
-	public String getRace(String thisRace){
+	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(thisRace.equals("Dragonborn")){
+		if(chosenRace.equals("Dragonborn")){
 			output = "Here there be dragons";
-		} else if(thisRace.equals("Dwarf")) {
+		} else if(chosenRace.equals("Dwarf")) {
 			output = "Digging that gold!";
-		} else if(thisRace.equals("Half-Elf")) {
+		} else if(chosenRace.equals("Half-Elf")) {
 			output = "Half-Elves are the best!";
-		} else if(thisRace.equals("Half-Orc")){
+		} else if(chosenRace.equals("Half-Orc")){
 			output = "Half Human, half Orc, all rage.";
-		} else if(thisRace.equals("Human")){
+		} else if(chosenRace.equals("Human")){
 			output = "Puny meatbags!";
 		} else {
-			output = "I can't tell you anything about " + thisRace;
+			output = "I can't tell you anything about " + chosenRace;
 		}
 		
 		return output;
