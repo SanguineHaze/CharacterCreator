@@ -43,7 +43,7 @@ public class SubRace {
 		
 	}//End loadRaceList()
 	
-	//Attempting to use thisRace to find out the motherfucking race! Unsuccessful, of course.
+	
 	public String getChosenRace(String chosenRace){
 		String output = "";
 		if(chosenRace.equals("Dragonborn")){
@@ -59,7 +59,8 @@ public class SubRace {
 		} else {
 			output = "I can't tell you anything about " + chosenRace;
 		}
-		
+		//test to see if it's making it into here.
+		//System.out.println(output); 
 		return output;
 	}
 		
