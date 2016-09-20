@@ -44,20 +44,20 @@ public class SubRace {
 	}//End loadRaceList()
 	
 	//Attempting to use thisRace to find out the motherfucking race! Unsuccessful, of course.
-	public String getChosenRace(String thisRace){
+	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(thisRace.equals("Dragonborn")){
+		if(chosenRace.equals("Dragonborn")){
 			output = "Here there be dragons";
-		} else if(thisRace.equals("Dwarf")) {
+		} else if(chosenRace.equals("Dwarf")) {
 			output = "Digging that gold!";
-		} else if(thisRace.equals("Half-Elf")) {
+		} else if(chosenRace.equals("Half-Elf")) {
 			output = "Half-Elves are the best!";
-		} else if(thisRace.equals("Half-Orc")){
+		} else if(chosenRace.equals("Half-Orc")){
 			output = "Half Human, half Orc, all rage.";
-		} else if(thisRace.equals("Human")){
+		} else if(chosenRace.equals("Human")){
 			output = "Puny meatbags!";
 		} else {
-			output = "I can't tell you anything about " + thisRace;
+			output = "I can't tell you anything about " + chosenRace;
 		}
 		
 		return output;
