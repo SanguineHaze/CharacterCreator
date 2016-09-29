@@ -10,10 +10,10 @@ public class SubRace {
 	
 	public SubRace() {
 		chosenSubRace = "";
-		loadRaceList();
+		loadSubRaceList();
 	}//End SubRace()
 	
-	public void loadRaceList(){
+	public void loadSubRaceList(){
 		
 		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		
@@ -46,7 +46,7 @@ public class SubRace {
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(chosenRace.equals("Dragonborn")){
+		if(chosenRace.equals("Dragonborn")){			
 			output = "Here there be dragons";
 		} else if(chosenRace.equals("Dwarf")) {
 			output = "Digging that gold!";
@@ -57,7 +57,7 @@ public class SubRace {
 		} else if(chosenRace.equals("Human")){
 			output = "Puny meatbags!";
 		} else {
-			output = "I can't tell you anything about " + chosenRace;
+			
 		}
 		//test to see if it's making it into here.
 		//System.out.println(output); 
