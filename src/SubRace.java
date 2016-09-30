@@ -6,7 +6,23 @@ public class SubRace {
 	
 	Random randomSubRace = new Random();
 	public String chosenSubRace;
-	ArrayList<String> subRaceList = new ArrayList<String>();
+	
+	//Instantiate The Lists!
+	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list. A list of all subraces.
+	
+	ArrayList<String> aarakocraSubRaceList = new ArrayList<String>();
+	ArrayList<String> dragonbornSubRaceList = new ArrayList<String>();
+	ArrayList<String> dwarfSubRaceList = new ArrayList<String>();
+	ArrayList<String> elfSubRaceList = new ArrayList<String>();
+	ArrayList<String> genasiSubRaceList = new ArrayList<String>();
+	ArrayList<String> gnomeSubRaceList = new ArrayList<String>();
+	ArrayList<String> goliathSubRaceList = new ArrayList<String>();
+	ArrayList<String> halfElfSubRaceList = new ArrayList<String>();
+	ArrayList<String> halfOrcSubRaceList = new ArrayList<String>();
+	ArrayList<String> halflingSubRaceList = new ArrayList<String>();
+	ArrayList<String> humanSubRaceList = new ArrayList<String>();
+	ArrayList<String> tieflingSubRaceList = new ArrayList<String>();
+
 	
 	public SubRace() {
 		chosenSubRace = "";
@@ -15,10 +31,11 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		
+		//The master list containing all subraces
 		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		
    	 	//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
-		//Work Location "C:/users/dylanc/Desktop/test2.txt"; 
+		//Work Location "C:/users/dylanc/Desktop/test2.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
@@ -46,7 +63,7 @@ public class SubRace {
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(chosenRace.equals("Dragonborn")){			
+		if(chosenRace.equals("Dragonborn")){
 			output = "Here there be dragons";
 		} else if(chosenRace.equals("Dwarf")) {
 			output = "Digging that gold!";
