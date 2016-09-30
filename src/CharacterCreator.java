@@ -18,6 +18,7 @@ public class CharacterCreator {
 			//System.out.println(thisSubRace.getChosenRace(thisRace.getRace())); 
 			System.out.println(mySubRace);
 			
+			
     }// End main()    
 }
 

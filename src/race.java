@@ -48,6 +48,7 @@ public class Race {
     		    //Let's make our own error
     		    //System.out.println("ERROR: Dude, where's my file?! Better check that spelling!");
     		} //End try / catch
+
      }//End loadRaceList()
      
      public String getRace(){

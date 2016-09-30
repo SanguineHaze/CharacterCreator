@@ -8,7 +8,7 @@ public class SubRace {
 	public String chosenSubRace;
 	
 	//Instantiate The Lists!
-	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list. A list of all subraces.
+	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
 	
 	ArrayList<String> aarakocraSubRaceList = new ArrayList<String>();
 	ArrayList<String> dragonbornSubRaceList = new ArrayList<String>();
@@ -22,7 +22,6 @@ public class SubRace {
 	ArrayList<String> halflingSubRaceList = new ArrayList<String>();
 	ArrayList<String> humanSubRaceList = new ArrayList<String>();
 	ArrayList<String> tieflingSubRaceList = new ArrayList<String>();
-
 	
 	public SubRace() {
 		chosenSubRace = "";
