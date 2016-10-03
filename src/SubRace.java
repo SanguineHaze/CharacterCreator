@@ -30,11 +30,25 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		
+		//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
+		//Work Location "C:/users/dylanc/Desktop/test2.txt";
+		
 		//The master list containing all subraces
 		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
-		
-   	 	//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
-		//Work Location "C:/users/dylanc/Desktop/test2.txt";
+		//Each Sub-Race File
+		String aarokacraSubRaceTargetFile = "";
+		String dragonbornSubRaceTargetFile = "";
+		String dwarfSubRaceTargetFile = "";
+		String elfSubRaceTargetFile = "";
+		String genasiSubRaceTargetFile = "";
+		String gnomeSubRaceTargetFile = "";
+		String goliathSubRaceTargetFile = "";
+		String halfElfSubRaceTargetFile = "";
+		String halfOrcSubRaceTargetFile = "";
+		String halflingSubRaceTargetFile = "";
+		String humanSubRaceTargetFile = "";
+		String tieflingSubRaceTargetFile = "";
+   	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
