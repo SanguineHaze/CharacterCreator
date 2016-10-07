@@ -20,10 +20,15 @@ public class ReadFromFile {
         Scanner textReader = new Scanner(fr);
 
         while(textReader.hasNext()){
-            output.add(textReader.nextLine());
+            String line = textReader.nextLine();
+            String[] lineContents = line.split(":");
+            String lineName = lineContents[0];
+            String lineValue = lineContents[1];
+            output.add(lineName + " " + lineValue);
         }
         textReader.close();
         return output;
+        
     }
 
 }
