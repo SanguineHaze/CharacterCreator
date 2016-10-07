@@ -10,6 +10,7 @@ public class SubRace {
 	//Instantiate The Lists!
 	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
 	
+	/*
 	ArrayList<String> aarakocraSubRaceList = new ArrayList<String>();
 	ArrayList<String> dragonbornSubRaceList = new ArrayList<String>();
 	ArrayList<String> dwarfSubRaceList = new ArrayList<String>();
@@ -22,6 +23,7 @@ public class SubRace {
 	ArrayList<String> halflingSubRaceList = new ArrayList<String>();
 	ArrayList<String> humanSubRaceList = new ArrayList<String>();
 	ArrayList<String> tieflingSubRaceList = new ArrayList<String>();
+	*/
 	
 	public SubRace() {
 		chosenSubRace = "";
@@ -36,18 +38,6 @@ public class SubRace {
 		//The master list containing all subraces
 		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		//Each Sub-Race File
-		String aarokacraSubRaceTargetFile = "";
-		String dragonbornSubRaceTargetFile = "";
-		String dwarfSubRaceTargetFile = "";
-		String elfSubRaceTargetFile = "";
-		String genasiSubRaceTargetFile = "";
-		String gnomeSubRaceTargetFile = "";
-		String goliathSubRaceTargetFile = "";
-		String halfElfSubRaceTargetFile = "";
-		String halfOrcSubRaceTargetFile = "";
-		String halflingSubRaceTargetFile = "";
-		String humanSubRaceTargetFile = "";
-		String tieflingSubRaceTargetFile = "";
    	 	
 		
 		try {
@@ -67,8 +57,6 @@ public class SubRace {
             //Default error message
             System.out.println(e.getMessage());
 
-            //Let's make our own error
-            //System.out.println("ERROR: Dude, where's my file?! Better check that spelling!");
         } //End Try / Catch
 		
 	}//End loadRaceList()
