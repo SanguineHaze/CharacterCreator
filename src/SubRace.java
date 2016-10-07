@@ -8,26 +8,16 @@ public class SubRace {
 	public String chosenSubRace;
 	
 	//Instantiate The Lists!
-	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
+	ArrayList<String> subRaceList = new ArrayList<String>();
 	
-	/*
-	ArrayList<String> aarakocraSubRaceList = new ArrayList<String>();
-	ArrayList<String> dragonbornSubRaceList = new ArrayList<String>();
-	ArrayList<String> dwarfSubRaceList = new ArrayList<String>();
-	ArrayList<String> elfSubRaceList = new ArrayList<String>();
-	ArrayList<String> genasiSubRaceList = new ArrayList<String>();
-	ArrayList<String> gnomeSubRaceList = new ArrayList<String>();
-	ArrayList<String> goliathSubRaceList = new ArrayList<String>();
-	ArrayList<String> halfElfSubRaceList = new ArrayList<String>();
-	ArrayList<String> halfOrcSubRaceList = new ArrayList<String>();
-	ArrayList<String> halflingSubRaceList = new ArrayList<String>();
-	ArrayList<String> humanSubRaceList = new ArrayList<String>();
-	ArrayList<String> tieflingSubRaceList = new ArrayList<String>();
-	*/
+	String[] subRaceContent;
+	String contentName;
+	String contentValue;
 	
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();
+		System.out.println(chosenSubRace);
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
@@ -47,11 +37,21 @@ public class SubRace {
 			
 			subRaceList.sort(null);
 			
+			/*
 			//DEBUG TOOL: Check to see that the list is being created
-            /*System.out.println("Sub-Race List:");
+            System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}*/		
+			}	
+			*/
+			
+		   	int index = randomSubRace.nextInt(subRaceList.size());
+		   	this.chosenSubRace = subRaceList.get(index);
+		   	String[] subRaceContent = chosenSubRace.split(":");
+			String contentName = subRaceContent[0];
+			String contentValue = subRaceContent[1];
+			this.chosenSubRace = contentValue;
+
 			
 		} catch (Exception e) {
             //Default error message
@@ -83,3 +83,9 @@ public class SubRace {
 	}
 		
 }//End class
+
+/*          
+String[] lineContents = line.split(":");
+String lineName = lineContents[0]; //should read RACE: SUBRACE: CLASS: etc. Does not need to be sysout'd.
+String lineValue = lineContents[1];
+*/
