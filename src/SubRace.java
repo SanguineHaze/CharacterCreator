@@ -6,28 +6,16 @@ public class SubRace {
 	
 	Random randomSubRace = new Random();
 	public String chosenSubRace;
-	
+	private String line;
+	private String lineName;
+	private String lineValue;
 	//Instantiate The Lists!
 	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
-	
-	/*
-	ArrayList<String> aarakocraSubRaceList = new ArrayList<String>();
-	ArrayList<String> dragonbornSubRaceList = new ArrayList<String>();
-	ArrayList<String> dwarfSubRaceList = new ArrayList<String>();
-	ArrayList<String> elfSubRaceList = new ArrayList<String>();
-	ArrayList<String> genasiSubRaceList = new ArrayList<String>();
-	ArrayList<String> gnomeSubRaceList = new ArrayList<String>();
-	ArrayList<String> goliathSubRaceList = new ArrayList<String>();
-	ArrayList<String> halfElfSubRaceList = new ArrayList<String>();
-	ArrayList<String> halfOrcSubRaceList = new ArrayList<String>();
-	ArrayList<String> halflingSubRaceList = new ArrayList<String>();
-	ArrayList<String> humanSubRaceList = new ArrayList<String>();
-	ArrayList<String> tieflingSubRaceList = new ArrayList<String>();
-	*/
 	
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();
+		System.out.println(chosenSubRace);
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
@@ -36,7 +24,7 @@ public class SubRace {
 		//Work Location "C:/users/dylanc/Desktop/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
+		String subRaceTargetFile = "C:/users/sangu_000/Desktop/test2.txt";
 		//Each Sub-Race File
    	 	
 		
@@ -51,7 +39,15 @@ public class SubRace {
             /*System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}*/		
+			}*/
+			int index = randomSubRace.nextInt(subRaceList.size());;
+			this.chosenSubRace = subRaceList.get(index);
+			
+			String line = chosenSubRace;			
+            String[] lineContents = line.split(":");
+            lineName = lineContents[0];
+            lineValue = lineContents[1];
+            this.chosenSubRace = lineContents[1];
 			
 		} catch (Exception e) {
             //Default error message
@@ -64,10 +60,14 @@ public class SubRace {
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(chosenRace.equals("Dragonborn")){
-			output = "Here there be dragons";
+		if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
+			if("Dragonborn".equals(lineName)){ //Second iteration checks to see what SubRace has been chosen
+				System.out.println("Here there be dragons!");
+			}
 		} else if(chosenRace.equals("Dwarf")) {
-			output = "Digging that gold!";
+			if("Dwarf".equals(lineName)){
+				System.out.println("Hi-Ho, Hi-Ho, it's off to kill I go!");
+			}
 		} else if(chosenRace.equals("Half-Elf")) {
 			output = "Half-Elves are the best!";
 		} else if(chosenRace.equals("Half-Orc")){

@@ -21,10 +21,7 @@ public class ReadFromFile {
 
         while(textReader.hasNext()){
             String line = textReader.nextLine();
-            String[] lineContents = line.split(":");
-            String lineName = lineContents[0];
-            String lineValue = lineContents[1];
-            output.add(lineName + " " + lineValue);
+            output.add(line);
         }
         textReader.close();
         return output;
