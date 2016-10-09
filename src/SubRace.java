@@ -15,7 +15,7 @@ public class SubRace {
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();
-		System.out.println(chosenSubRace);
+		getSubRace();
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
@@ -40,15 +40,7 @@ public class SubRace {
 			for(String out: subRaceList){
 				System.out.println(out);
 			}*/
-			int index = randomSubRace.nextInt(subRaceList.size());;
-			this.chosenSubRace = subRaceList.get(index);
-			
-			String line = chosenSubRace;			
-            String[] lineContents = line.split(":");
-            lineName = lineContents[0];
-            lineValue = lineContents[1];
-            this.chosenSubRace = lineContents[1];
-			
+
 		} catch (Exception e) {
             //Default error message
             System.out.println(e.getMessage());
@@ -57,28 +49,51 @@ public class SubRace {
 		
 	}//End loadRaceList()
 	
+	public String getSubRace() {
+	int index = randomSubRace.nextInt(subRaceList.size());;
+	chosenSubRace = subRaceList.get(index);
+	
+	String line = chosenSubRace;			
+    String[] lineContents = line.split(":");
+    lineName = lineContents[0];
+    lineValue = lineContents[1];
+    chosenSubRace = lineContents[1];
+    
+    return chosenSubRace;
+	}
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
 		if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
-			if("Dragonborn".equals(lineName)){ //Second iteration checks to see what SubRace has been chosen
-				System.out.println("Here there be dragons!");
+			if(!"Dragonborn".equals(lineName)){ //Second iteration checks to see that Dragonborn DOES NOT equal lineName
+				SubRace fetchNew = new SubRace(); //If the above is true - fetch a new SubRace
+			} else {
+				output = chosenSubRace;
 			}
 		} else if(chosenRace.equals("Dwarf")) {
-			if("Dwarf".equals(lineName)){
-				System.out.println("Hi-Ho, Hi-Ho, it's off to kill I go!");
+			if(!"Dwarf".equals(lineName)){
+				SubRace fetchNew = new SubRace(); 
+			} else {
+				output = chosenSubRace;
 			}
 		} else if(chosenRace.equals("Half-Elf")) {
-			output = "Half-Elves are the best!";
+			if(!"Half-Elf".equals(lineName)){
+				SubRace fetchNew = new SubRace(); 
+			} else {
+				output = chosenSubRace;
+			}
 		} else if(chosenRace.equals("Half-Orc")){
-			output = "Half Human, half Orc, all rage.";
+			if("Half-Orc".equals(lineName)){
+				output = "The strength and rage of Orc, with the intelligence of Humans.";
+			}
 		} else if(chosenRace.equals("Human")){
-			output = "Puny meatbags!";
+			if("Human".equals(lineName)){
+				output = "Puny meatbags!!";
+			}
 		} else {
-			
+			output = "Whoops, something went wrong!";
 		}
-		//test to see if it's making it into here.
-		//System.out.println(output); 
+		//test to see if it's making it into here. 
 		return output;
 	}
 		
