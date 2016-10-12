@@ -80,20 +80,41 @@ public class SubRace {
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
+		if("Aarakocra".equals(chosenRace)){
+			output = ""; //no subrace
+		} else if("Aasimar".equals(chosenRace)){
+			output = ""; //no subrace
+		} else if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
 			generateSubRace("Dragonborn");//If the above is true - fetch a new SubRace
 			output = chosenSubRace;
 		} else if(chosenRace.equals("Dwarf")) {
 			generateSubRace("Dwarf");
 			output = chosenSubRace;
+		} else if("Elf".equals(chosenRace)){
+			generateSubRace("Elf");
+			output = chosenSubRace;
+		} else if("Genasi".equals(chosenRace)){
+			generateSubRace("Genasi");
+			output = chosenSubRace;
+		} else if("Gnome".equals(chosenRace)) {
+			generateSubRace("Genasi");
+			output = chosenRace;
+		} else if("Goliath".equals(chosenRace)){
+			output = ""; //no subrace
 		} else if(chosenRace.equals("Half-Elf")) {
 			generateSubRace("Half-Elf");
 			output = chosenSubRace;
 		} else if(chosenRace.equals("Half-Orc")){
 			generateSubRace("Half-Orc");
 			output = chosenSubRace;
+		} else if ("Halfling".equals(chosenRace)){
+			generateSubRace("Halfling");
+			output = chosenSubRace;
 		} else if(chosenRace.equals("Human")){
 			generateSubRace("Human");
+			output = chosenSubRace;
+		} else if("Tiefling".equals(chosenRace)){
+			generateSubRace("Tiefling");
 			output = chosenSubRace;
 		} else {
 			output = chosenSubRace;

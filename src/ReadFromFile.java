@@ -19,9 +19,7 @@ public class ReadFromFile {
         Scanner textReader = new Scanner(fr);
 
         while(textReader.hasNextLine()){
-        	
-        	readOut.add(textReader.nextLine());
-        	
+        	        	
             String line = textReader.nextLine();
             readOut.add(line);
 
