@@ -21,13 +21,11 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		
-		//Home Location "C:/Users/sangu_000/Desktop/test2.txt";
-		//Work Location "C:/users/dylanc/Desktop/test2.txt";
+		//Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test2.txt";
+		//Work Location "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
-		//Each Sub-Race File
-   	 	
+		String subRaceTargetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";   	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);

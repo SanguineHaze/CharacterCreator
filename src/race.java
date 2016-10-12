@@ -16,10 +16,10 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String targetFile = "C:/users/dylanc/Desktop/test.txt"; //path to the file on local environment.
+    	 String targetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
     	 
-    	 //Home Location "C:/Users/sangu_000/Desktop/test.txt";
-    	 //Work Location "C:/users/dylanc/Desktop/test.txt"; 
+    	 //Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test.txt";
+    	 //Work Location "C:/users/dylanc/workspace/CharacterCreator/src/test.txt"; 
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);

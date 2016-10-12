@@ -1,5 +1,3 @@
-AARAKOCRA:
-AASIMAR:
 DRAGONBORN:Black Dragonborn
 DRAGONBORN:Blue Dragonborn
 DRAGONBORN:Red Dragonborn
@@ -19,7 +17,6 @@ ELF:Wood Elf
 ELF:Eladrin
 ELF:Aquatic Elf
 HUMAN:Human Variant
-HUMAN:
 HALF-ELF:Half Dark Elf
 HALF-ELF:Half Wood Elf
 HALF-ELF:Half Moon Elf
@@ -35,7 +32,5 @@ GENASI:Air Genasi
 GENASI:Earth Genasi
 GENASI:Fire Genasi
 GENASI:Water Genasi
-GOLIATH:
-HALF-ORC:
 TIEFLING:Infernal Tiefling
 TIEFLING:Demonic Tiefling
