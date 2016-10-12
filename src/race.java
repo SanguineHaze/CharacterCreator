@@ -16,10 +16,10 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String targetFile = "C:/Users/dylanc/Desktop/test.txt"; //path to the file on local environment.
+    	 String targetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
     	 
     	 //Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test.txt";
-    	 //Work Location "C:/users/dylanc/workspace/CharacterCreator/src/test.txt"; 
+    	 //Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test.txt"; 
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);
@@ -47,9 +47,6 @@ public class Race {
     		} catch (Exception e) {
     		    //Default error message
     		    System.out.println(e.getMessage());
-
-    		    //Let's make our own error
-    		    //System.out.println("ERROR: Dude, where's my file?! Better check that spelling!");
     		} //End try / catch
 
      }//End loadRaceList()

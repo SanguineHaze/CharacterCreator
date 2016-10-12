@@ -16,13 +16,13 @@ public class SubRace {
 		chosenSubRace = "";
 		loadSubRaceList();
 		generateSubRace();
-		//System.out.println(chosenSubRace);
+		//System.out.println(chosenSubRace); 
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
 		
 		//Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test2.txt";
-		//Work Location "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";
+		//Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test2.txt";
 		
 		//The master list containing all subraces
 		String subRaceTargetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";   	 	
@@ -57,7 +57,7 @@ public class SubRace {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenSubRace = lineContents[1];
-	}
+	}//end generateSubRace() (no parameters passed)
 	
 	public void generateSubRace(String chosenRace){
 		
@@ -75,17 +75,22 @@ public class SubRace {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenSubRace = lineContents[1];
+	} //end generateSubRace("RACE")
 
-	}
-	
+	/*
+	getChosenRace - This should be done in three steps:
+	1)Check to see what the assigned Race is
+	2)If subrace selection is applicable, generate a subrace
+	3)Output the results of the chosen subrace OR a blank line for no subrace.
+	*/
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if("Aarakocra".equals(chosenRace)){
-			output = ""; //no subrace
+		if("Aarakocra".equals(chosenRace)){  
+			output = ""; //no subrace currently
 		} else if("Aasimar".equals(chosenRace)){
-			output = ""; //no subrace
-		} else if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
-			generateSubRace("Dragonborn");//If the above is true - fetch a new SubRace
+			output = ""; //no subrace currently
+		} else if("Dragonborn".equals(chosenRace)){ 
+			generateSubRace("Dragonborn"); 
 			output = chosenSubRace;
 		} else if(chosenRace.equals("Dwarf")) {
 			generateSubRace("Dwarf");
@@ -97,16 +102,15 @@ public class SubRace {
 			generateSubRace("Genasi");
 			output = chosenSubRace;
 		} else if("Gnome".equals(chosenRace)) {
-			generateSubRace("Genasi");
+			generateSubRace("Gnome");
 			output = chosenRace;
 		} else if("Goliath".equals(chosenRace)){
-			output = ""; //no subrace
+			output = ""; //no subrace currently
 		} else if(chosenRace.equals("Half-Elf")) {
 			generateSubRace("Half-Elf");
 			output = chosenSubRace;
-		} else if(chosenRace.equals("Half-Orc")){
-			generateSubRace("Half-Orc");
-			output = chosenSubRace;
+		} else if("Half-Orc".equals(chosenRace)){
+			output = ""; //no subrace currently
 		} else if ("Halfling".equals(chosenRace)){
 			generateSubRace("Halfling");
 			output = chosenSubRace;
@@ -118,9 +122,8 @@ public class SubRace {
 			output = chosenSubRace;
 		} else {
 			output = chosenSubRace;
-		}
-		//test to see if it's making it into here. 
+		} 
 		return output;
-	}
+	}//end getChosenRace()
 		
 }//End class
