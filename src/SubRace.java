@@ -6,18 +6,16 @@ public class SubRace {
 	
 	Random randomSubRace = new Random();
 	public String chosenSubRace;
-	
+	private String line;
+	private String lineName;
+	private String lineValue;
 	//Instantiate The Lists!
-	ArrayList<String> subRaceList = new ArrayList<String>();
-	
-	String[] subRaceContent;
-	String contentName;
-	String contentValue;
+	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
 	
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();
-		System.out.println(chosenSubRace);
+		generateSubRace();
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
@@ -26,7 +24,7 @@ public class SubRace {
 		//Work Location "C:/users/dylanc/Desktop/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
+		String subRaceTargetFile = "C:/users/sangu_000/Desktop/test2.txt";
 		//Each Sub-Race File
    	 	
 		
@@ -37,22 +35,12 @@ public class SubRace {
 			
 			subRaceList.sort(null);
 			
-			/*
 			//DEBUG TOOL: Check to see that the list is being created
-            System.out.println("Sub-Race List:");
+            /*System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}	
-			*/
-			
-		   	int index = randomSubRace.nextInt(subRaceList.size());
-		   	this.chosenSubRace = subRaceList.get(index);
-		   	String[] subRaceContent = chosenSubRace.split(":");
-			String contentName = subRaceContent[0];
-			String contentValue = subRaceContent[1];
-			this.chosenSubRace = contentValue;
+			}*/
 
-			
 		} catch (Exception e) {
             //Default error message
             System.out.println(e.getMessage());
@@ -61,31 +49,67 @@ public class SubRace {
 		
 	}//End loadRaceList()
 	
+	public void generateSubRace() {
+		int index = randomSubRace.nextInt(subRaceList.size());
+		chosenSubRace = subRaceList.get(index);
+		
+		String line = chosenSubRace;
+		String[] lineContents = line.split(":");
+		lineName = lineContents[0];
+		lineValue = lineContents[1];
+		chosenSubRace = lineContents[1];
+	}
+	
+	public void generateSubRace(String Race){
+		ArrayList<String> tempList = new ArrayList<String>();
+		for (String entry: subRaceList){ //go through our full list
+			if(entry.toLowerCase().contains(Race.toLowerCase())) {  //Do a safe check to see if our race is in the entry
+				tempList.add(entry); //If yes, put in temp list.
+			}
+		}
+		int index = randomSubRace.nextInt(tempList.size());
+		chosenSubRace = tempList.get(index);
+		
+		String line = chosenSubRace;
+		String[] lineContents = line.split(":");
+		lineName = lineContents[0];
+		lineValue = lineContents[1];
+		chosenSubRace = lineContents[1];
+	}
 	
 	public String getChosenRace(String chosenRace){
 		String output = "";
-		if(chosenRace.equals("Dragonborn")){
-			output = "Here there be dragons";
+		if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
+			if(!"Dragonborn".equals(lineName)){ //Second iteration checks to see that Dragonborn DOES NOT equal lineName
+				SubRace fetchNew = new SubRace(); //If the above is true - fetch a new SubRace
+			} else {
+				output = chosenSubRace;
+			}
 		} else if(chosenRace.equals("Dwarf")) {
-			output = "Digging that gold!";
+			if(!"Dwarf".equals(lineName)){
+				SubRace fetchNew = new SubRace(); 
+			} else {
+				output = chosenSubRace;
+			}
 		} else if(chosenRace.equals("Half-Elf")) {
-			output = "Half-Elves are the best!";
+			if(!"Half-Elf".equals(lineName)){
+				SubRace fetchNew = new SubRace(); 
+			} else {
+				output = chosenSubRace;
+			}
 		} else if(chosenRace.equals("Half-Orc")){
-			output = "Half Human, half Orc, all rage.";
+			if("Half-Orc".equals(lineName)){
+				output = "The strength and rage of Orc, with the intelligence of Humans.";
+			}
 		} else if(chosenRace.equals("Human")){
-			output = "Puny meatbags!";
+			if("Human".equals(lineName)){
+				output = "Puny meatbags!!";
+			}
 		} else {
-			
+			output = "Whoops, something went wrong!";
 		}
-		//test to see if it's making it into here.
-		//System.out.println(output); 
+		//test to see if it's making it into here. 
 		return output;
 	}
 		
 }//End class
-
-/*          
-String[] lineContents = line.split(":");
-String lineName = lineContents[0]; //should read RACE: SUBRACE: CLASS: etc. Does not need to be sysout'd.
-String lineValue = lineContents[1];
-*/
