@@ -16,6 +16,7 @@ public class SubRace {
 		chosenSubRace = "";
 		loadSubRaceList();
 		generateSubRace();
+		//System.out.println(chosenSubRace);
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
@@ -24,7 +25,7 @@ public class SubRace {
 		//Work Location "C:/users/dylanc/Desktop/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/sangu_000/Desktop/test2.txt";
+		String subRaceTargetFile = "C:/users/dylanc/Desktop/test2.txt";
 		//Each Sub-Race File
    	 	
 		
@@ -60,10 +61,11 @@ public class SubRace {
 		chosenSubRace = lineContents[1];
 	}
 	
-	public void generateSubRace(String Race){
+	public void generateSubRace(String chosenRace){
+		
 		ArrayList<String> tempList = new ArrayList<String>();
 		for (String entry: subRaceList){ //go through our full list
-			if(entry.toLowerCase().contains(Race.toLowerCase())) {  //Do a safe check to see if our race is in the entry
+			if(entry.toLowerCase().contains(chosenRace.toLowerCase())) {  //Do a safe check to see if our race is in the entry
 				tempList.add(entry); //If yes, put in temp list.
 			}
 		}
@@ -75,6 +77,7 @@ public class SubRace {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenSubRace = lineContents[1];
+
 	}
 	
 	public String getChosenRace(String chosenRace){
@@ -99,14 +102,14 @@ public class SubRace {
 			}
 		} else if(chosenRace.equals("Half-Orc")){
 			if("Half-Orc".equals(lineName)){
-				output = "The strength and rage of Orc, with the intelligence of Humans.";
+				output = chosenSubRace;
 			}
 		} else if(chosenRace.equals("Human")){
 			if("Human".equals(lineName)){
-				output = "Puny meatbags!!";
+				output = chosenSubRace;
 			}
 		} else {
-			output = "Whoops, something went wrong!";
+			output = chosenSubRace;
 		}
 		//test to see if it's making it into here. 
 		return output;

@@ -12,7 +12,7 @@ public class Race {
      public Race() {
     	 chosenRace= "";  //instantiate to ensure no null pointer errors
     	 loadRaceList(); //make everything it's own method per Lunar's suggestion!
-    	 System.out.println(chosenRace);
+    	 //System.out.println(chosenRace);
      } //end Race()
      
      private void loadRaceList(){
