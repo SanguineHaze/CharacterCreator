@@ -83,31 +83,20 @@ public class SubRace {
 	public String getChosenRace(String chosenRace){
 		String output = "";
 		if("Dragonborn".equals(chosenRace)){ //First iteration checks to see what Race has been chosen
-			if(!"Dragonborn".equals(lineName)){ //Second iteration checks to see that Dragonborn DOES NOT equal lineName
-				SubRace fetchNew = new SubRace(); //If the above is true - fetch a new SubRace
-			} else {
-				output = chosenSubRace;
-			}
+			generateSubRace("Dragonborn");//If the above is true - fetch a new SubRace
+			output = chosenSubRace;
 		} else if(chosenRace.equals("Dwarf")) {
-			if(!"Dwarf".equals(lineName)){
-				SubRace fetchNew = new SubRace(); 
-			} else {
-				output = chosenSubRace;
-			}
+			generateSubRace("Dwarf");
+			output = chosenSubRace;
 		} else if(chosenRace.equals("Half-Elf")) {
-			if(!"Half-Elf".equals(lineName)){
-				SubRace fetchNew = new SubRace(); 
-			} else {
-				output = chosenSubRace;
-			}
+			generateSubRace("Half-Elf");
+			output = chosenSubRace;
 		} else if(chosenRace.equals("Half-Orc")){
-			if("Half-Orc".equals(lineName)){
-				output = chosenSubRace;
-			}
+			generateSubRace("Half-Orc");
+			output = chosenSubRace;
 		} else if(chosenRace.equals("Human")){
-			if("Human".equals(lineName)){
-				output = chosenSubRace;
-			}
+			generateSubRace("Human");
+			output = chosenSubRace;
 		} else {
 			output = chosenSubRace;
 		}
