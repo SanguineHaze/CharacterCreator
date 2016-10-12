@@ -7,7 +7,7 @@ public class CharacterCreator {
 			String myRace = thisRace.getRace();
 			
 			//Check if the race is being assigned
-			//System.out.println(thisRace.getRace()); 
+			System.out.println(thisRace.getRace()); 
 
         	SubRace thisSubRace = null;
 			thisSubRace = new SubRace();
@@ -16,8 +16,7 @@ public class CharacterCreator {
 			
 			//Testing to see what value we've got assigned as subRace. Both of these are functionally the same.
 			//System.out.println(thisSubRace.getChosenRace(thisRace.getRace())); 
-			System.out.println(mySubRace);
-			
+			System.out.println(mySubRace);			
 			
     }// End main()    
 }

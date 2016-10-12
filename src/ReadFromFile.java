@@ -22,6 +22,9 @@ public class ReadFromFile {
         	
         	readOut.add(textReader.nextLine());
         	
+            String line = textReader.nextLine();
+            readOut.add(line);
+
         }
         textReader.close();
         
