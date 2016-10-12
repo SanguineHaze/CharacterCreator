@@ -18,7 +18,7 @@ public class ReadFromFile {
         File fr = new File(path);
         Scanner textReader = new Scanner(fr);
 
-        while(textReader.hasNext()){
+        while(textReader.hasNextLine()){
         	
         	readOut.add(textReader.nextLine());
         	

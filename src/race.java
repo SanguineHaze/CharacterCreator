@@ -16,7 +16,7 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String targetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
+    	 String targetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
     	 
     	 //Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test.txt";
     	 //Work Location "C:/users/dylanc/workspace/CharacterCreator/src/test.txt"; 
@@ -27,13 +27,13 @@ public class Race {
 
     		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
     		    
-    		    /*
+    		    
     		    //DEBUG TOOL: Check to see that the list is being created
     		    System.out.println("Race List:");
     		    for(String out: raceList){
     		        System.out.println(out);
     		    }
-    		    */
+    		    
     		    
     		   	int index = randomGenerator.nextInt(raceList.size());
     		   	this.chosenRace = raceList.get(index);

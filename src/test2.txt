@@ -11,7 +11,7 @@ DRAGONBORN:Silver Dragonborn
 DWARF:Hill Dwarf
 DWARF:Mountain Dwarf
 DWARF:Duergar
-ELF:Dark Elf (Drow)
+ELF:Dark Elf
 ELF:High Elf
 ELF:Wood Elf
 ELF:Eladrin
