@@ -22,10 +22,11 @@ public class SubRace {
 	public void loadSubRaceList(){
 		
 		//Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test2.txt";
+		//HomeDesktop	"C:/Users/Owner/workspace/CharacterCreator/src/test2.txt";
 		//Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";   	 	
+		String subRaceTargetFile = "C:/users/Owner/workspace/CharacterCreator/src/test2.txt";   	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
@@ -75,6 +76,16 @@ public class SubRace {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenSubRace = lineContents[1];
+		
+		//DEBUG TOOL - Check to see if you're going to have any naming conflicts
+//		
+//		for(String out: subRaceList){
+//			if(out.toLowerCase().contains("elf")){
+//				System.out.println(out);
+//			}
+//		}//end DEBUG
+//		
+		
 	} //end generateSubRace("RACE")
 
 	/*
@@ -103,12 +114,12 @@ public class SubRace {
 			output = chosenSubRace;
 		} else if("Gnome".equals(chosenRace)) {
 			generateSubRace("Gnome");
-			output = chosenRace;
+			output = chosenSubRace;
 		} else if("Goliath".equals(chosenRace)){
 			output = ""; //no subrace currently
 		} else if(chosenRace.equals("Half-Elf")) {
-			generateSubRace("Half-Elf");
-			output = chosenSubRace;
+			generateSubRace("Half-Elven");
+			output = chosenSubRace + " Elf";
 		} else if("Half-Orc".equals(chosenRace)){
 			output = ""; //no subrace currently
 		} else if ("Halfling".equals(chosenRace)){

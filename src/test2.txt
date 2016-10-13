@@ -17,11 +17,11 @@ ELF:Wood Elf
 ELF:Eladrin
 ELF:Aquatic Elf
 HUMAN:Human Variant
-HALF-ELF:Half Dark Elf
-HALF-ELF:Half Wood Elf
-HALF-ELF:Half Moon Elf
-HALF-ELF:Half Sun Elf
-HALF-ELF:Half Aquatic Elf
+HALF-ELVEN:Half Dark
+HALF-ELVEN:Half Wood
+HALF-ELVEN:Half Moon
+HALF-ELVEN:Half Sun
+HALF-ELVEN:Half Aquatic
 HALFLING:Ghostwise Halfling
 HALFLING:Lightfoot Halfling
 HALFLING:Stout Halfling

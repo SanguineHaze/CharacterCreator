@@ -6,14 +6,30 @@ public class Name {
 	String sex = "";
 	boolean chosenSex;
 	ArrayList<String> nameList = new ArrayList<String>();
+	ArrayList<String> beginningName = new ArrayList<String>();
+	ArrayList<String> middleName = new ArrayList<String>();
+	ArrayList<String> endName = new ArrayList<String>();
+	public String chosenBeginningName = "";
+	public String chosenMidName = "";
+	public String chosenEndName = "";
+	public String lineNameBegin;
+	public String lineValueBegin;
+	public String lineNameMid;
+	public String lineValueMid;
+	public String lineNameEnd;
+	public String lineValueEnd;
+	public String fullName;
 	
 	public Name(){
 		sex = "";
 		generateSex();
 		loadNameList();
-		//placeholder for generateName();
-		//DEBUG TOOL - Check to see what sex is being assigned
-		System.out.println(sex);
+		generateNameLists();
+		generateBeginning();
+		generateMiddle();
+		generateEnd();
+		generateFullName();
+		fullName ="";
 	}//end Name()
 	
 	//First, lets select a sex for our new character
@@ -28,7 +44,9 @@ public class Name {
 			sex = "Male";
 		} else {
 			sex = "Female";
-		}//end If statement		
+		}//end If statement
+		//DEBUG TOOL - Check to see what sex is being assigned
+		System.out.println(sex);
 	}//end Sex()
 	
 	public String getSex() {
@@ -37,7 +55,7 @@ public class Name {
 	
 	//Second, generate a list of names
 	private void loadNameList(){
-		String nameListTargetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test3.txt";
+		String nameListTargetFile = "C:/Users/Owner/workspace/CharacterCreator/src/test4.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
@@ -56,4 +74,81 @@ public class Name {
 		}//end Try/Catch
 	}//end loadNameList()
 	
-}
+	public void generateNameLists(){
+		
+		for(String entry: nameList){
+			if(entry.contains("BEGINNING:")){
+				beginningName.add(entry);
+			} else if(entry.contains("MIDDLE:")) {
+				middleName.add(entry);
+			} else if(entry.contains("END:")) {
+				endName.add(entry);
+			}//end if
+
+		}//end for
+		
+		//DEBUG TOOL: Check to see what's made it to the lists
+		/*
+		System.out.println("Sub-Race List:");
+		for(String out: beginningName){
+			System.out.println(out);
+		}
+		for(String out: middleName){
+			System.out.println(out);
+		}
+		for(String out: endName){
+			System.out.println(out);
+		}		
+		*/
+	}//end generateNameList()
+	
+	//BEGIN NAME!
+	private void generateBeginning() {		
+		Random randomNameBegin = new Random();
+		int index = randomNameBegin.nextInt(beginningName.size());
+		chosenBeginningName = beginningName.get(index);
+		String line = chosenBeginningName;
+		String[] lineContents = line.split(":");
+		lineNameBegin = lineContents[0];
+		lineValueBegin = lineContents[1];
+		chosenBeginningName = lineContents[1];
+		//DEBUG TOOL
+		//System.out.println(chosenBeginningName);
+	}//end generateBeginning()
+	
+	//CONTINUE NAME!	
+	private void generateMiddle(){
+		Random randomNameMid = new Random();
+		int index = randomNameMid.nextInt(middleName.size());
+		chosenMidName = middleName.get(index);
+		String line = chosenMidName;
+		String[] lineContents = line.split(":");
+		lineNameMid = lineContents[0];
+		lineValueMid = lineContents[1];
+		chosenMidName = lineContents[1];
+		
+		//DEBUG TOOL
+		//System.out.println(chosenMidName);		
+	}//end generateMiddle()
+	
+	//END NAME!
+	private void generateEnd(){
+		Random randomNameEnd = new Random();
+		int index = randomNameEnd.nextInt(endName.size());
+		chosenEndName = endName.get(index);
+		String line = chosenEndName;
+		String[] lineContents = line.split(":");
+		lineNameEnd = lineContents[0];
+		lineValueEnd = lineContents[1];
+		chosenEndName = lineContents[1];
+		
+		//DEBUG TOOL
+		//System.out.println(chosenEndName);
+	}//end generateEnd()
+	
+	private void generateFullName(){
+		String fullName = chosenBeginningName + chosenMidName + chosenEndName;
+		System.out.println("Name: " + fullName);
+	}//end generateFullName
+	
+}//end Class
