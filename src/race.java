@@ -16,7 +16,7 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String targetFile = "C:/Users/Owner/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
+    	 String targetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test.txt"; //path to the file on local environment.
     	 
     	 //Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test.txt";
     	 //HomeDesktop	 "C:/Users/Owner/workspace/CharacterCreator/src/test.txt";

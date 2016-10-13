@@ -9,6 +9,7 @@ public class Name {
 	ArrayList<String> beginningName = new ArrayList<String>();
 	ArrayList<String> middleName = new ArrayList<String>();
 	ArrayList<String> endName = new ArrayList<String>();
+	ArrayList<String> ageRange = new ArrayList<String>();
 	public String chosenBeginningName = "";
 	public String chosenMidName = "";
 	public String chosenEndName = "";
@@ -19,9 +20,12 @@ public class Name {
 	public String lineNameEnd;
 	public String lineValueEnd;
 	public String fullName;
+	public String chosenAge;
 	
 	public Name(){
 		sex = "";
+		fullName = "";
+		chosenAge = "";
 		generateSex();
 		loadNameList();
 		generateNameLists();
@@ -29,7 +33,7 @@ public class Name {
 		generateMiddle();
 		generateEnd();
 		generateFullName();
-		fullName ="";
+		generateAge();
 	}//end Name()
 	
 	//First, lets select a sex for our new character
@@ -46,7 +50,7 @@ public class Name {
 			sex = "Female";
 		}//end If statement
 		//DEBUG TOOL - Check to see what sex is being assigned
-		System.out.println(sex);
+		//System.out.println(sex);
 	}//end Sex()
 	
 	public String getSex() {
@@ -55,7 +59,7 @@ public class Name {
 	
 	//Second, generate a list of names
 	private void loadNameList(){
-		String nameListTargetFile = "C:/Users/Owner/workspace/CharacterCreator/src/test4.txt";
+		String nameListTargetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test4.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
@@ -147,8 +151,33 @@ public class Name {
 	}//end generateEnd()
 	
 	private void generateFullName(){
-		String fullName = chosenBeginningName + chosenMidName + chosenEndName;
-		System.out.println("Name: " + fullName);
+		String fullNameBuilder = chosenBeginningName + chosenMidName + chosenEndName;
+
+		String fullNameConversion = fullNameBuilder.replaceAll("\\'", "");
+
+		fullName = fullNameConversion.substring(0,1).toUpperCase() + fullNameConversion.substring(1);
+		
+		//DEBUG TOOL - check to see the built name
+		//System.out.println("Built Name: " + fullNameBuilder);
+		
+		//DEBUG TOOL - check to see the converted name
+		//System.out.println("Converted Name: " + fullNameConversion);
+		
+		//DEBUG TOOL - check to see the actual full name
+		//System.out.println("Final Name: " + fullName);
+		
 	}//end generateFullName
+	
+	public void generateAge(){
+		ageRange.add("Child");
+		ageRange.add("Young Adult");
+		ageRange.add("Adult");
+		ageRange.add("Old");
+		ageRange.add("Very Old");
+		
+		Random randomAge = new Random();
+		int index = randomAge.nextInt(ageRange.size());
+		chosenAge = ageRange.get(index);
+	}//end generateAge()
 	
 }//end Class

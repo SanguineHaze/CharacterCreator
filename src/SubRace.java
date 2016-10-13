@@ -26,7 +26,7 @@ public class SubRace {
 		//Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/Owner/workspace/CharacterCreator/src/test2.txt";   	 	
+		String subRaceTargetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";   	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
@@ -78,13 +78,13 @@ public class SubRace {
 		chosenSubRace = lineContents[1];
 		
 		//DEBUG TOOL - Check to see if you're going to have any naming conflicts
-//		
-//		for(String out: subRaceList){
-//			if(out.toLowerCase().contains("elf")){
-//				System.out.println(out);
-//			}
-//		}//end DEBUG
-//		
+		/*
+		for(String out: subRaceList){
+			if(out.toLowerCase().contains("elf")){
+				System.out.println(out);
+			}
+		}//end DEBUG
+		*/
 		
 	} //end generateSubRace("RACE")
 
