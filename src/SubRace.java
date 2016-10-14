@@ -26,7 +26,7 @@ public class SubRace {
 		//Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test2.txt";
 		
 		//The master list containing all subraces
-		String subRaceTargetFile = "C:/users/dylanc/workspace/CharacterCreator/src/test2.txt";   	 	
+		String subRaceTargetFile = "src/test2.txt";   	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);

@@ -59,8 +59,8 @@ public class Name {
 	
 	//Second, generate a list of names
 	private void loadNameList(){
-		String nameListTargetFile = "C:/Users/dylanc/workspace/CharacterCreator/src/test4.txt";
-		
+		String nameListTargetFile = "src/test4.txt"; // #ImpliedRelativity?
+		//TODO: Expand this section to have different files for the different races. Should be able to if/elseif this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
 			nameList = file.OpenFile();
