@@ -20,13 +20,8 @@ public class SubRace {
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
-		
-		//Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test2.txt";
-		//HomeDesktop	"C:/Users/Owner/workspace/CharacterCreator/src/test2.txt";
-		//Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test2.txt";
-		
 		//The master list containing all subraces
-		String subRaceTargetFile = "src/test2.txt";   	 	
+		String subRaceTargetFile = "src/Subrace.txt"; //path to the file on local environment.  	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);

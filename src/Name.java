@@ -59,7 +59,8 @@ public class Name {
 	
 	//Second, generate a list of names
 	private void loadNameList(){
-		String nameListTargetFile = "src/test4.txt"; // #ImpliedRelativity?
+		//The master list containing all Name options
+		String nameListTargetFile = "src/NameDefault.txt"; //path to the file on local environment.
 		//TODO: Expand this section to have different files for the different races. Should be able to if/elseif this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);

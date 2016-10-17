@@ -16,11 +16,8 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String targetFile = "src/test.txt"; //path to the file on local environment.
-    	 
-    	 //Home Location "C:/Users/sangu_000/workspace/CharacterCreator/src/test.txt";
-    	 //HomeDesktop	 "C:/Users/Owner/workspace/CharacterCreator/src/test.txt";
-    	 //Work Location "C:/Users/dylanc/workspace/CharacterCreator/src/test.txt"; 
+    	 //The master list, containing all Races
+    	 String targetFile = "src/Race.txt"; //path to the file on local environment.
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);

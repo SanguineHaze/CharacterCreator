@@ -1,0 +1,23 @@
+CLASS:Cleric
+CLASS:Fighter
+CLASS:Paladin
+CLASS:Wizard
+CLASS:Warlock
+CLASS:Monk
+CLASS:Barbarian
+CLASS:Rogue
+CLASS:Sorcerer
+CLASS:
+JOB:Cobbler
+JOB:Shoemaker
+JOB:Tinker
+JOB:Blacksmith
+JOB:Baker
+JOB:Innkeep
+JOB:Shopkeep
+JOB:Grain Farmer
+JOB:Livestock Farmer
+JOB:Fisher
+JOB:Scribe
+JOB:Librarian
+JOB:
