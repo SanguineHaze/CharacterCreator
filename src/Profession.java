@@ -27,6 +27,7 @@ public class Profession {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 		//DEBUG TOOL - Show the list
 		//System.out.println(professionList);
 		
@@ -35,6 +36,8 @@ public class Profession {
 	
 	//generateProfession()
 		//This *should* encompass classes. A vast list ensures we don't have a proliferation of classed NPCs (as hero types are rare)
+		//Upon creating a basic list of some classes & jobs, I'm going to need to handle sub-classes and other features it looks like.
+			//alternatively, I could declare them in the file itself. "Paladin of Selune" etc.
 	
 	//generateAlignment()
 	

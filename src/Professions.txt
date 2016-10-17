@@ -7,7 +7,7 @@ CLASS:Monk
 CLASS:Barbarian
 CLASS:Rogue
 CLASS:Sorcerer
-CLASS:
+CLASS:Bard
 JOB:Cobbler
 JOB:Shoemaker
 JOB:Tinker
@@ -16,8 +16,52 @@ JOB:Baker
 JOB:Innkeep
 JOB:Shopkeep
 JOB:Grain Farmer
-JOB:Livestock Farmer
+JOB:Cattle Farmer
+JOB:Pig Farmer
 JOB:Fisher
 JOB:Scribe
 JOB:Librarian
-JOB:
+JOB:Scribe's Assistant
+JOB:Dairymaid
+JOB:Dung Carter
+JOB:Goatherd
+JOB:Horse Trainer
+JOB:Ferryman
+JOB:Woodcutter
+JOB:Sheepshearer
+JOB:Hawker
+JOB:Falconer
+JOB:Forester
+JOB:Hunter
+JOB:Master of Hounds
+JOB:Master of Horse
+JOB:Rat Catcher
+JOB:Trapper
+JOB:Artist
+JOB:Painter
+JOB:Sculpter
+JOB:Composer
+JOB:Playwright
+JOB:Poet
+JOB:Writer
+JOB:Jeweler
+JOB:Mason
+JOB:Carpenter
+JOB:Weaver
+JOB:Butcher
+JOB:Leatherworker
+JOB:Tanner
+JOB:Saddle Maker
+JOB:Locksmith
+JOB:Weaponsmith
+JOB:Apothecary
+JOB:Minstrel
+JOB:Musician
+JOB:Singer
+JOB:Actor
+JOB:Dancer
+JOB:Jester
+JOB:Storyteller
+JOB:Tumbler
+JOB:Ringman (Circus)
+JOB:Beast-Tamer (Circus)
