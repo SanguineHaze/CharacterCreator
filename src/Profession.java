@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public class Profession {
 	
 	public String chosenProfession;
-	ArrayList professionList = new ArrayList();
+	private String line;
+	private String lineValue;
+	private String lineName;
+	
+	ArrayList<String> professionList = new ArrayList<String>();
 	
 	public Profession(){
 		chosenProfession = "";
 		loadProfessionList();
-		
+		generateProfession();
 	}//end Profession()
 	
 	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
@@ -41,6 +45,12 @@ public class Profession {
 		Random randomProfession = new Random();
 		int index = randomProfession.nextInt(professionList.size());
 		chosenProfession = professionList.get(index);
+		
+		String line = chosenProfession;
+		String[] lineContents = chosenProfession.split(":");
+		lineName = lineContents[0];
+		lineValue = lineContents[1];
+		chosenProfession = lineValue;
 	}
 	
 	//generateAlignment()

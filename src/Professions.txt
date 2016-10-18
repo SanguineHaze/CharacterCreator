@@ -65,3 +65,23 @@ JOB:Storyteller
 JOB:Tumbler
 JOB:Ringman (Circus)
 JOB:Beast-Tamer (Circus)
+JOB:Soldier
+JOB:City Guard
+JOB:Town Guard
+JOB:Thatcher
+JOB:Latrine Digger
+JOB:Construction Worker
+JOB:Civic Engineer
+JOB:Architect
+JOB:Weaver
+JOB:Peddler
+JOB:Merchant
+JOB:Elected Official
+JOB:Government Official
+JOB:Councilman / Councilwoman
+JOB:Elder / Chief
+JOB:Surveyor
+JOB:Archeologist
+JOB:Botanist
+JOB:Miller
+JOB:Brewer

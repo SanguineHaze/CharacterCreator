@@ -33,6 +33,8 @@ public class CharacterCreator {
 	//PROFESSION (& ALIGNMENT) SECTION
 		Profession thisProfession = null;
 		thisProfession = new Profession();
+		String myProfession = thisProfession.chosenProfession;
+		System.out.println("Profession: " + myProfession);
 		
     }// End main()    
 }
