@@ -122,3 +122,6 @@ JOB:Burgomaster
 JOB:Courier
 JOB:Lawyer
 JOB:Messenger
+JOB:Thug
+JOB:Brigand
+JOB:

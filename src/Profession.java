@@ -41,7 +41,7 @@ public class Profession {
 	
 	public void generateProfession(){
 		//This *should* encompass classes. A vast list ensures we don't have a proliferation of classed NPCs (as hero types are rare)
-		//Upon creating a basic list of some classes & jobs, I'm going to need to handle sub-classes and other features it looks like.
+		//Upon creating a basic list of some classes & jobs, I'm MIGHT to need to handle sub-classes and other features it looks like.
 			//alternatively, I could declare them in the file itself. "Paladin of Selune" etc.
 		Random randomProfession = new Random();
 		int index = randomProfession.nextInt(professionList.size());
@@ -54,5 +54,6 @@ public class Profession {
 	}
 	
 	//generateAlignment()
+		//Fuck alignment
 	
 }//end Class - Profession
