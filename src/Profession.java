@@ -18,6 +18,7 @@ public class Profession {
 	}//end Profession()
 	
 	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
+	//http://www222.pair.com/sjohn/blueroom/demog.htm
 	public void loadProfessionList(){
 		
 		String professionListTargetFile = "src/Professions.txt";
@@ -46,7 +47,6 @@ public class Profession {
 		int index = randomProfession.nextInt(professionList.size());
 		chosenProfession = professionList.get(index);
 		
-		String line = chosenProfession;
 		String[] lineContents = chosenProfession.split(":");
 		lineName = lineContents[0];
 		lineValue = lineContents[1];

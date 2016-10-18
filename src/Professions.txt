@@ -16,8 +16,10 @@ JOB:Baker
 JOB:Innkeep
 JOB:Shopkeep
 JOB:Grain Farmer
-JOB:Cattle Farmer
+JOB:Rancher
 JOB:Pig Farmer
+JOB:Farm-Hand
+JOB:General Laborer
 JOB:Fisher
 JOB:Scribe
 JOB:Librarian
@@ -85,3 +87,38 @@ JOB:Archeologist
 JOB:Botanist
 JOB:Miller
 JOB:Brewer
+JOB:Lantern Lighter
+JOB:Crier
+JOB:Unemployed
+JOB:Bartender
+JOB:Waitress / Waiter
+JOB:Town Drunk
+JOB:Maid
+JOB:Abbot
+JOB:Beekeeper
+JOB:Politician
+JOB:Squire
+JOB:Stable-hand
+JOB:Stable-Master
+JOB:Brothel Owner
+JOB:Brothel Worker
+JOB:Whore
+JOB:Servant
+JOB:Thief
+JOB:Guildmaster
+JOB:Bodyguard
+JOB:Wandering Trader
+JOB:Dock Worker
+JOB:Sailor
+JOB:Shepherd
+JOB:Performer
+JOB:Military Tactician
+JOB:Advisor
+JOB:Mayor
+JOB:Beggar
+JOB:Baron / Baroness
+JOB:Governor / Governess
+JOB:Burgomaster
+JOB:Courier
+JOB:Lawyer
+JOB:Messenger

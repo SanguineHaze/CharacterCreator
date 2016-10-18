@@ -24,7 +24,7 @@ public class CharacterCreator {
 		Name thisName = null;
 		thisName = new Name();
 		String mySex = thisName.sex;
-		System.out.println(mySex);
+		System.out.println("Sex: " + mySex);
 		String myName = thisName.fullName;
 		System.out.println("Name: " + myName);
 		String myAge = thisName.chosenAge;
