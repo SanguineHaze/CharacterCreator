@@ -34,9 +34,7 @@ public class CharacterCreator {
 		Profession thisProfession = null;
 		thisProfession = new Profession(myAge);
 		String myProfession = thisProfession.chosenProfession;
-		if(myProfession != null){
-			System.out.println("Profession: " + myProfession);
-		}
+		System.out.println("Profession: " + myProfession);
 		
     }// End main()    
 }

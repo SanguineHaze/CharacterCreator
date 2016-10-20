@@ -104,7 +104,7 @@ public class Profession {
 		if("Child".equals(chosenAge)){
 
 			Random childRandom = new Random();
-			int isEmployed = childRandom.nextInt((10) + 1);
+			int isEmployed = childRandom.nextInt(11); //0 -> 10
 			if(isEmployed < 3) {
 				chosenProfession = "None";
 			}//end if isEmployed
