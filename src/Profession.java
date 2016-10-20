@@ -8,20 +8,64 @@ public class Profession {
 	private String line;
 	private String lineValue;
 	private String lineName;
+	private String chosenProfessionList;
+	private boolean childSafeListOverride = false;
+	private boolean veryOldSafeListOverride = false;
+	public String override = ""; //"child" || "very old"
 	
 	ArrayList<String> professionList = new ArrayList<String>();
 	
-	public Profession(){
+	public Profession(String chosenAge){
 		chosenProfession = "";
+		professionListOverride();
+		generateProfessionList(chosenAge);
 		loadProfessionList();
 		generateProfession();
 	}//end Profession()
+	
+	public void professionListOverride(){
+		if("child".equals(override)){
+			childSafeListOverride = true;
+		} else if("very old".equals(override)){
+			veryOldSafeListOverride = true;
+		}
+	}//end professionListOverride()	
+	
+	private void generateProfessionList(String chosenAge){
+		if("Child".equals(chosenAge)){
+			Random childRandom = new Random();
+			int isEmployed = childRandom.nextInt((10) + 1);
+			if(isEmployed < 3) {
+				if(childSafeListOverride){ //did we want an unfiltered list?
+					chosenProfessionList = "src/Professions.txt";
+				} else {
+					chosenProfessionList = "src/ProfessionsChild.txt";
+				}//end if childSafeListOverride
+			} else {
+				professionList.add("JOB:None"); //generates a random "null" somewhere... investigate.
+			}//end if isEmployed	
+		} else if("Young Adult".equals(chosenAge)){
+			chosenProfessionList = "src/Professions.txt";
+		} else if("Adult".equals(chosenAge)){
+			chosenProfessionList = "src/Professions.txt";
+		} else if("Old".equals(chosenAge)){
+			chosenProfessionList = "src/Professions.txt";
+		} else if("Very Old".equals(chosenAge)){
+			if(veryOldSafeListOverride){ //did we want an unfiltered list?
+				chosenProfessionList = "src/Professions.txt";
+			} else {
+				chosenProfessionList = "src/Professions.txt";
+			}
+		} else {
+			chosenProfessionList = "src/Professions.txt";
+		}
+	}//end generateProfessionList()
 	
 	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
 	//http://www222.pair.com/sjohn/blueroom/demog.htm
 	public void loadProfessionList(){
 		
-		String professionListTargetFile = "src/Professions.txt";
+		String professionListTargetFile = chosenProfessionList;
 		
 		try {
 			
@@ -40,9 +84,7 @@ public class Profession {
 		
 	
 	public void generateProfession(){
-		//This *should* encompass classes. A vast list ensures we don't have a proliferation of classed NPCs (as hero types are rare)
-		//Upon creating a basic list of some classes & jobs, I'm MIGHT to need to handle sub-classes and other features it looks like.
-			//alternatively, I could declare them in the file itself. "Paladin of Selune" etc.
+
 		Random randomProfession = new Random();
 		int index = randomProfession.nextInt(professionList.size());
 		chosenProfession = professionList.get(index);
@@ -51,9 +93,7 @@ public class Profession {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenProfession = lineValue;
-	}
-	
-	//generateAlignment()
-		//Fuck alignment
+		
+	}//end generateProfesion()
 	
 }//end Class - Profession

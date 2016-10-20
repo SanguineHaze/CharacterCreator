@@ -49,7 +49,6 @@ JOB:Writer
 JOB:Jeweler
 JOB:Mason
 JOB:Carpenter
-JOB:Weaver
 JOB:Butcher
 JOB:Leatherworker
 JOB:Tanner
