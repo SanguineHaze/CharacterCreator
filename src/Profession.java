@@ -20,7 +20,7 @@ public class Profession {
 		professionListOverride();
 		generateProfessionList(chosenAge);
 		loadProfessionList();
-		generateProfession();
+		generateProfession(chosenAge);
 	}//end Profession()
 	
 	public void professionListOverride(){
@@ -33,17 +33,11 @@ public class Profession {
 	
 	private void generateProfessionList(String chosenAge){
 		if("Child".equals(chosenAge)){
-			Random childRandom = new Random();
-			int isEmployed = childRandom.nextInt((10) + 1);
-			if(isEmployed < 3) {
-				if(childSafeListOverride){ //did we want an unfiltered list?
-					chosenProfessionList = "src/Professions.txt";
-				} else {
-					chosenProfessionList = "src/ProfessionsChild.txt";
-				}//end if childSafeListOverride
+			if(childSafeListOverride){ //did we want an unfiltered list?
+				chosenProfessionList = "src/Professions.txt";
 			} else {
-				professionList.add("JOB:None"); //generates a random "null" somewhere... investigate.
-			}//end if isEmployed	
+				chosenProfessionList = "src/ProfessionsChild.txt";
+			}//end if childSafeListOverride	
 		} else if("Young Adult".equals(chosenAge)){
 			chosenProfessionList = "src/Professions.txt";
 		} else if("Adult".equals(chosenAge)){
@@ -92,8 +86,30 @@ public class Profession {
 		String[] lineContents = chosenProfession.split(":");
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
-		chosenProfession = lineValue;
+		chosenProfession = lineValue;		
 		
 	}//end generateProfesion()
+	
+	public void generateProfession(String chosenAge){
+
+		Random randomProfession = new Random();
+		int index = randomProfession.nextInt(professionList.size());
+		chosenProfession = professionList.get(index);
+		
+		String[] lineContents = chosenProfession.split(":");
+		lineName = lineContents[0];
+		lineValue = lineContents[1];
+		chosenProfession = lineValue;		
+		
+		if("Child".equals(chosenAge)){
+
+			Random childRandom = new Random();
+			int isEmployed = childRandom.nextInt((10) + 1);
+			if(isEmployed < 3) {
+				chosenProfession = "None";
+			}//end if isEmployed
+		}//end if "child"
+		
+	}//end generateProfesion(String chosenAge)
 	
 }//end Class - Profession
