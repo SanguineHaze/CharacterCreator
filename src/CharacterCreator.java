@@ -37,7 +37,9 @@ public class CharacterCreator {
 			Profession thisProfession = null;
 			thisProfession = new Profession(myAge);
 			String myProfession = thisProfession.chosenProfession;
-			System.out.println("Profession: " + myProfession);
+			if(!(myProfession.equals("None"))){
+				System.out.println("Profession: " + myProfession);
+			}//end if. This ensures that if the profession is anything besides "None" the profession is printed out.
 			
 		//Line-split for multiple result tidiness
 			System.out.println("");
