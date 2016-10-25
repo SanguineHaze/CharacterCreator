@@ -1,0 +1,125 @@
+CLASS:Cleric
+CLASS:Fighter
+CLASS:Paladin
+CLASS:Wizard
+CLASS:Warlock
+CLASS:Monk
+CLASS:Barbarian
+CLASS:Rogue
+CLASS:Sorcerer
+CLASS:Bard
+JOB:Cobbler
+JOB:Shoemaker
+JOB:Tinker
+JOB:Blacksmith
+JOB:Baker
+JOB:Innkeep
+JOB:Shopkeep
+JOB:Grain Farmer
+JOB:Rancher
+JOB:Pig Farmer
+JOB:Farm-Hand
+JOB:General Laborer
+JOB:Fisher
+JOB:Scribe
+JOB:Librarian
+JOB:Scribe's Assistant
+JOB:Dairymaid
+JOB:Dung Carter
+JOB:Goatherd
+JOB:Horse Trainer
+JOB:Ferryman
+JOB:Woodcutter
+JOB:Sheepshearer
+JOB:Hawker
+JOB:Falconer
+JOB:Forester
+JOB:Hunter
+JOB:Master of Hounds
+JOB:Master of Horse
+JOB:Rat Catcher
+JOB:Trapper
+JOB:Artist
+JOB:Painter
+JOB:Sculpter
+JOB:Composer
+JOB:Playwright
+JOB:Poet
+JOB:Writer
+JOB:Jeweler
+JOB:Mason
+JOB:Carpenter
+JOB:Butcher
+JOB:Leatherworker
+JOB:Tanner
+JOB:Saddle Maker
+JOB:Locksmith
+JOB:Weaponsmith
+JOB:Apothecary
+JOB:Minstrel
+JOB:Musician
+JOB:Singer
+JOB:Actor
+JOB:Dancer
+JOB:Jester
+JOB:Storyteller
+JOB:Tumbler
+JOB:Ringman (Circus)
+JOB:Beast-Tamer (Circus)
+JOB:Soldier
+JOB:City Guard
+JOB:Town Guard
+JOB:Thatcher
+JOB:Latrine Digger
+JOB:Construction Worker
+JOB:Civic Engineer
+JOB:Architect
+JOB:Weaver
+JOB:Peddler
+JOB:Merchant
+JOB:Elected Official
+JOB:Government Official
+JOB:Councilman / Councilwoman
+JOB:Elder / Chief
+JOB:Surveyor
+JOB:Archeologist
+JOB:Botanist
+JOB:Miller
+JOB:Brewer
+JOB:Lantern Lighter
+JOB:Crier
+JOB:Unemployed
+JOB:Bartender
+JOB:Waitress / Waiter
+JOB:Town Drunk
+JOB:Maid
+JOB:Abbot
+JOB:Beekeeper
+JOB:Politician
+JOB:Squire
+JOB:Stable-hand
+JOB:Stable-Master
+JOB:Brothel Owner
+JOB:Brothel Worker
+JOB:Whore
+JOB:Servant
+JOB:Thief
+JOB:Guildmaster
+JOB:Bodyguard
+JOB:Wandering Trader
+JOB:Dock Worker
+JOB:Sailor
+JOB:Shepherd
+JOB:Performer
+JOB:Military Tactician
+JOB:Advisor
+JOB:Mayor
+JOB:Beggar
+JOB:Baron / Baroness
+JOB:Governor / Governess
+JOB:Burgomaster
+JOB:Courier
+JOB:Lawyer
+JOB:Messenger
+JOB:Thug
+JOB:Brigand

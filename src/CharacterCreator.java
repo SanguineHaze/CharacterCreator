@@ -4,7 +4,7 @@ public class CharacterCreator {
     public static void main(String[] args) {
 	    //Note to self: Consider adding each of these results to an arrayList, which can then just print everything at once. (17,Oct,2016)	
     	
-		for(int i = 0; i < 10; i++){	
+		for(int i = 0; i < 5; i++){	
 		//RACE SECTION    	
 	        Race thisRace = null; 
 			thisRace = new Race(); 
