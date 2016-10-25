@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Profession {
 	
 	public String chosenProfession;
-	private String line;
 	private String lineValue;
 	private String lineName;
 	private String chosenProfessionList;
@@ -102,13 +101,33 @@ public class Profession {
 		chosenProfession = lineValue;		
 		
 		if("Child".equals(chosenAge)){
-
 			Random childRandom = new Random();
 			int isEmployed = childRandom.nextInt(11); //0 -> 10
-			if(isEmployed < 3) {
+			if(isEmployed < 5) { // ~50% employment rate for children
 				chosenProfession = "None";
 			}//end if isEmployed
 		}//end if "child"
+		
+		if("Old".equals(chosenAge)){
+			if("Unemployed".equals(chosenProfession)){
+				//do nothing
+			} else {
+				Random seniorDesignation = new Random();
+				int isSenior = seniorDesignation.nextInt(11); //0 -> 10
+				
+				if(isSenior < 5){
+					//do nothing
+				} else if(isSenior > 8) {
+					chosenProfession = "Master " + chosenProfession; //randomly select different title suffix.
+				} else {
+					chosenProfession = "Senior " + chosenProfession;			
+				}//end if "isSenior"	
+			}//end if statement deciding designation & chance
+		}//end if "Old"
+		
+		if("Very Old".equals(chosenAge)){
+			chosenProfession = "Retired " + chosenProfession;
+		}//end if "Very Old"
 		
 	}//end generateProfesion(String chosenAge)
 	

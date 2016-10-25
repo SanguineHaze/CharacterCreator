@@ -4,7 +4,7 @@ public class CharacterCreator {
     public static void main(String[] args) {
 	    //Note to self: Consider adding each of these results to an arrayList, which can then just print everything at once. (17,Oct,2016)	
     	
-		for(int i = 0; i < 30; i++){	
+		for(int i = 0; i < 10; i++){	
 		//RACE SECTION    	
 	        Race thisRace = null; 
 			thisRace = new Race(); 
@@ -29,7 +29,7 @@ public class CharacterCreator {
 			System.out.println("Sex: " + mySex);
 			String myName = thisName.fullName;
 			System.out.println("Name: " + myName);
-				//thisName.chosenAge = ""; //Define a desired age to output
+				//thisName.chosenAge = "Old"; //Define a desired age to output
 			String myAge = thisName.chosenAge;
 			System.out.println("Age: " + myAge);
 			

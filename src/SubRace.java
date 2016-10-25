@@ -121,8 +121,14 @@ public class SubRace {
 			generateSubRace("Halfling");
 			output = chosenSubRace;
 		} else if(chosenRace.equals("Human")){
-			generateSubRace("Human");
-			output = chosenSubRace;
+			Random humanSubRandom = new Random(); //not all humans are human variants. This stops Variants being the choice 100% of the time.
+			int isSubrace = humanSubRandom.nextInt(11);
+			if(isSubrace < 6){
+				output = "";
+			} else {
+				generateSubRace("Human");
+				output = chosenSubRace;
+			}	
 		} else if("Tiefling".equals(chosenRace)){
 			generateSubRace("Tiefling");
 			output = chosenSubRace;
