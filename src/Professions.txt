@@ -123,3 +123,6 @@ JOB:Lawyer
 JOB:Messenger
 JOB:Thug
 JOB:Brigand
+JOB:Knight
+JOB:Adventurer
+JOB:Printer / Copier

@@ -17,7 +17,7 @@ public class AdditionalFeatures {
 	}
 	
 	private void loadMotivationList(){
-		String motivationListTargetFile = "src/motivations.txt";
+		String motivationListTargetFile = "src/Motivations.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
@@ -37,7 +37,7 @@ public class AdditionalFeatures {
 	}//end loadMotivationList()
 	
 	private void loadPersonalityList() {
-		String personalityListTargetFile = "src/personalities.txt";
+		String personalityListTargetFile = "src/Personalities.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(personalityListTargetFile);
