@@ -1,19 +1,21 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class AdditionalFeatures {
 	
-	String motivation;
-	String personality;
-	String nickname; //might remove nickname, but for now, it's in.
 	ArrayList<String> motivationList = new ArrayList<String>();
 	ArrayList<String> personalityList = new ArrayList<String>();
+	String chosenPersonality;
+	String chosenMotivation;
+	String chosenNickname; //might remove nickname, but for now, it's in.
 	
 	public AdditionalFeatures(String chosenAge, String chosenSex, String chosenProfession){
-		motivation = "";
-		personality = "";
-		nickname = "";
+		chosenPersonality = "";
+		chosenMotivation = "";
 		loadMotivationList();
+		generateMotivation();
 		loadPersonalityList();
+		generatePersonality();
 	}
 	
 	private void loadMotivationList(){
@@ -36,6 +38,12 @@ public class AdditionalFeatures {
 		}//end Try/Catch
 	}//end loadMotivationList()
 	
+	public void generateMotivation(){
+		Random randomMotivation = new Random();
+		int index = randomMotivation.nextInt(motivationList.size());
+		chosenMotivation = motivationList.get(index);
+	}
+	
 	private void loadPersonalityList() {
 		String personalityListTargetFile = "src/Personalities.txt";
 		
@@ -45,8 +53,23 @@ public class AdditionalFeatures {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}//end Try/Catch
+		
+		//DEBUG TOOL: Check to see that the list is being created - WARNING: 640+ ITEMS IN LIST
+	    /*
+	    System.out.println("Personalities List:");
+	    for(String out: personalityList){
+	        System.out.println(out);
+	    }
+	    */
+		
 	}//end loadPersonalityList()
 	
-	//Will need to construct each result
+	public void generatePersonality(){
+		Random randomPersonality = new Random();
+		int index = randomPersonality.nextInt(personalityList.size());
+		int index2 = randomPersonality.nextInt(personalityList.size());
+		int index3 = randomPersonality.nextInt(personalityList.size());
+		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
+	}
 	
 }// end CLASS

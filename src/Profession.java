@@ -126,7 +126,15 @@ public class Profession {
 		}//end if "Old"
 		
 		if("Very Old".equals(chosenAge)){
-			chosenProfession = "Retired " + chosenProfession;
+			Random veryOldDesignation = new Random();
+			int isRetired = veryOldDesignation.nextInt(10); // 0 -> 9
+			//Very rarely, allow Very Old age-group to still be employed. (1 / 10 chance)
+			if(isRetired <= 8){ 
+				chosenProfession = "Retired " + chosenProfession;
+			} else {
+				this.chosenProfession = chosenProfession; 
+			}
+			
 		}//end if "Very Old"
 		
 	}//end generateProfesion(String chosenAge)

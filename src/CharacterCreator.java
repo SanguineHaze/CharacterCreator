@@ -29,7 +29,7 @@ public class CharacterCreator {
 			System.out.println("Sex: " + mySex);
 			String myName = thisName.fullName;
 			System.out.println("Name: " + myName);
-				//thisName.chosenAge = "Old"; //Define a desired age to output
+				//thisName.chosenAge = "Very Old"; //Define a desired age to output
 			String myAge = thisName.chosenAge;
 			System.out.println("Age: " + myAge);
 			
@@ -40,6 +40,17 @@ public class CharacterCreator {
 			if(!(myProfession.equals("None"))){
 				System.out.println("Profession: " + myProfession);
 			}//end if. This ensures that if the profession is anything besides "None" the profession is printed out.
+			
+		//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME)
+			AdditionalFeatures thisMotivation = null;
+			thisMotivation = new AdditionalFeatures(myAge, mySex, myProfession);
+			String myMotivation = thisMotivation.chosenMotivation;
+			System.out.println("Motivated by: " + myMotivation);
+			
+			AdditionalFeatures thisPersonality = null;
+			thisPersonality = new AdditionalFeatures(myAge, mySex, myProfession);
+			String myPersonality = thisPersonality.chosenPersonality;
+			System.out.println("Personality Traits: " + myPersonality);
 			
 		//Line-split for multiple result tidiness
 			System.out.println("");
