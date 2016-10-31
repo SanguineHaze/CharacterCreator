@@ -72,4 +72,13 @@ public class AdditionalFeatures {
 		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
 	}
 	
+	//Add in Nickname generation based off of profession and sex.
+	public void generateNickname(String age, String sex, String profession) {
+		
+	}
+	
+	//Add in Details - which should provide some additional details such as any curses on the character, madness, tattoos, piercings, and other such defining details.
+	public void generateDetails(String motivation){
+		//Use motivation to generate some of the details when applicable. Hate motivation should indicate a reason and target, for example.
+	}
 }// end CLASS

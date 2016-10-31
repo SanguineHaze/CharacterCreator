@@ -41,7 +41,7 @@ public class CharacterCreator {
 				System.out.println("Profession: " + myProfession);
 			}//end if. This ensures that if the profession is anything besides "None" the profession is printed out.
 			
-		//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME)
+		//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS)
 			AdditionalFeatures thisMotivation = null;
 			thisMotivation = new AdditionalFeatures(myAge, mySex, myProfession);
 			String myMotivation = thisMotivation.chosenMotivation;
