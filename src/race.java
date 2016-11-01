@@ -22,10 +22,8 @@ public class Race {
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);
     		    raceList = file.OpenFile();
-
     		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
-    		    
-    		    
+    		        		    
     		    //DEBUG TOOL: Check to see that the list is being created
     		    /*
     		    System.out.println("Race List:");
@@ -37,16 +35,15 @@ public class Race {
     		   	int index = randomGenerator.nextInt(raceList.size());
     		   	this.chosenRace = raceList.get(index);
     			this.chosenRace = chosenRace.replace("RACE:", "");
-    		   	
-    		   	//System.out.println("Debug Info: raceList is " + raceList.size() + " items"); //DEBUG TOOL: Check to see how big raceList ArrayList is
-    		    //System.out.println("Debug Info: index has been randomly set to " + index); //DEBUG TOOL: check to see what value is being assigned to Index
-    		   	
-    		    
+    			//DEBUG TOOL: Check to see how big raceList ArrayList is
+    		   	//System.out.println("Debug Info: raceList is " + raceList.size() + " items"); 
+    			//DEBUG TOOL: check to see what value is being assigned to Index
+    		    //System.out.println("Debug Info: index has been randomly set to " + index); 
+    			
     		} catch (Exception e) {
     		    //Default error message
     		    System.out.println(e.getMessage());
     		} //End try / catch
-
      }//End loadRaceList()
      
      public String getRace(){

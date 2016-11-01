@@ -129,3 +129,6 @@ JOB:Adventurer
 JOB:Printer / Copier
 JOB:Historian
 JOB:Geneologist
+JOB:Cartographer
+JOB:Smuggler
+JOB:Explorer
