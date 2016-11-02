@@ -28,5 +28,3 @@ a infernal being
 a passing adventurer
 a group of adventurers
 a cunning spy
-local thugs
-local ruffians

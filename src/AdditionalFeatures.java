@@ -8,6 +8,8 @@ public class AdditionalFeatures {
 	ArrayList<String> nicknameList = new ArrayList<String>();
 	ArrayList<String> detailsList = new ArrayList<String>();
 		ArrayList<String> theLocalList = new ArrayList<String>();
+		ArrayList<String> favorToList = new ArrayList<String>();
+		ArrayList<String> protectedByList = new ArrayList<String>();
 	String chosenPersonality;
 	String chosenMotivation;
 	String chosenNickname;
@@ -132,22 +134,49 @@ public class AdditionalFeatures {
 		} catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		
+		String favorToReplacementTargetFile = "src/OwesFavorTo.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(favorToReplacementTargetFile);
+			favorToList = file.OpenFile();
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		String protectedByReplacementFile = "src/ProtectedBy.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(protectedByReplacementFile);
+			protectedByList = file.OpenFile();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
 	}//end loadDetailsList()
 	
 	public void generateDetails(String race, String profession){
 		Random detailsChance = new Random();
-		int recieves = detailsChance.nextInt(100);
+		int recieves = detailsChance.nextInt(85);
 		if (recieves > 0){
 			Random assignDetails = new Random();
 			int index = assignDetails.nextInt(detailsList.size());
 			chosenDetail = detailsList.get(index);
 			
 			if(chosenDetail.contains("...")){
-				if(chosenDetail.contains("favor by the local")){
+				if(chosenDetail.contains("owed a favor by")){
 					Random assignTheLocal = new Random();
 					int indexTL = assignTheLocal.nextInt(theLocalList.size());
 					String tLReplace = theLocalList.get(indexTL);
 					this.chosenDetail = chosenDetail.replace("..." , tLReplace);
+				} else if (chosenDetail.contains("Owes a favor to")){
+					Random assignFavorTo = new Random();
+					int indexFT = assignFavorTo.nextInt(favorToList.size());
+					String fTReplace = favorToList.get(indexFT);
+					this.chosenDetail = chosenDetail.replace("...", fTReplace);
+				} else if (chosenDetail.contains("Protected by")){
+					Random assignProtection = new Random();
+					int indexPB = assignProtection.nextInt(protectedByList.size());
+					String pBReplace = protectedByList.get(indexPB);
+					this.chosenDetail = chosenDetail.replace("...", pBReplace);
 				}
 				//this.chosenDetail = chosenDetail.replace("..." , "TEST");
 			}
