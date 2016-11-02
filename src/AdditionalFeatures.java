@@ -6,19 +6,25 @@ public class AdditionalFeatures {
 	ArrayList<String> motivationList = new ArrayList<String>();
 	ArrayList<String> personalityList = new ArrayList<String>();
 	ArrayList<String> nicknameList = new ArrayList<String>();
+	ArrayList<String> detailsList = new ArrayList<String>();
+		ArrayList<String> theLocalList = new ArrayList<String>();
 	String chosenPersonality;
 	String chosenMotivation;
 	String chosenNickname;
+	String chosenDetail;
 	
 	public AdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
+		chosenDetail = null;
 		loadMotivationList();
 		generateMotivation();
 		loadPersonalityList();
 		generatePersonality();
 		loadNicknameList();
 		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
 	}
 	
 	//MOTIVATION SECTION
@@ -100,7 +106,7 @@ public class AdditionalFeatures {
 	//Add in Nickname generation based off of profession and sex.
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
-		int hasNickname = assignNickname.nextInt(100); //Randomly decide if character has nickname
+		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
 		
 		if(hasNickname > 85){
 			Random randomNickname = new Random();
@@ -109,5 +115,43 @@ public class AdditionalFeatures {
 		}//end if "hasNickname"		
 		
 	}//end generateNickname()
+	
+	private void loadDetailsList(){
+		String detailsListTargetFile = "src/Details.txt";
+		try {
+			ReadFromFile file = new ReadFromFile(detailsListTargetFile);
+			detailsList = file.OpenFile();
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+		}//end Try/Catch - Default Details List
+		
+		String theLocalReplacementTargetFile = "src/TheLocalReplacement.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(theLocalReplacementTargetFile);
+			theLocalList = file.OpenFile();
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}//end loadDetailsList()
+	
+	public void generateDetails(String race, String profession){
+		Random detailsChance = new Random();
+		int recieves = detailsChance.nextInt(100);
+		if (recieves > 0){
+			Random assignDetails = new Random();
+			int index = assignDetails.nextInt(detailsList.size());
+			chosenDetail = detailsList.get(index);
+			
+			if(chosenDetail.contains("...")){
+				if(chosenDetail.contains("favor by the local")){
+					Random assignTheLocal = new Random();
+					int indexTL = assignTheLocal.nextInt(theLocalList.size());
+					String tLReplace = theLocalList.get(indexTL);
+					this.chosenDetail = chosenDetail.replace("..." , tLReplace);
+				}
+				//this.chosenDetail = chosenDetail.replace("..." , "TEST");
+			}
+		}
+	}//end generateDetails()
 	
 }// end CLASS

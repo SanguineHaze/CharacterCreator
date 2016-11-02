@@ -43,6 +43,11 @@ public class CharacterCreator {
 			thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);
 			String myNickname = thisNickname.chosenNickname;
 			
+			AdditionalFeatures thisDetail = null;
+			thisDetail = new AdditionalFeatures(myAge, myRace, myProfession);
+			String myDetail = thisDetail.chosenDetail;
+			
+			
 		//CHARACTER SYSOUT SECTION
 			System.out.println("Race: " + myRace);
 			if(mySubRace != ""){
@@ -59,7 +64,10 @@ public class CharacterCreator {
 				System.out.println("Profession: " + myProfession);
 			}
 			System.out.println("Motivated by: " + myMotivation);
-			System.out.println("Personality Traits: " + myPersonality);			
+			System.out.println("Personality Traits: " + myPersonality);		
+			if(myDetail != null){
+				System.out.println("Additional Detail: " + myDetail);
+			}
 			
 		//Line-split for multiple result tidiness
 			System.out.println("");

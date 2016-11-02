@@ -8,6 +8,7 @@ CLASS:Barbarian
 CLASS:Rogue
 CLASS:Sorcerer
 CLASS:Bard
+CLASS:Druid
 JOB:Cobbler
 JOB:Shoemaker
 JOB:Tinker
@@ -123,3 +124,11 @@ JOB:Lawyer
 JOB:Messenger
 JOB:Thug
 JOB:Brigand
+JOB:Knight
+JOB:Adventurer
+JOB:Printer / Copier
+JOB:Historian
+JOB:Geneologist
+JOB:Cartographer
+JOB:Smuggler
+JOB:Explorer

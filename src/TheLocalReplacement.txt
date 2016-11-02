@@ -1,0 +1,16 @@
+Lord
+Lady
+Baron
+Baroness
+money-lender
+ruffians
+thugs
+military
+Paladin order
+clerics
+monks
+priest
+merchant's guild
+blacksmith
+innkeeper
+Mayor
