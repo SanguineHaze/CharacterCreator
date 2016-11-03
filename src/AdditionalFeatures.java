@@ -114,7 +114,7 @@ public class AdditionalFeatures {
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
 		
-		if(hasNickname > 85){
+		if(hasNickname <= 35){
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(nicknameList.size());
 			chosenNickname = nicknameList.get(index);
@@ -192,7 +192,7 @@ public class AdditionalFeatures {
 	public void generateDetails(String race, String profession){
 		Random detailsChance = new Random();
 		int recieves = detailsChance.nextInt(101);
-		if (recieves > 70){
+		if (recieves <= 35){
 			Random assignDetails = new Random();
 			int index = assignDetails.nextInt(detailsList.size());
 			chosenDetail = detailsList.get(index);
@@ -235,7 +235,7 @@ public class AdditionalFeatures {
 					this.chosenDetail = chosenDetail.replace("...", cReplace);
 				}//end inner token replacement
 			}//end outer token replacement
-		}//end details chance
+		}//end details chance %
 	}//end generateDetails()
 	
 }// end CLASS
