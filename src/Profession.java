@@ -36,24 +36,24 @@ public class Profession {
 	private void generateProfessionList(String chosenAge){
 		if("Child".equals(chosenAge)){
 			if(childSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = "src/Professions.txt";
+				chosenProfessionList = filesDirectory + "Professions.txt";
 			} else {
-				chosenProfessionList = "src/ProfessionsChild.txt";
+				chosenProfessionList = filesDirectory + "ProfessionsChild.txt";
 			}//end if childSafeListOverride	
 		} else if("Young Adult".equals(chosenAge)){
-			chosenProfessionList = "src/Professions.txt";
+			chosenProfessionList = filesDirectory + "Professions.txt";
 		} else if("Adult".equals(chosenAge)){
-			chosenProfessionList = "src/Professions.txt";
+			chosenProfessionList = filesDirectory + "Professions.txt";
 		} else if("Old".equals(chosenAge)){
-			chosenProfessionList = "src/Professions.txt";
+			chosenProfessionList = filesDirectory + "Professions.txt";
 		} else if("Very Old".equals(chosenAge)){
 			if(veryOldSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = "src/Professions.txt";
+				chosenProfessionList = filesDirectory + "Professions.txt";
 			} else {
-				chosenProfessionList = "src/Professions.txt";
+				chosenProfessionList = filesDirectory + "Professions.txt";
 			}
 		} else {
-			chosenProfessionList = "src/Professions.txt";
+			chosenProfessionList = filesDirectory + "Professions.txt";
 		}
 	}//end generateProfessionList()
 	
@@ -65,7 +65,7 @@ public class Profession {
 		
 		try {
 			
-			ReadFromFile file = new ReadFromFile(filesDirectory + professionListTargetFile);
+			ReadFromFile file = new ReadFromFile(professionListTargetFile);
 			professionList = file.OpenFile();
 			professionList.sort(null); //Sort the list alphabetically.
 			

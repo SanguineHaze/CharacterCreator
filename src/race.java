@@ -18,10 +18,10 @@ public class Race {
      private void loadRaceList(){
     	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
     	 //The master list, containing all Races
-    	 String targetFile = "src/Race.txt"; //path to the file on local environment.
+    	 String targetFile = filesDirectory + "Race.txt"; //path to the file on local environment.
     	 
     	 try {
-    		    ReadFromFile file = new ReadFromFile(filesDirectory + targetFile);
+    		    ReadFromFile file = new ReadFromFile(targetFile);
     		    raceList = file.OpenFile();
     		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
     		        		    

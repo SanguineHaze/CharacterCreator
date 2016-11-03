@@ -1,0 +1,99 @@
+Race: Half-Orc
+Sex: Female
+Name: Jobaril
+Age: Old
+Profession: Senior Advisor
+Motivated by: Obedience
+Personality Traits: Disrespectful, Crass, Neurotic
+Additional Detail: Possesses an enchanted item
+
+
+Race: Dwarf
+Subrace: Mountain Dwarf
+Sex: Male
+Name: Lahalea
+Age: Young Adult
+Profession: Architect
+Motivated by: Necessity
+Personality Traits: Impractical, Noncompetitive, Charming
+
+
+Race: Half-Elf
+Subrace: Half Dark Elf
+Sex: Female
+Name: Depenner the Thinker
+Age: Young Adult
+Profession: Locksmith
+Motivated by: Desire for acceptance
+Personality Traits: Passionate, Regimental, Clumsy
+
+
+Race: Halfling
+Subrace: Ghostwise Halfling
+Sex: Male
+Name: Mamorus the Fool
+Age: Child
+Motivated by: Family
+Personality Traits: Sadistic, Amoral, Self-indulgent
+
+
+Race: Elf
+Subrace: Eladrin
+Sex: Female
+Name: Tagranin the Swindler
+Age: Very Old
+Profession: Retired Beekeeper
+Motivated by: Competitive spirit
+Personality Traits: Soft, Messy, Soft
+Additional Detail: Owes a favor to a powerful mage
+
+
+Race: Aasimar
+Sex: Female
+Name: Elfarer
+Age: Old
+Profession: Senior Warlock
+Motivated by: Tales of old heroes
+Personality Traits: Tidy, Solemn, Accessible
+Additional Detail: Protected by a minor Lord
+
+
+Race: Genasi
+Subrace: Water Genasi
+Sex: Female
+Name: Quil
+Age: Old
+Profession: City Guard
+Motivated by: Family
+Personality Traits: Trusting, Shy, Genuine
+
+
+Race: Dwarf
+Subrace: Hill Dwarf
+Sex: Female
+Name: Quilel the Fool
+Age: Very Old
+Profession: Retired Horse Trainer
+Motivated by: Curiosity
+Personality Traits: Silly, Providential, Sociable
+
+
+Race: Gnome
+Subrace: Rock Gnome
+Sex: Female
+Name: Penna the Scryer
+Age: Very Old
+Profession: Retired General Laborer
+Motivated by: A desire to change the world around them
+Personality Traits: Hedonistic, Disturbing, Unself-critical
+
+
+Race: Goliath
+Sex: Female
+Name: Deronder
+Age: Child
+Motivated by: Social contact
+Personality Traits: Romantic, Sensual, Mechanical
+Additional Detail: Owns a map to a hidden armor cache
+
+

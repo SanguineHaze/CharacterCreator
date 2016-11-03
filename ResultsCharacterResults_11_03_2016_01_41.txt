@@ -1,0 +1,98 @@
+Race: Half-Orc
+Sex: Male
+Name: Mafaral
+Age: Old
+Profession: Senior Rogue
+Motivated by: Greed
+Personality Traits: Calculating, Self-denying, Assertive
+
+
+Race: Aarakocra
+Sex: Male
+Name: Papennis
+Age: Adult
+Profession: Librarian
+Motivated by: Necessity
+Personality Traits: Paternalistic, Monstrous, Disrespectful
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Female
+Name: Kela
+Age: Young Adult
+Profession: Mayor
+Motivated by: Past mistakes
+Personality Traits: Impersonal, Anxious, Emotional
+Additional Detail: Owes a favor to a powerful Baron
+
+
+Race: Halfling
+Subrace: Stout Halfling
+Sex: Female
+Name: Rondan
+Age: Young Adult
+Profession: Monk
+Motivated by: Vengeance
+Personality Traits: Domineering, Unpolished, Adventurous
+Additional Detail: Is owed a favor by a minor Baron
+
+
+Race: Goliath
+Sex: Male
+Name: Vashena the Coward
+Age: Child
+Motivated by: Social contact
+Personality Traits: Innovative, Disconcerting, Dogmatic
+
+
+Race: Goliath
+Sex: Male
+Name: Rekela
+Age: Child
+Profession: Sailor's apprentice
+Motivated by: Unfulfillment
+Personality Traits: Felicific, Allocentric, Urbane
+
+
+Race: Genasi
+Subrace: Fire Genasi
+Sex: Female
+Name: Ojenor
+Age: Adult
+Profession: Locksmith
+Motivated by: Failure
+Personality Traits: Authoritarian, Dedicated, Guileless
+
+
+Race: Aarakocra
+Sex: Male
+Name: Nasarkor the Shadow
+Age: Old
+Profession: Senior Master of Hounds
+Motivated by: Stubbornness
+Personality Traits: Friendly, Meddlesome, Creative
+Additional Detail: Owns a map to the nearest latrine
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Female
+Name: Quilin
+Age: Old
+Profession: Archeologist
+Motivated by: Hope for the future
+Personality Traits: Directed, Unaggressive, Perfectionist
+Additional Detail: Cursed - Madness
+
+
+Race: Dragonborn
+Subrace: Gold Dragonborn
+Sex: Female
+Name: Aquilic
+Age: Child
+Profession: Performer's apprentice
+Motivated by: Sense of accomplishment
+Personality Traits: Greedy, Neglectful, Ridiculous
+
+

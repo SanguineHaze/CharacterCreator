@@ -38,10 +38,10 @@ public class AdditionalFeatures {
 	
 	//MOTIVATION SECTION
 	private void loadMotivationList(){
-		String motivationListTargetFile = "src/Motivations.txt";
+		String motivationListTargetFile = filesDirectory + "Motivations.txt";
 		
 		try {
-			ReadFromFile file = new ReadFromFile(filesDirectory + motivationListTargetFile);
+			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
 			motivationList = file.OpenFile();
 			
 			//DEBUG TOOL: Check to see that the list is being created

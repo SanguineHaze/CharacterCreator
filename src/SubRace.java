@@ -21,10 +21,10 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		//The master list containing all subraces
-		String subRaceTargetFile = "src/Subrace.txt"; //path to the file on local environment.  	 	
+		String subRaceTargetFile = filesDirectory + "Subrace.txt"; //path to the file on local environment.  	 	
 		
 		try {
-			ReadFromFile file = new ReadFromFile(filesDirectory + subRaceTargetFile);
+			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
 			
 			subRaceList = file.OpenFile();
 			

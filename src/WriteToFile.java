@@ -16,14 +16,14 @@ public class WriteToFile {
 	public WriteToFile(ArrayList<String> characterResults) {
 		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_mm_ss");
 		theDate = dateFormat.format(date);
-		String filePath = "ResultsCharacterResults";
+		String filePath = filesDirectory + "CharacterResults";
 		
 		try{
-            PrintWriter pw = new PrintWriter(filesDirectory + filePath + theDate + ".txt");
+            PrintWriter pw = new PrintWriter(filePath + theDate + ".txt");
             for(String input: characterResults){
                 pw.println(input);
             }
-            System.out.println("Created File: " + filesDirectory +  filePath + theDate  + ".txt" );
+            System.out.println("Created File: " + filePath + theDate  + ".txt" );
             pw.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
