@@ -11,19 +11,16 @@ import java.util.Date;
 public class WriteToFile {
 	private DateFormat dateFormat;
 	Date date = new Date();
-
-	private Date dateFormat(Date date) {
-		dateFormat = new SimpleDateFormat("MM_dd_yyyy");
-		return this.date;
-	}
+	String theDate;
 	
 	public WriteToFile(ArrayList<String> characterResults) {
-		date = dateFormat(date);
+		dateFormat = new SimpleDateFormat("MM_dd_yyyy");
+		theDate = dateFormat.format(date);
 		String filePath = "src/foo";
 		
 		try{
 			File file = new File(filePath);
-			PrintWriter pw = new PrintWriter(filePath + date + ".txt");
+			PrintWriter pw = new PrintWriter(filePath + theDate + ".txt");
 			if(!file.exists()){
 				if (file.createNewFile()) {
 					for(String input: characterResults){
@@ -32,7 +29,7 @@ public class WriteToFile {
 					System.out.println("File Created!");
 		        }//end createNewFile
 			}//end if file NOT exists
-			if(file.exists()){				
+			else if(file.exists()){				
 				for(String input: characterResults){
 					pw.println(input);
 				}
