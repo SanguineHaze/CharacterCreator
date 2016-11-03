@@ -1,0 +1,34 @@
+a deed to a damaged tower keep
+a deed to an abandoned mine
+a deed to an abandoned castle
+a deed to an abandoned keep
+a deed to an overrun keep
+a deed to an overrun castle
+a deed to an overrun mine
+a deed to an overrun tower keep
+a property deed
+an enchanted item
+a cursed item
+an enchanted weapon
+a cursed weapon
+an enchanted ring
+a cursed ring
+an enchanted piece of armor
+a cursed piece of armor
+an enchanted shield
+a cursed shield
+a strange book in an unknown language
+a magical spellbook
+a map to the nearest latrine
+a map of the local stars
+a SpellJammer's battered journal
+a soldier's medal
+a letter of recommendation
+an elaborate key to an unknown door
+a strangely glowing crystal
+a strange orange hand-knit cap
+a crippling fear of a specific mundane item (rings, acorns, eggs, etc)
+a crippling fear of a specific animal (deer, badger, squirrel, etc)
+a crippling fear of a specific insect (ant, spider, moth, etc)
+a crippling fear of a specific element or weather type (water, fire, thunderstorms, etc)
+a specific phobia (any) 
