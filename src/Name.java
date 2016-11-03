@@ -1,8 +1,11 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Name {
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+	
 	String sex = "";
 	boolean chosenSex;
 	ArrayList<String> nameList = new ArrayList<String>();
@@ -63,7 +66,7 @@ public class Name {
 		String nameListTargetFile = "src/NameDefault.txt"; //path to the file on local environment.
 		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
 		try {
-			ReadFromFile file = new ReadFromFile(nameListTargetFile);
+			ReadFromFile file = new ReadFromFile(filesDirectory + nameListTargetFile);
 			nameList = file.OpenFile();
 			
 			//DEBUG TOOL: Check to see that the list is being created

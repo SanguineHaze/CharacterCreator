@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,7 +11,7 @@ public class SubRace {
 	private String lineValue;
 	//Instantiate The Lists!
 	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
-	
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();
@@ -24,7 +24,7 @@ public class SubRace {
 		String subRaceTargetFile = "src/Subrace.txt"; //path to the file on local environment.  	 	
 		
 		try {
-			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
+			ReadFromFile file = new ReadFromFile(filesDirectory + subRaceTargetFile);
 			
 			subRaceList = file.OpenFile();
 			

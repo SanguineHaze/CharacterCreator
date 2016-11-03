@@ -1,8 +1,11 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 import java.util.ArrayList;
 
 public class Profession {
+	
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
 	
 	public String chosenProfession;
 	private String lineValue;
@@ -62,7 +65,7 @@ public class Profession {
 		
 		try {
 			
-			ReadFromFile file = new ReadFromFile(professionListTargetFile);
+			ReadFromFile file = new ReadFromFile(filesDirectory + professionListTargetFile);
 			professionList = file.OpenFile();
 			professionList.sort(null); //Sort the list alphabetically.
 			
