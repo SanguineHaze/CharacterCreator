@@ -25,6 +25,7 @@ the Judged
 the Illuminated
 the Plagued
 the Runner
+the Renegade
 the Reaver
 the Mad
 the Thinker

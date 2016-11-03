@@ -1,8 +1,9 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class CharacterCreator {
     public static void main(String[] args) {
 	    //Note to self: Consider adding each of these results to an arrayList, which can then just print everything at once. (17,Oct,2016)	
+		ArrayList<String> characterResults = new ArrayList<String>();
     	
 		for(int i = 0; i < 10; i++){	
 		//RACE SECTION    	
@@ -50,28 +51,44 @@ public class CharacterCreator {
 			
 		//CHARACTER SYSOUT SECTION
 			System.out.println("Race: " + myRace);
+			characterResults.add("\n" + "Race: " + myRace);
 			if(mySubRace != ""){
 				System.out.println("Subrace: " + mySubRace);
+				characterResults.add("\n" + "Subrace: " + mySubRace);
 			}
 			System.out.println("Sex: " + mySex);
+			characterResults.add("\n" + "Sex: " + mySex);
 			if(myNickname != null){
 				System.out.println("Name: " + myName + " " + myNickname);
+				characterResults.add("\n" + "Name: " + myName + " " + myNickname);
 			} else {
 				System.out.println("Name: " + myName);
+				characterResults.add("\n" + "Name: " + myName);
 			}
 			System.out.println("Age: " + myAge);
+			characterResults.add("\n" + "Age: " + myAge);
 			if(!(myProfession.equals("None"))){
 				System.out.println("Profession: " + myProfession);
+				characterResults.add("\n" + "Profession: " + myProfession);
 			}
 			System.out.println("Motivated by: " + myMotivation);
-			System.out.println("Personality Traits: " + myPersonality);		
+			characterResults.add("\n" + "Motivated by: " + myMotivation);
+			System.out.println("Personality Traits: " + myPersonality);
+			characterResults.add("\n" + "Personality Traits: " + myPersonality);
 			if(myDetail != null){
 				System.out.println("Additional Detail: " + myDetail);
-			}
+				characterResults.add("\n" + "Additional Detail: " + myDetail);
+			}						
 			
 		//Line-split for multiple result tidiness
 			System.out.println("");
+			characterResults.add("\n");
 			
 		}//end FOR loop
+		
+		//CHARACTER WRITEOUT SECTION
+		@SuppressWarnings("unused")
+		WriteToFile thisWrite = new WriteToFile(characterResults);
+		
     }// End main()    
 }

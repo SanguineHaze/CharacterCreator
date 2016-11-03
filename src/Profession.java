@@ -131,8 +131,6 @@ public class Profession {
 			//Very rarely, allow Very Old age-group to still be employed. (1 / 10 chance)
 			if(isRetired <= 8){ 
 				chosenProfession = "Retired " + chosenProfession;
-			} else {
-				this.chosenProfession = chosenProfession; 
 			}
 			
 		}//end if "Very Old"

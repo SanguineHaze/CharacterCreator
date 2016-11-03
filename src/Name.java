@@ -61,7 +61,7 @@ public class Name {
 	private void loadNameList(){
 		//The master list containing all Name options
 		String nameListTargetFile = "src/NameDefault.txt"; //path to the file on local environment.
-		//TODO: Expand this section to have different files for the different races. Should be able to if/elseif this, the same as subrace.
+		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
 			nameList = file.OpenFile();

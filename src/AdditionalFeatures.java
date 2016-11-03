@@ -10,6 +10,10 @@ public class AdditionalFeatures {
 		ArrayList<String> theLocalList = new ArrayList<String>();
 		ArrayList<String> favorToList = new ArrayList<String>();
 		ArrayList<String> protectedByList = new ArrayList<String>();
+		ArrayList<String> mapToList = new ArrayList<String>();
+		ArrayList<String> possessesAList = new ArrayList<String>();
+		ArrayList<String> obsessedByList = new ArrayList<String>();
+		ArrayList<String> cursedByList = new ArrayList<String>();
 	String chosenPersonality;
 	String chosenMotivation;
 	String chosenNickname;
@@ -110,7 +114,7 @@ public class AdditionalFeatures {
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
 		
-		if(hasNickname > 85){
+		if(hasNickname <= 35){
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(nicknameList.size());
 			chosenNickname = nicknameList.get(index);
@@ -151,12 +155,44 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
+		String mapToReplacementFile = "src/MapTo.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(mapToReplacementFile);
+			mapToList = file.OpenFile();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		String possessesAReplacementFile = "src/PossessesA.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(possessesAReplacementFile);
+			possessesAList = file.OpenFile();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		String obsessedByReplacementFile = "src/ObsessedBy.txt";
+		try {
+			ReadFromFile file = new ReadFromFile(obsessedByReplacementFile);
+			obsessedByList = file.OpenFile();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		String cursedReplacementFile = "src/Cursed.txt";
+		try{
+			ReadFromFile file = new ReadFromFile(cursedReplacementFile);
+			cursedByList = file.OpenFile();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
 	}//end loadDetailsList()
 	
 	public void generateDetails(String race, String profession){
 		Random detailsChance = new Random();
-		int recieves = detailsChance.nextInt(85);
-		if (recieves > 0){
+		int recieves = detailsChance.nextInt(101);
+		if (recieves <= 35){
 			Random assignDetails = new Random();
 			int index = assignDetails.nextInt(detailsList.size());
 			chosenDetail = detailsList.get(index);
@@ -177,10 +213,29 @@ public class AdditionalFeatures {
 					int indexPB = assignProtection.nextInt(protectedByList.size());
 					String pBReplace = protectedByList.get(indexPB);
 					this.chosenDetail = chosenDetail.replace("...", pBReplace);
-				}
-				//this.chosenDetail = chosenDetail.replace("..." , "TEST");
-			}
-		}
+				} else if (chosenDetail.contains("Owns a map to")){
+					Random assignMapTo = new Random();
+					int indexMT = assignMapTo.nextInt(mapToList.size());
+					String mTReplace = mapToList.get(indexMT);
+					this.chosenDetail = chosenDetail.replace("..." , mTReplace);
+				} else if (chosenDetail.contains("Possesses a ...")){
+					Random assignPossessesA = new Random();
+					int indexOA = assignPossessesA.nextInt(possessesAList.size());
+					String pAReplace = possessesAList.get(indexOA);
+					this.chosenDetail = chosenDetail.replace("a ...", pAReplace);
+				} else if (chosenDetail.contains("obsessed by")){
+					Random assignObsessedBy = new Random();
+					int indexOB = assignObsessedBy.nextInt(obsessedByList.size());
+					String oBReplace = obsessedByList.get(indexOB);
+					this.chosenDetail = chosenDetail.replace("...", oBReplace);					
+				} else if (chosenDetail.contains("Cursed - ...")){
+					Random assignCurse = new Random();
+					int indexC = assignCurse.nextInt(cursedByList.size());
+					String cReplace = cursedByList.get(indexC);
+					this.chosenDetail = chosenDetail.replace("...", cReplace);
+				}//end inner token replacement
+			}//end outer token replacement
+		}//end details chance %
 	}//end generateDetails()
 	
 }// end CLASS
