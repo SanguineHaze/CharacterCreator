@@ -1,0 +1,180 @@
+
+Race: Aasimar
+
+Sex: Female
+
+Name: Fadellan
+
+Age: Adult
+
+Profession: Bard
+
+Motivated by: Stubbornness
+
+Personality Traits: Original, Hesitant, Self-critical
+
+Additional Detail: Extremely Lucky
+
+
+
+Race: Aasimar
+
+Sex: Female
+
+Name: Elfarer
+
+Age: Adult
+
+Profession: Abbot
+
+Motivated by: Tales of old heroes
+
+Personality Traits: Playful, Grim, Self-sufficent
+
+
+
+Race: Halfling
+
+Subrace: Ghostwise Halfling
+
+Sex: Male
+
+Name: Ladellis
+
+Age: Very Old
+
+Profession: Retired Rogue
+
+Motivated by: Basic needs
+
+Personality Traits: Astigmatic, Big-thinking, Disruptive
+
+
+
+Race: Human
+
+Subrace: Human Variant
+
+Sex: Male
+
+Name: Kiyoric
+
+Age: Adult
+
+Profession: Thug
+
+Motivated by: Order
+
+Personality Traits: Unpatriotic, Modest, Organized
+
+
+
+Race: Half-Elf
+
+Subrace: Half Moon Elf
+
+Sex: Female
+
+Name: Kijenea
+
+Age: Adult
+
+Profession: Master of Horse
+
+Motivated by: Ambition
+
+Personality Traits: Unhealthy, Dedicated, Stolid
+
+
+
+Race: Dwarf
+
+Subrace: Mountain Dwarf
+
+Sex: Female
+
+Name: Jozen the Hand
+
+Age: Old
+
+Profession: Senior Thatcher
+
+Motivated by: Pride
+
+Personality Traits: Moody, Glamorous, Stylish
+
+Additional Detail: Protected by an angel
+
+
+
+Race: Dwarf
+
+Subrace: Hill Dwarf
+
+Sex: Male
+
+Name: Turer
+
+Age: Adult
+
+Profession: Cleric
+
+Motivated by: Fear of shame
+
+Personality Traits: Dissonant, Tough, Sly
+
+
+
+Race: Halfling
+
+Subrace: Stout Halfling
+
+Sex: Male
+
+Name: Naquilic
+
+Age: Adult
+
+Profession: Rat Catcher
+
+Motivated by: Tales of old heroes
+
+Personality Traits: Curious, Well-rounded, Assertive
+
+
+
+Race: Half-Elf
+
+Subrace: Half Wood Elf
+
+Sex: Female
+
+Name: Tasarkess
+
+Age: Adult
+
+Profession: Weaver
+
+Motivated by: Social status
+
+Personality Traits: Arbitrary, Innovative, Warm
+
+
+
+Race: Gnome
+
+Subrace: Deep Gnome
+
+Sex: Male
+
+Name: Anetus the Redeemed
+
+Age: Adult
+
+Profession: Bard
+
+Motivated by: Lust
+
+Personality Traits: Predictable, Conceited, Eloquent
+
+

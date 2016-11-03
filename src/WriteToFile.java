@@ -15,16 +15,21 @@ public class WriteToFile {
 		String filePath = "src/foo.txt";
 		try{
 			File file = new File(filePath);
+			FileOutputStream fos = new FileOutputStream(file, append);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
+			BufferedWriter bw = new BufferedWriter(osw);
+			PrintWriter pw = new PrintWriter(bw, autoFlush);
 			if(!file.exists()){
 				if (file.createNewFile()) {
-					FileOutputStream fos = new FileOutputStream(file, append);
-					OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
-					BufferedWriter bw = new BufferedWriter(osw);
-					PrintWriter pw = new PrintWriter(bw, autoFlush);
 					for(String input: characterResults){
 						pw.println(input);
 					}
-		        }
+		        }//end createNewFile
+			}//end if file NOT exists
+			if(file.canWrite()){
+				for(String input: characterResults){
+					pw.println(input);
+				}
 			}
 			
 		}catch (Exception e){
