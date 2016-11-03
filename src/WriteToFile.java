@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class WriteToFile {
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
 	
 	private DateFormat dateFormat;
 	Date date = new Date();

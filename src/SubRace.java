@@ -11,7 +11,7 @@ public class SubRace {
 	private String lineValue;
 	//Instantiate The Lists!
 	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces. Reference purposes.
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
 	public SubRace() {
 		chosenSubRace = "";
 		loadSubRaceList();

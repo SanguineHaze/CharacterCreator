@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Profession {
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
 	
 	public String chosenProfession;
 	private String lineValue;

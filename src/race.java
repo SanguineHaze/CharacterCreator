@@ -16,7 +16,7 @@ public class Race {
      } //end Race()
      
      private void loadRaceList(){
-    	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+    	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
     	 //The master list, containing all Races
     	 String targetFile = filesDirectory + "Race.txt"; //path to the file on local environment.
     	 
