@@ -51,33 +51,33 @@ public class CharacterCreator {
 			
 		//CHARACTER SYSOUT SECTION
 			System.out.println("Race: " + myRace);
-			characterResults.add("\n" + "Race: " + myRace);
+			characterResults.add("Race: " + myRace);
 			if(mySubRace != ""){
 				System.out.println("Subrace: " + mySubRace);
-				characterResults.add("\n" + "Subrace: " + mySubRace);
+				characterResults.add("Subrace: " + mySubRace);
 			}
 			System.out.println("Sex: " + mySex);
-			characterResults.add("\n" + "Sex: " + mySex);
+			characterResults.add("Sex: " + mySex);
 			if(myNickname != null){
 				System.out.println("Name: " + myName + " " + myNickname);
-				characterResults.add("\n" + "Name: " + myName + " " + myNickname);
+				characterResults.add("Name: " + myName + " " + myNickname);
 			} else {
 				System.out.println("Name: " + myName);
-				characterResults.add("\n" + "Name: " + myName);
+				characterResults.add("Name: " + myName);
 			}
 			System.out.println("Age: " + myAge);
-			characterResults.add("\n" + "Age: " + myAge);
+			characterResults.add("Age: " + myAge);
 			if(!(myProfession.equals("None"))){
 				System.out.println("Profession: " + myProfession);
-				characterResults.add("\n" + "Profession: " + myProfession);
+				characterResults.add("Profession: " + myProfession);
 			}
 			System.out.println("Motivated by: " + myMotivation);
-			characterResults.add("\n" + "Motivated by: " + myMotivation);
+			characterResults.add("Motivated by: " + myMotivation);
 			System.out.println("Personality Traits: " + myPersonality);
-			characterResults.add("\n" + "Personality Traits: " + myPersonality);
+			characterResults.add("Personality Traits: " + myPersonality);
 			if(myDetail != null){
 				System.out.println("Additional Detail: " + myDetail);
-				characterResults.add("\n" + "Additional Detail: " + myDetail);
+				characterResults.add("Additional Detail: " + myDetail);
 			}						
 			
 		//Line-split for multiple result tidiness

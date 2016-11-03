@@ -1,35 +1,42 @@
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class WriteToFile {
+	private DateFormat dateFormat;
+	Date date = new Date();
+
+	private Date dateFormat(Date date) {
+		dateFormat = new SimpleDateFormat("MM_dd_yyyy");
+		return this.date;
+	}
 	
 	public WriteToFile(ArrayList<String> characterResults) {
-		boolean append = true;
-		boolean autoFlush = true;
-		String charset = "UTF-8";
-		String filePath = "src/foo.txt";
+		date = dateFormat(date);
+		String filePath = "src/foo";
+		
 		try{
 			File file = new File(filePath);
-			FileOutputStream fos = new FileOutputStream(file, append);
-			OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
-			BufferedWriter bw = new BufferedWriter(osw);
-			PrintWriter pw = new PrintWriter(bw, autoFlush);
+			PrintWriter pw = new PrintWriter(filePath + date + ".txt");
 			if(!file.exists()){
 				if (file.createNewFile()) {
 					for(String input: characterResults){
 						pw.println(input);
 					}
+					System.out.println("File Created!");
 		        }//end createNewFile
 			}//end if file NOT exists
-			if(file.canWrite()){
+			if(file.exists()){				
 				for(String input: characterResults){
 					pw.println(input);
 				}
+				System.out.println("File Created!");
 			}
 			
 		}catch (Exception e){
