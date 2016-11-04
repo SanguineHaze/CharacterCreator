@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class AdditionalFeatures {
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
 	
 	ArrayList<String> motivationList = new ArrayList<String>();
 	ArrayList<String> personalityList = new ArrayList<String>();
@@ -65,10 +65,10 @@ public class AdditionalFeatures {
 	
 	//PERSONALITY SECTION
 	private void loadPersonalityList() {
-		String personalityListTargetFile = "src/Personalities.txt";
+		String personalityListTargetFile = filesDirectory + "Personalities.txt";
 		
 		try {
-			ReadFromFile file = new ReadFromFile(filesDirectory + personalityListTargetFile);
+			ReadFromFile file = new ReadFromFile(personalityListTargetFile);
 			personalityList = file.OpenFile();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -94,10 +94,10 @@ public class AdditionalFeatures {
 	
 	//NICKNAME SECTION
 	private void loadNicknameList(){
-		String nicknameListTargetFile = "src/Nicknames.txt";
+		String nicknameListTargetFile = filesDirectory + "Nicknames.txt";
 		
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + nicknameListTargetFile);
+			ReadFromFile file = new ReadFromFile(nicknameListTargetFile);
 			nicknameList = file.OpenFile();
 		} catch(Exception e){
 			System.out.println(e.getMessage());
@@ -126,65 +126,65 @@ public class AdditionalFeatures {
 	}//end generateNickname()
 	
 	private void loadDetailsList(){
-		String detailsListTargetFile = "src/Details.txt";
+		String detailsListTargetFile = filesDirectory + "Details.txt";
 		try {
-			ReadFromFile file = new ReadFromFile(filesDirectory + detailsListTargetFile);
+			ReadFromFile file = new ReadFromFile(detailsListTargetFile);
 			detailsList = file.OpenFile();
 		} catch(Exception e){
 			System.out.println(e.getMessage());
 		}//end Try/Catch - Default Details List
 		
-		String theLocalReplacementTargetFile = "src/TheLocalReplacement.txt";
+		String theLocalReplacementTargetFile = filesDirectory + "TheLocalReplacement.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + theLocalReplacementTargetFile);
+			ReadFromFile file = new ReadFromFile(theLocalReplacementTargetFile);
 			theLocalList = file.OpenFile();
 		} catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String favorToReplacementTargetFile = "src/OwesFavorTo.txt";
+		String favorToReplacementTargetFile = filesDirectory + "OwesFavorTo.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + favorToReplacementTargetFile);
+			ReadFromFile file = new ReadFromFile(favorToReplacementTargetFile);
 			favorToList = file.OpenFile();
 		} catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String protectedByReplacementFile = "src/ProtectedBy.txt";
+		String protectedByReplacementFile = filesDirectory + "ProtectedBy.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + protectedByReplacementFile);
+			ReadFromFile file = new ReadFromFile(protectedByReplacementFile);
 			protectedByList = file.OpenFile();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String mapToReplacementFile = "src/MapTo.txt";
+		String mapToReplacementFile = filesDirectory + "MapTo.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + mapToReplacementFile);
+			ReadFromFile file = new ReadFromFile(mapToReplacementFile);
 			mapToList = file.OpenFile();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String possessesAReplacementFile = "src/PossessesA.txt";
+		String possessesAReplacementFile = filesDirectory + "PossessesA.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + possessesAReplacementFile);
+			ReadFromFile file = new ReadFromFile(possessesAReplacementFile);
 			possessesAList = file.OpenFile();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String obsessedByReplacementFile = "src/ObsessedBy.txt";
+		String obsessedByReplacementFile = filesDirectory + "ObsessedBy.txt";
 		try {
-			ReadFromFile file = new ReadFromFile(filesDirectory + obsessedByReplacementFile);
+			ReadFromFile file = new ReadFromFile(obsessedByReplacementFile);
 			obsessedByList = file.OpenFile();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		String cursedReplacementFile = "src/Cursed.txt";
+		String cursedReplacementFile = filesDirectory + "Cursed.txt";
 		try{
-			ReadFromFile file = new ReadFromFile(filesDirectory + cursedReplacementFile);
+			ReadFromFile file = new ReadFromFile(cursedReplacementFile);
 			cursedByList = file.OpenFile();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
@@ -230,7 +230,7 @@ public class AdditionalFeatures {
 					Random assignObsessedBy = new Random();
 					int indexOB = assignObsessedBy.nextInt(obsessedByList.size());
 					String oBReplace = obsessedByList.get(indexOB);
-					this.chosenDetail = chosenDetail.replace("...", oBReplace);					
+					this.chosenDetail = chosenDetail.replace("by ...", oBReplace);					
 				} else if (chosenDetail.contains("Cursed - ...")){
 					Random assignCurse = new Random();
 					int indexC = assignCurse.nextInt(cursedByList.size());

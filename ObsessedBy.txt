@@ -1,20 +1,20 @@
-rocks
-birds
-feathers
-money
-insects
-leaves
-weapons
-armors
-taxidermy
-a specific mundane item (table, rock, candlesticks, etc)
-a specific type of animal (wolves, birds, bears, etc)
-a specific type of creature (skeletons, harpies, giants, etc)
-magic
-a specific school of magic (any)
-towels & traveler's guides
-cleanliness
-boobs
-shoes
-the number 3
-any specific number (13, 42, 57, etc)
+with rocks
+with birds
+with feathers
+with money
+with insects
+with leaves
+with weapons
+with armors
+with taxidermy
+by a specific mundane item (table, rock, candlesticks, etc)
+by a specific type of animal (wolves, birds, bears, etc)
+by a specific type of creature (skeletons, harpies, giants, etc)
+with magic
+by a specific school of magic (any)
+with towels & traveler's guides
+with cleanliness
+with boobs
+with shoes
+with the number 3
+by any specific number (13, 42, 57, etc)

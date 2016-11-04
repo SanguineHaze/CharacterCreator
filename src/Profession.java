@@ -129,13 +129,17 @@ public class Profession {
 		}//end if "Old"
 		
 		if("Very Old".equals(chosenAge)){
+			ArrayList<String> vOExceptionList = new ArrayList<String>();
+			vOExceptionList.add("Baron / Baroness");
+			vOExceptionList.add("Lord / Lady");
 			Random veryOldDesignation = new Random();
 			int isRetired = veryOldDesignation.nextInt(10); // 0 -> 9
 			//Very rarely, allow Very Old age-group to still be employed. (1 / 10 chance)
-			if(isRetired <= 8){ 
-				chosenProfession = "Retired " + chosenProfession;
+			if(isRetired <= 9){ 
+				if(!vOExceptionList.contains(chosenProfession)){
+					chosenProfession = "Retired " + chosenProfession;
+				}
 			}
-			
 		}//end if "Very Old"
 		
 	}//end generateProfesion(String chosenAge)

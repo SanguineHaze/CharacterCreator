@@ -5,7 +5,7 @@ public class CharacterCreator {
 	    //Note to self: Consider adding each of these results to an arrayList, which can then just print everything at once. (17,Oct,2016)	
 		ArrayList<String> characterResults = new ArrayList<String>();
     	
-		for(int i = 0; i < 10; i++){	
+		for(int i = 0; i < 25; i++){	
 		//RACE SECTION    	
 	        Race thisRace = null; 
 			thisRace = new Race(); 
@@ -29,6 +29,7 @@ public class CharacterCreator {
 		//PROFESSION (& ALIGNMENT) SECTION
 			Profession thisProfession = null;
 			thisProfession = new Profession(myAge);
+				//thisProfession.chosenProfession = "Baron / Baroness";
 			String myProfession = thisProfession.chosenProfession;			
 			
 		//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
@@ -87,8 +88,8 @@ public class CharacterCreator {
 		}//end FOR loop
 		
 		//CHARACTER WRITEOUT SECTION
-		@SuppressWarnings("unused")
-		WriteToFile thisWrite = new WriteToFile(characterResults);
+			@SuppressWarnings("unused")
+			WriteToFile thisWrite = new WriteToFile(characterResults);
 		
     }// End main()    
 }

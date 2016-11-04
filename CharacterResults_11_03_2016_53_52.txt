@@ -1,0 +1,401 @@
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Male
+Name: Rejenal the Scryer
+Age: Adult
+Profession: Grain Farmer
+Motivated by: Greed
+Personality Traits: Teacherly, Natty, Constant
+
+
+Race: Goliath
+Sex: Female
+Name: Sarker
+Age: Child
+Profession: Shoemaker's apprentice
+Motivated by: Stubbornness
+Personality Traits: Fiery, Stiff, Intolerant
+Additional Detail: Possesses a property deed
+
+
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Male
+Name: Laturar
+Age: Young Adult
+Profession: Merchant
+Motivated by: Pride
+Personality Traits: Bland, Foolish, Profound
+Additional Detail: Unnaturally Lucky
+
+
+Race: Aasimar
+Sex: Male
+Name: Maturus the Boorish
+Age: Child
+Motivated by: Fear of rejection
+Personality Traits: Stoic, Resourceful, Mystical
+Additional Detail: Strangely obsessed by the number 3
+
+
+Race: Elf
+Subrace: Dark Elf
+Sex: Female
+Name: Baric
+Age: Young Adult
+Profession: Architect
+Motivated by: Social status
+Personality Traits: Disputatious, Stern, Angry
+
+
+Race: Dwarf
+Subrace: Hill Dwarf
+Sex: Female
+Name: Jonetea
+Age: Very Old
+Profession: Retired Baron / Baroness
+Motivated by: Revenge
+Personality Traits: Grim, Stiff, Intolerant
+Additional Detail: Unnaturally Lucky
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Name: Vashenar the Plagued
+Age: Adult
+Profession: Scribe
+Motivated by: Obedience
+Personality Traits: Solitary, Unhealthy, Unpatriotic
+
+
+Race: Gnome
+Subrace: Forest Gnome
+Sex: Female
+Name: Zena
+Age: Child
+Profession: Apothecary's apprentice
+Motivated by: Past mistakes
+Personality Traits: Shrewd, Tough, Creative
+Additional Detail: Possesses a deed to an abandoned castle
+
+
+Race: Genasi
+Subrace: Fire Genasi
+Sex: Female
+Name: Majenal
+Age: Very Old
+Profession: Retired Sheepshearer
+Motivated by: Personal pride
+Personality Traits: Directed, Ignorant, Maticulous
+
+
+Race: Aasimar
+Sex: Male
+Name: Bezenis
+Age: Old
+Profession: Master Forester
+Motivated by: A need to improve inequality
+Personality Traits: Disconcerting, Grand, Ascetic
+
+
+Race: Goliath
+Sex: Male
+Name: Della the Redeemer
+Age: Old
+Profession: Wandering Trader
+Motivated by: Fear of regret
+Personality Traits: Attractive, Leaderly, Confidential
+
+
+Race: Aarakocra
+Sex: Male
+Name: Ladellic the Shadow
+Age: Very Old
+Profession: Retired Dock Worker
+Motivated by: Fear of pain
+Personality Traits: Unstable, Repressed, Greedy
+Additional Detail: Strangely obsessed by boobs
+
+
+Race: Dragonborn
+Subrace: Red Dragonborn
+Sex: Male
+Name: Dequilel the Weak
+Age: Child
+Profession: Merchant's apprentice
+Motivated by: Tales of old heroes
+Personality Traits: Moderate, Emotional, Procrastinating
+Additional Detail: Naturally Lucky
+
+
+Race: Tiefling
+Subrace: Infernal Tiefling
+Sex: Female
+Name: Sishenam
+Age: Adult
+Profession: Saddle Maker
+Motivated by: Social status
+Personality Traits: Unimpressive, Self-critical, Prudent
+
+
+Race: Aasimar
+Sex: Male
+Name: Pafarin
+Age: Child
+Motivated by: Justice
+Personality Traits: Unpolished, Debonair, Money-minded
+
+
+Race: Goliath
+Sex: Female
+Name: Chedus the Honorable
+Age: Very Old
+Profession: Retired Lawyer
+Motivated by: Order
+Personality Traits: Graceless, Devious, Critical
+
+
+Race: Dwarf
+Subrace: Mountain Dwarf
+Sex: Male
+Name: Graness the Weak
+Age: Young Adult
+Profession: Playwright
+Motivated by: Revenge
+Personality Traits: Farsighted, Tasteless, Surprising
+Additional Detail: Extremely Lucky
+
+
+Race: Human
+Sex: Female
+Name: Varondal the Scared
+Age: Adult
+Profession: Dairymaid
+Motivated by: Dishonor
+Personality Traits: Soft, Contemplative, Aimless
+Additional Detail: Owes a favor to a minor mage
+
+
+Race: Genasi
+Subrace: Air Genasi
+Sex: Male
+Name: Reshenin
+Age: Child
+Motivated by: Basic needs
+Personality Traits: Grand, Incorruptible, Meretricious
+
+
+Race: Dragonborn
+Subrace: White Dragonborn
+Sex: Female
+Name: Moran the Defiant
+Age: Very Old
+Profession: Retired Leatherworker
+Motivated by: Wealth & Status
+Personality Traits: Sympathetic, Familial, Impulsive
+
+
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Female
+Name: Elyoral
+Age: Adult
+Profession: Military Tactician
+Motivated by: Love
+Personality Traits: Dedicated, Scheming, Fraudulent
+Additional Detail: Extremely Lucky
+
+
+Race: Halfling
+Subrace: Stout Halfling
+Sex: Male
+Name: Besarkac the Feared
+Age: Adult
+Profession: Dairymaid
+Motivated by: Fear of rejection
+Personality Traits: Ascetic, Stiff, Irresponsible
+
+
+Race: Human
+Sex: Female
+Name: Joquilea
+Age: Old
+Profession: Bodyguard
+Motivated by: Greed
+Personality Traits: Irrational, Single-minded, Narrow-minded
+
+
+Race: Dragonborn
+Subrace: Green Dragonborn
+Sex: Male
+Name: Naquil
+Age: Young Adult
+Profession: Cobbler
+Motivated by: Pride
+Personality Traits: Stylish, Egocentric, Timid
+Additional Detail: Owes a favor to a minor Baron
+
+
+Race: Dwarf
+Subrace: Duergar
+Sex: Male
+Name: Tanet the Thinker
+Age: Child
+Profession: Apothecary's apprentice
+Motivated by: Order
+Personality Traits: Dogmatic, Intuitive, Envious
+
+
+Race: Half-Elf
+Subrace: Half Wood Elf
+Sex: Male
+Name: Befar
+Age: Very Old
+Profession: Retired Paladin
+Motivated by: Fear of rejection
+Personality Traits: Uncharitable, Unceremonious, Uncaring
+
+
+Race: Dragonborn
+Subrace: Brass Dragonborn
+Sex: Female
+Name: Vakelea
+Age: Old
+Profession: Senior Jeweler
+Motivated by: Fear of humiliation
+Personality Traits: Adventurous, Crass, Unpatriotic
+Additional Detail: Cursed - Extremely unlucky
+
+
+Race: Halfling
+Subrace: Lightfoot Halfling
+Sex: Female
+Name: Rejenor the Thinker
+Age: Very Old
+Profession: Retired Scribe
+Motivated by: Failure
+Personality Traits: Mistaken, Stern, Crebral
+
+
+Race: Dragonborn
+Subrace: Copper Dragonborn
+Sex: Male
+Name: Dedellea
+Age: Young Adult
+Profession: Blacksmith
+Motivated by: Fear of loss
+Personality Traits: Disputatious, Unconvincing, Perceptive
+Additional Detail: Is owed a favor by a divine being
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Female
+Name: Silimett
+Age: Old
+Profession: Senior Rancher
+Motivated by: Sense of accomplishment
+Personality Traits: Scholarly, Dogmatic, Sharing
+
+
+Race: Half-Orc
+Sex: Male
+Name: Defarar
+Age: Child
+Profession: Fighter's apprentice
+Motivated by: Independence
+Personality Traits: Steady, Herioc, Unctuous
+Additional Detail: Strangely obsessed by a specific type of creature (skeletons, harpies, giants, etc)
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Name: Masarkan the Braggart
+Age: Young Adult
+Profession: Botanist
+Motivated by: Reputation
+Personality Traits: Invisible, Liberal, Patriotic
+
+
+Race: Aarakocra
+Sex: Male
+Name: Jenal
+Age: Child
+Profession: Rat Catcher
+Motivated by: Fear of rejection
+Personality Traits: Mannerless, One-sided, Scrupulous
+Additional Detail: Owes a favor to a minor merchant
+
+
+Race: Aasimar
+Sex: Female
+Name: Benetil
+Age: Young Adult
+Profession: Leatherworker
+Motivated by: Power
+Personality Traits: Unrealistic, Good-natured, Humorous
+
+
+Race: Elf
+Subrace: Dark Elf
+Sex: Male
+Name: Vasher the Hand
+Age: Old
+Profession: Master Falconer
+Motivated by: Family
+Personality Traits: Flamboyant, Agonizing, Natty
+
+
+Race: Goliath
+Sex: Female
+Name: Nachedis
+Age: Old
+Profession: Senior Jester
+Motivated by: Justice
+Personality Traits: Self-conscious, Libidinous, Fair
+
+
+Race: Halfling
+Subrace: Stout Halfling
+Sex: Male
+Name: Vazenal
+Age: Young Adult
+Profession: Squire
+Motivated by: Wealth & Status
+Personality Traits: Impractical, Colorless, Sensual
+Additional Detail: Strangely obsessed by weapons
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Female
+Name: Shen
+Age: Child
+Profession: Shoemaker's apprentice
+Motivated by: Power
+Personality Traits: Enthusiastic, Escapist, Stolid
+Additional Detail: Protected by a member of the local guard
+
+
+Race: Elf
+Subrace: Aquatic Elf
+Sex: Female
+Name: Najenus
+Age: Child
+Motivated by: Pride
+Personality Traits: Deceptive, Crisp, Optimistic
+Additional Detail: Strangely obsessed by magic
+
+
+Race: Genasi
+Subrace: Earth Genasi
+Sex: Female
+Name: Keler the Runner
+Age: Very Old
+Profession: Retired Locksmith
+Motivated by: Unfulfillment
+Personality Traits: Spontaneous, Focused, Conciliatory
+
+
