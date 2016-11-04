@@ -7,12 +7,11 @@ public class Race {
 	Random randomGenerator = new Random();
 	public String chosenRace;
 	
-	ArrayList<String> raceList = new ArrayList<String>(); //don't declare vectors with a size to avoid declaring too big if the file changes
+	ArrayList<String> raceList = new ArrayList<String>();
 
      public Race() {
-    	 chosenRace= "";  //instantiate to ensure no null pointer errors
-    	 loadRaceList(); //make everything it's own method per Lunar's suggestion!
-    	 //System.out.println(chosenRace);
+    	 chosenRace= "";
+    	 loadRaceList(); 
      } //end Race()
      
      private void loadRaceList(){
@@ -46,11 +45,6 @@ public class Race {
     		    System.out.println(e.getMessage());
     		} //End try / catch
      }//End loadRaceList()
-     
-     public String getRace(){
-    	 return chosenRace;
-     }
-     
 }// End class
 
 

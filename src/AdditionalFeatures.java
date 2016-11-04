@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class AdditionalFeatures {
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "/").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
 	
 	ArrayList<String> motivationList = new ArrayList<String>();
 	ArrayList<String> personalityList = new ArrayList<String>();
@@ -115,7 +115,7 @@ public class AdditionalFeatures {
 	//Add in Nickname generation based off of profession and sex.
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
-		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
+		int hasNickname = assignNickname.nextInt(100); //Randomly decide if character has nickname
 		
 		if(hasNickname <= 35){
 			Random randomNickname = new Random();

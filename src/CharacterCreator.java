@@ -2,14 +2,26 @@ import java.util.ArrayList;
 
 public class CharacterCreator {
     public static void main(String[] args) {
-	    //Note to self: Consider adding each of these results to an arrayList, which can then just print everything at once. (17,Oct,2016)	
-		ArrayList<String> characterResults = new ArrayList<String>();
     	
+	    ArrayList<String> characterResults = new ArrayList<String>();
+	    
+	    //Foundation work to allow user choice; Explore how JComboBox works before going much further.
+	    //The goal is to have a pre-set list of selection options, that will be passed back into the For loop which creates the actual characters
+	    
+	    /*
+	    String userRace;
+	    String userSubRace;
+	    String userSex;
+	    String userName;
+	    String userAge;
+	    String userProfession;
+    	*/
+	    
 		for(int i = 0; i < 25; i++){	
 		//RACE SECTION    	
 	        Race thisRace = null; 
 			thisRace = new Race(); 
-				//thisRace.chosenRace = ""; //Define a desired race to output
+				//thisRace.chosenRace = "Half-Elf"; //Define a desired race to output
 			String myRace = thisRace.chosenRace; 
 			
 		//SUBRACE SECTION			
@@ -20,11 +32,12 @@ public class CharacterCreator {
 		//NAME (& SEX & AGE) SECTION			
 			Name thisName = null;
 			thisName = new Name();
+			String mySex = thisName.sex;	
 				//thisName.sex = ""; //Define a desired sex to output
-			String mySex = thisName.sex;			
-			String myName = thisName.fullName;
+			String myName = thisName.chosenName;
+				//thisName.chosenName = ""; //Pick your own name!
+			String myAge = thisName.chosenAge;
 				//thisName.chosenAge = "Very Old"; //Define a desired age to output
-			String myAge = thisName.chosenAge;			
 			
 		//PROFESSION (& ALIGNMENT) SECTION
 			Profession thisProfession = null;

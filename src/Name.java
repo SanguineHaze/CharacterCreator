@@ -22,12 +22,12 @@ public class Name {
 	public String lineValueMid;
 	public String lineNameEnd;
 	public String lineValueEnd;
-	public String fullName;
+	public String chosenName;
 	public String chosenAge;
 	
 	public Name(){
 		sex = "";
-		fullName = "";
+		chosenName = "";
 		chosenAge = "";
 		generateSex();
 		loadNameList();
@@ -159,7 +159,7 @@ public class Name {
 
 		String fullNameConversion = fullNameBuilder.replaceAll("\\'", "");
 
-		fullName = fullNameConversion.substring(0,1).toUpperCase() + fullNameConversion.substring(1);
+		chosenName = fullNameConversion.substring(0,1).toUpperCase() + fullNameConversion.substring(1);
 		
 		//DEBUG TOOL - check to see the built name
 		//System.out.println("Built Name: " + fullNameBuilder);
