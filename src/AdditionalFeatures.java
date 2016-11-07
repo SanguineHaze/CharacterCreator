@@ -21,7 +21,8 @@ public class AdditionalFeatures {
 	String chosenMotivation;
 	String chosenNickname;
 	String chosenDetail;
-	
+	private int nicknameChance;
+
 	public AdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
@@ -31,9 +32,16 @@ public class AdditionalFeatures {
 		loadPersonalityList();
 		generatePersonality();
 		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		nicknameChance = 35;
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+		
+	}
+	
+	public void setNicknameChance(int nicknameChance) {
+		nicknameChance = this.nicknameChance;
 	}
 	
 	//MOTIVATION SECTION
@@ -115,9 +123,12 @@ public class AdditionalFeatures {
 	//Add in Nickname generation based off of profession and sex.
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
-		int hasNickname = assignNickname.nextInt(100); //Randomly decide if character has nickname
+		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
 		
-		if(hasNickname <= 35){
+		System.out.println(hasNickname);
+		System.out.println(nicknameChance);
+		
+		if(hasNickname <= nicknameChance){
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(nicknameList.size());
 			chosenNickname = nicknameList.get(index);
