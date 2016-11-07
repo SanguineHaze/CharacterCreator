@@ -23,7 +23,7 @@ public class AdditionalFeatures {
 	String chosenDetail;
 	private int nicknameChance;
 
-	public AdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
+	public AdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = null;
@@ -33,15 +33,29 @@ public class AdditionalFeatures {
 		generatePersonality();
 		loadNicknameList();
 		setNicknameChance(nicknameChance);
-		nicknameChance = 35;
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
-		
+	}
+	
+	public AdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		nicknameChance = 35;
+		loadMotivationList();
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
-		nicknameChance = this.nicknameChance;
+		this.nicknameChance = nicknameChance;
 	}
 	
 	//MOTIVATION SECTION
@@ -125,8 +139,11 @@ public class AdditionalFeatures {
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
 		
-		System.out.println(hasNickname);
-		System.out.println(nicknameChance);
+		//DEBUG TOOL: Check nickname chance rolls
+		/*
+		System.out.println("HNN#: " + hasNickname);
+		System.out.println("NNC#: " + nicknameChance);
+		*/
 		
 		if(hasNickname <= nicknameChance){
 			Random randomNickname = new Random();

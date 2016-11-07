@@ -1,21 +1,31 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CharacterCreator {
     public static void main(String[] args) {
     	
 	    ArrayList<String> characterResults = new ArrayList<String>();
-	    
+	    Scanner sc = new Scanner(System.in);
 	    //Foundation work to allow user choice; Explore how JComboBox works before going much further.
 	    //The goal is to have a pre-set list of selection options, that will be passed back into the For loop which creates the actual characters
 	    
-	    /*
+	    //GET USER INPUT SECTION
+
 	    String userRace;
 	    String userSubRace;
 	    String userSex;
 	    String userName;
 	    String userAge;
 	    String userProfession;
-    	*/
+	    
+	    boolean inputNN = false;
+	    int nicknameChance = 0;
+	    if(inputNN){
+	    	System.out.println("Chance (0 -> 100) of having a nickname:");
+		    int userNickname = sc.nextInt();
+		    nicknameChance = userNickname;
+	    }	   	    
+
 	    
 		for(int i = 0; i < 1; i++){	
 		//RACE SECTION    	
@@ -55,8 +65,10 @@ public class CharacterCreator {
 			String myPersonality = thisPersonality.chosenPersonality;			
 			
 			AdditionalFeatures thisNickname = null;
-			thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);
-				thisNickname.setNicknameChance(99);
+			if(inputNN){
+				thisNickname = new AdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
+			}
+			thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);			
 			String myNickname = thisNickname.chosenNickname;
 			
 			AdditionalFeatures thisDetail = null;
