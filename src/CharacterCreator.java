@@ -27,7 +27,7 @@ public class CharacterCreator {
 	    }	   	    
 
 	    
-		for(int i = 0; i < 1; i++){	
+		for(int i = 0; i < 25; i++){	
 		//RACE SECTION    	
 	        Race thisRace = null; 
 			thisRace = new Race(); 
@@ -67,8 +67,9 @@ public class CharacterCreator {
 			AdditionalFeatures thisNickname = null;
 			if(inputNN){
 				thisNickname = new AdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
+			} else {
+				thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);	
 			}
-			thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);			
 			String myNickname = thisNickname.chosenNickname;
 			
 			AdditionalFeatures thisDetail = null;
@@ -114,9 +115,9 @@ public class CharacterCreator {
 		}//end FOR loop
 		
 		//CHARACTER WRITEOUT SECTION
-		/*
+		
 			@SuppressWarnings("unused")
 			WriteToFile thisWrite = new WriteToFile(characterResults);
-		*/
+		
     }// End main()    
 }
