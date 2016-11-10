@@ -24,20 +24,22 @@ public class AdditionalFeatures {
 	private int nicknameChance;
 	
 	public AdditionalFeatures(){
-			chosenPersonality = "";
-			chosenMotivation = "";
-			chosenDetail = null;
-			loadMotivationList();
-			generateMotivation();
-			loadPersonalityList();
-			generatePersonality();
-			loadNicknameList();
-			setNicknameChance(nicknameChance);
-			generateNickname("adult", "none", "Dwarf");
-			loadDetailsList();
-			generateDetails("Dwarf", "none");
-		}
-
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		loadMotivationList();
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(0);
+		generateNickname("adult", "none", "Dwarf");
+		loadDetailsList();
+		generateDetails("Dwarf", "none");
+		//DEBUG TOOL - See which constructor is fucking up
+		//System.out.println("AddFeat 1");
+	}
+	
 	public AdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
@@ -51,22 +53,25 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+		//DEBUG TOOL - See which constructor is fucking up
+		//System.out.println("AddFeat 2");
 	}
 	
 	public AdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = null;
-		nicknameChance = 35;
 		loadMotivationList();
 		generateMotivation();
 		loadPersonalityList();
 		generatePersonality();
 		loadNicknameList();
-		setNicknameChance(nicknameChance);
+		setNicknameChance(35);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+		//DEBUG TOOL - See which constructor is fucking up
+		//System.out.println("AddFeat 3");
 	}	
 
 	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
@@ -81,21 +86,24 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+		//DEBUG TOOL - See which constructor is fucking up
+		//System.out.println("AddFeat 4");
 	}
 	
 	public void generateNewAdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = null;
-		nicknameChance = 35;
 		generateMotivation();
 		loadPersonalityList();
 		generatePersonality();
 		loadNicknameList();
-		setNicknameChance(nicknameChance);
+		setNicknameChance(35);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+		//DEBUG TOOL - See which constructor is fucking up
+		//System.out.println("AddFeat 5");
 	}
 	
 	public void setNicknameChance(int nicknameChance) {

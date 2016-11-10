@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 
 public class CharacterCreator {
     public static void main(String[] args) {
-    	
+
     	long startTime = System.nanoTime();
     	
 	    ArrayList<String> characterResults = new ArrayList<String>();
@@ -38,6 +38,7 @@ public class CharacterCreator {
 			String myPersonality = "";		
 			String myNickname = "";	
 			String myDetail = "";
+
 	    
 	    boolean inputNN = false;
 	    int nicknameChance = 0;
@@ -54,15 +55,17 @@ public class CharacterCreator {
 		AdditionalFeatures thisMotivation = new AdditionalFeatures();
 
 	    
-		for(int i = 0; i < 1000; i++){	
+		for(int i = 0; i < 10; i++){	
 		//RACE SECTION    	
+
 			thisRace.pickNewRace();
 			myRace = thisRace.chosenRace;
+				//thisRace.chosenRace = "Half-Elf"; //Define a desired race to output
 			
 		//SUBRACE SECTION			
-			mySubRace = thisSubRace.getChosenRace(myRace);			
-					
-		//NAME (& SEX & AGE) SECTION			
+			mySubRace = thisSubRace.getChosenRace(myRace);
+
+		//NAME (& SEX & AGE) SECTION	
 			thisName.generateNewNameData();
 			mySex = thisName.sex;	
 				//thisName.sex = ""; //Define a desired sex to output
@@ -85,7 +88,7 @@ public class CharacterCreator {
 			}			
 			myMotivation = thisMotivation.chosenMotivation;			
 			myPersonality = thisMotivation.chosenPersonality;			 
-			myNickname = thisMotivation.chosenNickname;			
+			myNickname = thisMotivation.chosenNickname;	
 			myDetail = thisMotivation.chosenDetail;
 			
 			
@@ -133,6 +136,6 @@ public class CharacterCreator {
 			
 			long endTime = System.nanoTime();
 			System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
-		
+
     }// End main()    
 }
