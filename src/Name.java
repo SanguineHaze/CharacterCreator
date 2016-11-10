@@ -29,8 +29,8 @@ public class Name {
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
-		generateSex();
 		loadNameList();
+		generateSex();
 		generateNameLists();
 		generateBeginning();
 		generateMiddle();
@@ -38,6 +38,19 @@ public class Name {
 		generateFullName();
 		generateAge();
 	}//end Name()
+	
+	public void generateNewNameData(){
+		sex = "";
+		chosenName = "";
+		chosenAge = "";
+		generateSex();
+		generateNameLists();
+		generateBeginning();
+		generateMiddle();
+		generateEnd();
+		generateFullName();
+		generateAge();
+	}
 	
 	//First, lets select a sex for our new character
 	private void generateSex() {
@@ -63,7 +76,7 @@ public class Name {
 	//Second, generate a list of names
 	private void loadNameList(){
 		//The master list containing all Name options
-		String nameListTargetFile = filesDirectory + "NameDefault.txt"; //path to the file on local environment.
+		String nameListTargetFile = filesDirectory + "sourceData\\NameDefault.txt"; //path to the file on local environment.
 		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);

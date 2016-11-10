@@ -17,6 +17,14 @@ public class Profession {
 	
 	ArrayList<String> professionList = new ArrayList<String>();
 	
+	public Profession(){
+		chosenProfession = "";
+		professionListOverride();
+		generateProfessionList("Adult");
+		loadProfessionList();
+		generateProfession("Adult");
+	}
+	
 	public Profession(String chosenAge){
 		chosenProfession = "";
 		professionListOverride();
@@ -24,6 +32,13 @@ public class Profession {
 		loadProfessionList();
 		generateProfession(chosenAge);
 	}//end Profession()
+	
+	public void generateNewProfession(String chosenAge){
+		chosenProfession = "";
+		professionListOverride();
+		generateProfessionList(chosenAge);
+		generateProfession(chosenAge);
+	}
 	
 	public void professionListOverride(){
 		if("child".equals(override)){
@@ -36,24 +51,24 @@ public class Profession {
 	private void generateProfessionList(String chosenAge){
 		if("Child".equals(chosenAge)){
 			if(childSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = filesDirectory + "Professions.txt";
+				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 			} else {
-				chosenProfessionList = filesDirectory + "ProfessionsChild.txt";
+				chosenProfessionList = filesDirectory + "sourceData\\ProfessionsChild.txt";
 			}//end if childSafeListOverride	
 		} else if("Young Adult".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "Professions.txt";
+			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 		} else if("Adult".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "Professions.txt";
+			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 		} else if("Old".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "Professions.txt";
+			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 		} else if("Very Old".equals(chosenAge)){
 			if(veryOldSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = filesDirectory + "Professions.txt";
+				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 			} else {
-				chosenProfessionList = filesDirectory + "Professions.txt";
+				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 			}
 		} else {
-			chosenProfessionList = filesDirectory + "Professions.txt";
+			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
 		}
 	}//end generateProfessionList()
 	

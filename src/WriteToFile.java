@@ -16,7 +16,7 @@ public class WriteToFile {
 	public WriteToFile(ArrayList<String> characterResults) {
 		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_HH_mm_ss");
 		theDate = dateFormat.format(date);
-		String filePath = filesDirectory + "CharacterResults";
+		String filePath = filesDirectory + "NPCResults\\CharacterResults";
 		
 		try{
             PrintWriter pw = new PrintWriter(filePath + theDate + ".txt");

@@ -1,0 +1,248 @@
+Race: Tiefling
+Subrace: Demonic Tiefling
+Sex: Female
+Name: Vapennal the Mad
+Age: Old
+Profession: Senior Shoemaker
+Motivated by: Honor
+Personality Traits: Dissonant, Open, Suspicious
+
+
+Race: Dwarf
+Subrace: Hill Dwarf
+Sex: Male
+Name: Panetea the Mad
+Age: Child
+Profession: Brothel Owner
+Motivated by: Basic needs
+Personality Traits: Stubborn, Old-fashined, Rustic
+Additional Detail: Is owed a favor by a minor Lord
+
+
+Race: Aasimar
+Sex: Male
+Name: Asarkil the Mad
+Age: Very Old
+Profession: Retired Poet
+Motivated by: Personal goals or dreams
+Personality Traits: Moody, Impressionable, Inert
+
+
+Race: Elf
+Subrace: Wood Elf
+Sex: Female
+Name: Jozenett the Mad
+Age: Child
+Motivated by: A need to improve inequality
+Personality Traits: Unreligious, Deceitful, Solemn
+
+
+Race: Dwarf
+Subrace: Mountain Dwarf
+Sex: Male
+Name: Depennil the Mad
+Age: Child
+Profession: Horse Trainer
+Motivated by: Unfulfillment
+Personality Traits: Foolish, Unctuous, Inhibited
+
+
+Race: Half-Orc
+Sex: Male
+Name: Vadellel the Mad
+Age: Very Old
+Profession: Retired Dairymaid
+Motivated by: Social contact
+Personality Traits: Noncommittal, Courteous, Contemplative
+
+
+Race: Human
+Sex: Male
+Name: Mayoral the Plagued
+Age: Adult
+Profession: Singer
+Motivated by: Independence
+Personality Traits: Amoral, One-sided, Unctuous
+Additional Detail: Cursed - Werecat
+
+
+Race: Gnome
+Subrace: Forest Gnome
+Sex: Female
+Name: Kisarkett the Plagued
+Age: Young Adult
+Profession: Playwright
+Motivated by: Fear of shame
+Personality Traits: Guileless, Wise, Lovable
+Additional Detail: Owns a map to a totally useless location
+
+
+Race: Dragonborn
+Subrace: Copper Dragonborn
+Sex: Female
+Name: Paquiler the Plagued
+Age: Old
+Profession: Brothel Owner
+Motivated by: Personal pride
+Personality Traits: Excitable, Conservative, Frivolous
+
+
+Race: Half-Elf
+Subrace: Half Aquatic Elf
+Sex: Female
+Name: Vapenness the Plagued
+Age: Child
+Motivated by: Fear of humiliation
+Personality Traits: Argumentative, Vivacious, Malicious
+
+
+Race: Genasi
+Subrace: Earth Genasi
+Sex: Male
+Name: Rekelar the Hand
+Age: Adult
+Profession: Carpenter
+Motivated by: Power
+Personality Traits: Iconoclastic, Erratic, Unconvincing
+
+
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Male
+Name: Parondar the Judged
+Age: Very Old
+Profession: Retired Artist
+Motivated by: Necessity
+Personality Traits: Herioc, Angry, Gentle
+Additional Detail: Strangely obsessed with rocks
+
+
+Race: Halfling
+Subrace: Lightfoot Halfling
+Sex: Male
+Name: Elpennor the Judged
+Age: Young Adult
+Profession: Weaponsmith
+Motivated by: Unfulfillment
+Personality Traits: Tough, Progressive, Discreet
+Additional Detail: Strangely obsessed by a specific mundane item (table, rock, candlesticks, etc)
+
+
+Race: Human
+Sex: Female
+Name: Mazenar the Killer
+Age: Very Old
+Profession: Retired Scribe
+Motivated by: Wealth & Status
+Personality Traits: Paternalistic, Pretentious, Flamboyant
+Additional Detail: Unnaturally Lucky
+
+
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Female
+Name: Ofar the Nine-fingered
+Age: Old
+Profession: City Guard
+Motivated by: Fear of loss
+Personality Traits: Selfless, Troublesome, Hostile
+Additional Detail: Cursed - Madness
+
+
+Race: Half-Elf
+Subrace: Half Wood Elf
+Sex: Female
+Name: Elbarea the Nine-fingered
+Age: Adult
+Profession: Beast-Tamer (Circus)
+Motivated by: Obedience
+Personality Traits: Humorous, Competitive, Irascible
+
+
+Race: Human
+Sex: Female
+Name: Elshena the Nine-fingered
+Age: Young Adult
+Profession: Mason
+Motivated by: Obedience
+Personality Traits: Melancholic, Healthy, Gloomy
+
+
+Race: Half-Orc
+Sex: Male
+Name: Dequilus the Nine-fingered
+Age: Very Old
+Profession: Retired Smuggler
+Motivated by: Cowardice
+Personality Traits: Cowardly, Reactive, Ridiculous
+Additional Detail: Unnaturally Lucky
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Male
+Name: Tahalor the Nine-fingered
+Age: Very Old
+Profession: Retired Brothel Owner
+Motivated by: Fear of shame
+Personality Traits: Mannered, Irritable, Abrasive
+
+
+Race: Half-Orc
+Sex: Female
+Name: Agrana the Eight-fingered
+Age: Child
+Profession: Jester
+Motivated by: Fear of death
+Personality Traits: Leaderly, Sordid, Businesslike
+
+
+Race: Aasimar
+Sex: Female
+Name: Obarid the Eight-fingered
+Age: Very Old
+Profession: Retired Rogue
+Motivated by: Family
+Personality Traits: Fickle, Crazy, Childish
+
+
+Race: Dragonborn
+Subrace: White Dragonborn
+Sex: Female
+Name: Nalimin the Eight-fingered
+Age: Very Old
+Profession: Retired Thug
+Motivated by: Prestige
+Personality Traits: Angry, Unrestrained, Scrupulous
+
+
+Race: Gnome
+Subrace: Rock Gnome
+Sex: Male
+Name: Elpennai the Reaver
+Age: Old
+Profession: Scribe's Assistant
+Motivated by: Hatred
+Personality Traits: Provocative, Submissive, Methodical
+Additional Detail: Is owed a favor by a member of a secret society
+
+
+Race: Aasimar
+Sex: Female
+Name: Kikelam the Runner
+Age: Child
+Profession: Ferryman
+Motivated by: Fear of shame
+Personality Traits: Shrewd, Adaptable, Persuasive
+
+
+Race: Elf
+Subrace: Eladrin
+Sex: Male
+Name: Bevashil the Runner
+Age: Young Adult
+Profession: Abbot
+Motivated by: Fear of death
+Personality Traits: Mawkish, Uncreative, Distractible
+
+

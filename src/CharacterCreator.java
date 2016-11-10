@@ -1,14 +1,26 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 public class CharacterCreator {
     public static void main(String[] args) {
     	
+    	long startTime = System.nanoTime();
+    	
 	    ArrayList<String> characterResults = new ArrayList<String>();
 	    Scanner sc = new Scanner(System.in);
-	    //Foundation work to allow user choice; Explore how JComboBox works before going much further.
-	    //The goal is to have a pre-set list of selection options, that will be passed back into the For loop which creates the actual characters
 	    
+	    SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				JFrame frame = new JFrame("HazeGaming NPC Generator");
+	    		frame.setSize(800,700);
+	    		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    		frame.setVisible(true);
+			}
+	    });
+	    	    
 	    //GET USER INPUT SECTION
 
 	    String userRace;
@@ -17,6 +29,15 @@ public class CharacterCreator {
 	    String userName;
 	    String userAge;
 	    String userProfession;
+		    String myRace = ""; 
+			String mySubRace = "";	
+			String mySex = "";	
+			String myName = "";
+			String myAge = "";
+			String myMotivation = "";	
+			String myPersonality = "";		
+			String myNickname = "";	
+			String myDetail = "";
 	    
 	    boolean inputNN = false;
 	    int nicknameChance = 0;
@@ -25,56 +46,47 @@ public class CharacterCreator {
 		    int userNickname = sc.nextInt();
 		    nicknameChance = userNickname;
 	    }	   	    
+	    
+        Race thisRace = new Race(); 
+    	SubRace thisSubRace = new SubRace();		
+		Name thisName = new Name();
+		Profession thisProfession = new Profession();
+		AdditionalFeatures thisMotivation = new AdditionalFeatures();
 
 	    
-		for(int i = 0; i < 25; i++){	
+		for(int i = 0; i < 1000; i++){	
 		//RACE SECTION    	
-	        Race thisRace = null; 
-			thisRace = new Race(); 
-				//thisRace.chosenRace = "Half-Elf"; //Define a desired race to output
-			String myRace = thisRace.chosenRace; 
+			thisRace.pickNewRace();
+			myRace = thisRace.chosenRace;
 			
 		//SUBRACE SECTION			
-	    	SubRace thisSubRace = null;
-			thisSubRace = new SubRace();
-			String mySubRace = thisSubRace.getChosenRace(myRace);			
+			mySubRace = thisSubRace.getChosenRace(myRace);			
 					
 		//NAME (& SEX & AGE) SECTION			
-			Name thisName = null;
-			thisName = new Name();
-			String mySex = thisName.sex;	
+			thisName.generateNewNameData();
+			mySex = thisName.sex;	
 				//thisName.sex = ""; //Define a desired sex to output
-			String myName = thisName.chosenName;
+			myName = thisName.chosenName;
 				//thisName.chosenName = ""; //Pick your own name!
-			String myAge = thisName.chosenAge;
+			myAge = thisName.chosenAge;
 				//thisName.chosenAge = "Very Old"; //Define a desired age to output
 			
 		//PROFESSION (& ALIGNMENT) SECTION
-			Profession thisProfession = null;
-			thisProfession = new Profession(myAge);
+			thisProfession.generateNewProfession(myAge);
 				//thisProfession.chosenProfession = "Baron / Baroness";
 			String myProfession = thisProfession.chosenProfession;			
 			
 		//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
-			AdditionalFeatures thisMotivation = null;
-			thisMotivation = new AdditionalFeatures(myAge, myProfession, myRace);
-			String myMotivation = thisMotivation.chosenMotivation;			
-			
-			AdditionalFeatures thisPersonality = null;
-			thisPersonality = new AdditionalFeatures(myAge, myProfession, myRace);
-			String myPersonality = thisPersonality.chosenPersonality;			
-			
-			AdditionalFeatures thisNickname = null;
 			if(inputNN){
-				thisNickname = new AdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
-			} else {
-				thisNickname = new AdditionalFeatures(myAge, myProfession, myRace);	
+				thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
 			}
-			String myNickname = thisNickname.chosenNickname;
-			
-			AdditionalFeatures thisDetail = null;
-			thisDetail = new AdditionalFeatures(myAge, myRace, myProfession);
-			String myDetail = thisDetail.chosenDetail;
+			else{
+				thisMotivation.generateNewAdditionalFeatures(myAge, myProfession, myRace);
+			}			
+			myMotivation = thisMotivation.chosenMotivation;			
+			myPersonality = thisMotivation.chosenPersonality;			 
+			myNickname = thisMotivation.chosenNickname;			
+			myDetail = thisMotivation.chosenDetail;
 			
 			
 		//CHARACTER SYSOUT SECTION
@@ -118,6 +130,9 @@ public class CharacterCreator {
 		
 			@SuppressWarnings("unused")
 			WriteToFile thisWrite = new WriteToFile(characterResults);
+			
+			long endTime = System.nanoTime();
+			System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
 		
     }// End main()    
 }

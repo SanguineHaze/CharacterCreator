@@ -22,6 +22,21 @@ public class AdditionalFeatures {
 	String chosenNickname;
 	String chosenDetail;
 	private int nicknameChance;
+	
+	public AdditionalFeatures(){
+			chosenPersonality = "";
+			chosenMotivation = "";
+			chosenDetail = null;
+			loadMotivationList();
+			generateMotivation();
+			loadPersonalityList();
+			generatePersonality();
+			loadNicknameList();
+			setNicknameChance(nicknameChance);
+			generateNickname("adult", "none", "Dwarf");
+			loadDetailsList();
+			generateDetails("Dwarf", "none");
+		}
 
 	public AdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
@@ -52,6 +67,35 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		loadDetailsList();
 		generateDetails(chosenRace, chosenProfession);
+	}	
+
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
+	}
+	
+	public void generateNewAdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		nicknameChance = 35;
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
@@ -60,7 +104,7 @@ public class AdditionalFeatures {
 	
 	//MOTIVATION SECTION
 	private void loadMotivationList(){
-		String motivationListTargetFile = filesDirectory + "Motivations.txt";
+		String motivationListTargetFile = filesDirectory + "sourceData\\Motivations.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
@@ -87,7 +131,7 @@ public class AdditionalFeatures {
 	
 	//PERSONALITY SECTION
 	private void loadPersonalityList() {
-		String personalityListTargetFile = filesDirectory + "Personalities.txt";
+		String personalityListTargetFile = filesDirectory + "sourceData\\Personalities.txt";
 		
 		try {
 			ReadFromFile file = new ReadFromFile(personalityListTargetFile);
@@ -116,7 +160,7 @@ public class AdditionalFeatures {
 	
 	//NICKNAME SECTION
 	private void loadNicknameList(){
-		String nicknameListTargetFile = filesDirectory + "Nicknames.txt";
+		String nicknameListTargetFile = filesDirectory + "sourceData\\Nicknames.txt";
 		
 		try{
 			ReadFromFile file = new ReadFromFile(nicknameListTargetFile);
@@ -154,7 +198,7 @@ public class AdditionalFeatures {
 	}//end generateNickname()
 	
 	private void loadDetailsList(){
-		String detailsListTargetFile = filesDirectory + "Details.txt";
+		String detailsListTargetFile = filesDirectory + "sourceData\\Details.txt";
 		try {
 			ReadFromFile file = new ReadFromFile(detailsListTargetFile);
 			detailsList = file.OpenFile();
@@ -162,7 +206,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}//end Try/Catch - Default Details List
 		
-		String theLocalReplacementTargetFile = filesDirectory + "TheLocalReplacement.txt";
+		String theLocalReplacementTargetFile = filesDirectory + "sourceData\\TheLocalReplacement.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(theLocalReplacementTargetFile);
 			theLocalList = file.OpenFile();
@@ -170,7 +214,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String favorToReplacementTargetFile = filesDirectory + "OwesFavorTo.txt";
+		String favorToReplacementTargetFile = filesDirectory + "sourceData\\OwesFavorTo.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(favorToReplacementTargetFile);
 			favorToList = file.OpenFile();
@@ -178,7 +222,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String protectedByReplacementFile = filesDirectory + "ProtectedBy.txt";
+		String protectedByReplacementFile = filesDirectory + "sourceData\\ProtectedBy.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(protectedByReplacementFile);
 			protectedByList = file.OpenFile();
@@ -186,7 +230,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String mapToReplacementFile = filesDirectory + "MapTo.txt";
+		String mapToReplacementFile = filesDirectory + "sourceData\\MapTo.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(mapToReplacementFile);
 			mapToList = file.OpenFile();
@@ -194,7 +238,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String possessesAReplacementFile = filesDirectory + "PossessesA.txt";
+		String possessesAReplacementFile = filesDirectory + "sourceData\\PossessesA.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(possessesAReplacementFile);
 			possessesAList = file.OpenFile();
@@ -202,7 +246,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String obsessedByReplacementFile = filesDirectory + "ObsessedBy.txt";
+		String obsessedByReplacementFile = filesDirectory + "sourceData\\ObsessedBy.txt";
 		try {
 			ReadFromFile file = new ReadFromFile(obsessedByReplacementFile);
 			obsessedByList = file.OpenFile();
@@ -210,7 +254,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-		String cursedReplacementFile = filesDirectory + "Cursed.txt";
+		String cursedReplacementFile = filesDirectory + "sourceData\\Cursed.txt";
 		try{
 			ReadFromFile file = new ReadFromFile(cursedReplacementFile);
 			cursedByList = file.OpenFile();

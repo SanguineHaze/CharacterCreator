@@ -1,0 +1,260 @@
+Race: Elf
+Subrace: Aquatic Elf
+Sex: Female
+Name: Lachedid the Seven-fingered
+Age: Old
+Profession: Senior Maid
+Motivated by: Order
+Personality Traits: Solid, Serious, Condemnatory
+
+
+Race: Half-Elf
+Subrace: Half Wood Elf
+Sex: Female
+Name: Kigranett the Six-fingered
+Age: Child
+Profession: Playwright's apprentice
+Motivated by: Social contact
+Personality Traits: Masculine  (Manly), Crisp, Grim
+
+
+Race: Aasimar
+Sex: Male
+Name: Bequil
+Age: Old
+Profession: Senior Performer
+Motivated by: Wealth & Status
+Personality Traits: False, Chummy, Gloomy
+Additional Detail: Possesses a crippling fear of a specific insect (ant, spider, moth, etc)
+
+
+Race: Halfling
+Subrace: Lightfoot Halfling
+Sex: Female
+Name: Jovashic 'Smiles'
+Age: Adult
+Profession: City Guard
+Motivated by: Stubbornness
+Personality Traits: Determined, Insensitive, Pruposeful
+Additional Detail: Owns a map to hidden pirate treasure
+
+
+Race: Genasi
+Subrace: Water Genasi
+Sex: Male
+Name: Tavashac the Dragonheart
+Age: Very Old
+Profession: Retired Blacksmith
+Motivated by: Past mistakes
+Personality Traits: Stubborn, Power-hungry, Delicate
+Additional Detail: Unnaturally Lucky
+
+
+Race: Aarakocra
+Sex: Male
+Name: Defarett the Weak
+Age: Child
+Profession: Shepherd
+Motivated by: A desire to change the world around them
+Personality Traits: Hidebound, Retiring, Leaderly
+Additional Detail: Is owed a favor by a shady thief
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Name: Yorer the Inebriated
+Age: Old
+Profession: Senior Brigand
+Motivated by: Order
+Personality Traits: Authoritarian, Unhurried, Brutal
+Additional Detail: Protected by an angel
+
+
+Race: Tiefling
+Subrace: Demonic Tiefling
+Sex: Male
+Name: Kihalic the Wise
+Age: Adult
+Profession: Scribe's Assistant
+Motivated by: Tales of old heroes
+Personality Traits: Dependent, Colorful, Irresponsible
+Additional Detail: Strangely obsessed with insects
+
+
+Race: Tiefling
+Subrace: Demonic Tiefling
+Sex: Female
+Name: Elvashid the Wolfheart
+Age: Child
+Motivated by: A need to improve inequality
+Personality Traits: Pugnacious, Solemn, Knowledge
+
+
+Race: Aasimar
+Sex: Male
+Name: Fasarkac the Renegade
+Age: Old
+Profession: Knight
+Motivated by: Revenge
+Personality Traits: Accessible, Disrespectful, Devious
+Additional Detail: Unnaturally Lucky
+
+
+Race: Half-Elf
+Subrace: Half Sun Elf
+Sex: Male
+Name: Tajenea the Honorable
+Age: Young Adult
+Profession: Dancer
+Motivated by: A desire to change the world around them
+Personality Traits: Distractible, Repentant, Unhealthy
+Additional Detail: Possesses a magical spellbook
+
+
+Race: Elf
+Subrace: Eladrin
+Sex: Male
+Name: Tayoran
+Age: Adult
+Profession: Dairymaid
+Motivated by: Hope for the future
+Personality Traits: Impatient, Aloof, Pedantic
+Additional Detail: Possesses a property deed
+
+
+Race: Dragonborn
+Subrace: Gold Dragonborn
+Sex: Male
+Name: Jenid the Swindler
+Age: Old
+Profession: Master Printer / Copier
+Motivated by: Stubbornness
+Personality Traits: Crass, Puritanical, Contemptible
+
+
+Race: Genasi
+Subrace: Fire Genasi
+Sex: Female
+Name: Deyorin the Inebriated
+Age: Adult
+Profession: Jester
+Motivated by: Necessity
+Personality Traits: Healthy, Earnest, Impressionable
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Male
+Name: Papennic
+Age: Young Adult
+Profession: Advisor
+Motivated by: Social status
+Personality Traits: Ungrateful, Challenging, Forthright
+Additional Detail: Owns a map to an aquatic elf city
+
+
+Race: Genasi
+Subrace: Fire Genasi
+Sex: Female
+Name: Kelus the Wise
+Age: Young Adult
+Profession: General Laborer
+Motivated by: Competitive spirit
+Personality Traits: Brutal, Obsessive, Melancholic
+Additional Detail: Unnaturally Lucky
+
+
+Race: Dwarf
+Subrace: Duergar
+Sex: Female
+Name: Beyorus
+Age: Young Adult
+Profession: Forester
+Motivated by: Social contact
+Personality Traits: Obsessive, Hedonistic, Benevolent
+
+
+Race: Dwarf
+Subrace: Mountain Dwarf
+Sex: Male
+Name: Malimis
+Age: Very Old
+Profession: Retired Brigand
+Motivated by: Fear of loss
+Personality Traits: Negativistic, Envious, Impractical
+Additional Detail: Owes a favor to the local blacksmith
+
+
+Race: Genasi
+Subrace: Air Genasi
+Sex: Female
+Name: Sirondic the Plagued
+Age: Old
+Profession: Master Cartographer
+Motivated by: Stubbornness
+Personality Traits: Clumsy, Aimless, Dreamy
+Additional Detail: Possesses a specific phobia (any) 
+
+
+Race: Gnome
+Subrace: Forest Gnome
+Sex: Female
+Name: Yorac
+Age: Very Old
+Profession: Retired Miller
+Motivated by: Sense of accomplishment
+Personality Traits: Sarcastic, Organized, Forthright
+Additional Detail: Strangely obsessed with boobs
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Name: Jeness
+Age: Adult
+Profession: Smuggler
+Motivated by: Survival
+Personality Traits: Maternal, Busy, Anxious
+
+
+Race: Dragonborn
+Subrace: Black Dragonborn
+Sex: Male
+Name: Fayoror
+Age: Young Adult
+Profession: Ringman (Circus)
+Motivated by: Fear of regret
+Personality Traits: Romantic, Trendy, Businesslike
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Name: Kichedai
+Age: Old
+Profession: Senior Government Official
+Motivated by: Personal goals or dreams
+Personality Traits: Mealymouthed, Exciting, Trusting
+
+
+Race: Gnome
+Subrace: Rock Gnome
+Sex: Female
+Name: Sidellea
+Age: Adult
+Profession: Performer
+Motivated by: Revenge
+Personality Traits: Colorless, Paranoid, Forgetful
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Female
+Name: Shenis
+Age: Old
+Profession: Master Sheepshearer
+Motivated by: Honor
+Personality Traits: Compulsive, Vulnerable, Disputatious
+
+

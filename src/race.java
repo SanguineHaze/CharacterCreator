@@ -14,10 +14,21 @@ public class Race {
     	 loadRaceList(); 
      } //end Race()
      
+     public void pickNewRace(){
+    	 chosenRace= "";
+	   	int index = randomGenerator.nextInt(raceList.size());
+	   	chosenRace = raceList.get(index);
+		chosenRace = chosenRace.replace("RACE:", "");
+		//DEBUG TOOL: Check to see how big raceList ArrayList is
+	   	//System.out.println("Debug Info: raceList is " + raceList.size() + " items"); 
+		//DEBUG TOOL: check to see what value is being assigned to Index
+	    //System.out.println("Debug Info: index has been randomly set to " + index); 
+     }
+     
      private void loadRaceList(){
     	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
     	 //The master list, containing all Races
-    	 String targetFile = filesDirectory + "Race.txt"; //path to the file on local environment.
+    	 String targetFile = filesDirectory + "sourceData\\Race.txt"; //path to the file on local environment.
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);
@@ -31,20 +42,10 @@ public class Race {
     		        System.out.println(out);
     		    }
     		    */
-    		    
-    		   	int index = randomGenerator.nextInt(raceList.size());
-    		   	this.chosenRace = raceList.get(index);
-    			this.chosenRace = chosenRace.replace("RACE:", "");
-    			//DEBUG TOOL: Check to see how big raceList ArrayList is
-    		   	//System.out.println("Debug Info: raceList is " + raceList.size() + " items"); 
-    			//DEBUG TOOL: check to see what value is being assigned to Index
-    		    //System.out.println("Debug Info: index has been randomly set to " + index); 
-    			
+    		   
     		} catch (Exception e) {
     		    //Default error message
     		    System.out.println(e.getMessage());
     		} //End try / catch
      }//End loadRaceList()
 }// End class
-
-

@@ -1,0 +1,251 @@
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Name: Mashenan
+Age: Young Adult
+Profession: Scribe's Assistant
+Motivated by: Stubbornness
+Personality Traits: Small-thinking, Kind, Cantakerous
+Additional Detail: Possesses a map to the nearest latrine
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Female
+Name: Agranil
+Age: Adult
+Profession: Scribe's Assistant
+Motivated by: Fear of humiliation
+Personality Traits: Persuasive, Perfectionist, Farsighted
+Additional Detail: Owns a map to a distant land
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Female
+Name: Majeness the Swindler
+Age: Adult
+Profession: Artist
+Motivated by: Fear of shame
+Personality Traits: Upright, Insightful, Suspicious
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Name: Lalimam the Plagued
+Age: Adult
+Profession: Baker
+Motivated by: Obedience
+Personality Traits: Providential, Careless, Brilliant
+Additional Detail: Cursed - Werecat
+
+
+Race: Aarakocra
+Sex: Male
+Name: Tazener the Nine-fingered
+Age: Young Adult
+Profession: Minstrel
+Motivated by: Unfulfillment
+Personality Traits: Emotional, Masculine  (Manly), Helpful
+
+
+Race: Tiefling
+Subrace: Infernal Tiefling
+Sex: Female
+Name: Tashenar the Heroic
+Age: Child
+Profession: Squire
+Motivated by: Prestige
+Personality Traits: Articulate, Discreet, Lazy
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Male
+Name: Ovashel
+Age: Very Old
+Profession: Retired Courier
+Motivated by: Tales of old heroes
+Personality Traits: Unreflective, Ritualistic, Idealistic
+
+
+Race: Half-Orc
+Sex: Male
+Name: Aturan the Scared
+Age: Young Adult
+Profession: Smuggler
+Motivated by: Fear of rejection
+Personality Traits: Humorous, Irrational, Prudent
+
+
+Race: Half-Orc
+Sex: Male
+Name: Kikelin 'Smiles'
+Age: Child
+Motivated by: Greed
+Personality Traits: Unchanging, Aimless, Discontented
+Additional Detail: Possesses a cursed shield
+
+
+Race: Genasi
+Subrace: Fire Genasi
+Sex: Male
+Name: Revashett the Swindler
+Age: Very Old
+Profession: Retired Poet
+Motivated by: Revenge
+Personality Traits: Contemplative, Emotional, Perceptive
+
+
+Race: Dragonborn
+Subrace: Green Dragonborn
+Sex: Female
+Name: Tashena
+Age: Young Adult
+Profession: Pig Farmer
+Motivated by: Pride
+Personality Traits: Sedentary, Thievish, Discontented
+
+
+Race: Elf
+Subrace: Aquatic Elf
+Sex: Male
+Name: Vagranid
+Age: Young Adult
+Profession: Bodyguard
+Motivated by: A desire to change the world around them
+Personality Traits: Dutiful, Demanding, Accessible
+
+
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Male
+Name: Layoran
+Age: Old
+Profession: Master Guildmaster
+Motivated by: Fear of regret
+Personality Traits: Unself-critical, Articulate, Surprising
+
+
+Race: Goliath
+Sex: Female
+Name: Sarkil
+Age: Old
+Profession: Baron / Baroness
+Motivated by: Stubbornness
+Personality Traits: Aggressive, Imitative, Arrogant
+Additional Detail: Owns a map to grandma's house
+
+
+Race: Aarakocra
+Sex: Female
+Name: Pavashel
+Age: Adult
+Profession: Actor
+Motivated by: A desire to change the world around them
+Personality Traits: Envious, Disorderly, Melancholic
+Additional Detail: Protected by a powerful deity
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Name: Bekelan the Plagued
+Age: Old
+Profession: Senior Town Drunk
+Motivated by: Loyalty
+Personality Traits: Quirky, Inert, Bland
+Additional Detail: Possesses a strangely glowing crystal
+
+
+Race: Aarakocra
+Sex: Male
+Name: Vakelus the Redeemed
+Age: Young Adult
+Profession: Governor / Governess
+Motivated by: Fear of shame
+Personality Traits: Guileless, Dishonest, Regretful
+
+
+Race: Human
+Sex: Female
+Name: Sichedus
+Age: Adult
+Profession: Politician
+Motivated by: Hatred
+Personality Traits: Sensitive, Complaintive, Escapist
+
+
+Race: Tiefling
+Subrace: Infernal Tiefling
+Sex: Male
+Name: Parondett the Plagued
+Age: Very Old
+Profession: Retired Warlock
+Motivated by: Fear of pain
+Personality Traits: Trusting, Hardworking, Conscientious
+
+
+Race: Half-Orc
+Sex: Female
+Name: Beronder
+Age: Very Old
+Profession: Retired Jeweler
+Motivated by: Vengeance
+Personality Traits: Libidinous, Sharing, Guileless
+
+
+Race: Half-Elf
+Subrace: Half Aquatic Elf
+Sex: Female
+Name: Tayora the Strong
+Age: Old
+Profession: Senior Paladin
+Motivated by: Fear of shame
+Personality Traits: Daring, Condemnatory, Individualistic
+Additional Detail: Protected by a powerful secret society
+
+
+Race: Dragonborn
+Subrace: Blue Dragonborn
+Sex: Male
+Name: Jenac
+Age: Old
+Profession: Senior Thug
+Motivated by: Stubbornness
+Personality Traits: Humble, Dissolute, Mistaken
+Additional Detail: Protected by a powerful Baron
+
+
+Race: Half-Elf
+Subrace: Half Aquatic Elf
+Sex: Female
+Name: Shenus
+Age: Adult
+Profession: Archeologist
+Motivated by: Social contact
+Personality Traits: Calm, Steely, Prim
+
+
+Race: Dragonborn
+Subrace: Copper Dragonborn
+Sex: Male
+Name: Faric
+Age: Young Adult
+Profession: Farm-Hand
+Motivated by: Social status
+Personality Traits: Crazy, Reactionary, Predatory
+Additional Detail: Extremely Lucky
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Name: Naturic the Redeemed
+Age: Very Old
+Profession: Retired Town Guard
+Motivated by: Desire for acceptance
+Personality Traits: Insulting, Glamorous, Possessive
+
+

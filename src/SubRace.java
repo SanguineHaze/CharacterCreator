@@ -21,7 +21,7 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		//The master list containing all subraces
-		String subRaceTargetFile = filesDirectory + "Subrace.txt"; //path to the file on local environment.  	 	
+		String subRaceTargetFile = filesDirectory + "sourceData\\Subrace.txt"; //path to the file on local environment.  	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
