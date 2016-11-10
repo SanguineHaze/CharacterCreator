@@ -22,7 +22,22 @@ public class AdditionalFeatures {
 	String chosenNickname;
 	String chosenDetail;
 	private int nicknameChance;
-
+	
+	public AdditionalFeatures(){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		loadMotivationList();
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname("adult", "none", "Dwarf");
+		loadDetailsList();
+		generateDetails("Dwarf", "none");
+	}
+	
 	public AdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
 		chosenPersonality = "";
 		chosenMotivation = "";
@@ -44,6 +59,35 @@ public class AdditionalFeatures {
 		chosenDetail = null;
 		nicknameChance = 35;
 		loadMotivationList();
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
+	}
+	
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		generateMotivation();
+		loadPersonalityList();
+		generatePersonality();
+		loadNicknameList();
+		setNicknameChance(nicknameChance);
+		generateNickname(chosenAge, chosenProfession, chosenRace);
+		loadDetailsList();
+		generateDetails(chosenRace, chosenProfession);
+	}
+	
+	public void generateNewAdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
+		chosenPersonality = "";
+		chosenMotivation = "";
+		chosenDetail = null;
+		nicknameChance = 35;
 		generateMotivation();
 		loadPersonalityList();
 		generatePersonality();

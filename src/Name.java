@@ -29,8 +29,8 @@ public class Name {
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
-		generateSex();
 		loadNameList();
+		generateSex();
 		generateNameLists();
 		generateBeginning();
 		generateMiddle();
@@ -38,6 +38,19 @@ public class Name {
 		generateFullName();
 		generateAge();
 	}//end Name()
+	
+	public void generateNewNameData(){
+		sex = "";
+		chosenName = "";
+		chosenAge = "";
+		generateSex();
+		generateNameLists();
+		generateBeginning();
+		generateMiddle();
+		generateEnd();
+		generateFullName();
+		generateAge();
+	}
 	
 	//First, lets select a sex for our new character
 	private void generateSex() {

@@ -17,6 +17,14 @@ public class Profession {
 	
 	ArrayList<String> professionList = new ArrayList<String>();
 	
+	public Profession(){
+		chosenProfession = "";
+		professionListOverride();
+		generateProfessionList("Adult");
+		loadProfessionList();
+		generateProfession("Adult");
+	}
+	
 	public Profession(String chosenAge){
 		chosenProfession = "";
 		professionListOverride();
@@ -24,6 +32,13 @@ public class Profession {
 		loadProfessionList();
 		generateProfession(chosenAge);
 	}//end Profession()
+	
+	public void generateNewProfession(String chosenAge){
+		chosenProfession = "";
+		professionListOverride();
+		generateProfessionList(chosenAge);
+		generateProfession(chosenAge);
+	}
 	
 	public void professionListOverride(){
 		if("child".equals(override)){
