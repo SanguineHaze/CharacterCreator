@@ -1,20 +1,21 @@
 import java.awt.BorderLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.border.Border;
 
 public class MainFrame extends JFrame {
 	
-	
-    ArrayList<String> characterResults = new ArrayList<String>();
-    
+	ArrayList<String> characterResults = new ArrayList<String>();
 	long startTime = System.nanoTime();
 	
     //GET USER INPUT SECTION
-
+	
     String userRace;
     String userSubRace;
     String userSex;
@@ -34,24 +35,46 @@ public class MainFrame extends JFrame {
 	
 	private TextPanel textPanel;
 	private JButton generateBtn;
+	private FormPanel formPanel;
+	private FormListener formListener;
+	int numGenInt;
+	
+	FormEvent formEvent = new FormEvent(this, numGenInt);
 	
 	public MainFrame() {
+		
+		// LAYOUT SECTION 
 		super("HazeGaming NPC Generator");
 		
 		setLayout(new BorderLayout());
 		
 		textPanel = new TextPanel();
+		formPanel = new FormPanel();
 		generateBtn = new JButton("GENERATE!");
 		
+		add(formPanel, BorderLayout.WEST);
 		add(textPanel, BorderLayout.CENTER);
 		add(generateBtn, BorderLayout.SOUTH);
 		
-		setSize(800,700);
+		setSize(1100,700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
+		numGenInt = 25;
+		
+		formPanel.setFormListener(new FormListener() {
+			public void formEventOccured(FormEvent e) {
+				numGenInt = e.getNumGenInt();
+				System.out.println(numGenInt);
+			}
+		});
+		
+		// GENERATE BUTTON SECTION
+	
 		generateBtn.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent ev) {
+
 				JButton clicked = (JButton)ev.getSource();
 				
 				if(clicked == generateBtn){
@@ -69,9 +92,8 @@ public class MainFrame extends JFrame {
 					Name thisName = new Name();
 					Profession thisProfession = new Profession();
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
-
 				    
-					for(int i = 0; i < 10; i++){	
+					for(int i = 0; i < numGenInt; i++){	
 					//RACE SECTION    	
 
 						thisRace.pickNewRace();
@@ -168,12 +190,12 @@ public class MainFrame extends JFrame {
 					
 						@SuppressWarnings("unused")
 						WriteToFile thisWrite = new WriteToFile(characterResults);
+						textPanel.appendText(thisWrite.getWTFLocation());
 						
 						long endTime = System.nanoTime();
 						System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
-				}
-			}
-		});
-
-	}
-}
+				}//end if Clicked (GENERATE!)
+			}//end actionPerformed
+		});//end generate button actionListener
+	}//end MainFrame()
+}//end CLASS

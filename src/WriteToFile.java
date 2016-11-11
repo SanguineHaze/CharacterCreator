@@ -12,6 +12,7 @@ public class WriteToFile {
 	private DateFormat dateFormat;
 	Date date = new Date();
 	String theDate;
+	private String filePath = filesDirectory + "NPCResults\\CharacterResults";
 	
 	public WriteToFile(ArrayList<String> characterResults) {
 		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_HH_mm_ss");
@@ -29,4 +30,10 @@ public class WriteToFile {
             System.out.println(e.getMessage());
         }//end PrintWriter try/catch
 	}//end WriteToFile()
+	
+	public String getWTFLocation() {
+		String location = "Created File: " + filePath + theDate  + ".txt";
+		return location;
+	}
+	
 }//end CLASS
