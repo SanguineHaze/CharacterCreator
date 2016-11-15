@@ -38,12 +38,7 @@ public class FormPanel extends JPanel {
 		add(numGenTextField);
 		add(setBtn);
 		
-		setBtn.addActionListener(new FormListener() {
-			public void formEventOccured(FormEvent e) {
-				numGenInt = e.getNumGenInt();
-				System.out.println(numGenInt);
-			}
-		});
+		
 	}
 	
 	public void setFormListener(FormListener listener){

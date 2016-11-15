@@ -33,7 +33,7 @@ public class MainFrame extends JFrame {
 		String myDetail = "";
 
 	
-	private TextPanel textPanel;
+	public TextPanel textPanel;
 	private JButton generateBtn;
 	private FormPanel formPanel;
 	private FormListener formListener;
