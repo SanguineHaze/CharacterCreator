@@ -48,4 +48,8 @@ public class Race {
     		    System.out.println(e.getMessage());
     		} //End try / catch
      }//End loadRaceList()
+     
+    /* private static ArrayList<String> getRaceList(){
+		return raceList;
+     }*/
 }// End class
