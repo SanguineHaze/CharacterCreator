@@ -12,9 +12,6 @@ import javax.swing.border.Border;
 public class MainFrame extends JFrame {
 	
 	ArrayList<String> characterResults = new ArrayList<String>();
-	long startTime = System.nanoTime();
-	
-    //GET USER INPUT SECTION
 	
     String userRace;
     String userSubRace;
@@ -60,8 +57,6 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
-		numGenInt = 25;
-		
 		formPanel.setFormListener(new FormListener() {
 			public void formEventOccured(FormEvent e) {
 				numGenInt = e.getNumGenInt();
@@ -78,6 +73,8 @@ public class MainFrame extends JFrame {
 				JButton clicked = (JButton)ev.getSource();
 				
 				if(clicked == generateBtn){
+					
+					long startTime = System.nanoTime();
 				    
 				    boolean inputNN = false;
 				    int nicknameChance = 0;
@@ -92,29 +89,37 @@ public class MainFrame extends JFrame {
 					Name thisName = new Name();
 					Profession thisProfession = new Profession();
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
+					
+					numGenInt = formPanel.getNumGenInt(); //Check to see user's input
+					//If user hasn't specified, set default:
+					if(numGenInt < 1){
+						numGenInt = 25;
+					}
+					
+					textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
+					textPanel.appendText("\n");
 				    
 					for(int i = 0; i < numGenInt; i++){	
-					//RACE SECTION    	
-
+						//USER INPUTS
+						userAge = "";
+						userSex = "";
+						
+						//RACE SECTION    	
 						thisRace.pickNewRace();
 						myRace = thisRace.chosenRace;
-							//thisRace.chosenRace = "Half-Elf"; //Define a desired race to output
 						
 					//SUBRACE SECTION			
 						mySubRace = thisSubRace.getChosenRace(myRace);
 
 					//NAME (& SEX & AGE) SECTION	
-						thisName.generateNewNameData();
-						mySex = thisName.sex;	
-							//thisName.sex = ""; //Define a desired sex to output
+						thisName.generateNewNameData(userSex, userAge);
+						
+						mySex = thisName.sex;								
 						myName = thisName.chosenName;
-							//thisName.chosenName = ""; //Pick your own name!
 						myAge = thisName.chosenAge;
-							//thisName.chosenAge = "Very Old"; //Define a desired age to output
 						
 					//PROFESSION (& ALIGNMENT) SECTION
 						thisProfession.generateNewProfession(myAge);
-							//thisProfession.chosenProfession = "Baron / Baroness";
 						String myProfession = thisProfession.chosenProfession;			
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
@@ -131,6 +136,7 @@ public class MainFrame extends JFrame {
 						
 						
 					//CHARACTER SYSOUT SECTION
+						
 						textPanel.appendText("Race: " + myRace + "\n");
 						System.out.println("Race: " + myRace);
 						characterResults.add("Race: " + myRace);
@@ -187,13 +193,15 @@ public class MainFrame extends JFrame {
 					}//end FOR loop
 					
 					//CHARACTER WRITEOUT SECTION
-					
+						
 						@SuppressWarnings("unused")
 						WriteToFile thisWrite = new WriteToFile(characterResults);
-						textPanel.appendText(thisWrite.getWTFLocation());
+						textPanel.appendText(thisWrite.getWTFLocation() + "\n");
+						textPanel.appendText("\n");
 						
 						long endTime = System.nanoTime();
 						System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
+						
 				}//end if Clicked (GENERATE!)
 			}//end actionPerformed
 		});//end generate button actionListener

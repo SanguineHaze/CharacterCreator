@@ -39,17 +39,16 @@ public class Name {
 		generateAge();
 	}//end Name()
 	
-	public void generateNewNameData(){
+	public void generateNewNameData(String userSex, String userAge){
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
-		generateSex();
-		generateNameLists();
+		generateSex(userSex);
 		generateBeginning();
 		generateMiddle();
 		generateEnd();
 		generateFullName();
-		generateAge();
+		generateAge(userAge);
 	}
 	
 	//First, lets select a sex for our new character
@@ -68,6 +67,16 @@ public class Name {
 		//DEBUG TOOL - Check to see what sex is being assigned
 		//System.out.println(sex);
 	}//end Sex()
+	
+	private void generateSex(String userSex){
+		if(userSex.equals("Male")){
+			chosenSex = true;
+		} else if(userSex.equals("Female")){
+			chosenSex = false;
+		} else {
+			generateSex();
+		}
+	}
 	
 	public String getSex() {
 		return sex;
@@ -89,6 +98,12 @@ public class Name {
 		        System.out.println(out);
 		    }
 		    */
+			
+			ageRange.add("Child");
+			ageRange.add("Young Adult");
+			ageRange.add("Adult");
+			ageRange.add("Old");
+			ageRange.add("Very Old");
 			
 		} catch(Exception e) {
 			 System.out.println(e.getMessage());
@@ -186,15 +201,19 @@ public class Name {
 	}//end generateFullName
 	
 	public void generateAge(){
-		ageRange.add("Child");
-		ageRange.add("Young Adult");
-		ageRange.add("Adult");
-		ageRange.add("Old");
-		ageRange.add("Very Old");
-		
 		Random randomAge = new Random();
 		int index = randomAge.nextInt(ageRange.size());
 		chosenAge = ageRange.get(index);
 	}//end generateAge()
+	
+	public void generateAge(String userAge){		
+		Random randomAge = new Random();
+		if(ageRange.contains(userAge)){
+			chosenAge = userAge;
+		} else {
+			int index = randomAge.nextInt(ageRange.size());
+			chosenAge = ageRange.get(index);
+		}
+	}
 
 }//end Class
