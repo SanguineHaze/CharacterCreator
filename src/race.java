@@ -8,6 +8,7 @@ public class Race {
 	public String chosenRace;
 	
 	ArrayList<String> raceList = new ArrayList<String>();
+	static ArrayList<String> raceStaticList = new ArrayList<String>();
 
      public Race() {
     	 chosenRace= "";
@@ -15,7 +16,7 @@ public class Race {
      } //end Race()
      
      public void pickNewRace(){
-    	 chosenRace= "";
+    	chosenRace= "";
 	   	int index = randomGenerator.nextInt(raceList.size());
 	   	chosenRace = raceList.get(index);
 		chosenRace = chosenRace.replace("RACE:", "");
@@ -23,6 +24,10 @@ public class Race {
 	   	//System.out.println("Debug Info: raceList is " + raceList.size() + " items"); 
 		//DEBUG TOOL: check to see what value is being assigned to Index
 	    //System.out.println("Debug Info: index has been randomly set to " + index); 
+     }
+     
+     public void pickNewRace(String race){
+    	 chosenRace = race;
      }
      
      private void loadRaceList(){
@@ -47,9 +52,10 @@ public class Race {
     		    //Default error message
     		    System.out.println(e.getMessage());
     		} //End try / catch
+    		raceStaticList = raceList;
      }//End loadRaceList()
      
-    /* private static ArrayList<String> getRaceList(){
-		return raceList;
-     }*/
+     private ArrayList<String> getRaceStaticList(){
+		return raceStaticList;
+     }
 }// End class
