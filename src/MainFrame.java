@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -84,10 +85,10 @@ public class MainFrame extends JFrame {
 					    nicknameChance = userNickname;
 				    }	   	    
 				    
-			        Race thisRace = new Race(); 
-			    	SubRace thisSubRace = new SubRace();		
+			        Race thisRace = new Race();	
+			        SubRace thisSubRace = new SubRace();
 					Name thisName = new Name();
-					Profession thisProfession = new Profession();
+					Profession thisProfession = new Profession(myAge);
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
 					
 					numGenInt = formPanel.getNumGenInt(); //Check to see user's input
@@ -103,18 +104,29 @@ public class MainFrame extends JFrame {
 						//USER INPUTS
 						userAge = "";
 						userSex = "";
-						userRace = "";
+						userRace = Race.raceStaticList.get(formPanel.getRaceSelected());
+							//DEBUG TOOL: See what index item is selected, what string that is inside formPanel, ensure that userRace is the same.
+							/*
+							System.out.println("MainFrame" + Race.raceStaticList);
+							System.out.println("MainFrame" + formPanel.getRaceSelected());
+							System.out.println("MainFrame - userRace:" + userRace);
+							*/
+						if(userRace.equals("Any Race")){
+							userRace = "";
+						}
 						
 						//RACE SECTION
 						if(userRace.isEmpty()){
 							thisRace.pickNewRace();
 						} else {
+							//System.out.println("MainFrame: userRace: " + userRace);
 							thisRace.pickNewRace(userRace);
 						}						
 						myRace = thisRace.chosenRace;
 						
 					//SUBRACE SECTION			
-						mySubRace = thisSubRace.getChosenRace(myRace);
+						thisSubRace.generateSubRace(myRace);
+						mySubRace = thisSubRace.chosenSubRace;
 
 					//NAME (& SEX & AGE) SECTION	
 						thisName.generateNewNameData(userSex, userAge);

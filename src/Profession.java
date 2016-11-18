@@ -123,6 +123,8 @@ public class Profession {
 			int isEmployed = childRandom.nextInt(11); //0 -> 10
 			if(isEmployed < 5) { // ~50% employment rate for children (What, it's the dark ages of high fantasy. There ain't no labor laws!)
 				chosenProfession = "None";
+			}else if(isEmployed >= 5){
+				chosenProfession = "Apprentice " + chosenProfession;
 			}//end if isEmployed
 		}//end if "child"
 		

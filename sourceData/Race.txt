@@ -3,6 +3,7 @@ RACE:Aasimar
 RACE:Dragonborn
 RACE:Dwarf
 RACE:Elf
+RACE:Firbolg
 RACE:Gnome
 RACE:Genasi
 RACE:Goliath
@@ -10,4 +11,8 @@ RACE:Half-Orc
 RACE:Human
 RACE:Halfling
 RACE:Half-Elf
+RACE:Kenku
+RACE:Lizardfolk
+RACE:Tabaxi
 RACE:Tiefling
+RACE:Triton
