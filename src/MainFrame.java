@@ -80,7 +80,7 @@ public class MainFrame extends JFrame {
 				    int nicknameChance = 0;
 				    if(inputNN){
 				    	System.out.println("Chance (0 -> 100) of having a nickname:");
-					    int userNickname = 50; //sc.nextInt();
+					    int userNickname = 50;
 					    nicknameChance = userNickname;
 				    }	   	    
 				    
@@ -103,9 +103,14 @@ public class MainFrame extends JFrame {
 						//USER INPUTS
 						userAge = "";
 						userSex = "";
+						userRace = "";
 						
-						//RACE SECTION    	
-						thisRace.pickNewRace();
+						//RACE SECTION
+						if(userRace.isEmpty()){
+							thisRace.pickNewRace();
+						} else {
+							thisRace.pickNewRace(userRace);
+						}						
 						myRace = thisRace.chosenRace;
 						
 					//SUBRACE SECTION			

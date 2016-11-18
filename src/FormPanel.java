@@ -1,7 +1,7 @@
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ComboBoxModel;
@@ -30,6 +30,7 @@ public class FormPanel extends JPanel {
 	}
 
 	public FormPanel() {
+		
 		Dimension dim = getPreferredSize();
 		dim.width = 280;
 		setPreferredSize(dim);
@@ -41,7 +42,15 @@ public class FormPanel extends JPanel {
 		//FIELDS
 		numGenTextField = new JFormattedTextField();
 		numGenTextField.setColumns(7);
-		raceComboBox = new JComboBox();
+		
+				//Not Working
+				int count = Race.raceStaticList.size();	
+				String[] raceComboBoxItems = new String[count];
+				for(int i = 0; i < count; i++){
+					raceComboBoxItems[i] = Race.raceStaticList.get(i);
+				}
+				raceComboBox = new JComboBox(raceComboBoxItems);
+
 		
 		setBtn = new JButton("Set Changes!");
 		
