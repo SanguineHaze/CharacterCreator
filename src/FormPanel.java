@@ -1,10 +1,9 @@
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
-import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -24,7 +23,12 @@ public class FormPanel extends JPanel {
 	private FormListener formListener;
 	private JButton setBtn;
 	private int numGenInt;
+	private String userRace;
 	
+	public String getUserRace() {
+		return userRace;
+	}
+
 	public int getNumGenInt() {
 		return numGenInt;
 	}
@@ -42,15 +46,8 @@ public class FormPanel extends JPanel {
 		//FIELDS
 		numGenTextField = new JFormattedTextField();
 		numGenTextField.setColumns(7);
-		
-				//Not Working
-				int count = Race.raceStaticList.size();	
-				String[] raceComboBoxItems = new String[count];
-				for(int i = 0; i < count; i++){
-					raceComboBoxItems[i] = Race.raceStaticList.get(i);
-				}
-				raceComboBox = new JComboBox(raceComboBoxItems);
-
+		String[] raceCBA = {"Aarakocra", "Aasimar", "Dragonborn", "Dwarf", "Elf", "Gnome", "Genasi", "Goliath", "Half-Orc", "Human", "Halfling", "Half-Elf", "Teifling"};
+		raceComboBox = new JComboBox(raceCBA);
 		
 		setBtn = new JButton("Set Changes!");
 		
@@ -75,8 +72,11 @@ public class FormPanel extends JPanel {
 				JButton clicked = (JButton) e.getSource();
 				if(clicked == setBtn){
 					String numGenString = numGenTextField.getText();
-					numGenInt = Integer.parseInt(numGenString);
-					
+					if(!(numGenString.isEmpty())){
+						numGenInt = Integer.parseInt(numGenString);
+					}					
+					int userRace2 = raceComboBox.getSelectedIndex();
+					System.out.println(userRace2);
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);
 				}				

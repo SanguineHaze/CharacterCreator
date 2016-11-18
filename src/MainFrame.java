@@ -103,7 +103,7 @@ public class MainFrame extends JFrame {
 						//USER INPUTS
 						userAge = "";
 						userSex = "";
-						userRace = "";
+						userRace = formPanel.getUserRace();
 						
 						//RACE SECTION
 						if(userRace.isEmpty()){

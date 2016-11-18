@@ -39,7 +39,10 @@ public class Race {
     		    ReadFromFile file = new ReadFromFile(targetFile);
     		    raceList = file.OpenFile();
     		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
-    		        		    
+    		    
+    		    raceStaticList = file.OpenFile();
+    		    int index = raceStaticList.size();
+
     		    //DEBUG TOOL: Check to see that the list is being created
     		    /*
     		    System.out.println("Race List:");
@@ -52,7 +55,7 @@ public class Race {
     		    //Default error message
     		    System.out.println(e.getMessage());
     		} //End try / catch
-    		raceStaticList = raceList;
+
      }//End loadRaceList()
      
      private ArrayList<String> getRaceStaticList(){

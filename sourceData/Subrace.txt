@@ -1,3 +1,6 @@
+AASIMAR:Protector Aasimar
+AASIMAR:Scourge Aasimar
+AASIMAR:Fallen Aasimar
 DRAGONBORN:Black Dragonborn
 DRAGONBORN:Blue Dragonborn
 DRAGONBORN:Red Dragonborn
