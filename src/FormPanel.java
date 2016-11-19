@@ -122,14 +122,14 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0, 0, 0, 5);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		subRaceLabel.setVisible(true);
+		subRaceLabel.setVisible(true); // true false
 		add(subRaceLabel, gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0,0,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		subRaceComboBox.setVisible(true);
+		subRaceComboBox.setVisible(true); // true false
 		add(subRaceComboBox, gbc);
 		
 		// ROW 4
@@ -156,7 +156,6 @@ public class FormPanel extends JPanel {
 				}				
 			}
 		});//end setBtn ActionListener
-		
 	}//end FormPanel()
 	
 	public void setFormListener(FormListener listener){
