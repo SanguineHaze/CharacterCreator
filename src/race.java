@@ -8,8 +8,9 @@ public class Race {
 	public String chosenRace;
 	
 	ArrayList<String> raceList = new ArrayList<String>();
+	ArrayList<String> raceStaticPreList = new ArrayList<String>();
 	static ArrayList<String> raceStaticList = new ArrayList<String>();
-
+	
      public Race() {
     	 chosenRace= "";
     	 loadRaceList(); 
@@ -39,7 +40,12 @@ public class Race {
     		    ReadFromFile file = new ReadFromFile(targetFile);
     		    raceList = file.OpenFile();
     		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
-    		        		    
+    		    
+    		    raceStaticPreList = file.OpenFile();
+    		    //System.out.println(raceStaticPreList);
+    		    for(String s: raceStaticPreList){
+    		    	raceStaticList.add(s.replace("RACE:", ""));
+    		    }
     		    //DEBUG TOOL: Check to see that the list is being created
     		    /*
     		    System.out.println("Race List:");
@@ -52,7 +58,6 @@ public class Race {
     		    //Default error message
     		    System.out.println(e.getMessage());
     		} //End try / catch
-    		raceStaticList = raceList;
      }//End loadRaceList()
      
      private ArrayList<String> getRaceStaticList(){
