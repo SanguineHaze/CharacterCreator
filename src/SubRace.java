@@ -21,6 +21,10 @@ public class SubRace {
 		//System.out.println(chosenSubRace); 
 	}//End SubRace()
 	
+	public void setChosenSubRace(String chosenSubRace) {
+		this.chosenSubRace = chosenSubRace;
+	}
+
 	public SubRace(String chosenRace) {
 		chosenSubRace = "";
 		generateSubRace(chosenRace);

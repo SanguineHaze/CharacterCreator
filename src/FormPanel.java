@@ -4,15 +4,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -26,6 +26,7 @@ public class FormPanel extends JPanel {
 	private JLabel numGenLabel2;
 	private JLabel raceLabel;
 	private JLabel subRaceLabel;
+	private JLabel sexLabel;
 	
 	private JTextField numGenTextField;
 	private JComboBox raceComboBox;
@@ -35,7 +36,29 @@ public class FormPanel extends JPanel {
 	private JButton setBtn;
 	private int numGenInt;
 	private int raceSelected;
+	private String subRaceSelected = "";
+	private JRadioButton sexM;
+	static String sexMString = "M";
+	private JRadioButton sexF;
+	static String sexFString = "F";
+	private JRadioButton sexR;
+	static String sexRString = "Random";
+	private String sexSelected = "";
+
 	
+	
+	public String getSexSelected() {
+		return sexSelected;
+	}
+
+	public String getSubRaceSelected() {
+		return subRaceSelected;
+	}
+
+	public void setSubRaceSelected(String subRaceSelected) {
+		this.subRaceSelected = subRaceSelected;
+	}
+
 	public int getRaceSelected() {
 		return raceSelected;
 	}
@@ -59,6 +82,7 @@ public class FormPanel extends JPanel {
 		numGenLabel2 = new JLabel("(0 for Default)");
 		raceLabel = new JLabel("Race:");
 		subRaceLabel = new JLabel("Sub-Race:");
+		sexLabel = new JLabel("Sex:");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
@@ -84,13 +108,14 @@ public class FormPanel extends JPanel {
 				public void actionPerformed(ActionEvent a) {
 					JComboBox raceComboBox = (JComboBox) a.getSource();
 					String selected = (String) raceComboBox.getSelectedItem();
+					
 					//DEBUG TOOL
 					//System.out.println(selected); //Check what object is selected
 					
 					if(!("Any Race".equals(selected))){
 						//DEBUG TOOL
 						//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
-						
+						SubRace.subRaceStaticList2.add(0, "Any " + selected);
 						int subRaceCount = SubRace.subRaceStaticList2.size();
 						subRaceCB = new String[subRaceCount];
 						//Set up a filtered list of SubRaces when Race is selected
@@ -106,6 +131,7 @@ public class FormPanel extends JPanel {
 								subRaceTempList.remove(entry);
 							} 
 						}
+						
 						int subRaceTLCount = subRaceTempList.size();
 						subRaceCB = new String[subRaceTLCount];
 						for(int i = 0; i < subRaceTLCount; i++){
@@ -128,18 +154,19 @@ public class FormPanel extends JPanel {
 							gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 							add(subRaceComboBox, gbc);
 							revalidate();
-							repaint();
+							repaint();							
 						} else if (subRaceTempList.isEmpty()){
 							subRaceComboBox.setEnabled(false);
-						}
+						}//end If subRaceTempList Is Not empty
 					} else if ("Any Race".equals(selected)){
 						subRaceComboBox.setEnabled(false);
-					}//end If statement					
+					}//end If NOT "Any Race" selected				
 				}//end ActionPerformed (raceComboBox)
-			});//end Action Listener (raceComboBox)
-
-			
-			
+			});//end Action Listener (raceComboBox)			
+		
+		sexM = new JRadioButton(sexMString);
+		sexF = new JRadioButton(sexFString);
+		sexR = new JRadioButton(sexRString);
 		setBtn = new JButton("Set Changes!");
 		
 		Border innerBorder = BorderFactory.createTitledBorder("Generator Options");
@@ -199,7 +226,29 @@ public class FormPanel extends JPanel {
 		add(subRaceComboBox, gbc);
 
 		
-		// ROW 4
+		// ROW 4 - SEX
+		gbc.weightx = 0;
+		gbc.weighty = 0.1;
+		
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		add(sexLabel, gbc);
+		
+		gbc.gridx = 1;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(sexF, gbc);
+		ButtonGroup sexGroup = new ButtonGroup();
+		sexGroup.add(sexF);
+		gbc.gridx = 2;
+		sexGroup.add(sexM);
+		add(sexM, gbc);
+		gbc.gridx = 3;
+		sexGroup.add(sexR);		
+		add(sexR, gbc);
+		
+		//ROW 5
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
@@ -217,13 +266,47 @@ public class FormPanel extends JPanel {
 						numGenInt = Integer.parseInt(numGenString);
 					}
 					raceSelected = raceComboBox.getSelectedIndex();
+					subRaceSelected = subRaceComboBox.getSelectedItem().toString();
 					
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);
+					
 				}				
 			}
 		});//end setBtn ActionListener
-
+		
+		sexM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JRadioButton clicked = (JRadioButton) e.getSource();
+				if(clicked == sexM){
+					sexSelected = "Male";
+					//DEBUG TOOL
+					//System.out.println(sexSelected);					
+				} 
+			}
+		});
+		
+		sexF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JRadioButton clicked = (JRadioButton) e.getSource();
+				if(clicked == sexF){
+					sexSelected = "Female";
+					//DEBUG TOOL
+					//System.out.println(sexSelected);					
+				} 
+			}
+		});
+		
+		sexF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JRadioButton clicked = (JRadioButton) e.getSource();
+				if(clicked == sexR){
+					sexSelected = "";
+					//DEBUG TOOL
+					//System.out.println(sexSelected);					
+				} 
+			}
+		});
 		
 	}//end FormPanel()
 	

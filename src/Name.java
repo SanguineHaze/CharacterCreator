@@ -49,6 +49,8 @@ public class Name {
 		generateEnd();
 		generateFullName();
 		generateAge(userAge);
+		//DEBUG TOOL
+		//System.out.println("GenerateNewNameData - UserSex: " + userSex);
 	}
 	
 	//First, lets select a sex for our new character
@@ -70,12 +72,14 @@ public class Name {
 	
 	private void generateSex(String userSex){
 		if(userSex.equals("Male")){
-			chosenSex = true;
+			sex = userSex;
 		} else if(userSex.equals("Female")){
-			chosenSex = false;
+			sex = userSex;
 		} else {
 			generateSex();
 		}
+		//DEBUG TOOL
+		//System.out.println("GenerateSex - UserSex: " + userSex + ". ChosenSex: " + chosenSex);
 	}
 	
 	public String getSex() {

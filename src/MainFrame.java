@@ -17,7 +17,6 @@ public class MainFrame extends JFrame {
     String userRace;
     String userSubRace;
     String userSex;
-    String userName;
     String userAge;
     String userProfession;
 	    String myRace = ""; 
@@ -103,7 +102,7 @@ public class MainFrame extends JFrame {
 					for(int i = 0; i < numGenInt; i++){	
 						//USER INPUTS
 						userAge = "";
-						userSex = "";
+						userSex = formPanel.getSexSelected();
 						userRace = Race.raceStaticList.get(formPanel.getRaceSelected());
 							//DEBUG TOOL: See what index item is selected, what string that is inside formPanel, ensure that userRace is the same.
 							/*
@@ -124,11 +123,23 @@ public class MainFrame extends JFrame {
 						}						
 						myRace = thisRace.chosenRace;
 						
-					//SUBRACE SECTION			
-						thisSubRace.generateSubRace(myRace);
+					//SUBRACE SECTION
+						userSubRace = formPanel.getSubRaceSelected();
+						if(userSubRace.isEmpty()){
+							thisSubRace.generateSubRace(myRace);
+						} else if (!(userSubRace.isEmpty())){
+							if(userSubRace.contains("Any")) {
+								thisSubRace.generateSubRace(myRace);
+							} else {
+								thisSubRace.setChosenSubRace(userSubRace);
+							}
+						}						
 						mySubRace = thisSubRace.chosenSubRace;
 
-					//NAME (& SEX & AGE) SECTION	
+					//NAME (& SEX & AGE) SECTION
+						//DEBUG TOOL
+						//System.out.println("MainFrame userSex: " + userSex);
+						
 						thisName.generateNewNameData(userSex, userAge);
 						
 						mySex = thisName.sex;								
