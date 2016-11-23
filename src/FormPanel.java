@@ -88,9 +88,6 @@ public class FormPanel extends JPanel {
 					//System.out.println(selected); //Check what object is selected
 					
 					if(!("Any Race".equals(selected))){
-						if(itemChanged){
-							System.out.println("Different!");
-						}
 						//DEBUG TOOL
 						//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
 						
@@ -117,18 +114,26 @@ public class FormPanel extends JPanel {
 							//DEBUG TOOL
 							//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
 						}
-						remove(subRaceComboBox);
-						subRaceComboBox = new JComboBox(subRaceCB);
-						subRaceComboBox.setSelectedItem(0);	
-						gbc.weightx = 1;
-						gbc.weighty = 0.1;
-						gbc.gridx = 1;
-						gbc.gridy = 2;
-						gbc.insets = new Insets(0,0,0,0);
-						gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-						add(subRaceComboBox, gbc);
-						revalidate();
-						repaint();
+						if(!(subRaceTempList.isEmpty())){
+							subRaceComboBox.setEnabled(true);
+							//Remove and rebuild the SubRace list
+							remove(subRaceComboBox);
+							subRaceComboBox = new JComboBox(subRaceCB);
+							subRaceComboBox.setSelectedItem(0);	
+							gbc.weightx = 1;
+							gbc.weighty = 0.1;
+							gbc.gridx = 1;
+							gbc.gridy = 2;
+							gbc.insets = new Insets(0,0,0,0);
+							gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+							add(subRaceComboBox, gbc);
+							revalidate();
+							repaint();
+						} else if (subRaceTempList.isEmpty()){
+							subRaceComboBox.setEnabled(false);
+						}
+					} else if ("Any Race".equals(selected)){
+						subRaceComboBox.setEnabled(false);
 					}//end If statement					
 				}//end ActionPerformed (raceComboBox)
 			});//end Action Listener (raceComboBox)
@@ -190,6 +195,7 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0,0,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		subRaceComboBox.setEnabled(false);
 		add(subRaceComboBox, gbc);
 
 		
