@@ -1,0 +1,30 @@
+Race: Dragonborn
+Subrace: Bronze Dragonborn
+Sex: Female
+Name: Achedor the Renegade
+Age: Old
+Profession: Senior Storyteller
+Motivated by: Unfulfillment
+Personality Traits: Charmless, Cautious, Systematic
+Additional Detail: Possesses a deed to an abandoned castle
+
+
+Race: Aarakocra
+Sex: Male
+Name: Asarkal
+Age: Old
+Profession: Historian
+Motivated by: Fear of regret
+Personality Traits: Cultured, Conventional, Impulsive
+Additional Detail: Naturally Lucky
+
+
+Race: Tabaxi
+Sex: Female
+Name: Olimin
+Age: Adult
+Profession: Stable-hand
+Motivated by: Fear of regret
+Personality Traits: Humble, Gracious, Soft
+
+

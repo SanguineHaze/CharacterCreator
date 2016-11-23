@@ -4,6 +4,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,6 +17,10 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class FormPanel extends JPanel {
+	
+	ArrayList<String> subRaceTempList = new ArrayList<String>();
+	protected boolean itemChanged;
+	protected String[] subRaceCB;
 	
 	private JLabel numGenLabel;
 	private JLabel numGenLabel2;
@@ -55,24 +62,79 @@ public class FormPanel extends JPanel {
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
-		
-		int count = Race.raceStaticList.size();	
-		String[] raceComboBoxItems = new String[count];
-		for(int i = 0; i < count; i++){
-			raceComboBoxItems[i] = Race.raceStaticList.get(i);
-		}
-		raceComboBox = new JComboBox(raceComboBoxItems);
-		raceComboBox.setSelectedItem(0);
-		
-		int subRaceCount = SubRace.subRaceStaticList2.size();
-		String[] subRaceCB = new String[subRaceCount];
-		for(int i = 0; i < subRaceCount; i++){
-			subRaceCB[i] = SubRace.subRaceStaticList2.get(i);
-		}
-		subRaceComboBox = new JComboBox(subRaceCB);
-		subRaceComboBox.setSelectedItem(0);
+			//RACE ComboBox
+			int count = Race.raceStaticList.size();	
+			String[] raceComboBoxItems = new String[count];
+			for(int i = 0; i < count; i++){
+				raceComboBoxItems[i] = Race.raceStaticList.get(i);
+			}
+			raceComboBox = new JComboBox(raceComboBoxItems);
+			raceComboBox.setSelectedItem(0);
+			
+			//SUBRACE ComboBox
+			int subRaceCount = SubRace.subRaceStaticList2.size();
+			subRaceCB = new String[subRaceCount];
+			for(int i = 0; i < subRaceCount; i++){
+				subRaceCB[i] = SubRace.subRaceStaticList2.get(i);
+			}
+			subRaceComboBox = new JComboBox(subRaceCB);
+			subRaceComboBox.setSelectedItem(0);
+			
+			raceComboBox.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent a) {
+					JComboBox raceComboBox = (JComboBox) a.getSource();
+					String selected = (String) raceComboBox.getSelectedItem();
+					//DEBUG TOOL
+					//System.out.println(selected); //Check what object is selected
+					
+					if(!("Any Race".equals(selected))){
+						if(itemChanged){
+							System.out.println("Different!");
+						}
+						//DEBUG TOOL
+						//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
+						
+						int subRaceCount = SubRace.subRaceStaticList2.size();
+						subRaceCB = new String[subRaceCount];
+						//Set up a filtered list of SubRaces when Race is selected
+						for (String entry: SubRace.subRaceStaticList2){
+							//DEBUG TOOL
+							//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
+							
+							if(entry.toLowerCase().contains(selected.toLowerCase())) { 
+								subRaceTempList.add(entry);
+								//DEBUG TOOL
+								//System.out.println("SubRace TempList added: " + subRaceTempList);
+							} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
+								subRaceTempList.remove(entry);
+							} 
+						}
+						int subRaceTLCount = subRaceTempList.size();
+						subRaceCB = new String[subRaceTLCount];
+						for(int i = 0; i < subRaceTLCount; i++){
+							subRaceCB[i] = subRaceTempList.get(i);
+							
+							//DEBUG TOOL
+							//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
+						}
+						remove(subRaceComboBox);
+						subRaceComboBox = new JComboBox(subRaceCB);
+						subRaceComboBox.setSelectedItem(0);	
+						gbc.weightx = 1;
+						gbc.weighty = 0.1;
+						gbc.gridx = 1;
+						gbc.gridy = 2;
+						gbc.insets = new Insets(0,0,0,0);
+						gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+						add(subRaceComboBox, gbc);
+						revalidate();
+						repaint();
+					}//end If statement					
+				}//end ActionPerformed (raceComboBox)
+			});//end Action Listener (raceComboBox)
 
-		
+			
+			
 		setBtn = new JButton("Set Changes!");
 		
 		Border innerBorder = BorderFactory.createTitledBorder("Generator Options");
@@ -122,15 +184,14 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0, 0, 0, 5);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		subRaceLabel.setVisible(true); // true false
-		add(subRaceLabel, gbc);
+		add(subRaceLabel, gbc);		
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0,0,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		subRaceComboBox.setVisible(true); // true false
 		add(subRaceComboBox, gbc);
+
 		
 		// ROW 4
 		gbc.weightx = 1;
@@ -156,6 +217,8 @@ public class FormPanel extends JPanel {
 				}				
 			}
 		});//end setBtn ActionListener
+
+		
 	}//end FormPanel()
 	
 	public void setFormListener(FormListener listener){

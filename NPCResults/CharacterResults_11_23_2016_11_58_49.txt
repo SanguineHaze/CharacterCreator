@@ -1,0 +1,257 @@
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Female
+Name: Labaran
+Age: Adult
+Profession: Forester
+Motivated by: Failure
+Personality Traits: Realistic, Single-minded, Firm
+Additional Detail: Cursed - Madness
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Name: Faress the Swindler
+Age: Child
+Profession: Apprentice Storyteller
+Motivated by: Pride
+Personality Traits: Casual, Mannerless, Boyish
+Additional Detail: Owns a map to a strange unknown area, possibly in another realm
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Vazenil
+Age: Old
+Profession: Senior Soldier
+Motivated by: Hope for the future
+Personality Traits: Resourceful, Realistic, Insouciant
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Female
+Name: Agranar
+Age: Young Adult
+Profession: Tinker
+Motivated by: Wealth & Status
+Personality Traits: Unceremonious, Condemnatory, Sober
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Granor
+Age: Very Old
+Profession: Retired Weaponsmith
+Motivated by: A need to improve inequality
+Personality Traits: Cowardly, Seraphic, Optimistic
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Lafar
+Age: Very Old
+Profession: Retired Geneologist
+Motivated by: Social status
+Personality Traits: Submissive, Effeminate, Colorless
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Male
+Name: Faturid
+Age: Child
+Profession: Apprentice Servant
+Motivated by: Fear of humiliation
+Personality Traits: Easily Discouraged, Companionly, Irresponsible
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Malimor
+Age: Young Adult
+Profession: Smuggler
+Motivated by: Tales of old heroes
+Personality Traits: Bewildered, Cold, Directed
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Female
+Name: Limea
+Age: Adult
+Profession: Guildmaster
+Motivated by: Personal goals or dreams
+Personality Traits: Liberal, Deceitful, Bewildered
+Additional Detail: Possesses a deed to a damaged tower keep
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Female
+Name: Dekelor the Scryer
+Age: Young Adult
+Profession: Master of Horse
+Motivated by: Tales of old heroes
+Personality Traits: Captivating, Astigmatic, Mistaken
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Female
+Name: Layorer
+Age: Young Adult
+Profession: Town Drunk
+Motivated by: Past mistakes
+Personality Traits: Destructive, Hostile, Shy
+Additional Detail: Naturally Lucky
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Female
+Name: Papennus the Killer
+Age: Child
+Profession: Apprentice Brothel Worker
+Motivated by: Fear of pain
+Personality Traits: Painstaking, Youthful, Gloomy
+Additional Detail: Strangely obsessed with money
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Name: Tamor
+Age: Old
+Profession: Peddler
+Motivated by: Past mistakes
+Personality Traits: Sexy, Innovative, Well-rounded
+Additional Detail: Cursed - Unlucky
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Female
+Name: Jograner
+Age: Young Adult
+Profession: Writer
+Motivated by: Power
+Personality Traits: Authoritarian, Pruposeful, Reflective
+Additional Detail: Cursed - Sees a false future
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Male
+Name: Oturis the Half-hand
+Age: Old
+Profession: Senior Historian
+Motivated by: Jealousy
+Personality Traits: Cold, Intolerant, Stolid
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Female
+Name: Ajenai the Strong
+Age: Young Adult
+Profession: Singer
+Motivated by: Hatred
+Personality Traits: Decadent, Admirable, Efficient
+
+
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Male
+Name: Vadellus
+Age: Old
+Profession: Senior Tumbler
+Motivated by: Survival
+Personality Traits: Active, Idiosyncratic, Slow
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Female
+Name: Vahalis the Redeemed
+Age: Adult
+Profession: Bodyguard
+Motivated by: Loyalty
+Personality Traits: Impressionable, Uninhibited, Ignorant
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Female
+Name: Masarkor
+Age: Very Old
+Profession: Retired Advisor
+Motivated by: Fear of rejection
+Personality Traits: Odd, Unpredicatable, Cooperative
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Jochedac
+Age: Old
+Profession: Senior Soldier
+Motivated by: A family legacy
+Personality Traits: Effeminate, Astigmatic, Rigid
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Name: Dellett
+Age: Child
+Motivated by: Dishonor
+Personality Traits: Considerate, Guileless, Charming
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Name: Matural
+Age: Young Adult
+Profession: Burgomaster
+Motivated by: Jealousy
+Personality Traits: Libidinous, Warm, Excitable
+Additional Detail: Unnaturally Lucky
+
+
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Name: Sizenid
+Age: Old
+Profession: Guildmaster
+Motivated by: Fear of humiliation
+Personality Traits: Mystical, Obvious, Vivacious
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Siyorel
+Age: Young Adult
+Profession: Locksmith
+Motivated by: Hope for the future
+Personality Traits: Suave, Humorous, Irascible
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Male
+Name: Relimar
+Age: Child
+Profession: Apprentice Leatherworker
+Motivated by: Survival
+Personality Traits: Petty, Distractible, Responsible
+
+
