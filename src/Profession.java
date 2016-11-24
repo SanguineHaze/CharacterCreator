@@ -16,6 +16,8 @@ public class Profession {
 	public String override = ""; //"child" || "very old"
 	
 	ArrayList<String> professionList = new ArrayList<String>();
+	static ArrayList<String> professionStaticList = new ArrayList<String>();
+	static ArrayList<String> professionStaticList2 = new ArrayList<String>();
 	
 	public Profession(){
 		chosenProfession = "";
@@ -25,6 +27,10 @@ public class Profession {
 		generateProfession("Adult");
 	}
 	
+	public void setChosenProfession(String chosenProfession) {
+		this.chosenProfession = chosenProfession;
+	}
+
 	public Profession(String chosenAge){
 		chosenProfession = "";
 		professionListOverride();
@@ -83,6 +89,12 @@ public class Profession {
 			ReadFromFile file = new ReadFromFile(professionListTargetFile);
 			professionList = file.OpenFile();
 			professionList.sort(null); //Sort the list alphabetically.
+			
+			professionStaticList = file.OpenFile();
+			for(String s: professionStaticList){
+				String[] line = s.split(":");
+				professionStaticList2.add(line[1]);
+			}
 			
 		} catch(Exception e) {
 			System.out.println(e.getMessage());

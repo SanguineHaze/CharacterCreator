@@ -80,7 +80,7 @@ JOB:Peddler
 JOB:Merchant
 JOB:Elected Official
 JOB:Government Official
-JOB:Councilman / Councilwoman
+JOB:Councilman / woman
 JOB:Elder / Chief
 JOB:Surveyor
 JOB:Archeologist

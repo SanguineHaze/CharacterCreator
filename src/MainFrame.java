@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
 		add(textPanel, BorderLayout.CENTER);
 		add(generateBtn, BorderLayout.SOUTH);
 		
-		setSize(1100,700);
+		setSize(1200,800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
@@ -101,9 +101,10 @@ public class MainFrame extends JFrame {
 				    
 					for(int i = 0; i < numGenInt; i++){	
 						//USER INPUTS
-						userAge = "";
+						userAge = formPanel.getAgeSelected();
 						userSex = formPanel.getSexSelected();
 						userRace = Race.raceStaticList.get(formPanel.getRaceSelected());
+						userProfession = formPanel.getProfessionSelected();
 							//DEBUG TOOL: See what index item is selected, what string that is inside formPanel, ensure that userRace is the same.
 							/*
 							System.out.println("MainFrame" + Race.raceStaticList);
@@ -147,7 +148,14 @@ public class MainFrame extends JFrame {
 						myAge = thisName.chosenAge;
 						
 					//PROFESSION (& ALIGNMENT) SECTION
-						thisProfession.generateNewProfession(myAge);
+						if(userProfession.isEmpty()){
+							thisProfession.generateNewProfession(myAge);
+						} else if ("Any Profession".equals(userProfession)){
+							thisProfession.generateNewProfession(myAge);
+						} else if (!(userProfession.isEmpty())){
+							thisProfession.setChosenProfession(userProfession);
+						}
+						
 						String myProfession = thisProfession.chosenProfession;			
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION

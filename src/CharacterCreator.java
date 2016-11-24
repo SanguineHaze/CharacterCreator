@@ -9,6 +9,8 @@ public class CharacterCreator {
     	
 	    Race generateList = new Race(); //Set up a race to generate the list of races.
 	    SubRace thisSubRace = new SubRace(); //Set up subRace to generate list of Subraces
+	    Name thisName = new Name(); //Set up name to generate list of ages
+	    Profession thisProfession = new Profession();
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

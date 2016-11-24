@@ -12,7 +12,7 @@ public class Name {
 	ArrayList<String> beginningName = new ArrayList<String>();
 	ArrayList<String> middleName = new ArrayList<String>();
 	ArrayList<String> endName = new ArrayList<String>();
-	ArrayList<String> ageRange = new ArrayList<String>();
+	public static ArrayList<String> ageRange = new ArrayList<String>();
 	public String chosenBeginningName = "";
 	public String chosenMidName = "";
 	public String chosenEndName = "";
