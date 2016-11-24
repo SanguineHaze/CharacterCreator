@@ -34,6 +34,7 @@ public class MainFrame extends JFrame {
 	private JButton generateBtn;
 	private FormPanel formPanel;
 	private FormListener formListener;
+	private boolean saveNext;
 	int numGenInt;
 	
 	FormEvent formEvent = new FormEvent(this, numGenInt);
@@ -76,7 +77,7 @@ public class MainFrame extends JFrame {
 					
 					long startTime = System.nanoTime();
 				    
-				    boolean inputNN = false;
+				    boolean inputNN = false; //Building for the Future. Not yet in use.
 				    int nicknameChance = 0;
 				    if(inputNN){
 				    	System.out.println("Chance (0 -> 100) of having a nickname:");
@@ -89,6 +90,8 @@ public class MainFrame extends JFrame {
 					Name thisName = new Name();
 					Profession thisProfession = new Profession(myAge);
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
+					
+					saveNext = formPanel.isSaveNext();
 					
 					numGenInt = formPanel.getNumGenInt(); //Check to see user's input
 					//If user hasn't specified, set default:
@@ -229,14 +232,18 @@ public class MainFrame extends JFrame {
 					}//end FOR loop
 					
 					//CHARACTER WRITEOUT SECTION
-						
-						@SuppressWarnings("unused")
-						WriteToFile thisWrite = new WriteToFile(characterResults);
-						textPanel.appendText(thisWrite.getWTFLocation() + "\n");
-						textPanel.appendText("\n");
+						if(saveNext){ //save if true
+							@SuppressWarnings("unused")
+							WriteToFile thisWrite = new WriteToFile(characterResults);
+							textPanel.appendText(thisWrite.getWTFLocation() + "\n");
+							textPanel.appendText("\n");
+						}						
 						
 						long endTime = System.nanoTime();
 						System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
+						
+						textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
+						textPanel.appendText("\n");
 						
 				}//end if Clicked (GENERATE!)
 			}//end actionPerformed

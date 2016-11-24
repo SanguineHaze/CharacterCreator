@@ -4,11 +4,14 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,6 +34,7 @@ public class FormPanel extends JPanel {
 	private JLabel sexLabel;
 	private JLabel ageLabel;
 	private JLabel professionLabel;
+	private JLabel saveLabel;
 	
 	private JTextField numGenTextField;
 	private JComboBox raceComboBox;
@@ -41,6 +45,8 @@ public class FormPanel extends JPanel {
 	private FormListener formListener;
 	private JButton setBtn;
 	private int numGenInt;
+	
+	private JCheckBox saveCheckBox;
 
 	private JRadioButton sexM;
 	static String sexMString = "M";
@@ -54,7 +60,12 @@ public class FormPanel extends JPanel {
 	private String sexSelected = "";
 	private String ageSelected = "";
 	private String professionSelected = "";
+	private boolean saveNext;
 	
+	public boolean isSaveNext() {
+		return saveNext;
+	}
+
 	//GETTERS
 	public String getProfessionSelected() {
 		return professionSelected;
@@ -104,6 +115,7 @@ public class FormPanel extends JPanel {
 		sexLabel = new JLabel("Sex:");
 		ageLabel = new JLabel("Age:");
 		professionLabel = new JLabel("Profession:");
+		saveLabel = new JLabel("Save Next Results:");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
@@ -208,6 +220,8 @@ public class FormPanel extends JPanel {
 			professionCB[pi] = Profession.professionStaticList2.get(pi);
 		}
 		professionComboBox = new JComboBox(professionCB);
+		
+		saveCheckBox = new JCheckBox("Save Next Results");
 		
 		
 		//SET BORDERS! MAKE BOXES!
@@ -319,7 +333,14 @@ public class FormPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(professionComboBox, gbc);
 		
-		//ROW 7 - SET BUTTON
+		//ROW 7 - SAVE BOX		
+		gbc.gridx = 1;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(saveCheckBox, gbc);
+		
+		
+		//ROW 8 - SET BUTTON
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
@@ -340,6 +361,7 @@ public class FormPanel extends JPanel {
 					subRaceSelected = subRaceComboBox.getSelectedItem().toString();
 					ageSelected = ageComboBox.getSelectedItem().toString();
 					professionSelected = professionComboBox.getSelectedItem().toString();
+					
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);
 					
@@ -377,6 +399,16 @@ public class FormPanel extends JPanel {
 					//DEBUG TOOL
 					//System.out.println(sexSelected);					
 				} 
+			}
+		});
+		
+		saveCheckBox.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.DESELECTED){
+					saveNext = false;
+				} else if (e.getStateChange() == ItemEvent.SELECTED){
+					saveNext = true;
+				}
 			}
 		});
 		
