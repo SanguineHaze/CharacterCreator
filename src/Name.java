@@ -12,7 +12,8 @@ public class Name {
 	ArrayList<String> beginningName = new ArrayList<String>();
 	ArrayList<String> middleName = new ArrayList<String>();
 	ArrayList<String> endName = new ArrayList<String>();
-	public static ArrayList<String> ageRange = new ArrayList<String>();
+	ArrayList<String> ageRange = new ArrayList<String>();
+	public static ArrayList<String> ageRangeStatic = new ArrayList<String>();
 	public String chosenBeginningName = "";
 	public String chosenMidName = "";
 	public String chosenEndName = "";
@@ -108,6 +109,12 @@ public class Name {
 			ageRange.add("Adult");
 			ageRange.add("Old");
 			ageRange.add("Very Old");
+			
+			ageRangeStatic.add("Child");
+			ageRangeStatic.add("Young Adult");
+			ageRangeStatic.add("Adult");
+			ageRangeStatic.add("Old");
+			ageRangeStatic.add("Very Old");
 			
 		} catch(Exception e) {
 			 System.out.println(e.getMessage());
@@ -214,10 +221,22 @@ public class Name {
 		Random randomAge = new Random();
 		if(ageRange.contains(userAge)){
 			chosenAge = userAge;
+			
+			//DEBUG TOOL
+			//System.out.println("generateAge 1: " + userAge);
+		} else if(userAge.equals("Any Age")){
+			int index = randomAge.nextInt(ageRange.size());
+			chosenAge = ageRange.get(index);
+			
+			//DEBUG TOOL
+			//System.out.println("generateAge 2 - userAge: " + userAge + " chosenAge: " + chosenAge);
 		} else {
 			int index = randomAge.nextInt(ageRange.size());
 			chosenAge = ageRange.get(index);
+			
+			//DEBUG TOOL
+			//System.out.println("generateAge 3 - userAge: " + userAge + " chosenAge: " + chosenAge);
 		}
-	}
+	}//end generateAge(userAge)
 
 }//end Class

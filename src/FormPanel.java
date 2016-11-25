@@ -22,6 +22,8 @@ import javax.swing.border.Border;
 public class FormPanel extends JPanel {
 	
 	ArrayList<String> subRaceTempList = new ArrayList<String>();
+	ArrayList<String> lastSelected = new ArrayList<String>();
+	
 	protected boolean itemChanged;
 	protected String[] subRaceCB;
 	protected String[] ageCB;
@@ -143,38 +145,44 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent a) {
 				JComboBox raceComboBox = (JComboBox) a.getSource();
 				String selected = (String) raceComboBox.getSelectedItem();
-				
+								
+				SubRace.subRaceStaticList2.add(0, "Any " + selected);
+								
+				subRaceTempList.clear();
 				//DEBUG TOOL
 				//System.out.println(selected); //Check what object is selected
 				
 				if(!("Any Race".equals(selected))){
 					//DEBUG TOOL
 					//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
-					SubRace.subRaceStaticList2.add(0, "Any " + selected);
+					
 					int subRaceCount = SubRace.subRaceStaticList2.size();
 					subRaceCB = new String[subRaceCount];
 					//Set up a filtered list of SubRaces when Race is selected
 					for (String entry: SubRace.subRaceStaticList2){
+						
 						//DEBUG TOOL
 						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
 						
 						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
+							
 							subRaceTempList.add(entry);
 							//DEBUG TOOL
 							//System.out.println("SubRace TempList added: " + subRaceTempList);
 						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
 							subRaceTempList.remove(entry);
 						} 
-					}
-					
+						//end if
+					}//end for loop					
 					int subRaceTLCount = subRaceTempList.size();
 					subRaceCB = new String[subRaceTLCount];
 					for(int i = 0; i < subRaceTLCount; i++){
 						subRaceCB[i] = subRaceTempList.get(i);
 						
 						//DEBUG TOOL
-						//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
-					}
+						System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
+					}//end subRaceCB For loop
+					
 					if(!(subRaceTempList.isEmpty())){
 						subRaceComboBox.setEnabled(true);
 						//Remove and rebuild the SubRace list
@@ -192,11 +200,18 @@ public class FormPanel extends JPanel {
 						repaint();							
 					} else if (subRaceTempList.isEmpty()){
 						subRaceComboBox.setEnabled(false);
+					} else if ("Any Race".equals(selected)){
+						subRaceComboBox.setEnabled(false);
 					}//end If subRaceTempList Is Not empty
-				} else if ("Any Race".equals(selected)){
-					subRaceComboBox.setEnabled(false);
-				}//end If NOT "Any Race" selected				
-			}//end ActionPerformed (raceComboBox)
+				}//end If NOT "Any Race" selected
+				
+				SubRace.subRaceStaticList2.remove(0); //Remove the entry we added earlier
+				
+				//DEBUG TOOLS - De-duping the subrace list
+				//System.out.println("SubRaceStatic: " + SubRace.subRaceStaticList2);
+				//System.out.println("SubRaceTemp" + subRaceTempList);
+				
+			}//end ActionPerformed (raceComboBox)			
 		});//end Action Listener (raceComboBox)			
 		
 		sexM = new JRadioButton(sexMString);
@@ -204,11 +219,11 @@ public class FormPanel extends JPanel {
 		sexR = new JRadioButton(sexRString);
 		setBtn = new JButton("Set Changes!");
 		
-		Name.ageRange.add(0, "Any Age");
-		int ageCount = Name.ageRange.size();
+		Name.ageRangeStatic.add(0, "Any Age");
+		int ageCount = Name.ageRangeStatic.size();
 		ageCB = new String[ageCount];
 		for(int ii = 0; ii < ageCount; ii++){
-			ageCB[ii] = Name.ageRange.get(ii);
+			ageCB[ii] = Name.ageRangeStatic.get(ii);
 		}
 		ageComboBox = new JComboBox(ageCB);
 		
@@ -298,7 +313,7 @@ public class FormPanel extends JPanel {
 		sexGroup.add(sexM);
 		sexGroup.add(sexR);
 		
-		gbc.insets = new Insets(0,0,0,2); //Add a bit of padding to the right of sexR (which displays as center)
+		gbc.insets = new Insets(0,0,0,2); //Add a bit of padding
 		sexR.setMargin(gbc.insets);
 		gbc.gridx = 1;
 		gbc.anchor = GridBagConstraints.WEST; //sexF to display LEFT column
@@ -363,8 +378,7 @@ public class FormPanel extends JPanel {
 					professionSelected = professionComboBox.getSelectedItem().toString();
 					
 					//DEBUG TOOL: display numGenInt
-					//System.out.println(numGenInt);
-					
+					//System.out.println(numGenInt);					
 				}				
 			}
 		});//end setBtn ActionListener
