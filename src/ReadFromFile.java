@@ -7,16 +7,16 @@ import java.io.File;
 
 public class ReadFromFile {
 	
-    private String path;
+    private File path;
         
-    public ReadFromFile(String filePath) {
-        path = filePath;
+    public ReadFromFile(File nameListTargetFile) {
+        path = nameListTargetFile;
     }
 
     public ArrayList<String> OpenFile() throws IOException {
     	ArrayList<String> readOut = new ArrayList<String>();
-        File fr = new File(path);
-        Scanner textReader = new Scanner(fr);
+        //File fr = new File(path);
+        Scanner textReader = new Scanner(path);
 
         while(textReader.hasNextLine()){
         	        	

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Profession {
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()  + File.separator).replace("%20", " ");
 	
 	public String chosenProfession;
 	private String lineValue;
 	private String lineName;
-	private String chosenProfessionList;
+	private File chosenProfessionList;
 	private boolean childSafeListOverride = false;
 	private boolean veryOldSafeListOverride = false;
 	public String override = ""; //"child" || "very old"
@@ -57,24 +57,24 @@ public class Profession {
 	private void generateProfessionList(String chosenAge){
 		if("Child".equals(chosenAge)){
 			if(childSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 			} else {
-				chosenProfessionList = filesDirectory + "sourceData\\ProfessionsChild.txt";
+				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "ProfessionsChild.txt");
 			}//end if childSafeListOverride	
 		} else if("Young Adult".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 		} else if("Adult".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 		} else if("Old".equals(chosenAge)){
-			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 		} else if("Very Old".equals(chosenAge)){
 			if(veryOldSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 			} else {
-				chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 			}
 		} else {
-			chosenProfessionList = filesDirectory + "sourceData\\Professions.txt";
+			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
 		}
 	}//end generateProfessionList()
 	
@@ -82,7 +82,7 @@ public class Profession {
 	//http://www222.pair.com/sjohn/blueroom/demog.htm
 	public void loadProfessionList(){
 		
-		String professionListTargetFile = chosenProfessionList;
+		File professionListTargetFile = chosenProfessionList;
 		
 		try {
 			

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Name {
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + File.separator).replace("%20", " ");
 	
 	String sex = "";
 	boolean chosenSex;
@@ -90,7 +90,7 @@ public class Name {
 	//Second, generate a list of names
 	private void loadNameList(){
 		//The master list containing all Name options
-		String nameListTargetFile = filesDirectory + "sourceData\\NameDefault.txt"; //path to the file on local environment.
+		File nameListTargetFile = new File (filesDirectory + "sourceData" + File.separator + "NameDefault.txt"); //path to the file on local environment.
 		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
