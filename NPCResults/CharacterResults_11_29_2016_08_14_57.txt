@@ -1,0 +1,245 @@
+Race: Genasi
+Subrace: Water Genasi
+Sex: Male
+Name: Pamor
+Age: Old
+Profession: Senior Crier
+Motivated by: Hope for the future
+Personality Traits: Decadent, Modest, Retiring
+
+
+Race: Half-Elf
+Sex: Female
+Name: Paquilil the Braggart
+Age: Old
+Profession: Senior Thug
+Motivated by: Obedience
+Personality Traits: Orderly, Conformist, Mistaken
+Additional Detail: Owes a favor to a member of a secret society
+
+
+Race: Elf
+Subrace: Eladrin
+Sex: Female
+Name: Jodellac
+Age: Child
+Profession: Apprentice Paladin
+Motivated by: Failure
+Personality Traits: Conciliatory, Earnest, Helpful
+Additional Detail: Possesses a deed to an abandoned castle
+
+
+Race: Halfling
+Subrace: Lightfoot Halfling
+Sex: Female
+Name: Pazener the Hand
+Age: Young Adult
+Profession: Rogue
+Motivated by: Fear of death
+Personality Traits: Unfathomable, Cowardly, Breezy
+
+
+Race: Dwarf
+Subrace: Duergar
+Sex: Female
+Name: Kidellin the Eight-fingered
+Age: Old
+Profession: Botanist
+Motivated by: Prestige
+Personality Traits: Businesslike, Angry, Crebral
+
+
+Race: Lizardfolk
+Sex: Male
+Name: Alimal
+Age: Adult
+Profession: Miller
+Motivated by: Reputation
+Personality Traits: Dramatic, Naive, Lyrical
+
+
+Race: Dragonborn
+Subrace: Brass Dragonborn
+Sex: Female
+Name: Akelea
+Age: Adult
+Profession: Maid
+Motivated by: A family legacy
+Personality Traits: Dry, Caring, Imprudent
+
+
+Race: Dragonborn
+Subrace: Red Dragonborn
+Sex: Male
+Name: Tagranett
+Age: Old
+Profession: Senior Weaver
+Motivated by: Personal pride
+Personality Traits: Genuine, Criminal, Meretricious
+Additional Detail: Strangely obsessed with money
+
+
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Name: Elpennam the Hand
+Age: Adult
+Profession: Artist
+Motivated by: Curiosity
+Personality Traits: Logical, Decent, Meddlesome
+
+
+Race: Lizardfolk
+Sex: Male
+Name: Labarus
+Age: Child
+Profession: Apprentice Baker
+Motivated by: Past mistakes
+Personality Traits: Astigmatic, Indulgent, Dissonant
+Additional Detail: Strangely obsessed by a specific type of animal (wolves, birds, bears, etc)
+
+
+Race: Half-Orc
+Sex: Female
+Name: Granin
+Age: Old
+Profession: Senior Miller
+Motivated by: Hatred
+Personality Traits: Well-read, Abrasive, Slow
+
+
+Race: Kenku
+Sex: Female
+Name: Quilis
+Age: Child
+Motivated by: Love
+Personality Traits: Focused, Cheerful, Dirty
+
+
+Race: Kenku
+Sex: Female
+Name: Kishener the Mad
+Age: Child
+Profession: Apprentice Composer
+Motivated by: Stubbornness
+Personality Traits: Driving, Faithful, Popular
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Female
+Name: Rezenus the Wise
+Age: Adult
+Profession: Paladin
+Motivated by: Fear of loss
+Personality Traits: Angry, Boisterous, Unaggressive
+Additional Detail: Possesses a cursed ring
+
+
+Race: Human
+Subrace: Human Variant
+Sex: Female
+Name: Obarac the Runner
+Age: Young Adult
+Profession: Goatherd
+Motivated by: Lust
+Personality Traits: Crisp, Grand, Inconsiderate
+
+
+Race: Tiefling
+Subrace: Demonic Tiefling
+Sex: Male
+Name: Fajenid
+Age: Young Adult
+Profession: Butcher
+Motivated by: A need to improve inequality
+Personality Traits: Suspicious, Hearty, Patient
+
+
+Race: Genasi
+Subrace: Earth Genasi
+Sex: Male
+Name: Netus the Dragonheart
+Age: Young Adult
+Profession: Civic Engineer
+Motivated by: Necessity
+Personality Traits: Gullible, Criminal, Respectful
+Additional Detail: Possesses a deed to a damaged tower keep
+
+
+Race: Kenku
+Sex: Female
+Name: Rondess
+Age: Old
+Profession: Senior Writer
+Motivated by: Honor
+Personality Traits: Predatory, Excitable, Uninhibited
+Additional Detail: Possesses a specific phobia (any) 
+
+
+Race: Halfling
+Subrace: Lightfoot Halfling
+Sex: Male
+Name: Lapennic
+Age: Child
+Motivated by: Fear of regret
+Personality Traits: Perverse, Curious, Brutal
+
+
+Race: Triton
+Sex: Female
+Name: Vabarar
+Age: Young Adult
+Profession: Locksmith
+Motivated by: Dishonor
+Personality Traits: Courageous, Graceless, Silly
+
+
+Race: Dragonborn
+Subrace: Black Dragonborn
+Sex: Female
+Name: Faquiler
+Age: Young Adult
+Profession: Innkeep
+Motivated by: Vengeance
+Personality Traits: Glamorous, Scheming, Graceless
+
+
+Race: Half-Elf
+Sex: Female
+Name: Eldellus
+Age: Very Old
+Profession: Retired Latrine Digger
+Motivated by: Fear of shame
+Personality Traits: Debonair, Forgetful, Ignorant
+
+
+Race: Dragonborn
+Subrace: Red Dragonborn
+Sex: Female
+Name: Taronda
+Age: Adult
+Profession: Sheepshearer
+Motivated by: Justice
+Personality Traits: Distractible, Asocial, Felicific
+
+
+Race: Goliath
+Sex: Male
+Name: Lashener
+Age: Adult
+Profession: Composer
+Motivated by: Personal pride
+Personality Traits: Businesslike, Discouraging, Muddle-headed
+Additional Detail: Owes a favor to a local soldier
+
+
+Race: Tabaxi
+Sex: Male
+Name: Sichedin
+Age: Child
+Profession: Apprentice Military Tactician
+Motivated by: Personal goals or dreams
+Personality Traits: Progressive, Chummy, Perceptive
+
+

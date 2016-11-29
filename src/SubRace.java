@@ -13,7 +13,7 @@ public class SubRace {
 	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces
 	static ArrayList<String> subRaceStaticList = new ArrayList<String>();
 	static ArrayList<String> subRaceStaticList2 = new ArrayList<String>();
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
+	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()  + File.separator).replace("%20", " ");
 	
 	public SubRace() {
 		chosenSubRace = "";
@@ -33,7 +33,7 @@ public class SubRace {
 	
 	public void loadSubRaceList(){
 		//The master list containing all subraces
-		String subRaceTargetFile = filesDirectory + "sourceData\\Subrace.txt"; //path to the file on local environment.  	 	
+		File subRaceTargetFile = new File(filesDirectory + "sourceData" + File.separator + "Subrace.txt"); //path to the file on local environment.  	 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);

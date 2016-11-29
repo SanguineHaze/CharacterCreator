@@ -11,6 +11,8 @@ public class Race {
 	ArrayList<String> raceStaticPreList = new ArrayList<String>();
 	static ArrayList<String> raceStaticList = new ArrayList<String>();
 	
+	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + File.separator).replace("%20", " ");
+	
      public Race() {
     	 chosenRace= "";
     	 loadRaceList(); 
@@ -32,9 +34,9 @@ public class Race {
      }
      
      private void loadRaceList(){
-    	 String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\").replace("%20", " ");
+    	
     	 //The master list, containing all Races
-    	 String targetFile = filesDirectory + "sourceData\\Race.txt"; //path to the file on local environment.
+    	 File targetFile = new File(filesDirectory + "sourceData" + File.separator + "Race.txt"); //path to the file on local environment.
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);
