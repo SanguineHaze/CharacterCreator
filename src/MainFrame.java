@@ -75,6 +75,8 @@ public class MainFrame extends JFrame {
 				
 				if(clicked == generateBtn){
 					
+					textPanel.clearText(); //Operation 'Clean Slate' is a go.
+									
 					long startTime = System.nanoTime();
 				    
 				    boolean inputNN = false; //Building for the Future. Not yet in use.

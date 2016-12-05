@@ -250,7 +250,7 @@ public class FormPanel extends JPanel {
 		
 		// ROW 1 - # NPCs
 		gbc.anchor = GridBagConstraints.RELATIVE;
-		gbc.gridx = 0;
+		gbc.gridx = 0; //Row 1 is actually Row 0. Don't question it, just add to it.
 		gbc.gridy = 0;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_END;		
 		add(numGenLabel, gbc);
