@@ -37,8 +37,11 @@ public class FormPanel extends JPanel {
 	private JLabel ageLabel;
 	private JLabel professionLabel;
 	private JLabel saveLabel;
+	private JLabel nicknameLabel;
+	private JLabel nicknameLabel2;
 	
 	private JTextField numGenTextField;
+	private JTextField nicknameChance;
 	private JComboBox raceComboBox;
 	private JComboBox subRaceComboBox;
 	private JComboBox ageComboBox;
@@ -63,7 +66,12 @@ public class FormPanel extends JPanel {
 	private String ageSelected = "";
 	private String professionSelected = "";
 	private boolean saveNext;
+	protected int nicknameChanceInt = -1;
 	
+	public int getNicknameChanceInt() {
+		return nicknameChanceInt;
+	}
+
 	public boolean isSaveNext() {
 		return saveNext;
 	}
@@ -97,6 +105,17 @@ public class FormPanel extends JPanel {
 		return numGenInt;
 	}
 	
+	static boolean isValidNumber(String val) {
+		// return output if characters are digits
+		Boolean output = false;
+		try {
+			Integer.parseInt(val);
+			output = true;
+		} catch (Exception ex) {
+			output = false;
+		}
+		return output;
+	}	
 	
 	//THE MAGIC HAPPENS HERE. ALSO, HERE THERE BE DRAGONS.
 	public FormPanel() {
@@ -118,9 +137,12 @@ public class FormPanel extends JPanel {
 		ageLabel = new JLabel("Age:");
 		professionLabel = new JLabel("Profession:");
 		saveLabel = new JLabel("Save Next Results:");
+		nicknameLabel = new JLabel("Nickname Chance % :");
+		nicknameLabel2 = new JLabel("(0 to 100) ");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
+		nicknameChance = new JTextField(6);
 		
 		//RACE ComboBox
 		int count = Race.raceStaticList.size();	
@@ -348,19 +370,31 @@ public class FormPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(professionComboBox, gbc);
 		
-		//ROW 7 - SAVE BOX		
-		gbc.gridx = 1;
+		//ROW 7 - NICKNAMES
+		
+		gbc.gridx = 0;
 		gbc.gridy = 6;
+		add(nicknameLabel, gbc);
+		
+		gbc.gridx = 1;
+		add(nicknameChance, gbc);
+		gbc.gridx = 0;
+		gbc.anchor = GridBagConstraints.LAST_LINE_END;
+		add(nicknameLabel2, gbc);
+		
+		//ROW 8 - SAVE BOX		
+		gbc.gridx = 1;
+		gbc.gridy = 8;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
 		
-		//ROW 8 - SET BUTTON
+		//ROW 9 - SET BUTTON
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
 		gbc.gridx = 1;
-		gbc.gridy = 7;
+		gbc.gridy = 9;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -376,6 +410,12 @@ public class FormPanel extends JPanel {
 					subRaceSelected = subRaceComboBox.getSelectedItem().toString();
 					ageSelected = ageComboBox.getSelectedItem().toString();
 					professionSelected = professionComboBox.getSelectedItem().toString();
+					String nicknameChanceTransform = nicknameChance.getText();
+					if(!(nicknameChanceTransform.isEmpty())){
+						if(isValidNumber(nicknameChanceTransform)){
+							nicknameChanceInt = Integer.parseInt(nicknameChanceTransform);
+						} 
+					} // no need to handle unset or invalid Nickname chance here - we can do that in MainFrame when Generate is clicked.
 					
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);					

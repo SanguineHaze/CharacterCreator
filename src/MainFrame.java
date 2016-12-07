@@ -19,6 +19,7 @@ public class MainFrame extends JFrame {
     String userSex;
     String userAge;
     String userProfession;
+    int nicknameChance;
 	    String myRace = ""; 
 		String mySubRace = "";	
 		String mySex = "";	
@@ -79,14 +80,7 @@ public class MainFrame extends JFrame {
 									
 					long startTime = System.nanoTime();
 				    
-				    boolean inputNN = false; //Building for the Future. Not yet in use.
-				    int nicknameChance = 0;
-				    if(inputNN){
-				    	System.out.println("Chance (0 -> 100) of having a nickname:");
-					    int userNickname = 50;
-					    nicknameChance = userNickname;
-				    }	   	    
-				    
+					
 			        Race thisRace = new Race();	
 			        SubRace thisSubRace = new SubRace();
 					Name thisName = new Name();
@@ -100,6 +94,14 @@ public class MainFrame extends JFrame {
 					if(numGenInt < 1){
 						numGenInt = 25;
 					}
+					
+					nicknameChance = formPanel.getNicknameChanceInt();
+					if(nicknameChance < 0 || nicknameChance > 100){
+						nicknameChance = 30; //handle unset nickname chance. Set a default
+					}
+					
+					//DEBUG TOOL - NICKNAME
+					//System.out.println("MainFrame - NicknameChance:" + nicknameChance);
 					
 					textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
 					textPanel.appendText("\n");
@@ -164,12 +166,9 @@ public class MainFrame extends JFrame {
 						String myProfession = thisProfession.chosenProfession;			
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
-						if(inputNN){
-							thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
-						}
-						else{
-							thisMotivation.generateNewAdditionalFeatures(myAge, myProfession, myRace);
-						}			
+						
+						thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
+						
 						myMotivation = thisMotivation.chosenMotivation;			
 						myPersonality = thisMotivation.chosenPersonality;			 
 						myNickname = thisMotivation.chosenNickname;	
