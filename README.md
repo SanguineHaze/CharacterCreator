@@ -20,5 +20,5 @@
 
 #The initial plan (Begun Aug 24th, 2016 - Completed Nov 2, 2016):
 Race > Subrace > M/F toggle > Name > Class || Job > defining features, personality, motivations
-	-Features added beyond original idea: Swing GUI & a WriteToFile method
-	-Features dropped: alignment (fuck alignment)
+	-Features added beyond original idea: Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)
+	-Features dropped: alignment (fuck alignment & the headaches it causes. My friends, be not distracted by such arbitrary definitions of good and evil!)
