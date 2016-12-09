@@ -22,6 +22,7 @@ public class AdditionalFeatures {
 	String chosenNickname;
 	String chosenDetail;
 	private int nicknameChance;
+	private int detailChance;
 	
 	public AdditionalFeatures(){
 		chosenPersonality = "";
@@ -36,11 +37,11 @@ public class AdditionalFeatures {
 		generateNickname("adult", "none", "Dwarf");
 		loadDetailsList();
 		generateDetails("Dwarf", "none");
-		//DEBUG TOOL - See which constructor is fucking up
+		//DEBUG TOOL - CONSTRUCTOR 1
 		//System.out.println("AddFeat 1 NN: " + chosenNickname);
 	}
 
-	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace){
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
@@ -49,8 +50,9 @@ public class AdditionalFeatures {
 		generatePersonality();
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
+		this.detailChance = detailChance;
 		generateDetails(chosenRace, chosenProfession);
-		//DEBUG TOOL - See which constructor is fucking up
+		//DEBUG TOOL - CONSTRUCTOR 2
 		//System.out.println("AddFeat 2 NN: " + chosenNickname);
 	}
 	
@@ -65,7 +67,7 @@ public class AdditionalFeatures {
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		generateDetails(chosenRace, chosenProfession);
-		//DEBUG TOOL - See which constructor is fucking up
+		//DEBUG TOOL - CONSTRUCTOR 3
 		//System.out.println("AddFeat 3 NN: " + chosenNickname);
 	}
 	
@@ -117,8 +119,7 @@ public class AdditionalFeatures {
 	    for(String out: personalityList){
 	        System.out.println(out);
 	    }
-	    */
-		
+	    */		
 	}//end loadPersonalityList()
 	
 	public void generatePersonality(){
@@ -236,9 +237,9 @@ public class AdditionalFeatures {
 	}//end loadDetailsList()
 	
 	public void generateDetails(String race, String profession){
-		Random detailsChance = new Random();
-		int recieves = detailsChance.nextInt(101);
-		if (recieves <= 35){
+		Random detailsChanceRandomInt = new Random();
+		int recieves = detailsChanceRandomInt.nextInt(101);
+		if (recieves <= detailChance ){
 			Random assignDetails = new Random();
 			int index = assignDetails.nextInt(detailsList.size());
 			chosenDetail = detailsList.get(index);

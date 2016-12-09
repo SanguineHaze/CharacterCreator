@@ -39,9 +39,12 @@ public class FormPanel extends JPanel {
 	private JLabel saveLabel;
 	private JLabel nicknameLabel;
 	private JLabel nicknameLabel2;
+	private JLabel detailsChanceLabel;
+	private JLabel detailsChanceLabel2;
 	
 	private JTextField numGenTextField;
 	private JTextField nicknameChance;
+	private JTextField detailsChanceField;
 	private JComboBox raceComboBox;
 	private JComboBox subRaceComboBox;
 	private JComboBox ageComboBox;
@@ -67,6 +70,11 @@ public class FormPanel extends JPanel {
 	private String professionSelected = "";
 	private boolean saveNext;
 	protected int nicknameChanceInt = -1;
+	protected int detailsChance;
+	
+	public int getDetailsChance() {
+		return detailsChance;
+	}
 	
 	public int getNicknameChanceInt() {
 		return nicknameChanceInt;
@@ -139,10 +147,13 @@ public class FormPanel extends JPanel {
 		saveLabel = new JLabel("Save Next Results:");
 		nicknameLabel = new JLabel("Nickname Chance % :");
 		nicknameLabel2 = new JLabel("(0 to 100) ");
+		detailsChanceLabel = new JLabel("Details Chance % :");
+		detailsChanceLabel2 = new JLabel("(0 to 100)");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
 		nicknameChance = new JTextField(6);
+		detailsChanceField = new JTextField(6);
 		
 		//RACE ComboBox
 		int count = Race.raceStaticList.size();	
@@ -183,7 +194,7 @@ public class FormPanel extends JPanel {
 					//Set up a filtered list of SubRaces when Race is selected
 					for (String entry: SubRace.subRaceStaticList2){
 						
-						//DEBUG TOOL
+						//DEBUG TOOL - SUBRACE FOR LOOP
 						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
 						
 						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
@@ -201,8 +212,8 @@ public class FormPanel extends JPanel {
 					for(int i = 0; i < subRaceTLCount; i++){
 						subRaceCB[i] = subRaceTempList.get(i);
 						
-						//DEBUG TOOL
-						System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
+						//DEBUG TOOL - SUBRACE COMBOBOX
+						//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
 					}//end subRaceCB For loop
 					
 					if(!(subRaceTempList.isEmpty())){
@@ -382,9 +393,21 @@ public class FormPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.LAST_LINE_END;
 		add(nicknameLabel2, gbc);
 		
-		//ROW 8 - SAVE BOX		
+		//ROW 8 - ADDITIONAL DETAILS 
+		gbc.gridx = 0;
+		gbc.gridy= 7;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		add(detailsChanceLabel, gbc);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbc.gridx = 1;
-		gbc.gridy = 8;
+		add(detailsChanceField, gbc);
+		gbc.gridx = 0;
+		gbc.anchor= GridBagConstraints.LAST_LINE_END;
+		add(detailsChanceLabel2, gbc);
+		
+		//ROW 9 - SAVE BOX	
+		gbc.gridx = 1;
+		gbc.gridy = 9;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
@@ -394,7 +417,7 @@ public class FormPanel extends JPanel {
 		gbc.weighty = 3;
 		
 		gbc.gridx = 1;
-		gbc.gridy = 9;
+		gbc.gridy = 10;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -416,6 +439,12 @@ public class FormPanel extends JPanel {
 							nicknameChanceInt = Integer.parseInt(nicknameChanceTransform);
 						} 
 					} // no need to handle unset or invalid Nickname chance here - we can do that in MainFrame when Generate is clicked.
+					String detailsChanceTransform = detailsChanceField.getText();
+					if(!(detailsChanceTransform.isEmpty())){
+						if(isValidNumber(detailsChanceTransform)){
+							detailsChance = Integer.parseInt(detailsChanceTransform);
+						}
+					} //again, no need to handle unset or invalid Details here. We'll do this in MainFrame the same as Nickname.
 					
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);					

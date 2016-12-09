@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
     String userAge;
     String userProfession;
     int nicknameChance;
+    int detailChance;
 	    String myRace = ""; 
 		String mySubRace = "";	
 		String mySex = "";	
@@ -100,6 +101,11 @@ public class MainFrame extends JFrame {
 						nicknameChance = 30; //handle unset nickname chance. Set a default
 					}
 					
+					detailChance = formPanel.getDetailsChance();
+					if(detailChance < 0 || detailChance > 100){
+						detailChance = 30; //Default AdditionalDetail chance.
+					}
+					
 					//DEBUG TOOL - NICKNAME
 					//System.out.println("MainFrame - NicknameChance:" + nicknameChance);
 					
@@ -154,7 +160,7 @@ public class MainFrame extends JFrame {
 						myName = thisName.chosenName;
 						myAge = thisName.chosenAge;
 						
-					//PROFESSION (& ALIGNMENT) SECTION
+					//PROFESSION SECTION
 						if(userProfession.isEmpty()){
 							thisProfession.generateNewProfession(myAge);
 						} else if ("Any Profession".equals(userProfession)){
@@ -167,7 +173,7 @@ public class MainFrame extends JFrame {
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
 						
-						thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace);
+						thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace, detailChance);
 						
 						myMotivation = thisMotivation.chosenMotivation;			
 						myPersonality = thisMotivation.chosenPersonality;			 
