@@ -16,7 +16,17 @@
 - Change Name generation so it is related to the chosen race
 	- Include name length changes to match PHB/DMG racial name average lengths
 	- Include clan / surnames
+		-Clan names (BLOCKED - Required: Race related naming)
+		-Surnames (completed Dec 14/16)
 - Change Nickname generation so it is based off of chosen race and chosen profession (where applicable)
+	- Change "Child" nicknames to be 100% child oriented
+	
+#Recent Updates
+Dec 14, 2016
+- Added Surnames
+- Changed how nicknames are displayed (if it contains "the [Something]" it displays First Name / Last Name / Nickname. If not, it's First Name / Nickname / Last Name)
+- Found & Corrected "save" bug where all results were being fed to the save Array even before it had been selected (Causing a save of every output since the program opened).
+	- Found & corrected a subsequent bug where the Save list was not clearing.
 
 #The initial plan (Begun Aug 24th, 2016 - Completed Nov 2, 2016):
 Race > Subrace > M/F toggle > Name > Class || Job > defining features, personality, motivations

@@ -1,0 +1,19 @@
+Race: Goliath
+Sex: Female
+Name: Haless Ohalel
+Age: Old
+Profession: Senior Barbarian
+Motivated by: Unfulfillment
+Personality Traits: Dedicated, Unreligious, Obvious
+
+
+Race: Dragonborn
+Subrace: Brass Dragonborn
+Sex: Male
+Name: Nayorus Oshenett 'the Redeemer'
+Age: Very Old
+Profession: Retired Trapper
+Motivated by: Lust
+Personality Traits: Directed, Familial, Monstrous
+
+

@@ -25,6 +25,7 @@ public class MainFrame extends JFrame {
 		String mySubRace = "";	
 		String mySex = "";	
 		String myName = "";
+		String myLastName = "";
 		String myAge = "";
 		String myMotivation = "";	
 		String myPersonality = "";		
@@ -106,7 +107,7 @@ public class MainFrame extends JFrame {
 						detailChance = 30; //Default AdditionalDetail chance.
 					}
 					
-					//DEBUG TOOL - NICKNAME
+					//DEBUG TOOL - NICKNAME CHANCE %
 					//System.out.println("MainFrame - NicknameChance:" + nicknameChance);
 					
 					textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
@@ -158,6 +159,7 @@ public class MainFrame extends JFrame {
 						
 						mySex = thisName.sex;								
 						myName = thisName.chosenName;
+						myLastName = thisName.chosenLastName;
 						myAge = thisName.chosenAge;
 						
 					//PROFESSION SECTION
@@ -177,64 +179,93 @@ public class MainFrame extends JFrame {
 						
 						myMotivation = thisMotivation.chosenMotivation;			
 						myPersonality = thisMotivation.chosenPersonality;			 
-						myNickname = thisMotivation.chosenNickname;	
+						myNickname = thisMotivation.chosenNickname;
 						myDetail = thisMotivation.chosenDetail;
 						
 						
 					//CHARACTER SYSOUT SECTION
 						
-						textPanel.appendText("Race: " + myRace + "\n");
-						System.out.println("Race: " + myRace);
-						characterResults.add("Race: " + myRace);
-						
+						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
+						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
+						if(saveNext){
+							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
+						}
 						if(mySubRace != ""){
 							textPanel.appendText("Subrace: " + mySubRace + "\n");
 							System.out.println("Subrace: " + mySubRace);
-							characterResults.add("Subrace: " + mySubRace);
+							if(saveNext){
+								characterResults.add("Subrace: " + mySubRace);
+							}
 						}
 						
 						textPanel.appendText("Sex: " + mySex + "\n");
 						System.out.println("Sex: " + mySex);
-						characterResults.add("Sex: " + mySex);
+						if(saveNext){
+							characterResults.add("Sex: " + mySex);
+						}
 						
 						if(!myNickname.isEmpty()){
-							textPanel.appendText("Name: " + myName + " " + myNickname + "\n");
-							System.out.println("Name: " + myName + " " + myNickname);
-							characterResults.add("Name: " + myName + " " + myNickname);
+							if(myNickname.contains("the ")){
+								textPanel.appendText("Name: " + myName + " " + myLastName + " " + myNickname + "\n"); //Set "title" nicknames (ex: 'the Epic') to the end
+								System.out.println("Name: " + myName + " " + myLastName + " " + myNickname); 
+								if(saveNext){
+									characterResults.add("Name: " + myName + " " + myLastName + " " + myNickname);
+								}
+							} else { 
+								textPanel.appendText("Name: " + myName + " " + myNickname + " " + myLastName + "\n"); //Set non-title nicknames to the middle
+								System.out.println("Name: " + myName + " " + myNickname + " " + myLastName);
+								if(saveNext){
+									characterResults.add("Name: " + myName + " " + myNickname + " " + myLastName);
+								}
+							}
 						} else {
-							textPanel.appendText("Name: " + myName + "\n");
-							System.out.println("Name: " + myName);
-							characterResults.add("Name: " + myName);
+							textPanel.appendText("Name: " + myName + " " + myLastName + "\n");
+							System.out.println("Name: " + myName + " " + myLastName);
+							if(saveNext){
+								characterResults.add("Name: " + myName + " " + myLastName);
+							}
 						}
 						
 						textPanel.appendText("Age: " + myAge + "\n");
 						System.out.println("Age: " + myAge);
-						characterResults.add("Age: " + myAge);
+						if(saveNext){
+							characterResults.add("Age: " + myAge);
+						}
 						
 						if(!(myProfession.equals("None"))){
 							textPanel.appendText("Profession: " + myProfession + "\n");
 							System.out.println("Profession: " + myProfession);
-							characterResults.add("Profession: " + myProfession);
+							if(saveNext){
+								characterResults.add("Profession: " + myProfession);
+							}
 						}
 						
 						textPanel.appendText("Motivated by: " + myMotivation + "\n");
 						System.out.println("Motivated by: " + myMotivation);
-						characterResults.add("Motivated by: " + myMotivation);
+						if(saveNext){
+							characterResults.add("Motivated by: " + myMotivation);
+						}
 						
 						textPanel.appendText("Personality Traits: " + myPersonality + "\n");
 						System.out.println("Personality Traits: " + myPersonality);
-						characterResults.add("Personality Traits: " + myPersonality);
+						if(saveNext){
+							characterResults.add("Personality Traits: " + myPersonality);
+						}
 						
 						if(!myDetail.isEmpty()){
 							textPanel.appendText("Additional Detail: " + myDetail + "\n");
 							System.out.println("Additional Detail: " + myDetail);
-							characterResults.add("Additional Detail: " + myDetail);
+							if(saveNext){
+								characterResults.add("Additional Detail: " + myDetail);
+							}
 						}						
 						
 					//Line-split for multiple result tidiness
 						textPanel.appendText("\n");
 						System.out.println("");
-						characterResults.add("\n");
+						if(saveNext){
+							characterResults.add("\n");
+						}
 						
 					}//end FOR loop
 					
@@ -244,6 +275,7 @@ public class MainFrame extends JFrame {
 							WriteToFile thisWrite = new WriteToFile(characterResults);
 							textPanel.appendText(thisWrite.getWTFLocation() + "\n");
 							textPanel.appendText("\n");
+							characterResults.removeAll(characterResults);
 						}						
 						
 						long endTime = System.nanoTime();
