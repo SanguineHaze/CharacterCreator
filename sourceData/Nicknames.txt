@@ -34,10 +34,11 @@ the Nine-fingered
 the Eight-fingered
 the Seven-fingered
 the Six-fingered
-'Ghost-hands'
 the Wolfheart
 the Dragonheart
-'Tuskbreaker'
-'Smiles'
+the Darkness
 the Smiler
 the Killer
+Ghost-hands
+Tuskbreaker
+Smiles

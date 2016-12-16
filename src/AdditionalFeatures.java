@@ -165,6 +165,7 @@ public class AdditionalFeatures {
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(nicknameList.size());
 			chosenNickname = nicknameList.get(index);
+			this.chosenNickname = "'" + chosenNickname + "'";
 		}//end if "hasNickname"		
 		
 	}//end generateNickname()

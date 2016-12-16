@@ -21,6 +21,7 @@ import javax.swing.border.Border;
 
 public class FormPanel extends JPanel {
 	
+	//DECLARATIONS
 	ArrayList<String> subRaceTempList = new ArrayList<String>();
 	ArrayList<String> lastSelected = new ArrayList<String>();
 	
@@ -71,7 +72,8 @@ public class FormPanel extends JPanel {
 	private boolean saveNext;
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
-	
+
+	//GETTERS
 	public int getDetailsChance() {
 		return detailsChance;
 	}
@@ -83,8 +85,7 @@ public class FormPanel extends JPanel {
 	public boolean isSaveNext() {
 		return saveNext;
 	}
-
-	//GETTERS
+	
 	public String getProfessionSelected() {
 		return professionSelected;
 	}
@@ -101,10 +102,6 @@ public class FormPanel extends JPanel {
 		return subRaceSelected;
 	}
 
-	public void setSubRaceSelected(String subRaceSelected) {
-		this.subRaceSelected = subRaceSelected;
-	}
-
 	public int getRaceSelected() {
 		return raceSelected;
 	}
@@ -113,6 +110,12 @@ public class FormPanel extends JPanel {
 		return numGenInt;
 	}
 	
+	//SETTERS
+	public void setSubRaceSelected(String subRaceSelected) {
+		this.subRaceSelected = subRaceSelected;
+	}
+	
+	//VALIDATION
 	static boolean isValidNumber(String val) {
 		// return output if characters are digits
 		Boolean output = false;

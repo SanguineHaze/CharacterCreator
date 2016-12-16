@@ -25,6 +25,7 @@ public class Name {
 	public String lineValueEnd;
 	public String chosenName;
 	public String chosenAge;
+	public String chosenLastName;
 	
 	public Name(){
 		sex = "";
@@ -33,10 +34,8 @@ public class Name {
 		loadNameList();
 		generateSex();
 		generateNameLists();
-		generateBeginning();
-		generateMiddle();
-		generateEnd();
 		generateFullName();
+		generateFullLastName();
 		generateAge();
 	}//end Name()
 	
@@ -45,10 +44,8 @@ public class Name {
 		chosenName = "";
 		chosenAge = "";
 		generateSex(userSex);
-		generateBeginning();
-		generateMiddle();
-		generateEnd();
 		generateFullName();
+		generateFullLastName();
 		generateAge(userAge);
 		//DEBUG TOOL
 		//System.out.println("GenerateNewNameData - UserSex: " + userSex);
@@ -81,10 +78,6 @@ public class Name {
 		}
 		//DEBUG TOOL
 		//System.out.println("GenerateSex - UserSex: " + userSex + ". ChosenSex: " + chosenSex);
-	}
-	
-	public String getSex() {
-		return sex;
 	}
 	
 	//Second, generate a list of names
@@ -194,6 +187,9 @@ public class Name {
 	}//end generateEnd()
 	
 	private void generateFullName(){
+		generateBeginning();
+		generateMiddle();
+		generateEnd();
 		String fullNameBuilder = chosenBeginningName + chosenMidName + chosenEndName;
 
 		String fullNameConversion = fullNameBuilder.replaceAll("\\'", "");
@@ -207,7 +203,28 @@ public class Name {
 		//System.out.println("Converted Name: " + fullNameConversion);
 		
 		//DEBUG TOOL - check to see the actual full name
-		//System.out.println("Final Name: " + fullName);
+		//System.out.println("Final Name: " + chosenName);
+		
+	}//end generateFullName
+	
+	private void generateFullLastName(){
+		generateBeginning();
+		generateMiddle();
+		generateEnd();
+		String fullNameBuilder = chosenBeginningName + chosenMidName + chosenEndName;
+
+		String fullNameConversion = fullNameBuilder.replaceAll("\\'", "");
+
+		chosenLastName = fullNameConversion.substring(0,1).toUpperCase() + fullNameConversion.substring(1);
+		
+		//DEBUG TOOL - check to see the built name
+		//System.out.println("Built Name: " + fullNameBuilder);
+		
+		//DEBUG TOOL - check to see the converted name
+		//System.out.println("Converted Name: " + fullNameConversion);
+		
+		//DEBUG TOOL - check to see the actual full name
+		//System.out.println("Final Name: " + chosenLastName);
 		
 	}//end generateFullName
 	
@@ -239,4 +256,4 @@ public class Name {
 		}
 	}//end generateAge(userAge)
 
-}//end Class
+}//end CLASS (Name.java)
