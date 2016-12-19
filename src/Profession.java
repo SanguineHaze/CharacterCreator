@@ -4,9 +4,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Profession {
-	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()  + File.separator).replace("%20", " ");
-	
+		
 	public String chosenProfession;
 	private String lineValue;
 	private String lineName;
@@ -57,24 +55,24 @@ public class Profession {
 	private void generateProfessionList(String chosenAge){
 		if("Child".equals(chosenAge)){
 			if(childSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+				chosenProfessionList = new File("Professions.txt");
 			} else {
-				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "ProfessionsChild.txt");
+				chosenProfessionList = new File("ProfessionsChild.txt");
 			}//end if childSafeListOverride	
 		} else if("Young Adult".equals(chosenAge)){
-			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+			chosenProfessionList = new File("Professions.txt");
 		} else if("Adult".equals(chosenAge)){
-			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+			chosenProfessionList = new File("Professions.txt");
 		} else if("Old".equals(chosenAge)){
-			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+			chosenProfessionList = new File("Professions.txt");
 		} else if("Very Old".equals(chosenAge)){
 			if(veryOldSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+				chosenProfessionList = new File("Professions.txt");
 			} else {
-				chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+				chosenProfessionList = new File("Professions.txt");
 			}
 		} else {
-			chosenProfessionList = new File(filesDirectory + "sourceData" + File.separator + "Professions.txt");
+			chosenProfessionList = new File("Professions.txt");
 		}
 	}//end generateProfessionList()
 	

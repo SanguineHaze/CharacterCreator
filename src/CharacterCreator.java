@@ -1,23 +1,21 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class CharacterCreator {
     public static void main(String[] args) {
     	
-	    Race generateList = new Race(); //Set up a race to generate the list of races.
-	    SubRace thisSubRace = new SubRace(); //Set up subRace to generate list of Subraces
-	    Name thisName = new Name(); //Set up name to generate list of ages
-	    Profession thisProfession = new Profession();
+    	//Initial List Setup work:
+	    Race races = new Race(); 
+	    SubRace subraces = new SubRace(); 
+	    Name names = new Name(); 
+	    Profession professions = new Profession();
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrame();
 			}
 	    });//end invokeLater (MainFrame)
-	    
     }// End main()    
-    
 }//end CharacterCreator CLASS

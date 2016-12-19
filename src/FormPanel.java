@@ -168,7 +168,7 @@ public class FormPanel extends JPanel {
 		raceComboBox.setSelectedItem(0);
 			
 		//SUBRACE ComboBox
-		SubRace.subRaceStaticList2.add(0, "Any Sub-Race"); //Add "Any" to avoid a locked subrace selection if no race is changed
+		SubRace.subRaceStaticList2.add(0, "Any Sub-Race");
 		int subRaceCount = SubRace.subRaceStaticList2.size();
 		subRaceCB = new String[subRaceCount];
 		for(int i = 0; i < subRaceCount; i++){

@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -83,7 +82,7 @@ public class Name {
 	//Second, generate a list of names
 	private void loadNameList(){
 		//The master list containing all Name options
-		File nameListTargetFile = new File (filesDirectory + "sourceData" + File.separator + "NameDefault.txt"); //path to the file on local environment.
+		File nameListTargetFile = new File ("NameDefault.txt"); //path to the file on local environment.
 		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
 		try {
 			ReadFromFile file = new ReadFromFile(nameListTargetFile);
@@ -152,6 +151,7 @@ public class Name {
 		lineNameBegin = lineContents[0];
 		lineValueBegin = lineContents[1];
 		chosenBeginningName = lineContents[1];
+		
 		//DEBUG TOOL
 		//System.out.println(chosenBeginningName);
 	}//end generateBeginning()
@@ -223,7 +223,7 @@ public class Name {
 		//DEBUG TOOL - check to see the converted name
 		//System.out.println("Converted Name: " + fullNameConversion);
 		
-		//DEBUG TOOL - check to see the actual full name
+		//DEBUG TOOL - check to see the actual last name
 		//System.out.println("Final Name: " + chosenLastName);
 		
 	}//end generateFullName

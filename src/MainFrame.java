@@ -71,17 +71,13 @@ public class MainFrame extends JFrame {
 		// GENERATE BUTTON SECTION
 	
 		generateBtn.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent ev) {
-
 				JButton clicked = (JButton)ev.getSource();
-				
 				if(clicked == generateBtn){
 					
 					textPanel.clearText(); //Operation 'Clean Slate' is a go.
 									
 					long startTime = System.nanoTime();
-				    
 					
 			        Race thisRace = new Race();	
 			        SubRace thisSubRace = new SubRace();
@@ -284,7 +280,7 @@ public class MainFrame extends JFrame {
 						textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
 						textPanel.appendText("\n");
 						
-				}//end if Clicked (GENERATE!)
+				}//end if: Clicked (GENERATE!)
 			}//end actionPerformed
 		});//end generate button actionListener
 	}//end MainFrame()
