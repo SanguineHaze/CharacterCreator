@@ -9,8 +9,7 @@ public class SubRace {
 	private String line;
 	private String lineName;
 	private String lineValue;
-	//Instantiate The Lists!
-	ArrayList<String> subRaceList = new ArrayList<String>(); //This is the master list of all subraces
+	ArrayList<String> subRaceList = new ArrayList<String>();
 	static ArrayList<String> subRaceStaticList = new ArrayList<String>();
 	static ArrayList<String> subRaceStaticList2 = new ArrayList<String>();
 	
@@ -31,8 +30,7 @@ public class SubRace {
 	}//End SubRace()
 	
 	public void loadSubRaceList(){
-		//The master list containing all subraces
-		File subRaceTargetFile = new File("Subrace.txt"); //path to the file on local environment.  	 	
+		File subRaceTargetFile = new File("Subrace.txt"); 	
 		
 		try {
 			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
@@ -41,8 +39,8 @@ public class SubRace {
 			subRaceList.sort(null);
 			
 			subRaceStaticList = file.OpenFile();
-			for(String s: subRaceStaticList){
-				String[] line = s.split(":");
+			for(String lineEntry: subRaceStaticList){
+				String[] line = lineEntry.split(":");
 				subRaceStaticList2.add(line[1]);
 			}
 			//DEBUG TOOL: Check to see that the list is being created
@@ -73,9 +71,9 @@ public class SubRace {
 	public void generateSubRace(String chosenRace){
 		
 		ArrayList<String> tempList = new ArrayList<String>();
-		for (String entry: subRaceList){ //go through our full list
-			if(entry.toLowerCase().contains(chosenRace.toLowerCase())) {  //Do a safe check to see if our race is in the entry
-				tempList.add(entry); //If yes, put in temp list.
+		for (String entry: subRaceList){
+			if(entry.toLowerCase().contains(chosenRace.toLowerCase())) {
+				tempList.add(entry);
 			} else {
 				chosenSubRace = "";
 			}

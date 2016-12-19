@@ -375,7 +375,7 @@ public class FormPanel extends JPanel {
 		
 		//ROW 6 - PROFESSION
 		gbc.gridx = 0;
-		gbc.gridy = 5; //Shhh. I'm aware row counts are off. We don't talk about it.
+		gbc.gridy = 5;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
 		add(professionLabel, gbc);
 		
@@ -385,7 +385,6 @@ public class FormPanel extends JPanel {
 		add(professionComboBox, gbc);
 		
 		//ROW 7 - NICKNAMES
-		
 		gbc.gridx = 0;
 		gbc.gridy = 6;
 		add(nicknameLabel, gbc);
@@ -450,9 +449,10 @@ public class FormPanel extends JPanel {
 					} //again, no need to handle unset or invalid Details here. We'll do this in MainFrame the same as Nickname.
 					
 					//DEBUG TOOL: display numGenInt
-					//System.out.println(numGenInt);					
-				}				
-			}
+					//System.out.println(numGenInt);
+					
+				}//end If "Clicked: setBtn"				
+			}//end actionPerformed
 		});//end setBtn ActionListener
 		
 		sexM.addActionListener(new ActionListener() {

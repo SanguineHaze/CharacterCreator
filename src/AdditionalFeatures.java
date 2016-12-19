@@ -27,12 +27,12 @@ public class AdditionalFeatures {
 		chosenMotivation = "";
 		chosenDetail = "";
 		loadMotivationList();
-		generateMotivation();
+		generateMotivation("Child");
 		loadPersonalityList();
 		generatePersonality();
 		loadNicknameList();
 		setNicknameChance(0);
-		generateNickname("adult", "none", "Dwarf");
+		generateNickname(null, null, null);
 		loadDetailsList();
 		generateDetails("Dwarf", "none");
 		//DEBUG TOOL - CONSTRUCTOR 1
@@ -44,7 +44,7 @@ public class AdditionalFeatures {
 		chosenMotivation = "";
 		chosenDetail = "";
 		chosenNickname = "";
-		generateMotivation();
+		generateMotivation(chosenAge);
 		generatePersonality();
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
@@ -58,9 +58,9 @@ public class AdditionalFeatures {
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
-		nicknameChance = 30;
+		nicknameChance = 25;
 		chosenNickname = "";
-		generateMotivation();
+		generateMotivation(chosenAge);
 		generatePersonality();
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
@@ -94,10 +94,19 @@ public class AdditionalFeatures {
 		}//end Try/Catch
 	}//end loadMotivationList()
 	
-	public void generateMotivation(){
-		Random randomMotivation = new Random();
-		int index = randomMotivation.nextInt(motivationList.size());
-		chosenMotivation = motivationList.get(index);
+	public void generateMotivation(String chosenAge){
+		if(!"child".equals(chosenAge.toLowerCase())){
+			Random randomMotivation = new Random();
+			int index = randomMotivation.nextInt(motivationList.size());
+			chosenMotivation = motivationList.get(index);
+		} else if("child".equals(chosenAge.toLowerCase())){
+			
+			//TODO: CREATE CHILD MOTIVATION LIST!!!!!!!!!
+			
+			Random randomMotivation = new Random();
+			int index = randomMotivation.nextInt(motivationList.size());
+			chosenMotivation = motivationList.get(index);
+		}
 	}//End generateMotivation()
 	
 	//PERSONALITY SECTION

@@ -28,6 +28,7 @@ public class MainFrame extends JFrame {
 		String myLastName = "";
 		String myAge = "";
 		String myMotivation = "";	
+		String myProfession = "";
 		String myPersonality = "";		
 		String myNickname = "";	
 		String myDetail = "";
@@ -167,7 +168,7 @@ public class MainFrame extends JFrame {
 							thisProfession.setChosenProfession(userProfession);
 						}
 						
-						String myProfession = thisProfession.chosenProfession;			
+						myProfession = thisProfession.chosenProfession;			
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
 						
@@ -179,7 +180,7 @@ public class MainFrame extends JFrame {
 						myDetail = thisMotivation.chosenDetail;
 						
 						
-					//CHARACTER SYSOUT SECTION
+					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
 						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
 						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
@@ -228,20 +229,20 @@ public class MainFrame extends JFrame {
 							characterResults.add("Age: " + myAge);
 						}
 						
-						if(!(myProfession.equals("None"))){
+						if(!myProfession.equals("None")){
 							textPanel.appendText("Profession: " + myProfession + "\n");
 							System.out.println("Profession: " + myProfession);
 							if(saveNext){
 								characterResults.add("Profession: " + myProfession);
 							}
 						}
-						
-						textPanel.appendText("Motivated by: " + myMotivation + "\n");
-						System.out.println("Motivated by: " + myMotivation);
-						if(saveNext){
-							characterResults.add("Motivated by: " + myMotivation);
-						}
-						
+						if(!myMotivation.isEmpty()){
+							textPanel.appendText("Motivated by: " + myMotivation + "\n");
+							System.out.println("Motivated by: " + myMotivation);
+							if(saveNext){
+								characterResults.add("Motivated by: " + myMotivation);
+							}
+						}						
 						textPanel.appendText("Personality Traits: " + myPersonality + "\n");
 						System.out.println("Personality Traits: " + myPersonality);
 						if(saveNext){
