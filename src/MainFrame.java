@@ -96,12 +96,12 @@ public class MainFrame extends JFrame {
 					
 					nicknameChance = formPanel.getNicknameChanceInt();
 					if(nicknameChance < 0 || nicknameChance > 100){
-						nicknameChance = 30; //handle unset nickname chance. Set a default
+						nicknameChance = 25; //handle unset nickname chance. Set a default
 					}
 					
 					detailChance = formPanel.getDetailsChance();
 					if(detailChance < 0 || detailChance > 100){
-						detailChance = 30; //Default AdditionalDetail chance.
+						detailChance = 25; //Default AdditionalDetail chance.
 					}
 					
 					//DEBUG TOOL - NICKNAME CHANCE %

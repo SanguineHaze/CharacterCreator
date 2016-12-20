@@ -9,56 +9,39 @@ public class Profession {
 	private String lineValue;
 	private String lineName;
 	private File chosenProfessionList;
-	private boolean childSafeListOverride = false;
-	private boolean veryOldSafeListOverride = false;
-	public String override = ""; //"child" || "very old"
-	
+
 	ArrayList<String> professionList = new ArrayList<String>();
 	static ArrayList<String> professionStaticList = new ArrayList<String>();
 	static ArrayList<String> professionStaticList2 = new ArrayList<String>();
 	
 	public Profession(){
 		chosenProfession = "";
-		professionListOverride();
-		generateProfessionList("Adult");
+		generateProfessionList(null);
 		loadProfessionList();
 		generateProfession("Adult");
 	}
 	
-	public void setChosenProfession(String chosenProfession) {
-		this.chosenProfession = chosenProfession;
-	}
-
 	public Profession(String chosenAge){
 		chosenProfession = "";
-		professionListOverride();
 		generateProfessionList(chosenAge);
 		loadProfessionList();
 		generateProfession(chosenAge);
-	}//end Profession()
+	}
+	
+	public void setChosenProfession(String chosenProfession) {
+		this.chosenProfession = chosenProfession;
+	}	
 	
 	public void generateNewProfession(String chosenAge){
 		chosenProfession = "";
-		professionListOverride();
 		generateProfessionList(chosenAge);
 		generateProfession(chosenAge);
 	}
 	
-	public void professionListOverride(){
-		if("child".equals(override)){
-			childSafeListOverride = true;
-		} else if("very old".equals(override)){
-			veryOldSafeListOverride = true;
-		}
-	}//end professionListOverride()	
-	
 	private void generateProfessionList(String chosenAge){
+		//TODO: Fix the child check. The way we generate this skips over age verification. 
 		if("Child".equals(chosenAge)){
-			if(childSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = new File("Professions.txt");
-			} else {
-				chosenProfessionList = new File("ProfessionsChild.txt");
-			}//end if childSafeListOverride	
+			chosenProfessionList = new File("ProfessionsChild.txt");
 		} else if("Young Adult".equals(chosenAge)){
 			chosenProfessionList = new File("Professions.txt");
 		} else if("Adult".equals(chosenAge)){
@@ -66,11 +49,7 @@ public class Profession {
 		} else if("Old".equals(chosenAge)){
 			chosenProfessionList = new File("Professions.txt");
 		} else if("Very Old".equals(chosenAge)){
-			if(veryOldSafeListOverride){ //did we want an unfiltered list?
-				chosenProfessionList = new File("Professions.txt");
-			} else {
-				chosenProfessionList = new File("Professions.txt");
-			}
+			chosenProfessionList = new File("Professions.txt");
 		} else {
 			chosenProfessionList = new File("Professions.txt");
 		}
@@ -165,10 +144,9 @@ public class Profession {
 			if(isRetired <= 9){ 
 				if(!vOExceptionList.contains(chosenProfession)){
 					chosenProfession = "Retired " + chosenProfession;
-				}
-			}
+				}//end Retired Exceptions
+			}//end if "isRetired"
 		}//end if "Very Old"
 		
 	}//end generateProfesion(String chosenAge)
-	
 }//end Class - Profession

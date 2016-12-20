@@ -54,21 +54,6 @@ public class AdditionalFeatures {
 		//System.out.println("AddFeat 2 NN: " + chosenNickname);
 	}
 	
-	public void generateNewAdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
-		chosenPersonality = "";
-		chosenMotivation = "";
-		chosenDetail = "";
-		nicknameChance = 25;
-		chosenNickname = "";
-		generateMotivation(chosenAge);
-		generatePersonality();
-		setNicknameChance(nicknameChance);
-		generateNickname(chosenAge, chosenProfession, chosenRace);
-		generateDetails(chosenRace, chosenProfession);
-		//DEBUG TOOL - CONSTRUCTOR 3
-		//System.out.println("AddFeat 3 NN: " + chosenNickname);
-	}
-	
 	public void setNicknameChance(int nicknameChance) {
 		this.nicknameChance = nicknameChance;
 	}
