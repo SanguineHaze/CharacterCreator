@@ -34,7 +34,7 @@ public class AdditionalFeatures {
 		setNicknameChance(0);
 		generateNickname(null, null, null);
 		loadDetailsList();
-		generateDetails("Dwarf", "none");
+		generateDetails(null, null);
 		//DEBUG TOOL - CONSTRUCTOR 1
 		//System.out.println("AddFeat 1 NN: " + chosenNickname);
 	}
@@ -103,7 +103,7 @@ public class AdditionalFeatures {
 			personalityList = file.OpenFile();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
-		}//end Try/Catch		
+		}//end Try/Catch
 	}//end loadPersonalityList()
 	
 	public void generatePersonality(){
@@ -224,6 +224,8 @@ public class AdditionalFeatures {
 	}//end loadDetailsList()
 	
 	public void generateDetails(String race, String profession){
+		
+		//TODO: use Race and Profession. Consider that initial list generation requires a null (or value) passed in. Handle this.
 		Random detailsChanceRandomInt = new Random();
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){
