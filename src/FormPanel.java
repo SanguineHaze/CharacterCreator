@@ -477,7 +477,7 @@ public class FormPanel extends JPanel {
 			}
 		});
 		
-		sexF.addActionListener(new ActionListener() {
+		sexR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JRadioButton clicked = (JRadioButton) e.getSource();
 				if(clicked == sexR){

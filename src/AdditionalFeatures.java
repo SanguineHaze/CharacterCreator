@@ -111,6 +111,13 @@ public class AdditionalFeatures {
 		int index = randomPersonality.nextInt(personalityList.size());
 		int index2 = randomPersonality.nextInt(personalityList.size());
 		int index3 = randomPersonality.nextInt(personalityList.size());
+			//Validate the selections
+			if(index2 == index || index2 == index3){
+				index2 = randomPersonality.nextInt(personalityList.size());
+			}
+			if(index3 == index2 || index3 == index){
+				index3 = randomPersonality.nextInt(personalityList.size());
+			}
 		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
 	}//end generatePersonality()
 	
@@ -135,7 +142,6 @@ public class AdditionalFeatures {
 	}//End loadNicknameList()
 	
 	//TODO: Use Age, Profession, and Race in nickname creation!!
-	//Add in Nickname generation based off of profession and sex.
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
