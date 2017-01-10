@@ -35,6 +35,7 @@ public class Profession {
 	public void generateNewProfession(String chosenAge){
 		chosenProfession = "";
 		generateProfessionList(chosenAge);
+		loadProfessionList();
 		generateProfession(chosenAge);
 	}
 	
@@ -42,6 +43,8 @@ public class Profession {
 		//TODO: Fix the child check. The way we generate this skips over age verification. 
 		if("Child".equals(chosenAge)){
 			chosenProfessionList = new File("ProfessionsChild.txt");
+			//DEBUG TOOL
+			//System.out.println("Profession List Chosen:" + chosenProfessionList);
 		} else if("Young Adult".equals(chosenAge)){
 			chosenProfessionList = new File("Professions.txt");
 		} else if("Adult".equals(chosenAge)){
