@@ -22,5 +22,5 @@ public class ReadFromFile {
         }
         textReader.close();
         return readOut;
-    }//end OpenFile()
-}//end CLASS: ReadFromFile
+    }
+}

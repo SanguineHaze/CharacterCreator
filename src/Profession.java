@@ -56,7 +56,7 @@ public class Profession {
 		} else {
 			chosenProfessionList = new File("Professions.txt");
 		}
-	}//end generateProfessionList()
+	}
 	
 	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
 	//http://www222.pair.com/sjohn/blueroom/demog.htm
@@ -83,7 +83,7 @@ public class Profession {
 		//DEBUG TOOL - Show the list
 		//System.out.println(professionList);
 		
-	}//end loadProfessionList
+	}
 		
 	
 	public void generateProfession(){
@@ -97,7 +97,7 @@ public class Profession {
 		lineValue = lineContents[1];
 		chosenProfession = lineValue;		
 		
-	}//end generateProfesion()
+	}
 	
 	public void generateProfession(String chosenAge){
 
@@ -115,10 +115,10 @@ public class Profession {
 			int isEmployed = childRandom.nextInt(11); //0 -> 10
 			if(isEmployed < 5) { // ~50% employment rate for children (What, it's the dark ages of high fantasy. There ain't no labor laws!)
 				chosenProfession = "None";
-			}else if(isEmployed >= 5){
+			} else if(isEmployed >= 5){
 				chosenProfession = "Apprentice " + chosenProfession;
-			}//end if isEmployed
-		}//end if "child"
+			}
+		}
 		
 		if("Old".equals(chosenAge)){
 			if("Unemployed".equals(chosenProfession)){
@@ -133,9 +133,9 @@ public class Profession {
 					chosenProfession = "Master " + chosenProfession; //randomly select different title suffix.
 				} else {
 					chosenProfession = "Senior " + chosenProfession;			
-				}//end if "isSenior"	
-			}//end if statement deciding designation & chance
-		}//end if "Old"
+				}	
+			}
+		}
 		
 		if("Very Old".equals(chosenAge)){
 			ArrayList<String> vOExceptionList = new ArrayList<String>();
@@ -147,9 +147,10 @@ public class Profession {
 			if(isRetired <= 9){ 
 				if(!vOExceptionList.contains(chosenProfession)){
 					chosenProfession = "Retired " + chosenProfession;
-				}//end Retired Exceptions
-			}//end if "isRetired"
-		}//end if "Very Old"
+				}
+			}
+		}
 		
-	}//end generateProfesion(String chosenAge)
-}//end Class - Profession
+	}
+	
+}
