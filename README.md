@@ -22,6 +22,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###Feb 2nd, 2017
+- Fixed Bug: Bug noticed (2/2/2017): After successful generate, subrace list does not clear, and continues to duplicate entries.
+
 ###Dec 19th, 2016
 - Refactor: Removed duplicate code which was being used in every class (sometimes multiple times) to build up the path to the sourceData folder & appropriate text file. This is now done in the ReadFromFile class. [25 chars now build in ~0.1 second]
 

@@ -38,16 +38,18 @@ public class SubRace {
 			subRaceList = file.OpenFile();			
 			subRaceList.sort(null);
 			
+			subRaceStaticList.clear();
+			subRaceStaticList2.clear();
 			subRaceStaticList = file.OpenFile();
 			for(String lineEntry: subRaceStaticList){
 				String[] line = lineEntry.split(":");
 				subRaceStaticList2.add(line[1]);
 			}
 			//DEBUG TOOL: Check to see that the list is being created
-            /*System.out.println("Sub-Race List:");
+            System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}*/
+			}
 
 		} catch (Exception e) {
             //Default error message
