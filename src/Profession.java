@@ -43,8 +43,6 @@ public class Profession {
 		//TODO: Fix the child check. The way we generate this skips over age verification. 
 		if("Child".equals(chosenAge)){
 			chosenProfessionList = new File("ProfessionsChild.txt");
-			//DEBUG TOOL
-			//System.out.println("Profession List Chosen:" + chosenProfessionList);
 		} else if("Young Adult".equals(chosenAge)){
 			chosenProfessionList = new File("Professions.txt");
 		} else if("Adult".equals(chosenAge)){
@@ -55,7 +53,9 @@ public class Profession {
 			chosenProfessionList = new File("Professions.txt");
 		} else {
 			chosenProfessionList = new File("Professions.txt");
-		}
+		} 
+		//DEBUG TOOL
+		//System.out.println("Profession List Chosen:" + chosenProfessionList);
 	}
 	
 	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
@@ -82,7 +82,6 @@ public class Profession {
 		
 		//DEBUG TOOL - Show the list
 		//System.out.println(professionList);
-		
 	}
 		
 	

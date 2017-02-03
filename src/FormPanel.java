@@ -208,8 +208,8 @@ public class FormPanel extends JPanel {
 						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
 							subRaceTempList.remove(entry);
 						} 
-						//end if
-					}//end for loop					
+						
+					}				
 					int subRaceTLCount = subRaceTempList.size();
 					subRaceCB = new String[subRaceTLCount];
 					for(int i = 0; i < subRaceTLCount; i++){
@@ -217,7 +217,7 @@ public class FormPanel extends JPanel {
 						
 						//DEBUG TOOL - SUBRACE COMBOBOX
 						//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
-					}//end subRaceCB For loop
+					}
 					
 					if(!(subRaceTempList.isEmpty())){
 						subRaceComboBox.setEnabled(true);
@@ -238,8 +238,8 @@ public class FormPanel extends JPanel {
 						subRaceComboBox.setEnabled(false);
 					} else if ("Any Race".equals(selected)){
 						subRaceComboBox.setEnabled(false);
-					}//end If subRaceTempList Is Not empty
-				}//end If NOT "Any Race" selected
+					}
+				}
 				
 				SubRace.subRaceStaticList2.remove(0); //Remove the entry we added earlier
 				

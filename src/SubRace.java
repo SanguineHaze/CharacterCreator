@@ -17,7 +17,7 @@ public class SubRace {
 		chosenSubRace = "";
 		loadSubRaceList();
 		//System.out.println(chosenSubRace); 
-	}//End SubRace()
+	}
 	
 	public void setChosenSubRace(String chosenSubRace) {
 		this.chosenSubRace = chosenSubRace;
@@ -27,7 +27,7 @@ public class SubRace {
 		chosenSubRace = "";
 		generateSubRace(chosenRace);
 		//System.out.println(chosenSubRace); 
-	}//End SubRace()
+	}
 	
 	public void loadSubRaceList(){
 		File subRaceTargetFile = new File("Subrace.txt"); 	
@@ -38,26 +38,25 @@ public class SubRace {
 			subRaceList = file.OpenFile();			
 			subRaceList.sort(null);
 			
-			subRaceStaticList.clear();
-			subRaceStaticList2.clear();
+			subRaceStaticList.clear(); //Ensure subrace list built in UI is never duplicated.
+			subRaceStaticList2.clear(); //2nd step to ensure no duplicates.
+			
 			subRaceStaticList = file.OpenFile();
 			for(String lineEntry: subRaceStaticList){
 				String[] line = lineEntry.split(":");
 				subRaceStaticList2.add(line[1]);
 			}
 			//DEBUG TOOL: Check to see that the list is being created
-            System.out.println("Sub-Race List:");
+           /* System.out.println("Sub-Race List:");
 			for(String out: subRaceList){
 				System.out.println(out);
-			}
+			}*/
 
 		} catch (Exception e) {
             //Default error message
             System.out.println(e.getMessage());
-
-        } //End Try / Catch
-		
-	}//End loadRaceList()
+        }
+	}
 	
 	public void generateSubRace() {
 		int index = randomSubRace.nextInt(subRaceList.size());
@@ -68,7 +67,7 @@ public class SubRace {
 		lineName = lineContents[0];
 		lineValue = lineContents[1];
 		chosenSubRace = lineContents[1];
-	}//end generateSubRace() (no parameters passed)
+	}
 	
 	public void generateSubRace(String chosenRace){
 		
@@ -90,5 +89,6 @@ public class SubRace {
 			lineValue = lineContents[1];
 			chosenSubRace = lineContents[1];
 		}			
-	} //end generateSubRace("RACE")		
-}//End class
+	}
+	
+}
