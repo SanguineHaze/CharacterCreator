@@ -182,25 +182,6 @@ public class MainFrame extends JFrame {
 						
 					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
-						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
-						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
-						if(saveNext){
-							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
-						}
-						if(mySubRace != ""){
-							textPanel.appendText("Subrace: " + mySubRace + "\n");
-							System.out.println("Subrace: " + mySubRace);
-							if(saveNext){
-								characterResults.add("Subrace: " + mySubRace);
-							}
-						}
-						
-						textPanel.appendText("Sex: " + mySex + "\n");
-						System.out.println("Sex: " + mySex);
-						if(saveNext){
-							characterResults.add("Sex: " + mySex);
-						}
-						
 						if(!myNickname.isEmpty()){
 							if(myNickname.contains("the ")){
 								textPanel.appendText("Name: " + myName + " " + myLastName + " " + myNickname + "\n"); //Set "title" nicknames (ex: 'the Epic') to the end
@@ -222,6 +203,25 @@ public class MainFrame extends JFrame {
 								characterResults.add("Name: " + myName + " " + myLastName);
 							}
 						}
+						
+						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
+						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
+						if(saveNext){
+							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
+						}
+						if(mySubRace != ""){
+							textPanel.appendText("Subrace: " + mySubRace + "\n");
+							System.out.println("Subrace: " + mySubRace);
+							if(saveNext){
+								characterResults.add("Subrace: " + mySubRace);
+							}
+						}
+						
+						textPanel.appendText("Sex: " + mySex + "\n");
+						System.out.println("Sex: " + mySex);
+						if(saveNext){
+							characterResults.add("Sex: " + mySex);
+						}			
 						
 						textPanel.appendText("Age: " + myAge + "\n");
 						System.out.println("Age: " + myAge);
