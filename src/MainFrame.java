@@ -19,27 +19,27 @@ public class MainFrame extends JFrame {
     String userSex;
     String userAge;
     String userProfession;
+    String myRace = ""; 
+	String mySubRace = "";	
+	String mySex = "";	
+	String myName = "";
+	String myLastName = "";
+	String myAge = "";
+	String myMotivation = "";	
+	String myProfession = "";
+	String myPersonality = "";		
+	String myNickname = "";	
+	String myDetail = "";
+	
     int nicknameChance;
     int detailChance;
-	    String myRace = ""; 
-		String mySubRace = "";	
-		String mySex = "";	
-		String myName = "";
-		String myLastName = "";
-		String myAge = "";
-		String myMotivation = "";	
-		String myProfession = "";
-		String myPersonality = "";		
-		String myNickname = "";	
-		String myDetail = "";
-
+    int numGenInt;
 	
 	public TextPanel textPanel;
 	private JButton generateBtn;
 	private FormPanel formPanel;
 	private FormListener formListener;
 	private boolean saveNext;
-	int numGenInt;
 	
 	FormEvent formEvent = new FormEvent(this, numGenInt);
 	
@@ -69,8 +69,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 		
-		// GENERATE BUTTON SECTION
-	
+		// GENERATE BUTTON SECTION	
 		generateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				JButton clicked = (JButton)ev.getSource();

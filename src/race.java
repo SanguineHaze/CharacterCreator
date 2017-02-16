@@ -14,7 +14,7 @@ public class Race {
      public Race() {
     	 chosenRace= "";
     	 loadRaceList(); 
-     } //end Race()
+     }
      
      public void pickNewRace(){
     	chosenRace= "";
@@ -33,13 +33,12 @@ public class Race {
      
      private void loadRaceList(){
     	
-    	 //The master list, containing all Races
-    	 File targetFile = new File("Race.txt"); //path to the file on local environment.
+    	 File targetFile = new File("Race.txt");
     	 
     	 try {
     		    ReadFromFile file = new ReadFromFile(targetFile);
     		    raceList = file.OpenFile();
-    		    raceList.sort(null); // Fun fact about vectors, they can do sorts for you, uncommenting this will put stuff in alphabetical order.
+    		    raceList.sort(null);
     		    
     		    raceStaticPreList = file.OpenFile();
     		    //System.out.println(raceStaticPreList);
@@ -57,10 +56,7 @@ public class Race {
     		} catch (Exception e) {
     		    //Default error message
     		    System.out.println(e.getMessage());
-    		} //End try / catch
-     }//End loadRaceList()
-     
-     private ArrayList<String> getRaceStaticList(){
-		return raceStaticList;
+    		}
      }
-}// End class
+     
+}

@@ -10,12 +10,12 @@ public class CharacterCreator {
 	    Race races = new Race(); 
 	    SubRace subraces = new SubRace(); 
 	    Name names = new Name(); 
-	    Profession professions = new Profession();
+	    Profession professions = new Profession("Adult");
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrame();
 			}
-	    });//end invokeLater (MainFrame)
-    }// End main()    
-}//end CharacterCreator CLASS
+	    });
+    }
+}

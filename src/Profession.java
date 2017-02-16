@@ -14,15 +14,8 @@ public class Profession {
 	static ArrayList<String> professionStaticList = new ArrayList<String>();
 	static ArrayList<String> professionStaticList2 = new ArrayList<String>();
 	
-	public Profession(){
-		chosenProfession = "";
-		generateProfessionList(null);
-		loadProfessionList();
-		generateProfession("Adult");
-	}
-	
 	public Profession(String chosenAge){
-		chosenProfession = "";
+		chosenProfession = "";		
 		generateProfessionList(chosenAge);
 		loadProfessionList();
 		generateProfession(chosenAge);
@@ -35,7 +28,6 @@ public class Profession {
 	public void generateNewProfession(String chosenAge){
 		chosenProfession = "";
 		generateProfessionList(chosenAge);
-		loadProfessionList();
 		generateProfession(chosenAge);
 	}
 	
@@ -56,46 +48,6 @@ public class Profession {
 		} 
 		//DEBUG TOOL
 		//System.out.println("Profession List Chosen:" + chosenProfessionList);
-	}
-	
-	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
-	//http://www222.pair.com/sjohn/blueroom/demog.htm
-	public void loadProfessionList(){
-		
-		File professionListTargetFile = chosenProfessionList;
-		
-		try {
-			
-			ReadFromFile file = new ReadFromFile(professionListTargetFile);
-			professionList = file.OpenFile();
-			professionList.sort(null); //Sort the list alphabetically.
-			
-			professionStaticList = file.OpenFile();
-			for(String s: professionStaticList){
-				String[] line = s.split(":");
-				professionStaticList2.add(line[1]);
-			}
-			
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
-		//DEBUG TOOL - Show the list
-		//System.out.println(professionList);
-	}
-		
-	
-	public void generateProfession(){
-
-		Random randomProfession = new Random();
-		int index = randomProfession.nextInt(professionList.size());
-		chosenProfession = professionList.get(index);
-		
-		String[] lineContents = chosenProfession.split(":");
-		lineName = lineContents[0];
-		lineValue = lineContents[1];
-		chosenProfession = lineValue;		
-		
 	}
 	
 	public void generateProfession(String chosenAge){
@@ -150,6 +102,32 @@ public class Profession {
 			}
 		}
 		
+	}
+	
+	//Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
+	//http://www222.pair.com/sjohn/blueroom/demog.htm
+	public void loadProfessionList(){
+		
+		File professionListTargetFile = chosenProfessionList;
+		
+		try {
+			
+			ReadFromFile file = new ReadFromFile(professionListTargetFile);
+			professionList = file.OpenFile();
+			professionList.sort(null); //Sort the list alphabetically.
+			
+			professionStaticList = file.OpenFile();
+			for(String s: professionStaticList){
+				String[] line = s.split(":");
+				professionStaticList2.add(line[1]);
+			}
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		//DEBUG TOOL - Show the list
+		//System.out.println(professionList);
 	}
 	
 }

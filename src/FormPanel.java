@@ -37,7 +37,6 @@ public class FormPanel extends JPanel {
 	private JLabel sexLabel;
 	private JLabel ageLabel;
 	private JLabel professionLabel;
-	private JLabel saveLabel;
 	private JLabel nicknameLabel;
 	private JLabel nicknameLabel2;
 	private JLabel detailsChanceLabel;
@@ -147,7 +146,6 @@ public class FormPanel extends JPanel {
 		sexLabel = new JLabel("Sex:");
 		ageLabel = new JLabel("Age:");
 		professionLabel = new JLabel("Profession:");
-		saveLabel = new JLabel("Save Next Results:");
 		nicknameLabel = new JLabel("Nickname Chance % :");
 		nicknameLabel2 = new JLabel("(0 to 100) ");
 		detailsChanceLabel = new JLabel("Details Chance % :");
@@ -247,8 +245,8 @@ public class FormPanel extends JPanel {
 				//System.out.println("SubRaceStatic: " + SubRace.subRaceStaticList2);
 				//System.out.println("SubRaceTemp" + subRaceTempList);
 				
-			}//end ActionPerformed (raceComboBox)			
-		});//end Action Listener (raceComboBox)			
+			}			
+		});		
 		
 		sexM = new JRadioButton(sexMString);
 		sexF = new JRadioButton(sexFString);

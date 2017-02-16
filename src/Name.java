@@ -49,7 +49,6 @@ public class Name {
 		//System.out.println("GenerateNewNameData - UserSex: " + userSex);
 	}
 	
-	//First, lets select a sex for our new character
 	private void generateSex() {
 		Random randomSex = new Random();
 		chosenSex = randomSex.nextBoolean();
@@ -61,10 +60,10 @@ public class Name {
 			sex = "Male";
 		} else {
 			sex = "Female";
-		}//end If statement
+		}
 		//DEBUG TOOL - Check to see what sex is being assigned
 		//System.out.println(sex);
-	}//end Sex()
+	}
 	
 	private void generateSex(String userSex){
 		if(userSex.equals("Male")){
@@ -78,7 +77,6 @@ public class Name {
 		//System.out.println("GenerateSex - UserSex: " + userSex + ". ChosenSex: " + chosenSex);
 	}
 	
-	//Second, generate a list of names
 	private void loadNameList(){
 		//The master list containing all Name options
 		File nameListTargetFile = new File ("NameDefault.txt"); //path to the file on local environment.
@@ -109,8 +107,8 @@ public class Name {
 			
 		} catch(Exception e) {
 			 System.out.println(e.getMessage());
-		}//end Try/Catch
-	}//end loadNameList()
+		}
+	}
 	
 	public void generateNameLists(){
 		
@@ -121,9 +119,8 @@ public class Name {
 				middleName.add(entry);
 			} else if(entry.contains("END:")) {
 				endName.add(entry);
-			}//end if
-
-		}//end for
+			}
+		}
 		
 		//DEBUG TOOL: Check to see what's made it to the lists
 		/*
@@ -138,7 +135,7 @@ public class Name {
 			System.out.println(out);
 		}		
 		*/
-	}//end generateNameList()
+	}
 	
 	//BEGIN NAME!
 	private void generateBeginning() {		
@@ -153,7 +150,7 @@ public class Name {
 		
 		//DEBUG TOOL
 		//System.out.println(chosenBeginningName);
-	}//end generateBeginning()
+	}
 	
 	//CONTINUE NAME!	
 	private void generateMiddle(){
@@ -168,7 +165,7 @@ public class Name {
 		
 		//DEBUG TOOL
 		//System.out.println(chosenMidName);		
-	}//end generateMiddle()
+	}
 	
 	//END NAME!
 	private void generateEnd(){
@@ -183,7 +180,7 @@ public class Name {
 		
 		//DEBUG TOOL
 		//System.out.println(chosenEndName);
-	}//end generateEnd()
+	}
 	
 	private void generateFullName(){
 		generateBeginning();
@@ -204,7 +201,7 @@ public class Name {
 		//DEBUG TOOL - check to see the actual full name
 		//System.out.println("Final Name: " + chosenName);
 		
-	}//end generateFullName
+	}
 	
 	private void generateFullLastName(){
 		generateBeginning();
@@ -225,13 +222,13 @@ public class Name {
 		//DEBUG TOOL - check to see the actual last name
 		//System.out.println("Final Name: " + chosenLastName);
 		
-	}//end generateFullName
+	}
 	
 	public void generateAge(){
 		Random randomAge = new Random();
 		int index = randomAge.nextInt(ageRange.size());
 		chosenAge = ageRange.get(index);
-	}//end generateAge()
+	}
 	
 	public void generateAge(String userAge){		
 		Random randomAge = new Random();
@@ -253,6 +250,6 @@ public class Name {
 			//DEBUG TOOL
 			//System.out.println("generateAge 3 - userAge: " + userAge + " chosenAge: " + chosenAge);
 		}
-	}//end generateAge(userAge)
+	}
 
-}//end CLASS (Name.java)
+}

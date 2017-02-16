@@ -8,19 +8,18 @@ public class AdditionalFeatures {
 	ArrayList<String> personalityList = new ArrayList<String>();
 	ArrayList<String> nicknameList = new ArrayList<String>();
 	ArrayList<String> detailsList = new ArrayList<String>();
-		ArrayList<String> theLocalList = new ArrayList<String>();
-		ArrayList<String> favorToList = new ArrayList<String>();
-		ArrayList<String> protectedByList = new ArrayList<String>();
-		ArrayList<String> mapToList = new ArrayList<String>();
-		ArrayList<String> possessesAList = new ArrayList<String>();
-		ArrayList<String> obsessedByList = new ArrayList<String>();
-		ArrayList<String> cursedByList = new ArrayList<String>();
-	String chosenPersonality;
-	String chosenMotivation;
-	String chosenNickname;
-	String chosenDetail;
-	private int nicknameChance;
-	private int detailChance;
+	
+	//Lists contained within DetailsList
+	ArrayList<String> theLocalList = new ArrayList<String>();
+	ArrayList<String> favorToList = new ArrayList<String>();
+	ArrayList<String> protectedByList = new ArrayList<String>();
+	ArrayList<String> mapToList = new ArrayList<String>();
+	ArrayList<String> possessesAList = new ArrayList<String>();
+	ArrayList<String> obsessedByList = new ArrayList<String>();
+	ArrayList<String> cursedByList = new ArrayList<String>();
+	
+	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
+	private int nicknameChance, detailChance;
 	
 	public AdditionalFeatures(){
 		chosenPersonality = "";
@@ -76,8 +75,8 @@ public class AdditionalFeatures {
 			
 		} catch(Exception e) {
 			 System.out.println(e.getMessage());
-		}//end Try/Catch
-	}//end loadMotivationList()
+		}
+	}
 	
 	public void generateMotivation(String chosenAge){
 		if(!"child".equals(chosenAge.toLowerCase())){
@@ -92,7 +91,7 @@ public class AdditionalFeatures {
 			int index = randomMotivation.nextInt(motivationList.size());
 			chosenMotivation = motivationList.get(index);
 		}
-	}//End generateMotivation()
+	}
 	
 	//PERSONALITY SECTION
 	private void loadPersonalityList() {
@@ -119,7 +118,7 @@ public class AdditionalFeatures {
 				index3 = randomPersonality.nextInt(personalityList.size());
 			}
 		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
-	}//end generatePersonality()
+	}
 	
 	//NICKNAME SECTION
 	private void loadNicknameList(){
@@ -139,7 +138,7 @@ public class AdditionalFeatures {
 	        System.out.println(out);
 	    }
 	    */
-	}//End loadNicknameList()
+	}
 	
 	//TODO: Use Age, Profession, and Race in nickname creation!!
 	public void generateNickname(String age, String profession, String race) {	
@@ -159,8 +158,8 @@ public class AdditionalFeatures {
 			if(!chosenNickname.contains("the ")){
 				this.chosenNickname = "'" + chosenNickname + "'";
 			}
-		}//end if "hasNickname"		
-	}//end generateNickname()
+		}		
+	}
 	
 	private void loadDetailsList(){
 		File detailsListTargetFile = new File ("Details.txt");
@@ -227,7 +226,7 @@ public class AdditionalFeatures {
 			System.out.println(e.getMessage());
 		}
 		
-	}//end loadDetailsList()
+	}
 	
 	public void generateDetails(String race, String profession){
 		
@@ -275,9 +274,9 @@ public class AdditionalFeatures {
 					int indexC = assignCurse.nextInt(cursedByList.size());
 					String cReplace = cursedByList.get(indexC);
 					this.chosenDetail = chosenDetail.replace("...", cReplace);
-				}//end inner token replacement
-			}//end outer token replacement
-		}//end details chance %
-	}//end generateDetails()
+				}
+			}
+		}
+	}
 	
-}// end CLASS
+}
