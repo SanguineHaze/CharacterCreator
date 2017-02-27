@@ -266,19 +266,19 @@ public class MainFrame extends JFrame {
 					}//end FOR loop
 					
 					//CHARACTER WRITEOUT SECTION
-						if(saveNext){ //save if true
-							@SuppressWarnings("unused")
-							WriteToFile thisWrite = new WriteToFile(characterResults);
-							textPanel.appendText(thisWrite.getWTFLocation() + "\n");
-							textPanel.appendText("\n");
-							characterResults.removeAll(characterResults);
-						}						
-						
-						long endTime = System.nanoTime();
-						System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
-						
-						textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
+					if(saveNext){ //save if true
+						@SuppressWarnings("unused")
+						WriteToFile thisWrite = new WriteToFile(characterResults);
+						textPanel.appendText(thisWrite.getWTFLocation() + "\n");
 						textPanel.appendText("\n");
+						characterResults.removeAll(characterResults);
+					}						
+					
+					long endTime = System.nanoTime();
+					System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
+					
+					textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
+					textPanel.appendText("\n");
 						
 				}//end if: Clicked (GENERATE!)
 			}//end actionPerformed
