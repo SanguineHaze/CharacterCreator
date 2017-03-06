@@ -7,8 +7,7 @@ public class CharacterCreator {
     public static void main(String[] args) {
     	
     	//Initial List Setup work:
-	    Race races = new Race(); 
-	    SubRace subraces = new SubRace(); 
+    	GenerateSourceData sourceData = new GenerateSourceData();
 	    Name names = new Name(); 
 	    Profession professions = new Profession("Adult");
 	    

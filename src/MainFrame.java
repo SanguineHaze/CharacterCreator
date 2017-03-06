@@ -113,7 +113,7 @@ public class MainFrame extends JFrame {
 						//USER INPUTS
 						userAge = formPanel.getAgeSelected();
 						userSex = formPanel.getSexSelected();
-						userRace = Race.raceStaticList.get(formPanel.getRaceSelected());
+						userRace = GenerateSourceData.getRaceSourceStatic().get(formPanel.getRaceSelected());
 						userProfession = formPanel.getProfessionSelected();
 							//DEBUG TOOL: See what index item is selected, what string that is inside formPanel, ensure that userRace is the same.
 							/*

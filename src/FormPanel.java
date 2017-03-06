@@ -132,7 +132,7 @@ public class FormPanel extends JPanel {
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		Race.raceStaticList.add(0, "Any Race"); //Set up the list to allow for a Random race
+		//TODO: Uncomment if necessary: Race.raceStaticList.add(0, "Any Race"); //Set up the list to allow for a Random race
 		
 		Dimension dim = getPreferredSize();
 		dim.width = 300;
@@ -157,20 +157,20 @@ public class FormPanel extends JPanel {
 		detailsChanceField = new JTextField(6);
 		
 		//RACE ComboBox
-		int count = Race.raceStaticList.size();	
+		int count = GenerateSourceData.getRaceSourceStatic().size();	
 		String[] raceComboBoxItems = new String[count];
 		for(int i = 0; i < count; i++){
-			raceComboBoxItems[i] = Race.raceStaticList.get(i);
+			raceComboBoxItems[i] = GenerateSourceData.getRaceSourceStatic().get(i);
 		}
 		raceComboBox = new JComboBox(raceComboBoxItems);
 		raceComboBox.setSelectedItem(0);
 			
 		//SUBRACE ComboBox
-		SubRace.subRaceStaticList2.add(0, "Any Sub-Race");
-		int subRaceCount = SubRace.subRaceStaticList2.size();
+		GenerateSourceData.subraceSourceStatic.add(0, "Any Sub-Race");
+		int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
 		subRaceCB = new String[subRaceCount];
 		for(int i = 0; i < subRaceCount; i++){
-			subRaceCB[i] = SubRace.subRaceStaticList2.get(i);
+			subRaceCB[i] = GenerateSourceData.subraceSourceStatic.get(i);
 		}			
 		subRaceComboBox = new JComboBox(subRaceCB);
 		subRaceComboBox.setSelectedItem(0);
@@ -179,8 +179,8 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent a) {
 				JComboBox raceComboBox = (JComboBox) a.getSource();
 				String selected = (String) raceComboBox.getSelectedItem();
-								
-				SubRace.subRaceStaticList2.add(0, "Any " + selected);
+				
+				GenerateSourceData.subraceSourceStatic.add(0, "Any " + selected);
 								
 				subRaceTempList.clear();
 				//DEBUG TOOL
@@ -190,10 +190,10 @@ public class FormPanel extends JPanel {
 					//DEBUG TOOL
 					//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
 					
-					int subRaceCount = SubRace.subRaceStaticList2.size();
+					int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
 					subRaceCB = new String[subRaceCount];
 					//Set up a filtered list of SubRaces when Race is selected
-					for (String entry: SubRace.subRaceStaticList2){
+					for (String entry: GenerateSourceData.subraceSourceStatic){
 						
 						//DEBUG TOOL - SUBRACE FOR LOOP
 						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
@@ -239,7 +239,7 @@ public class FormPanel extends JPanel {
 					}
 				}
 				
-				SubRace.subRaceStaticList2.remove(0); //Remove the entry we added earlier
+				GenerateSourceData.subraceSourceStatic.remove(0); //Remove the entry we added earlier
 				
 				//DEBUG TOOLS - De-duping the subrace list
 				//System.out.println("SubRaceStatic: " + SubRace.subRaceStaticList2);
