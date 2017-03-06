@@ -9,7 +9,6 @@ public class CharacterCreator {
     	//Initial List Setup work:
     	GenerateSourceData sourceData = new GenerateSourceData();
 	    Name names = new Name(); 
-	    Profession professions = new Profession("Adult");
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

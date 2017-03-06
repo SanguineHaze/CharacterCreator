@@ -7,6 +7,10 @@ public class GenerateSourceData {
 	static ArrayList<String> raceSourceStatic = new ArrayList<String>();
 	ArrayList<String> subraceSourcePreStatic = new ArrayList<String>();
 	static ArrayList<String> subraceSourceStatic = new ArrayList<String>();
+	ArrayList<String> adultProfessionSourcePreStatic = new ArrayList<String>();
+	static ArrayList<String> adultProfessionSourceStatic = new ArrayList<String>();
+	ArrayList<String> childProfessionSourcePreStatic = new ArrayList<String>();
+	static ArrayList<String> childProfessionSourceStatic = new ArrayList<String>();
 	
 	////////GETTERS & SETTERS////////
 
@@ -19,6 +23,7 @@ public class GenerateSourceData {
 		raceSourceStatic.add(0, "Any Race");
 		generateRaceData();
 		generateSubraceData();
+		generateProfessionData();
 	}
 	
 	////////METHODS////////
@@ -62,10 +67,10 @@ public class GenerateSourceData {
 				subraceSourceStatic.add(line[1]);
 			}
 			//DEBUG TOOL: Check to see that the list is being created
-            System.out.println("Sub-Race List:");
+            /*System.out.println("Sub-Race List:");
 			for(String out: subraceSourcePreStatic){
 				System.out.println(out);
-			}
+			}*/
 
 		} catch (Exception e) {
             //Default error message
@@ -73,5 +78,39 @@ public class GenerateSourceData {
         }
 	}
 	
+	public void generateProfessionData(){
+		
+		File childProfessionSourceFile = new File("ProfessionsChild.txt");
+		File adultProfessionSourceFile = new File("Professions.txt");
+		
+		try {
+			
+			ReadFromFile file = new ReadFromFile(adultProfessionSourceFile);
+			
+			adultProfessionSourcePreStatic = file.OpenFile();
+			for(String s: adultProfessionSourcePreStatic){
+				String[] line = s.split(":");
+				adultProfessionSourceStatic.add(line[1]);
+			}
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			
+			ReadFromFile file = new ReadFromFile(childProfessionSourceFile);
+			
+			childProfessionSourcePreStatic = file.OpenFile();
+			for(String s: childProfessionSourcePreStatic){
+				String[] line = s.split(":");
+				childProfessionSourceStatic.add(line[1]);
+			}
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
 }
 

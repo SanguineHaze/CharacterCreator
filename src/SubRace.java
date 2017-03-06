@@ -5,9 +5,6 @@ public class SubRace {
 	
 	Random randomSubRace = new Random();
 	public String chosenSubRace;
-	private String line;
-	private String lineName;
-	private String lineValue;
 	
 	public SubRace() {
 		chosenSubRace = "";

@@ -261,12 +261,12 @@ public class FormPanel extends JPanel {
 		}
 		ageComboBox = new JComboBox(ageCB);
 		
-		Profession.professionStaticList2.sort(null); //Sort the list alphabetically
-		Profession.professionStaticList2.add(0, "Any Profession"); //Fuck up the sorting immediately after!		
-		int professionCount = Profession.professionStaticList2.size();
+		GenerateSourceData.adultProfessionSourceStatic.sort(null); //Sort the list alphabetically
+		GenerateSourceData.adultProfessionSourceStatic.add(0, "Any Profession"); //Fuck up the sorting immediately after!		
+		int professionCount = GenerateSourceData.adultProfessionSourceStatic.size();
 		professionCB = new String[professionCount];
 		for(int pi=0; pi < professionCount; pi++){
-			professionCB[pi] = Profession.professionStaticList2.get(pi);
+			professionCB[pi] = GenerateSourceData.adultProfessionSourceStatic.get(pi);
 		}
 		professionComboBox = new JComboBox(professionCB);
 		
