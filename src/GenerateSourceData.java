@@ -383,11 +383,21 @@ public class GenerateSourceData {
 					break;
 				case "speed": 
 					if(!"speed".isEmpty()){
-						tempRace.addSpeed(cNode.getTextContent());
+						tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
+					}
+					break;
+				case "speedfly":
+					if(!"speedfly".isEmpty()){
+						tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
+					}
+					break;
+				case "speedswim":
+					if(!"speedswim".isEmpty()){
+						tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
 					}
 					break;
 				case "language": 
-					if("language".isEmpty()){
+					if(!"language".isEmpty()){
 						tempRace.addLanguage(cNode.getTextContent());
 					}
 					break;
@@ -447,6 +457,8 @@ public class GenerateSourceData {
 			System.out.println("\t" + "Source: " + thisRace.getSource());
 			System.out.println("\t" + "Size: " + thisRace.getSize());
 			System.out.println("\t" + "Speed: " + thisRace.getSpeed());
+			System.out.println("\t" + "Fly Speed: " + thisRace.getFlySpeed());
+			System.out.println("\t" + "Swim Speed: " + thisRace.getSwimSpeed());
 			System.out.println("\t" + "Languages: " + thisRace.getLanguage());
 			System.out.println("\t" + "Bonus Strength: " + thisRace.getBonusStr());
 			System.out.println("\t" + "Bonus Dexterity: " + thisRace.getBonusDex());

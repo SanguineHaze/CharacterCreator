@@ -4,7 +4,7 @@
 		<name>Aarakocra</name>
 		<size>M</size>
 		<speed>25</speed>
-		<speed>50F</speed>
+		<speedFly>50</speedFly>
 		<language>Common</language>
 		<language>Auran</language>
 		<language>Aarakocra</language>
@@ -12,13 +12,18 @@
 		<bonusWis>1</bonusWis>
 		<extra>Talons</extra>
 		<source>ELM</source>
+			
+			<subRace id = "Fake Aarakocra">
+			<name>Fake Aarakocra</name>
+			<speed>5</speed>
+			</subRace>
 	</race>
 	
 	<race id="Aasimar">
 		<name>Aasimar</name>
 		<size>M</size>
 		<speed>30</speed>
-		<speed>50F</speed>
+		<speedFly>50</speedFly>
 		<language>Common</language>
 		<language>Celestial</language>
 		<bonusWis>1</bonusWis>
@@ -147,9 +152,9 @@
 		<extra>Trance</extra>
 		<source>PHB</source>
 		
-		<subRace id="Drow">
+		<subRace id="Dark Elf">
 			<parentID>Elf</parentID>
-			<name>Drow</name>
+			<name>Dark Elf</name>
 			<language>Drow Hand Signs</language>
 			<bonusCha>1</bonusCha>
 			<extra>Superior Darkvision</extra>
@@ -372,7 +377,7 @@
 		<subRace id="Half Aquatic Elf">
 			<parentID>Half-Elf</parentID>
 			<name>Half Aquatic Elf</name>
-			<speed>30S</speed>
+			<speedSwim>30</speedSwim>
 			<source>SCAG</source>
 		</subRace>
 	</race>

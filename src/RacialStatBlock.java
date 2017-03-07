@@ -2,25 +2,26 @@ import java.util.ArrayList;
 
 public class RacialStatBlock {
 	String name, size, source, parentID;
-	ArrayList<String> speed, language, extra, extraChoice;
-	ArrayList<RacialStatBlock> chosenStats;
-	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha;
+	ArrayList<String> language, extra, extraChoice;
+	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha, speed, flySpeed, swimSpeed;
 	
 	public RacialStatBlock(){
 		name = "Not Set";
 		parentID = "Not Set";
-		source = "Not Set";
 		size = "Not Set";
-		speed = new ArrayList<String>();
-		language = new ArrayList<String>();
-		extra = new ArrayList<String>();
-		extraChoice = new ArrayList<String>();
+		speed = 0;
+		flySpeed = 0;
+		swimSpeed = 0;
 		bonusStr = 0;
 		bonusDex = 0;
 		bonusCon = 0;
 		bonusInt = 0;
 		bonusWis = 0;
 		bonusCha = 0;
+		language = new ArrayList<String>();
+		extra = new ArrayList<String>();
+		extraChoice = new ArrayList<String>();
+		source = "Not Set";
 	}
 	
 	public RacialStatBlock(String chosenRace, String chosenSubRace){
@@ -28,15 +29,44 @@ public class RacialStatBlock {
 	}
 	
 	///METHODS///
-	public ArrayList<RacialStatBlock> getRacialStats(String chosenRace, String chosenSubRace){
+	public RacialStatBlock getRacialStats(String chosenRace, String chosenSubRace){
 		//System.out.println("Chosen Race: " + chosenRace);
-		RacialStatBlock tempRace = new RacialStatBlock();
+		int raceSpeed = 0, 
+				subraceSpeed = 0, 
+				raceFlySpeed = 0, 
+				subraceFlySpeed = 0, 
+				raceSwimSpeed = 0, 
+				subraceSwimSpeed = 0;
+		ArrayList<String> raceLanguage = new ArrayList<String>(), 
+				subraceLanguage = new ArrayList<String>(), 
+				raceExtra = new ArrayList<String>(), 
+				subraceExtra = new ArrayList<String>(),
+				builtExtra = new ArrayList<String>();
+		
+		RacialStatBlock builtStats = new RacialStatBlock();
+		
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenRace.toLowerCase())) {
+				RacialStatBlock tempRace = new RacialStatBlock();
+				
+				tempRace.setSpeed(entry.speed);
+				tempRace.setSwimSpeed(entry.swimSpeed);
+				tempRace.setFlySpeed(entry.flySpeed);
+				tempRace.setLanguage(entry.language);
+				tempRace.setExtra(entry.extra);
+				
+				raceSpeed = tempRace.speed;
+				raceFlySpeed = tempRace.flySpeed;
+				raceSwimSpeed = tempRace.swimSpeed;
+				raceLanguage = tempRace.language;
+				raceExtra = tempRace.extra;
+				
 				System.out.println("\n" + "Race: " + entry.getName());
 				System.out.println("\t" + "Source: " + entry.getSource());
 				System.out.println("\t" + "Size: " + entry.getSize());
 				System.out.println("\t" + "Speed: " + entry.getSpeed());
+				System.out.println("\t" + "Fly Speed: " + entry.getFlySpeed());
+				System.out.println("\t" + "Swim Speed: " + entry.getSwimSpeed());
 				System.out.println("\t" + "Languages: " + entry.getLanguage());
 				System.out.println("\t" + "Bonus Strength: " + entry.getBonusStr());
 				System.out.println("\t" + "Bonus Dexterity: " + entry.getBonusDex());
@@ -50,11 +80,27 @@ public class RacialStatBlock {
 		}
 		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenSubRace.toLowerCase())){
+				RacialStatBlock tempSubrace = new RacialStatBlock();
+
+				tempSubrace.setSpeed(entry.speed);
+				tempSubrace.setSwimSpeed(entry.swimSpeed);
+				tempSubrace.setFlySpeed(entry.flySpeed);
+				tempSubrace.setLanguage(entry.language);
+				tempSubrace.setExtra(entry.extra);
+				
+				subraceSpeed = tempSubrace.speed;
+				subraceFlySpeed = tempSubrace.flySpeed;
+				subraceSwimSpeed = tempSubrace.swimSpeed;
+				subraceLanguage = tempSubrace.language;
+				subraceExtra = tempSubrace.extra;
+
 				System.out.println("\n" + "Subrace: " + entry.getName());
 				System.out.println("\t" + "Parent: " + entry.getParentID());
 				System.out.println("\t" + "Source: " + entry.getSource());
 				System.out.println("\t" + "Size: " + entry.getSize());
 				System.out.println("\t" + "Speed: " + entry.getSpeed());
+				System.out.println("\t" + "Fly Speed: " + entry.getFlySpeed());
+				System.out.println("\t" + "Swim Speed: " + entry.getSwimSpeed());
 				System.out.println("\t" + "Languages: " + entry.getLanguage());
 				System.out.println("\t" + "Bonus Strength: " + entry.getBonusStr());
 				System.out.println("\t" + "Bonus Dexterity: " + entry.getBonusDex());
@@ -66,7 +112,65 @@ public class RacialStatBlock {
 				System.out.println("\t" + "Extra Choice: " + entry.getExtraChoice());
 			}
 		}
-		return chosenStats;
+		
+		//SPEED
+		int totalSpeed = raceSpeed + subraceSpeed;
+		builtStats.setSpeed(totalSpeed);
+		
+		//FLY SPEED
+		
+		
+		int totalFlySpeed = raceFlySpeed + subraceFlySpeed;
+		builtStats.setFlySpeed(totalFlySpeed);
+		
+		//SWIM SPEED
+		
+		int totalSwimSpeed = raceSwimSpeed + subraceSwimSpeed;
+		builtStats.setSwimSpeed(totalSwimSpeed);
+		
+		//STR
+		
+		//DEX
+		
+		//CON
+		
+		//INT
+		
+		//WIS
+		
+		//CHA
+		
+		//LANGUAGE
+		
+		if(subraceLanguage.size() >= 1){
+			for(String entry: subraceLanguage){
+				if(!raceLanguage.contains(entry)){
+					//System.out.println("Current Built Lang: " + raceLanguage);
+					//System.out.println("Adding: " + entry);
+					raceLanguage.add(entry);
+				}
+			}
+		}		
+		builtStats.setLanguage(raceLanguage);
+		//System.out.println("Test Languages: " + builtStats.language);
+		
+		//EXTRA
+		for(String entry: raceExtra){
+			if(!builtExtra.contains(entry)){
+				builtExtra.add(entry);
+			}
+			for(String entry2: subraceExtra){
+				if(!builtExtra.contains(entry2)){
+					builtExtra.add(entry2);
+				}
+			}
+		}
+		builtStats.setExtra(builtExtra);
+		//System.out.println("BuiltStats - Extras: " + builtStats.extra);
+		
+		//EXTRACHOICE
+		
+		return builtStats;
 	}
 	
 	///GETTERS & SETTERS///
@@ -94,14 +198,23 @@ public class RacialStatBlock {
 	public void setSource(String source) {
 		this.source = source;
 	}
-	public ArrayList<String> getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
-	public void setSpeed(ArrayList<String> speed) {
-		this.speed = speed;
+	public void setSpeed(int speed2) {
+		this.speed = speed2;
 	}
-	public void addSpeed(String sp){
-		speed.add(sp);
+	public int getFlySpeed() {
+		return flySpeed;
+	}
+	public void setFlySpeed(int flyspeed) {
+		this.flySpeed = flyspeed;
+	}
+	public int getSwimSpeed() {
+		return swimSpeed;
+	}
+	public void setSwimSpeed(int swimspeed) {
+		this.swimSpeed = swimspeed;
 	}
 	public ArrayList<String> getLanguage() {
 		return language;

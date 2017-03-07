@@ -1,3 +1,4 @@
+AARAKOCRA:Fake Aarakocra
 AASIMAR:Protector Aasimar
 AASIMAR:Scourge Aasimar
 AASIMAR:Fallen Aasimar
