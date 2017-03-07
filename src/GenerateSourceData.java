@@ -469,7 +469,7 @@ public class GenerateSourceData {
 			System.out.println("\t" + "Extra: " + thisRace.getExtra());
 			System.out.println("\t" + "Extra Choice: " + thisRace.getExtraChoice());
 		}*/
-		
 	}
+	
 }
 

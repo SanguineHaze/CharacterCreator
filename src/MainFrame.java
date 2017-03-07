@@ -30,7 +30,14 @@ public class MainFrame extends JFrame {
 	String myPersonality = "";		
 	String myNickname = "";	
 	String myDetail = "";
+	
 	RacialStatBlock myRacialStats;
+	int myStr;
+	int myDex;
+	int myCon;
+	int myInt;
+	int myWis;
+	int myCha;
 	
     int nicknameChance;
     int detailChance;
@@ -182,7 +189,13 @@ public class MainFrame extends JFrame {
 					
 					//CHARACTER STAT BLOCK
 						
-						myRacialStats = thisRacialStatBlock.getRacialStats(myRace, mySubRace);
+						thisRacialStatBlock.generateRacialStats(myRace, mySubRace);
+						myStr = RacialStatBlock.builtStats.bonusStr;
+						myDex = RacialStatBlock.builtStats.bonusDex;
+						myCon = RacialStatBlock.builtStats.bonusCon;
+						myInt = RacialStatBlock.builtStats.bonusInt;
+						myWis = RacialStatBlock.builtStats.bonusWis;
+						myCha = RacialStatBlock.builtStats.bonusCha;
 						
 					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
@@ -260,6 +273,10 @@ public class MainFrame extends JFrame {
 								characterResults.add("Additional Detail: " + myDetail);
 							}
 						}
+						
+						System.out.println("STR: " + myStr + "\t" + "DEX: " + myDex);
+						System.out.println("CON: " + myCon + "\t" + "INT: " + myInt);
+						System.out.println("WIS: " + myWis + "\t" + "CHA: " + myCha);
 						
 					//Line-split for multiple result tidiness
 						textPanel.appendText("\n");

@@ -4,6 +4,8 @@ public class RacialStatBlock {
 	String name, size, source, parentID;
 	ArrayList<String> language, extra, extraChoice;
 	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha, speed, flySpeed, swimSpeed;
+	int  baseValue = 10;
+	static RacialStatBlock builtStats = new RacialStatBlock();
 	
 	public RacialStatBlock(){
 		name = "Not Set";
@@ -25,12 +27,15 @@ public class RacialStatBlock {
 	}
 	
 	public RacialStatBlock(String chosenRace, String chosenSubRace){
-		getRacialStats(chosenRace, chosenSubRace);
+		generateRacialStats(chosenRace, chosenSubRace);
 	}
 	
 	///METHODS///
-	public RacialStatBlock getRacialStats(String chosenRace, String chosenSubRace){
+	public void generateRacialStats(String chosenRace, String chosenSubRace){
 		//System.out.println("Chosen Race: " + chosenRace);
+		RacialStatBlock tempRace = new RacialStatBlock();
+		RacialStatBlock tempSubrace = new RacialStatBlock();
+		
 		int raceSpeed = 0, 
 				subraceSpeed = 0, 
 				raceFlySpeed = 0, 
@@ -41,13 +46,19 @@ public class RacialStatBlock {
 				subraceLanguage = new ArrayList<String>(), 
 				raceExtra = new ArrayList<String>(), 
 				subraceExtra = new ArrayList<String>(),
-				builtExtra = new ArrayList<String>();
-		
-		RacialStatBlock builtStats = new RacialStatBlock();
+				builtExtra = new ArrayList<String>(),
+				builtExtraChoice = new ArrayList<String>();
 		
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenRace.toLowerCase())) {
-				RacialStatBlock tempRace = new RacialStatBlock();
+				//RacialStatBlock tempRace = new RacialStatBlock();
+				
+				tempRace.setBonusStr(entry.bonusStr);
+				tempRace.setBonusDex(entry.bonusDex);
+				tempRace.setBonusCon(entry.bonusCon);
+				tempRace.setBonusInt(entry.bonusInt);
+				tempRace.setBonusWis(entry.bonusWis);
+				tempRace.setBonusCha(entry.bonusCha);
 				
 				tempRace.setSpeed(entry.speed);
 				tempRace.setSwimSpeed(entry.swimSpeed);
@@ -61,7 +72,7 @@ public class RacialStatBlock {
 				raceLanguage = tempRace.language;
 				raceExtra = tempRace.extra;
 				
-				System.out.println("\n" + "Race: " + entry.getName());
+				/*System.out.println("\n" + "Race: " + entry.getName());
 				System.out.println("\t" + "Source: " + entry.getSource());
 				System.out.println("\t" + "Size: " + entry.getSize());
 				System.out.println("\t" + "Speed: " + entry.getSpeed());
@@ -75,12 +86,19 @@ public class RacialStatBlock {
 				System.out.println("\t" + "Bonus Wisdom: " + entry.getBonusWis());
 				System.out.println("\t" + "Bonus Charisma: " + entry.getBonusCha());
 				System.out.println("\t" + "Extra: " + entry.getExtra());
-				System.out.println("\t" + "Extra Choice: " + entry.getExtraChoice());
+				System.out.println("\t" + "Extra Choice: " + entry.getExtraChoice());*/
 			}
 		}
 		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenSubRace.toLowerCase())){
-				RacialStatBlock tempSubrace = new RacialStatBlock();
+				//RacialStatBlock tempSubrace = new RacialStatBlock();
+				
+				tempSubrace.setBonusStr(entry.bonusStr);
+				tempSubrace.setBonusDex(entry.bonusDex);
+				tempSubrace.setBonusCon(entry.bonusCon);
+				tempSubrace.setBonusInt(entry.bonusInt);
+				tempSubrace.setBonusWis(entry.bonusWis);
+				tempSubrace.setBonusCha(entry.bonusCha);
 
 				tempSubrace.setSpeed(entry.speed);
 				tempSubrace.setSwimSpeed(entry.swimSpeed);
@@ -94,7 +112,7 @@ public class RacialStatBlock {
 				subraceLanguage = tempSubrace.language;
 				subraceExtra = tempSubrace.extra;
 
-				System.out.println("\n" + "Subrace: " + entry.getName());
+				/*System.out.println("\n" + "Subrace: " + entry.getName());
 				System.out.println("\t" + "Parent: " + entry.getParentID());
 				System.out.println("\t" + "Source: " + entry.getSource());
 				System.out.println("\t" + "Size: " + entry.getSize());
@@ -109,7 +127,7 @@ public class RacialStatBlock {
 				System.out.println("\t" + "Bonus Wisdom: " + entry.getBonusWis());
 				System.out.println("\t" + "Bonus Charisma: " + entry.getBonusCha());
 				System.out.println("\t" + "Extra: " + entry.getExtra());
-				System.out.println("\t" + "Extra Choice: " + entry.getExtraChoice());
+				System.out.println("\t" + "Extra Choice: " + entry.getExtraChoice());*/
 			}
 		}
 		
@@ -126,16 +144,28 @@ public class RacialStatBlock {
 		builtStats.setSwimSpeed(totalSwimSpeed);
 		
 		//STR
+		int totalStr = baseValue + tempRace.bonusStr + tempSubrace.bonusStr;
+		builtStats.setBonusStr(totalStr);
 		
 		//DEX
+		int totalDex = baseValue + tempRace.bonusDex + tempSubrace.bonusDex;
+		builtStats.setBonusDex(totalDex);
 		
 		//CON
+		int totalCon = baseValue + tempRace.bonusCon + tempSubrace.bonusCon;
+		builtStats.setBonusCon(totalCon);
 		
 		//INT
+		int totalInt = baseValue + tempRace.bonusInt + tempSubrace.bonusInt;
+		builtStats.setBonusInt(totalInt);
 		
 		//WIS
+		int totalWis = baseValue + tempRace.bonusWis + tempSubrace.bonusWis;
+		builtStats.setBonusWis(totalWis);
 		
 		//CHA
+		int totalCha = baseValue + tempRace.bonusCha + tempSubrace.bonusCha;
+		builtStats.setBonusCha(totalCha);
 		
 		//LANGUAGE
 		if(subraceLanguage.size() >= 1){
@@ -161,12 +191,21 @@ public class RacialStatBlock {
 				}
 			}
 		}
+		
 		builtStats.setExtra(builtExtra);
 		//System.out.println("BuiltStats - Extras: " + builtStats.extra);
 		
 		//EXTRACHOICE
-		
-		return builtStats;
+		for(String entry: tempRace.extraChoice){
+			if(!builtExtraChoice.contains(entry)){
+				builtExtraChoice.add(entry);
+			}
+			for(String entry2: tempSubrace.extraChoice){
+				if(!builtExtraChoice.contains(entry2)){
+					builtExtraChoice.add(entry2);
+				}
+			}
+		}
 	}
 	
 	///GETTERS & SETTERS///
