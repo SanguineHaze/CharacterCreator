@@ -4,19 +4,19 @@ import java.util.Random;
 
 public class AdditionalFeatures {
 		
-	ArrayList<String> motivationList = new ArrayList<String>();
-	ArrayList<String> personalityList = new ArrayList<String>();
-	ArrayList<String> nicknameList = new ArrayList<String>();
-	ArrayList<String> detailsList = new ArrayList<String>();
+	ArrayList<String> motivationList = GenerateSourceData.motivationSourceData;
+	ArrayList<String> personalityList = GenerateSourceData.personalitySourceData;
+	ArrayList<String> nicknameList = GenerateSourceData.nicknameSourceData;
+	ArrayList<String> detailsList = GenerateSourceData.detailsSourceData;
 	
 	//Lists contained within DetailsList
-	ArrayList<String> theLocalList = new ArrayList<String>();
-	ArrayList<String> favorToList = new ArrayList<String>();
-	ArrayList<String> protectedByList = new ArrayList<String>();
-	ArrayList<String> mapToList = new ArrayList<String>();
-	ArrayList<String> possessesAList = new ArrayList<String>();
-	ArrayList<String> obsessedByList = new ArrayList<String>();
-	ArrayList<String> cursedByList = new ArrayList<String>();
+	ArrayList<String> theLocalList = GenerateSourceData.theLocalSourceData;
+	ArrayList<String> favorToList = GenerateSourceData.favorToSourceData;
+	ArrayList<String> protectedByList = GenerateSourceData.protectedBySourceData;
+	ArrayList<String> mapToList = GenerateSourceData.mapToSourceData;
+	ArrayList<String> possessesAList = GenerateSourceData.possessesASourceData;
+	ArrayList<String> obsessedByList = GenerateSourceData.obsessedBySourceData;
+	ArrayList<String> cursedByList = GenerateSourceData.cursedBySourceData;
 	
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
 	private int nicknameChance, detailChance;
@@ -25,14 +25,10 @@ public class AdditionalFeatures {
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
-		loadMotivationList();
-		generateMotivation("Child");
-		loadPersonalityList();
+		generateMotivation("");
 		generatePersonality();
-		loadNicknameList();
 		setNicknameChance(0);
 		generateNickname(null, null, null);
-		loadDetailsList();
 		generateDetails(null, null);
 		//DEBUG TOOL - CONSTRUCTOR 1
 		//System.out.println("AddFeat 1 NN: " + chosenNickname);
@@ -58,25 +54,6 @@ public class AdditionalFeatures {
 	}
 	
 	//MOTIVATION SECTION
-	private void loadMotivationList(){
-		File motivationListTargetFile = new File("Motivations.txt");
-		
-		try {
-			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
-			motivationList = file.OpenFile();
-			
-			//DEBUG TOOL: Check to see that the list is being created
-		    /*
-		    System.out.println("Motivation List:");
-		    for(String out: motivationList){
-		        System.out.println(out);
-		    }
-		    */
-			
-		} catch(Exception e) {
-			 System.out.println(e.getMessage());
-		}
-	}
 	
 	public void generateMotivation(String chosenAge){
 		if(!"child".equals(chosenAge.toLowerCase())){
@@ -94,16 +71,6 @@ public class AdditionalFeatures {
 	}
 	
 	//PERSONALITY SECTION
-	private void loadPersonalityList() {
-		File personalityListTargetFile = new File("Personalities.txt");
-		
-		try {
-			ReadFromFile file = new ReadFromFile(personalityListTargetFile);
-			personalityList = file.OpenFile();
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}//end Try/Catch
-	}//end loadPersonalityList()
 	
 	public void generatePersonality(){
 		Random randomPersonality = new Random();
@@ -121,25 +88,6 @@ public class AdditionalFeatures {
 	}
 	
 	//NICKNAME SECTION
-	private void loadNicknameList(){
-		File nicknameListTargetFile = new File("Nicknames.txt");
-		
-		try{
-			ReadFromFile file = new ReadFromFile(nicknameListTargetFile);
-			nicknameList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}//End Try/Catch
-		
-		//DEBUG TOOL: Check to see that the list is being created
-	    /*
-	    System.out.println("Nickname List:");
-	    for(String out: nicknameList){
-	        System.out.println(out);
-	    }
-	    */
-	}
-	
 	//TODO: Use Age, Profession, and Race in nickname creation!!
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
@@ -161,72 +109,7 @@ public class AdditionalFeatures {
 		}		
 	}
 	
-	private void loadDetailsList(){
-		File detailsListTargetFile = new File ("Details.txt");
-		try {
-			ReadFromFile file = new ReadFromFile(detailsListTargetFile);
-			detailsList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File theLocalReplacementTargetFile = new File("TheLocalReplacement.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(theLocalReplacementTargetFile);
-			theLocalList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File favorToReplacementTargetFile = new File("OwesFavorTo.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(favorToReplacementTargetFile);
-			favorToList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File protectedByReplacementFile = new File("ProtectedBy.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(protectedByReplacementFile);
-			protectedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File mapToReplacementFile = new File("MapTo.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(mapToReplacementFile);
-			mapToList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File possessesAReplacementFile = new File("PossessesA.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(possessesAReplacementFile);
-			possessesAList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File obsessedByReplacementFile = new File("ObsessedBy.txt");
-		try {
-			ReadFromFile file = new ReadFromFile(obsessedByReplacementFile);
-			obsessedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File cursedReplacementFile = new File("Cursed.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(cursedReplacementFile);
-			cursedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-	}
+	///ADDITIONAL DETAILS SECTION///
 	
 	public void generateDetails(String race, String profession){
 		

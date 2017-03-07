@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<raceOptions>
+	<race id="Aarakocra">
+		<name>Aarakocra</name>
+		<size>M</size>
+		<speed>25</speed>
+		<speed>50F</speed>
+		<language>Common</language>
+		<language>Auran</language>
+		<language>Aarakocra</language>
+		<bonusDex>2</bonusDex>
+		<bonusWis>1</bonusWis>
+		<extra>Talons</extra>
+		<source>ELM</source>
+	</race>
+	
+	<race id="Aasimar">
+		<name>Aasimar</name>
+		<size>M</size>
+		<speed>30</speed>
+		<speed>50F</speed>
+		<language>Common</language>
+		<language>Celestial</language>
+		<bonusWis>1</bonusWis>
+		<bonusCha>2</bonusCha>
+		<extra>Darkvision</extra>
+		<extra>Celestial Resistance</extra>
+		<extra>Celestial Legacy</extra>
+		<source>DMG</source>
+	</race>
+	
+	<race id="Dragonborn">
+		<name>Dragonborn</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Draconic</language>
+		<bonusStr>2</bonusStr>
+		<bonusCha>1</bonusCha>
+		<extra>Breath Weapon</extra>
+		<extra>Damage Resistance</extra>
+		<source>PHB</source>
+		
+		<subRace id="Black Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Black Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Blue Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Blue Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Red Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Red Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Green Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Green Dragonborn</name>
+		</subRace>
+	
+		<subRace id="White Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>White Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Brass Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Brass Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Bronze Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Bronze Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Copper Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Copper Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Gold Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Gold Dragonborn</name>
+		</subRace>
+	
+		<subRace id="Silver Dragonborn">
+			<parentID>Dragonborn</parentID>
+			<name>Silver Dragonborn</name>
+		</subRace>
+	
+	</race>
+	
+	<race id="Dwarf">
+		<name>Dwarf</name>
+		<size>M</size>
+		<speed>25</speed>
+		<language>Common</language>
+		<language>Dwarf</language>
+		<bonusCon>2</bonusCon>
+		<extra>Darkvision</extra>
+		<extra>Dwarven Resistance</extra>
+		<extra>Dwarven Combat Training</extra>
+		<extra>Tool Proficiency</extra>
+		<extra>Stone-Cunning</extra>
+		<source>PHB</source>
+		
+		<subRace id="Hill Dwarf">
+			<parentID>Dwarf</parentID>
+			<name>Hill Dwarf</name>
+			<bonusInt>1</bonusInt>
+			<extra>Dwarven Toughness</extra>
+		</subRace>
+		
+		<subRace id="Mountain Dwarf">
+			<parentID>Dwarf</parentID>
+			<name>Mountain Dwarf</name>
+			<bonusStr>2</bonusStr>
+			<extra>Dwarven Armour Training</extra>
+		</subRace>
+		
+		<subRace id="Duergar" parentRace="Dwarf">
+			<parentID>Dwarf</parentID>
+			<name>Duergar</name>
+			<language>Undercommon</language>
+			<bonusStr>1</bonusStr>
+			<extra>Superior Darkvision</extra>
+			<extra>Duergar Resilience</extra>
+			<extra>Duergar Magic</extra>
+			<extra>Sunlight Sensitivity</extra>
+			<source>SCAG</source>
+		</subRace>
+	</race>
+	
+	<race id="Elf">
+		<name>Elf</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Elvish</language>
+		<bonusDex>2</bonusDex>
+		<extra>Darkvision</extra>
+		<extra>Keen Senses</extra>
+		<extra>Fey Ancestry</extra>
+		<extra>Trance</extra>
+		<source>PHB</source>
+		
+		<subRace id="Drow">
+			<parentID>Elf</parentID>
+			<name>Drow</name>
+			<language>Drow Hand Signs</language>
+			<bonusCha>1</bonusCha>
+			<extra>Superior Darkvision</extra>
+			<extra>Sunlight Sensitivity</extra>
+			<extra>Drow Magic</extra>
+			<extra>Drow Weapons Training</extra>
+		</subRace>
+		
+		<subRace id="Eladrin">
+			<parentID>Elf</parentID>
+			<name>Eladrin</name>
+			<bonusInt>1</bonusInt>
+			<extra>Elf Weapon Training</extra>
+			<extra>Fey Step</extra>
+			<source>DMG</source>
+		</subRace>
+		
+		<subRace id="High Elf">
+			<parentID>Elf</parentID>
+			<name>High Elf</name>
+			<language>+1 Language</language>
+			<bonusInt>1</bonusInt>
+			<extra>Elf Weapon Training</extra>
+			<extra>+1 Cantrip</extra>
+		</subRace>
+		
+		<subRace id="Wood Elf">
+			<parentID>Elf</parentID>
+			<name>Wood Elf</name>
+			<speed>5</speed>
+			<bonusWis>1</bonusWis>
+			<extra>Elf Weapon Training</extra>
+			<extra>Mask of the Wild</extra>
+		</subRace>
+	</race>
+	
+	<race id="Genasi">
+		<name>Genasi</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Primordial</language>
+		<bonusCon>2</bonusCon>
+		<source>ELM</source>
+		
+		<subRace id="Air Genasi">
+			<parentID>Genasi</parentID>
+			<name>Air Genasi</name>
+			<bonusDex>1</bonusDex>
+			<extra>Unending Breath</extra>
+			<extra>Mingle with the Wind</extra>
+		</subRace>
+				
+		<subRace id="Earth Genasi">
+			<parentID>Genasi</parentID>
+			<name>Earth Genasi</name>
+			<bonusStr>1</bonusStr>
+			<extra>Earth Walk</extra>
+			<extra>Merge with Stone</extra>
+		</subRace>
+		
+		<subRace id="Fire Genasi">
+			<parentID>Genasi</parentID>
+			<name>Fire Genasi</name>
+			<bonusInt>1</bonusInt>
+			<extra>Darkvision</extra>
+			<extra>Fire Resistance</extra>
+			<extra>Reach to the Blaze</extra>
+		</subRace>
+		
+		<subRace id="Water Genasi">
+			<parentID>Genasi</parentID>
+			<name>Water Genasi</name>
+			<bonusWis>1</bonusWis>
+			<extra>Acid Resistance</extra>
+			<extra>Amphibious</extra>
+			<extra>Call to the Wave</extra>
+		</subRace>
+	</race>
+	
+	<race id="Gnome">
+		<name>Gnome</name>
+		<size>S</size>
+		<speed>25</speed>
+		<language>Common</language>
+		<language>Gnomish</language>
+		<bonusInt>2</bonusInt>
+		<extra>Darkvision</extra>
+		<extra>Gnome Cunning</extra>
+		<source>PHB</source>
+		
+		<subRace id="Deep Gnome">
+			<parentID>Gnome</parentID>
+			<name>Deep Gnome</name>
+			<language>Undercommon</language>
+			<bonusDex>1</bonusDex>
+			<extra>Superior Darkvision</extra>
+			<extra>Stone Camoflague</extra>
+			<extra>Svirfneblin Magic</extra>
+			<source>ELM</source>
+		</subRace>
+		
+		<subRace id="Forest Gnome">
+			<parentID>Gnome</parentID>
+			<name>Forest Gnome</name>
+			<bonusDex>1</bonusDex>
+			<extra>Minor Illusion Cantrip</extra>
+			<extra>Speak with Small Beasts</extra>
+		</subRace>
+		
+		<subRace id="Rock Gnome">
+			<parentID>Gnome</parentID>
+			<name>Rock Gnome</name>
+			<bonusCon>1</bonusCon>
+			<extra>Artificer's Lore</extra>
+			<extra>Tinker</extra>
+		</subRace>
+	</race>
+	
+	<race id="Goliath">
+		<name>Goliath</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Giant</language>
+		<bonusStr>2</bonusStr>
+		<bonusCon>1</bonusCon>
+		<extra>Natural Athlete</extra>
+		<extra>Stone's Endruance</extra>
+		<extra>Powerful Build</extra>
+		<extra>Mountain Born</extra>
+		<source>PHB</source>
+	</race>
+	
+	<race id="Halfling">
+		<name>Halfling</name>
+		<size>S</size>
+		<speed>25</speed>
+		<language>Common</language>
+		<language>Halfling</language>
+		<bonusDex>2</bonusDex>
+		<extra>Lucky</extra>
+		<extra>Brave</extra>
+		<extra>Halfling Nimbleness</extra>
+		<source>PHB</source>
+		
+		<subRace id="Lightfoot Halfling">
+			<parentID>Halfling</parentID>
+			<name>Lightfoot Halfling</name>
+			<bonusCha>1</bonusCha>
+			<extra>Naturally Stealthy</extra>
+		</subRace>
+		
+		<subRace id="Stout Halfling">
+			<parentID>Halfling</parentID>
+			<name>Stout Halfling</name>
+			<bonusCon>1</bonusCon>
+			<extra>Stout Resilience</extra>
+		</subRace>
+		
+		<subRace id="Ghostwise Halfling">
+			<parentID>Halfling</parentID>
+			<name>Ghostwise Halfling</name>
+			<language>Silent Speech</language>
+			<bonusWis>1</bonusWis>
+			<source>SCAG</source>
+		</subRace>
+	</race>
+	
+	<race id="Half-Elf">
+		<name>Half-Elf</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Elvish</language>
+		<bonusCha>2</bonusCha>
+		<extra>+1 ASI</extra>
+		<extra>+1 ASI</extra>
+		<extra>Darkvision</extra>
+		<extra>Fey Ancestry</extra>
+		<extra>Skill Versatility</extra>
+		<source>PHB</source>
+		
+		<subRace id="Half Wood Elf">
+			<parentID>Half-Elf</parentID>
+			<name>Half Wood Elf</name>
+			<extra>-Skill Versatility</extra>
+			<extraChoice>Elf Weapon Training</extraChoice>
+			<extraChoice>Fleet of Foot</extraChoice>
+			<extraChoice>Mask of the Wild</extraChoice>
+			<source>SCAG</source>
+		</subRace>
+		
+		<subRace id="Half Moon Elf">
+			<parentID>Half-Elf</parentID>
+			<name>Half Moon Elf</name>
+			<extra>-Skill Versatility</extra>
+			<extraChoice>Elf Weapon Training</extraChoice>
+			<extraChoice>+1 Cantrip</extraChoice>
+			<source>SCAG</source>
+		</subRace>
+		
+		<subRace id="Half Sun Elf">
+			<parentID>Half-Elf</parentID>
+			<name>Half Sun Elf</name>
+			<extra>-Skill Versatility</extra>
+			<extraChoice>Elf Weapon Training</extraChoice>
+			<extraChoice>+1 Cantrip</extraChoice>
+			<source>SCAG</source>
+		</subRace>
+				
+		<subRace id="Half Drow">
+			<parentID>Half-Elf</parentID>
+			<name>Half Drow</name>
+			<extra>-Skill Versatility</extra>
+			<extra>Drow Magic</extra>
+			<source>SCAG</source>
+		</subRace>
+		
+		<subRace id="Half Aquatic Elf">
+			<parentID>Half-Elf</parentID>
+			<name>Half Aquatic Elf</name>
+			<speed>30S</speed>
+			<source>SCAG</source>
+		</subRace>
+	</race>
+	
+	<race id="Half-Orc">
+		<name>Half-Orc</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Orc</language>
+		<bonusStr>2</bonusStr>
+		<bonusCon>1</bonusCon>
+		<extra>Darkvision</extra>
+		<extra>Menacing</extra>
+		<extra>Relentless Endurance</extra>
+		<extra>Savage Attacks</extra>
+		<source>PHB</source>
+	</race>
+	
+	<race id="Human">
+		<name>Human</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>+1 Language</language>
+		<bonusStr>1</bonusStr>
+		<bonusDex>1</bonusDex>
+		<bonusCon>1</bonusCon>
+		<bonusInt>1</bonusInt>
+		<bonusWis>1</bonusWis>
+		<bonusCha>1</bonusCha>
+		<source>PHB</source>
+		
+		<subRace id="Human Variant">
+			<parentID>Human</parentID>
+			<name>Human Variant</name>
+			<bonusStr>-1</bonusStr>
+			<bonusDex>-1</bonusDex>
+			<bonusCon>-1</bonusCon>
+			<bonusInt>-1</bonusInt>
+			<bonusWis>-1</bonusWis>
+			<bonusCha>-1</bonusCha>
+			<extra>2x +1 ASI</extra>
+			<extra>+1 Skill</extra>
+			<extra>+1 Feat</extra>
+		</subRace>
+	</race>
+	
+	<race id="Tiefling">
+		<name>Tiefling</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Infernal</language>
+		<bonusInt>1</bonusInt>
+		<bonusCha>2</bonusCha>
+		<extra>Darkvision</extra>
+		<extra>Hellish Resistance</extra>
+		<extra>Hellish Legacy</extra>
+		<source>PHB</source>
+	</race>
+</raceOptions>

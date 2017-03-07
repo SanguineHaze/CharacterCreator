@@ -71,6 +71,7 @@ public class FormPanel extends JPanel {
 	private boolean saveNext;
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
+	private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
 
 	//GETTERS
 	public int getDetailsChance() {
@@ -253,11 +254,11 @@ public class FormPanel extends JPanel {
 		sexR = new JRadioButton(sexRString);
 		setBtn = new JButton("Set Changes!");
 		
-		Name.ageRangeStatic.add(0, "Any Age");
-		int ageCount = Name.ageRangeStatic.size();
+		ageRange.add(0, "Any Age");
+		int ageCount = ageRange.size();
 		ageCB = new String[ageCount];
 		for(int ii = 0; ii < ageCount; ii++){
-			ageCB[ii] = Name.ageRangeStatic.get(ii);
+			ageCB[ii] = ageRange.get(ii);
 		}
 		ageComboBox = new JComboBox(ageCB);
 		

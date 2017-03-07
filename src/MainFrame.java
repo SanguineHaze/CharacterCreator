@@ -30,6 +30,7 @@ public class MainFrame extends JFrame {
 	String myPersonality = "";		
 	String myNickname = "";	
 	String myDetail = "";
+	ArrayList<RacialStatBlock> myRacialStats;
 	
     int nicknameChance;
     int detailChance;
@@ -84,6 +85,7 @@ public class MainFrame extends JFrame {
 					Name thisName = new Name();
 					Profession thisProfession = new Profession(myAge);
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
+					RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
 					
 					saveNext = formPanel.isSaveNext();
 					
@@ -177,7 +179,10 @@ public class MainFrame extends JFrame {
 						myPersonality = thisMotivation.chosenPersonality;			 
 						myNickname = thisMotivation.chosenNickname;
 						myDetail = thisMotivation.chosenDetail;
+					
+					//CHARACTER STAT BLOCK
 						
+						myRacialStats = thisRacialStatBlock.getRacialStats(myRace, mySubRace);
 						
 					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
@@ -254,7 +259,7 @@ public class MainFrame extends JFrame {
 							if(saveNext){
 								characterResults.add("Additional Detail: " + myDetail);
 							}
-						}						
+						}
 						
 					//Line-split for multiple result tidiness
 						textPanel.appendText("\n");

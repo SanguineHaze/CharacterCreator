@@ -5,13 +5,7 @@ import java.util.Random;
 public class Name {
 	
 	String sex = "";
-	boolean chosenSex;
-	ArrayList<String> nameList = new ArrayList<String>();
-	ArrayList<String> beginningName = new ArrayList<String>();
-	ArrayList<String> middleName = new ArrayList<String>();
-	ArrayList<String> endName = new ArrayList<String>();
-	ArrayList<String> ageRange = new ArrayList<String>();
-	public static ArrayList<String> ageRangeStatic = new ArrayList<String>();
+	boolean chosenSex;	
 	public String chosenBeginningName = "";
 	public String chosenMidName = "";
 	public String chosenEndName = "";
@@ -24,14 +18,16 @@ public class Name {
 	public String chosenName;
 	public String chosenAge;
 	public String chosenLastName;
+	private ArrayList<String> beginningName = GenerateSourceData.beginningName;
+	private ArrayList<String> middleName = GenerateSourceData.middleName;
+	private ArrayList<String> endName = GenerateSourceData.endName;
+	private ArrayList<String> ageRange = GenerateSourceData.ageRange;
 	
 	public Name(){
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
-		loadNameList();
 		generateSex();
-		generateNameLists();
 		generateFullName();
 		generateFullLastName();
 		generateAge();
@@ -76,66 +72,8 @@ public class Name {
 		//DEBUG TOOL
 		//System.out.println("GenerateSex - UserSex: " + userSex + ". ChosenSex: " + chosenSex);
 	}
-	
-	private void loadNameList(){
-		//The master list containing all Name options
-		File nameListTargetFile = new File ("NameDefault.txt"); //path to the file on local environment.
-		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
-		try {
-			ReadFromFile file = new ReadFromFile(nameListTargetFile);
-			nameList = file.OpenFile();
-			
-			//DEBUG TOOL: Check to see that the list is being created
-		    /*
-		    System.out.println("Name List:");
-		    for(String out: nameList){
-		        System.out.println(out);
-		    }
-		    */
-			
-			ageRange.add("Child");
-			ageRange.add("Young Adult");
-			ageRange.add("Adult");
-			ageRange.add("Old");
-			ageRange.add("Very Old");
-			
-			ageRangeStatic.add("Child");
-			ageRangeStatic.add("Young Adult");
-			ageRangeStatic.add("Adult");
-			ageRangeStatic.add("Old");
-			ageRangeStatic.add("Very Old");
-			
-		} catch(Exception e) {
-			 System.out.println(e.getMessage());
-		}
-	}
-	
-	public void generateNameLists(){
 		
-		for(String entry: nameList){
-			if(entry.contains("BEGINNING:")){
-				beginningName.add(entry);
-			} else if(entry.contains("MIDDLE:")) {
-				middleName.add(entry);
-			} else if(entry.contains("END:")) {
-				endName.add(entry);
-			}
-		}
-		
-		//DEBUG TOOL: Check to see what's made it to the lists
-		/*
-		System.out.println("Sub-Race List:");
-		for(String out: beginningName){
-			System.out.println(out);
-		}
-		for(String out: middleName){
-			System.out.println(out);
-		}
-		for(String out: endName){
-			System.out.println(out);
-		}		
-		*/
-	}
+	
 	
 	//BEGIN NAME!
 	private void generateBeginning() {		
