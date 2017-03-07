@@ -30,7 +30,7 @@ public class MainFrame extends JFrame {
 	String myPersonality = "";		
 	String myNickname = "";	
 	String myDetail = "";
-	ArrayList<RacialStatBlock> myRacialStats;
+	RacialStatBlock myRacialStats;
 	
     int nicknameChance;
     int detailChance;

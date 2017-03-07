@@ -118,13 +118,10 @@ public class RacialStatBlock {
 		builtStats.setSpeed(totalSpeed);
 		
 		//FLY SPEED
-		
-		
 		int totalFlySpeed = raceFlySpeed + subraceFlySpeed;
 		builtStats.setFlySpeed(totalFlySpeed);
 		
 		//SWIM SPEED
-		
 		int totalSwimSpeed = raceSwimSpeed + subraceSwimSpeed;
 		builtStats.setSwimSpeed(totalSwimSpeed);
 		
@@ -141,7 +138,6 @@ public class RacialStatBlock {
 		//CHA
 		
 		//LANGUAGE
-		
 		if(subraceLanguage.size() >= 1){
 			for(String entry: subraceLanguage){
 				if(!raceLanguage.contains(entry)){
