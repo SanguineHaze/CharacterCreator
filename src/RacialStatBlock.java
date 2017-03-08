@@ -4,7 +4,9 @@ public class RacialStatBlock {
 	String name, size, source, parentID;
 	ArrayList<String> language, extra, extraChoice;
 	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha, speed, flySpeed, swimSpeed;
+	
 	int  baseValue = 10;
+	
 	static RacialStatBlock builtStats = new RacialStatBlock();
 	
 	public RacialStatBlock(){

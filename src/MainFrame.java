@@ -32,12 +32,17 @@ public class MainFrame extends JFrame {
 	String myDetail = "";
 	
 	RacialStatBlock myRacialStats;
+	ArrayList<String> myLanguage, myExtra, myExtraChoice;
 	int myStr;
 	int myDex;
 	int myCon;
 	int myInt;
 	int myWis;
 	int myCha;
+	int mySpeed;
+	int myFlySpeed;
+	int mySwimSpeed;
+	
 	
     int nicknameChance;
     int detailChance;
@@ -196,6 +201,12 @@ public class MainFrame extends JFrame {
 						myInt = RacialStatBlock.builtStats.bonusInt;
 						myWis = RacialStatBlock.builtStats.bonusWis;
 						myCha = RacialStatBlock.builtStats.bonusCha;
+						myLanguage = RacialStatBlock.builtStats.language;
+						mySpeed = RacialStatBlock.builtStats.speed;
+						myFlySpeed = RacialStatBlock.builtStats.flySpeed;
+						mySwimSpeed = RacialStatBlock.builtStats.swimSpeed;
+						myExtra = RacialStatBlock.builtStats.extra;
+						myExtraChoice = RacialStatBlock.builtStats.extraChoice;
 						
 					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
@@ -273,10 +284,75 @@ public class MainFrame extends JFrame {
 								characterResults.add("Additional Detail: " + myDetail);
 							}
 						}
+						//TODO
+						if(mySwimSpeed == 0 && myFlySpeed == 0){
+							textPanel.appendText("Speed: " + mySpeed + "\n");
+						} else if(mySwimSpeed > 0){
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed + "\n");
+						} else if(myFlySpeed > 0) {
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\n");
+						} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed + "\n");
+						}
+						textPanel.appendText("STR: " + myStr + "\t" + "DEX: " + myDex + "\n");
+						textPanel.appendText("CON: " + myCon + "\t" + "INT: " + myInt + "\n");
+						textPanel.appendText("WIS: " + myWis + "\t" + "CHA: " + myCha + "\n");
+						if(!myLanguage.isEmpty()){
+							textPanel.appendText("Languages: " + myLanguage + "\n");
+						}						
+						if(!myExtra.isEmpty()){
+							textPanel.appendText("Racial Extras:" + myExtra + "\n");
+						}						
+						if(!myExtraChoice.isEmpty()){
+							textPanel.appendText("Racial Choice: " + myExtraChoice);
+						}
 						
-						System.out.println("STR: " + myStr + "\t" + "DEX: " + myDex);
+						if(mySwimSpeed == 0 && myFlySpeed == 0){
+							System.out.println("Speed: " + mySpeed);
+						} else if(mySwimSpeed > 0){
+							System.out.println("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
+						} else if(myFlySpeed > 0) {
+							System.out.println("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
+						} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+							System.out.println("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed);
+						}
+						System.out.println("STR: " + myStr + "\t" + "DEX: " + myDex);	
 						System.out.println("CON: " + myCon + "\t" + "INT: " + myInt);
 						System.out.println("WIS: " + myWis + "\t" + "CHA: " + myCha);
+						if(!myLanguage.isEmpty()){
+							System.out.println("Languages: " + myLanguage);
+						}
+						if(!myExtra.isEmpty()){
+							System.out.println("Racial Extras:" + myExtra);
+						}						
+						if(!myExtraChoice.isEmpty()){
+							System.out.println("Racial Choice: " + myExtraChoice);
+						}
+						
+						if(saveNext){
+							if(mySwimSpeed == 0 && myFlySpeed == 0){
+								characterResults.add("Speed: " + mySpeed);
+							} else if(mySwimSpeed > 0){
+								characterResults.add("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
+							} else if(myFlySpeed > 0) {
+								characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
+							} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+								characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed);
+							}
+							characterResults.add("STR: " + myStr + "\t" + "DEX: " + myDex);
+							characterResults.add("CON: " + myCon + "\t" + "INT: " + myInt);
+							characterResults.add("WIS: " + myWis + "\t" + "CHA: " + myCha);
+							if(!myLanguage.isEmpty()){
+								characterResults.add("Languages: " + myLanguage);
+							}
+							if(!myExtra.isEmpty()){
+								characterResults.add("Racial Extras:" + myExtra);
+							}							
+							if(!myExtraChoice.isEmpty()){
+								characterResults.add("Racial Choice: " + myExtraChoice);
+							}
+						}
+						
 						
 					//Line-split for multiple result tidiness
 						textPanel.appendText("\n");
