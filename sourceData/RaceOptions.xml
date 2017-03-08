@@ -12,11 +12,6 @@
 		<bonusWis>1</bonusWis>
 		<extra>Talons</extra>
 		<source>ELM</source>
-			
-			<subRace id = "Fake Aarakocra">
-			<name>Fake Aarakocra</name>
-			<speed>5</speed>
-			</subRace>
 	</race>
 	
 	<race id="Aasimar">
@@ -30,8 +25,30 @@
 		<bonusCha>2</bonusCha>
 		<extra>Darkvision</extra>
 		<extra>Celestial Resistance</extra>
-		<extra>Celestial Legacy</extra>
-		<source>DMG</source>
+		<extra>Healing Hands</extra>
+		<extra>Light Bearer</extra>
+		<source>VGM</source>
+		
+		<subRace id="Protector Aasimar">
+			<name>Protector Aasimar</name>
+			<bonusWis>1</bonusWis>
+			<extra>Radiant Soul</extra>
+			<source>VGM</source>
+		</subRace>
+		
+		<subRace id="Scourge Aasimar">
+			<name>Scourge Aasimar</name>
+			<bonusCon>1</bonusCon>
+			<extra>Radiant Consumption</extra>
+			<source>VGM</source>
+		</subRace>
+		
+		<subRace id="Fallen Aasimar">
+			<name>Fallen Aasimar</name>
+			<bonusStr>1</bonusStr>
+			<extra>Necrotic Shroud</extra>
+			<source>VGM</source>
+		</subRace>
 	</race>
 	
 	<race id="Dragonborn">
@@ -126,7 +143,7 @@
 			<extra>Dwarven Armour Training</extra>
 		</subRace>
 		
-		<subRace id="Duergar" parentRace="Dwarf">
+		<subRace id="Duergar (Grey Dwarf)" parentRace="Dwarf">
 			<parentID>Dwarf</parentID>
 			<name>Duergar</name>
 			<language>Undercommon</language>
@@ -189,6 +206,22 @@
 			<extra>Elf Weapon Training</extra>
 			<extra>Mask of the Wild</extra>
 		</subRace>
+	</race>
+	
+	<race id="Firbolg">
+		<name>Firbolg</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Elvish</language>
+		<language>Giant</language>
+		<bonusWis>2</bonusWis>
+		<bonusStr>1</bonusStr>
+		<extra>Firbolg Magic</extra>
+		<extra>Hidden Step</extra>
+		<extra>Powerful Build</extra>
+		<extra>Speech of Beast and Leaf</extra>
+		<source>ELM</source>
 	</race>
 	
 	<race id="Genasi">
@@ -426,6 +459,53 @@
 		</subRace>
 	</race>
 	
+	<race id="Kenku">
+		<name>Kenku</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>Auran</language>
+		<bonusDex>2</bonusDex>
+		<bonusWis>1</bonusWis>
+		<extra>Expert Forgery</extra>
+		<extra>Kenku Training</extra>
+		<extra>Mimicry</extra>
+		<source>VGM</source>
+	</race>
+	
+	<race id="Lizardfolk">
+		<name>Lizardfolk</name>
+		<size>M</size>
+		<speed>30</speed>
+		<speedSwim>30</speedSwim>
+		<language>Common</language>
+		<language>Draconic</language>
+		<bonusCon>2</bonusCon>
+		<bonusWis>1</bonusWis>
+		<extra>Bite</extra>
+		<extra>Cunning Artisan</extra>
+		<extra>Hold Breath</extra>
+		<extra>Hunter's Lore</extra>
+		<extra>Natural Armor</extra>
+		<extra>Hungry Jaws</extra>
+		<source>VGM</source>
+	</race>
+	
+	<race id="Tabaxi">
+		<name>Tabaxi</name>
+		<size>M</size>
+		<speed>30</speed>
+		<language>Common</language>
+		<language>+1 Language</language>
+		<bonusDex>2</bonusDex>
+		<bonusCha>1</bonusCha>
+		<extra>Darkvision</extra>
+		<extra>Feline Agility</extra>
+		<extra>Cat's Claws</extra>
+		<extra>Cat's Talent</extra>
+		<source>VGM</source>
+	</race>
+	
 	<race id="Tiefling">
 		<name>Tiefling</name>
 		<size>M</size>
@@ -439,4 +519,22 @@
 		<extra>Hellish Legacy</extra>
 		<source>PHB</source>
 	</race>
+	
+	<race id="Triton">
+		<name>Triton</name>
+		<size>M</size>
+		<speed>30</speed>
+		<speedSwim>30</speedSwim>
+		<language>Common</language>
+		<language>Primordial</language>
+		<bonusStr>1</bonusStr>
+		<bonusCon>1</bonusCon>
+		<bonusCha>1</bonusCha>
+		<extra>Amphibious</extra>
+		<extra>Control Air and Water</extra>
+		<extra>Emissary of the Sea</extra>
+		<extra>Guardians of the Depths</extra>
+		<source>VGM</source>
+	</race>
+	
 </raceOptions>

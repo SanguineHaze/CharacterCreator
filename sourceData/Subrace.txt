@@ -1,4 +1,3 @@
-AARAKOCRA:Fake Aarakocra
 AASIMAR:Protector Aasimar
 AASIMAR:Scourge Aasimar
 AASIMAR:Fallen Aasimar
@@ -14,18 +13,18 @@ DRAGONBORN:Gold Dragonborn
 DRAGONBORN:Silver Dragonborn
 DWARF:Hill Dwarf
 DWARF:Mountain Dwarf
-DWARF:Duergar
+DWARF:Duergar (Grey Dwarf)
 ELF:Dark Elf
 ELF:High Elf
 ELF:Wood Elf
 ELF:Eladrin
 ELF:Aquatic Elf
 HUMAN:Human Variant
-HALF-ELVEN:Half Dark
-HALF-ELVEN:Half Wood
-HALF-ELVEN:Half Moon
-HALF-ELVEN:Half Sun
-HALF-ELVEN:Half Aquatic
+HALF-ELF:Dark Half-Elf
+HALF-ELF:Wood Half-Elf
+HALF-ELF:Moon Half-Elf
+HALF-ELF:Sun Half-Elf
+HALF-ELF:Aquatic Half-Elf
 HALFLING:Ghostwise Halfling
 HALFLING:Lightfoot Halfling
 HALFLING:Stout Halfling

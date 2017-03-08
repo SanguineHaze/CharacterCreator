@@ -198,15 +198,21 @@ public class FormPanel extends JPanel {
 						
 						//DEBUG TOOL - SUBRACE FOR LOOP
 						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
-						
+						//TODO
 						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
-							
+							System.out.println("Adding to subRaceTempList: " + entry);
 							subRaceTempList.add(entry);
 							//DEBUG TOOL
 							//System.out.println("SubRace TempList added: " + subRaceTempList);
 						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
+							System.out.println("Removing to subRaceTempList: " + entry);
 							subRaceTempList.remove(entry);
-						} 
+							System.out.println(entry);
+							System.out.println(selected);
+						} else if(selected.matches("Elf") && entry.toLowerCase().contains("half-")){
+							System.out.println("Removing -Elf from Elf: " + entry);
+							subRaceTempList.remove(entry);
+						}
 						
 					}				
 					int subRaceTLCount = subRaceTempList.size();

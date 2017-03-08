@@ -25,6 +25,7 @@ public class SubRace {
 		
 		ArrayList<String> tempList = new ArrayList<String>();
 		for (String entry: GenerateSourceData.subraceSourceStatic){
+			//System.out.println(GenerateSourceData.subraceSourceStatic);
 			if(entry.toLowerCase().contains(chosenRace.toLowerCase())) {
 				tempList.add(entry);
 			} else {

@@ -51,6 +51,7 @@ public class RacialStatBlock {
 				builtExtra = new ArrayList<String>(),
 				builtExtraChoice = new ArrayList<String>();
 		
+		//TODO fix Half-Elf & Druerger
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenRace.toLowerCase())) {
 				//RacialStatBlock tempRace = new RacialStatBlock();
