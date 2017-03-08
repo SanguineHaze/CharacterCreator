@@ -365,87 +365,174 @@ public class GenerateSourceData {
 			for(int j = 0; j < raceList.getLength(); j++){
 				Node cNode = raceList.item(j);
 				//parse children
-				switch(cNode.getNodeName().toLowerCase()){
+				if(cNode.getParentNode().getNodeName().equals("race")){
+					switch(cNode.getNodeName().toLowerCase()){
 				
-				case "name": 
-					if(!"name".isEmpty()){
-						tempRace.setName(cNode.getTextContent());
-					}				
-					break;
-				case "parentid":
-					if(!"parentID".isEmpty()){
-						tempRace.setParentID(cNode.getTextContent());
+					case "name": 
+						if(!"name".isEmpty()){
+							tempRace.setName(cNode.getTextContent());
+						}				
+						break;
+					case "parentid":
+						if(!"parentID".isEmpty()){
+							tempRace.setParentID(cNode.getTextContent());
+						}
+					case "size": 
+						if(!"size".isEmpty()){
+							tempRace.setSize(cNode.getTextContent());
+						}
+						break;
+					case "speed": 
+						if(!"speed".isEmpty()){
+							tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "speedfly":
+						if(!"speedfly".isEmpty()){
+							tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "speedswim":
+						if(!"speedswim".isEmpty()){
+							tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "language": 
+						if(!"language".isEmpty()){
+							tempRace.addLanguage(cNode.getTextContent());
+						}
+						break;
+					case "bonusstr": 
+						if(!"bonusstr".isEmpty()){
+							tempRace.setBonusStr(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonusdex": 
+						if(!"bonusdex".isEmpty()){
+							tempRace.setBonusDex(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuscon": 
+						if(!"bonuscon".isEmpty()){
+							tempRace.setBonusCon(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonusint": 
+						if(!"bonusint".isEmpty()){
+							tempRace.setBonusInt(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuswis": 
+						if(!"bonuswis".isEmpty()){
+							tempRace.setBonusWis(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuscha": 
+						if(!"bonuscha".isEmpty()){
+							tempRace.setBonusCha(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "extra": 
+						if(!"extra".isEmpty()){
+							tempRace.addExtra(cNode.getTextContent());
+						}				
+						break;
+					case "extrachoice": 
+						if(!"extrachoice".isEmpty()){
+							tempRace.addExtraChoice(cNode.getTextContent());
+						}
+						break;
+					case "source": 
+						if(!"source".isEmpty()){
+							tempRace.setSource(cNode.getTextContent());
+						}
+						break;
 					}
-				case "size": 
-					if(!"size".isEmpty()){
-						tempRace.setSize(cNode.getTextContent());
+				}
+				
+				if(cNode.getParentNode().getNodeName().equals("subRace")){
+					switch(cNode.getNodeName().toLowerCase()){
+				
+					case "name": 
+						if(!"name".isEmpty()){
+							tempRace.setName(cNode.getTextContent());
+						}				
+						break;
+					case "parentid":
+						if(!"parentID".isEmpty()){
+							tempRace.setParentID(cNode.getTextContent());
+						}
+					case "size": 
+						if(!"size".isEmpty()){
+							tempRace.setSize(cNode.getTextContent());
+						}
+						break;
+					case "speed": 
+						if(!"speed".isEmpty()){
+							tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "speedfly":
+						if(!"speedfly".isEmpty()){
+							tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "speedswim":
+						if(!"speedswim".isEmpty()){
+							tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "language": 
+						if(!"language".isEmpty()){
+							tempRace.addLanguage(cNode.getTextContent());
+						}
+						break;
+					case "bonusstr": 
+						if(!"bonusstr".isEmpty()){
+							tempRace.setBonusStr(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonusdex": 
+						if(!"bonusdex".isEmpty()){
+							tempRace.setBonusDex(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuscon": 
+						if(!"bonuscon".isEmpty()){
+							tempRace.setBonusCon(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonusint": 
+						if(!"bonusint".isEmpty()){
+							tempRace.setBonusInt(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuswis": 
+						if(!"bonuswis".isEmpty()){
+							tempRace.setBonusWis(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "bonuscha": 
+						if(!"bonuscha".isEmpty()){
+							tempRace.setBonusCha(Integer.parseInt(cNode.getTextContent()));
+						}
+						break;
+					case "extra": 
+						if(!"extra".isEmpty()){
+							tempRace.addExtra(cNode.getTextContent());
+						}				
+						break;
+					case "extrachoice": 
+						if(!"extrachoice".isEmpty()){
+							tempRace.addExtraChoice(cNode.getTextContent());
+						}
+						break;
+					case "source": 
+						if(!"source".isEmpty()){
+							tempRace.setSource(cNode.getTextContent());
+						}
+						break;
 					}
-					break;
-				case "speed": 
-					if(!"speed".isEmpty()){
-						tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "speedfly":
-					if(!"speedfly".isEmpty()){
-						tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "speedswim":
-					if(!"speedswim".isEmpty()){
-						tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "language": 
-					if(!"language".isEmpty()){
-						tempRace.addLanguage(cNode.getTextContent());
-					}
-					break;
-				case "bonusstr": 
-					if(!"bonusstr".isEmpty()){
-						tempRace.setBonusStr(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "bonusdex": 
-					if(!"bonusdex".isEmpty()){
-						tempRace.setBonusDex(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "bonuscon": 
-					if(!"bonuscon".isEmpty()){
-						tempRace.setBonusCon(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "bonusint": 
-					if(!"bonusint".isEmpty()){
-						tempRace.setBonusInt(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "bonuswis": 
-					if(!"bonuswis".isEmpty()){
-						tempRace.setBonusWis(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "bonuscha": 
-					if(!"bonuscha".isEmpty()){
-						tempRace.setBonusCha(Integer.parseInt(cNode.getTextContent()));
-					}
-					break;
-				case "extra": 
-					if(!"extra".isEmpty()){
-						tempRace.addExtra(cNode.getTextContent());
-					}				
-					break;
-				case "extrachoice": 
-					if(!"extrachoice".isEmpty()){
-						tempRace.addExtraChoice(cNode.getTextContent());
-					}
-					break;
-				case "source": 
-					if(!"source".isEmpty()){
-						tempRace.setSource(cNode.getTextContent());
-					}
-					break;
 				}
 			}
 			raceStatBlock.add(tempRace);
