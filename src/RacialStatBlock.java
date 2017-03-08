@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class RacialStatBlock {
 	String name, size, source, parentID;
-	ArrayList<String> language, extra, extraChoice;
+	ArrayList<String> language, extra, extraChoice, raceSubraces;
 	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha, speed, flySpeed, swimSpeed;
 	
 	int  baseValue = 10;
@@ -26,6 +26,7 @@ public class RacialStatBlock {
 		extra = new ArrayList<String>();
 		extraChoice = new ArrayList<String>();
 		source = "Not Set";
+		raceSubraces = new ArrayList<String>();
 	}
 	
 	public RacialStatBlock(String chosenRace, String chosenSubRace){
@@ -316,5 +317,8 @@ public class RacialStatBlock {
 	}	
 	public void addExtraChoice(String extChoice) {
 		extraChoice.add(extChoice);
+	}
+	public void addSubRace(String subraceName){
+		raceSubraces.add(subraceName);
 	}
 }

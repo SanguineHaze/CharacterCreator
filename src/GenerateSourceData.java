@@ -447,116 +447,120 @@ public class GenerateSourceData {
 							tempRace.setSource(cNode.getTextContent());
 						}
 						break;
+					case "subrace":
+						if(!"subrace".isEmpty()){
+							parseSubraceNodeData(cNode.getChildNodes());
+						}
 					}
 				}
-				
-				if(cNode.getParentNode().getNodeName().equals("subRace")){
-					switch(cNode.getNodeName().toLowerCase()){
-				
-					case "name": 
-						if(!"name".isEmpty()){
+			}
+			raceStatBlock.add(tempRace);
+		}
+	}
+	
+	private static RacialStatBlock parseSubraceNodeData(NodeList nodeList) {
+		RacialStatBlock tempRace = new RacialStatBlock();
+		NodeList nList = nodeList;
+		// System.out.println("-----------------------------------------------------");
+
+		// start looping through races
+		for (int i = 0; i < nList.getLength(); i++) {
+			// set up items
+			Node raceNode = nList.item(i);
+			NodeList raceList = raceNode.getChildNodes();
+
+			// go through races child nodes
+			for (int j = 0; j < raceList.getLength(); j++) {
+				Node cNode = raceList.item(j);
+				// parse children
+				if (cNode.getParentNode().getNodeName().equals("subRace")) {
+
+					switch (cNode.getNodeName().toLowerCase()) {
+
+					case "name":
+						if (!"name".isEmpty()) {
 							tempRace.setName(cNode.getTextContent());
-						}				
+						}
 						break;
 					case "parentid":
-						if(!"parentID".isEmpty()){
+						if (!"parentID".isEmpty()) {
 							tempRace.setParentID(cNode.getTextContent());
 						}
-					case "size": 
-						if(!"size".isEmpty()){
+					case "size":
+						if (!"size".isEmpty()) {
 							tempRace.setSize(cNode.getTextContent());
 						}
 						break;
-					case "speed": 
-						if(!"speed".isEmpty()){
+					case "speed":
+						if (!"speed".isEmpty()) {
 							tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
 					case "speedfly":
-						if(!"speedfly".isEmpty()){
+						if (!"speedfly".isEmpty()) {
 							tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
 					case "speedswim":
-						if(!"speedswim".isEmpty()){
+						if (!"speedswim".isEmpty()) {
 							tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "language": 
-						if(!"language".isEmpty()){
+					case "language":
+						if (!"language".isEmpty()) {
 							tempRace.addLanguage(cNode.getTextContent());
 						}
 						break;
-					case "bonusstr": 
-						if(!"bonusstr".isEmpty()){
+					case "bonusstr":
+						if (!"bonusstr".isEmpty()) {
 							tempRace.setBonusStr(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "bonusdex": 
-						if(!"bonusdex".isEmpty()){
+					case "bonusdex":
+						if (!"bonusdex".isEmpty()) {
 							tempRace.setBonusDex(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "bonuscon": 
-						if(!"bonuscon".isEmpty()){
+					case "bonuscon":
+						if (!"bonuscon".isEmpty()) {
 							tempRace.setBonusCon(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "bonusint": 
-						if(!"bonusint".isEmpty()){
+					case "bonusint":
+						if (!"bonusint".isEmpty()) {
 							tempRace.setBonusInt(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "bonuswis": 
-						if(!"bonuswis".isEmpty()){
+					case "bonuswis":
+						if (!"bonuswis".isEmpty()) {
 							tempRace.setBonusWis(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "bonuscha": 
-						if(!"bonuscha".isEmpty()){
+					case "bonuscha":
+						if (!"bonuscha".isEmpty()) {
 							tempRace.setBonusCha(Integer.parseInt(cNode.getTextContent()));
 						}
 						break;
-					case "extra": 
-						if(!"extra".isEmpty()){
+					case "extra":
+						if (!"extra".isEmpty()) {
 							tempRace.addExtra(cNode.getTextContent());
-						}				
+						}
 						break;
-					case "extrachoice": 
-						if(!"extrachoice".isEmpty()){
+					case "extrachoice":
+						if (!"extrachoice".isEmpty()) {
 							tempRace.addExtraChoice(cNode.getTextContent());
 						}
 						break;
-					case "source": 
-						if(!"source".isEmpty()){
+					case "source":
+						if (!"source".isEmpty()) {
 							tempRace.setSource(cNode.getTextContent());
 						}
 						break;
 					}
 				}
 			}
-			raceStatBlock.add(tempRace);
 		}
-		///DEBUG TOOL - STATBLOCKS///
-		/*for(RacialStatBlock thisRace: raceStatBlock){
-			System.out.println("\n" + "Race: " + thisRace.getName());
-			System.out.println("\t" + "Parent: " + thisRace.getParentID());
-			System.out.println("\t" + "Source: " + thisRace.getSource());
-			System.out.println("\t" + "Size: " + thisRace.getSize());
-			System.out.println("\t" + "Speed: " + thisRace.getSpeed());
-			System.out.println("\t" + "Fly Speed: " + thisRace.getFlySpeed());
-			System.out.println("\t" + "Swim Speed: " + thisRace.getSwimSpeed());
-			System.out.println("\t" + "Languages: " + thisRace.getLanguage());
-			System.out.println("\t" + "Bonus Strength: " + thisRace.getBonusStr());
-			System.out.println("\t" + "Bonus Dexterity: " + thisRace.getBonusDex());
-			System.out.println("\t" + "Bonus Constitution: " + thisRace.getBonusCon());
-			System.out.println("\t" + "Bonus Intelligence: " + thisRace.getBonusInt());
-			System.out.println("\t" + "Bonus Wisdom: " + thisRace.getBonusWis());
-			System.out.println("\t" + "Bonus Charisma: " + thisRace.getBonusCha());
-			System.out.println("\t" + "Extra: " + thisRace.getExtra());
-			System.out.println("\t" + "Extra Choice: " + thisRace.getExtraChoice());
-		}*/
+		return tempRace;
 	}
-	
 }
 
