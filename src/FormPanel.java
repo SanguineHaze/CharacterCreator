@@ -198,28 +198,7 @@ public class FormPanel extends JPanel {
 							subRaceTempList.add(rSB.name);
 						}
 					}
-					
-					/*for (String entry: GenerateSourceData.subraceSourceStatic){
 						
-						//DEBUG TOOL - SUBRACE FOR LOOP
-						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
-						//TODO
-						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
-							//System.out.println("[FormPanel]Adding to subRaceTempList: " + entry);
-							subRaceTempList.add(entry);
-							//DEBUG TOOL
-							//System.out.println("SubRace TempList added: " + subRaceTempList);
-						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
-							//System.out.println("FP207 | Removing to subRaceTempList: " + entry);
-							subRaceTempList.remove(entry);
-							//System.out.println("FP209 | " + entry);
-							//System.out.println("FP210 | " + selected);
-						} else if(selected.matches("Elf") && entry.toLowerCase().contains("half-")){
-							//System.out.println(""FP212 | " + Removing -Elf from Elf: " + entry);
-							subRaceTempList.remove(entry);
-						}
-						
-					}*/	
 					subRaceTempList.add(0, "Any " + selected);
 					int subRaceTLCount = subRaceTempList.size();
 					subRaceCB = new String[subRaceTLCount];

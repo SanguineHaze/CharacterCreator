@@ -51,7 +51,8 @@ public class GenerateSourceData {
 	GenerateSourceData(){
 		raceSourceStatic.add(0, "Any Race");
 		generateRaceData();
-		//generateSubraceData();
+		generateRacialStatsSourceData();
+		generateSubraceNames();
 		generateProfessionData();
 		generateNameSourceData();
 		generateNameSectionData();
@@ -60,8 +61,6 @@ public class GenerateSourceData {
 		generatePersonalitySourceData();
 		generateNicknameSourceData();
 		generateDetailsSourceData();
-		generateRacialStatsSourceData();
-		generateSubraceNames();
 	}
 	
 	////////METHODS////////
@@ -72,49 +71,13 @@ public class GenerateSourceData {
    		    ReadFromFile file = new ReadFromFile(targetFile);
    		    
    		    raceSourcePreStatic = file.OpenFile();
-   		    //System.out.println(raceStaticPreList);
    		    for(String s: raceSourcePreStatic){
    		    	raceSourceStatic.add(s.replace("RACE:", ""));
-   		    }
-   		    //DEBUG TOOL: Check to see that the list is being created
-   		    /*
-   		    System.out.println("Race List:");
-   		    for(String out: raceList){
-   		        System.out.println(out);
-   		    }
-   		    */
-   		   
+   		    }   		   
    		} catch (Exception e) {
-   		    //Default error message
    		    System.out.println(e.getMessage());
    		}
 	}
-	
-	/*private void generateSubraceData() {
-		File subRaceTargetFile = new File("Subrace.txt"); 	
-		
-		try {
-			ReadFromFile file = new ReadFromFile(subRaceTargetFile);
-			
-			subraceSourcePreStatic.clear(); //Ensure subrace list in UI is never duplicated.
-			subraceSourceStatic.clear(); //2nd step to ensure no duplicates.
-			
-			subraceSourcePreStatic = file.OpenFile();
-			for(String lineEntry: subraceSourcePreStatic){
-				String[] line = lineEntry.split(":");
-				subraceSourceStatic.add(line[1]);
-			}
-			//DEBUG TOOL: Check to see that the list is being created
-            System.out.println("Sub-Race List:");
-			for(String out: subraceSourcePreStatic){
-				System.out.println(out);
-			}
-
-		} catch (Exception e) {
-            //Default error message
-            System.out.println(e.getMessage());
-        }
-	}*/
 	
 	private void generateProfessionData(){
 		
@@ -182,20 +145,6 @@ public class GenerateSourceData {
 				endName.add(entry);
 			}
 		}
-		
-		//DEBUG TOOL: Check to see what's made it to the lists
-		/*
-		System.out.println("Sub-Race List:");
-		for(String out: beginningName){
-			System.out.println(out);
-		}
-		for(String out: middleName){
-			System.out.println(out);
-		}
-		for(String out: endName){
-			System.out.println(out);
-		}		
-		*/
 	}
 	
 	private void generateAgeData(){		
@@ -218,15 +167,6 @@ public class GenerateSourceData {
 		try {
 			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
 			motivationSourceData = file.OpenFile();
-			
-			//DEBUG TOOL: Check to see that the list is being created
-		    /*
-		    System.out.println("Motivation List:");
-		    for(String out: motivationList){
-		        System.out.println(out);
-		    }
-		    */
-			
 		} catch(Exception e) {
 			 System.out.println(e.getMessage());
 		}
@@ -251,15 +191,7 @@ public class GenerateSourceData {
 			nicknameSourceData = file.OpenFile();
 		} catch(Exception e){
 			System.out.println(e.getMessage());
-		}//End Try/Catch
-		
-		//DEBUG TOOL: Check to see that the list is being created
-	    /*
-	    System.out.println("Nickname List:");
-	    for(String out: nicknameList){
-	        System.out.println(out);
-	    }
-	    */
+		}
 	}
 	
 	private void generateDetailsSourceData(){
@@ -352,12 +284,10 @@ public class GenerateSourceData {
 	private static void parseRacialStatSourceData(NodeList nodeList){
 		
 		NodeList nList = nodeList;
-		//System.out.println("-----------------------------------------------------");
 		
 		//start looping through races
 		for(int i = 0; i < nList.getLength(); i++){
 			//set up items
-			
 			RacialStatBlock tempRace = new RacialStatBlock();
 			Node raceNode = nList.item(i);
 			NodeList raceList = raceNode.getChildNodes();
@@ -376,7 +306,6 @@ public class GenerateSourceData {
 					case "parentid":
 						if(!"parentid".isEmpty()){
 							tempRace.setParentID(cNode.getTextContent());
-							//System.out.println("GSD379 | " + tempRace.parentID);
 							if(!tempRace.parentID.equals("Not Set")){
 								tempRace.setIsSubrace(true);
 							}
@@ -465,7 +394,6 @@ public class GenerateSourceData {
 	private static RacialStatBlock parseSubraceNodeData(NodeList nodeList) {
 		RacialStatBlock tempRace = new RacialStatBlock();
 		NodeList nList = nodeList;
-		// System.out.println("-----------------------------------------------------");
 
 		// start looping through races
 		for (int i = 0; i < nList.getLength(); i++) {
@@ -571,10 +499,8 @@ public class GenerateSourceData {
 	public void generateSubraceNames(){
 		subraceSourceStatic.clear();
 		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
-			//System.out.println("GSD573 | " + entry.isSubrace);
 			if(entry.isSubrace){
 				subraceSourceStatic.add(entry.name);
-				//System.out.println("GSD577 | " + entry.name + subraceSourceStatic);
 			}
 		}
 	}
