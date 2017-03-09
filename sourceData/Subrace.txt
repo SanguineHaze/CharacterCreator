@@ -13,7 +13,7 @@ DRAGONBORN:Gold Dragonborn
 DRAGONBORN:Silver Dragonborn
 DWARF:Hill Dwarf
 DWARF:Mountain Dwarf
-DWARF:Duergar (Grey Dwarf)
+DWARF:Duergar
 ELF:Dark Elf
 ELF:High Elf
 ELF:Wood Elf

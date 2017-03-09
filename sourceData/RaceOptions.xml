@@ -30,6 +30,7 @@
 		<source>VGM</source>
 		
 		<subRace id="Protector Aasimar">
+			<parentID>Aasimar</parentID>
 			<name>Protector Aasimar</name>
 			<bonusWis>1</bonusWis>
 			<extra>Radiant Soul</extra>
@@ -37,6 +38,7 @@
 		</subRace>
 		
 		<subRace id="Scourge Aasimar">
+			<parentID>Aasimar</parentID>
 			<name>Scourge Aasimar</name>
 			<bonusCon>1</bonusCon>
 			<extra>Radiant Consumption</extra>
@@ -44,6 +46,7 @@
 		</subRace>
 		
 		<subRace id="Fallen Aasimar">
+			<parentID>Aasimar</parentID>
 			<name>Fallen Aasimar</name>
 			<bonusStr>1</bonusStr>
 			<extra>Necrotic Shroud</extra>
@@ -143,7 +146,7 @@
 			<extra>Dwarven Armour Training</extra>
 		</subRace>
 		
-		<subRace id="Duergar (Grey Dwarf)" parentRace="Dwarf">
+		<subRace id="Duergar">
 			<parentID>Dwarf</parentID>
 			<name>Duergar</name>
 			<language>Undercommon</language>

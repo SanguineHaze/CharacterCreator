@@ -51,7 +51,7 @@ public class GenerateSourceData {
 	GenerateSourceData(){
 		raceSourceStatic.add(0, "Any Race");
 		generateRaceData();
-		generateSubraceData();
+		//generateSubraceData();
 		generateProfessionData();
 		generateNameSourceData();
 		generateNameSectionData();
@@ -61,6 +61,7 @@ public class GenerateSourceData {
 		generateNicknameSourceData();
 		generateDetailsSourceData();
 		generateRacialStatsSourceData();
+		generateSubraceNames();
 	}
 	
 	////////METHODS////////
@@ -89,7 +90,7 @@ public class GenerateSourceData {
    		}
 	}
 	
-	private void generateSubraceData() {
+	/*private void generateSubraceData() {
 		File subRaceTargetFile = new File("Subrace.txt"); 	
 		
 		try {
@@ -104,16 +105,16 @@ public class GenerateSourceData {
 				subraceSourceStatic.add(line[1]);
 			}
 			//DEBUG TOOL: Check to see that the list is being created
-            /*System.out.println("Sub-Race List:");
+            System.out.println("Sub-Race List:");
 			for(String out: subraceSourcePreStatic){
 				System.out.println(out);
-			}*/
+			}
 
 		} catch (Exception e) {
             //Default error message
             System.out.println(e.getMessage());
         }
-	}
+	}*/
 	
 	private void generateProfessionData(){
 		
@@ -365,7 +366,6 @@ public class GenerateSourceData {
 			for(int j = 0; j < raceList.getLength(); j++){
 				Node cNode = raceList.item(j);
 				//parse children
-				if(cNode.getParentNode().getNodeName().equals("race")){
 					switch(cNode.getNodeName().toLowerCase()){
 				
 					case "name": 
@@ -374,8 +374,12 @@ public class GenerateSourceData {
 						}				
 						break;
 					case "parentid":
-						if(!"parentID".isEmpty()){
+						if(!"parentid".isEmpty()){
 							tempRace.setParentID(cNode.getTextContent());
+							//System.out.println("GSD379 | " + tempRace.parentID);
+							if(!tempRace.parentID.equals("Not Set")){
+								tempRace.setIsSubrace(true);
+							}
 						}
 					case "size": 
 						if(!"size".isEmpty()){
@@ -449,11 +453,11 @@ public class GenerateSourceData {
 						break;
 					case "subrace":
 						if(!"subrace".isEmpty()){
-							parseSubraceNodeData(cNode.getChildNodes());
+							tempRace.raceSubraces.add(parseSubraceNodeData(cNode.getChildNodes()));
+							break;
 						}
 					}
 				}
-			}
 			raceStatBlock.add(tempRace);
 		}
 	}
@@ -562,5 +566,18 @@ public class GenerateSourceData {
 		}
 		return tempRace;
 	}
+	
+
+	public void generateSubraceNames(){
+		subraceSourceStatic.clear();
+		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
+			//System.out.println("GSD573 | " + entry.isSubrace);
+			if(entry.isSubrace){
+				subraceSourceStatic.add(entry.name);
+				//System.out.println("GSD577 | " + entry.name + subraceSourceStatic);
+			}
+		}
+	}
+
 }
 

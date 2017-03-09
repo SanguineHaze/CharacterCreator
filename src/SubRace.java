@@ -24,10 +24,10 @@ public class SubRace {
 	public void generateSubRace(String chosenRace){
 		
 		ArrayList<String> tempList = new ArrayList<String>();
-		for (String entry: GenerateSourceData.subraceSourceStatic){
+		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			//System.out.println(GenerateSourceData.subraceSourceStatic);
-			if(entry.toLowerCase().contains(chosenRace.toLowerCase())) {
-				tempList.add(entry);
+			if(entry.parentID.toLowerCase().equals(chosenRace.toLowerCase())) {
+				tempList.add(entry.name);
 			} else {
 				chosenSubRace = "";
 			}

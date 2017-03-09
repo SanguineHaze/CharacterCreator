@@ -133,7 +133,6 @@ public class FormPanel extends JPanel {
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		//TODO: Uncomment if necessary: Race.raceStaticList.add(0, "Any Race"); //Set up the list to allow for a Random race
 		
 		Dimension dim = getPreferredSize();
 		dim.width = 300;
@@ -194,27 +193,34 @@ public class FormPanel extends JPanel {
 					int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
 					subRaceCB = new String[subRaceCount];
 					//Set up a filtered list of SubRaces when Race is selected
-					for (String entry: GenerateSourceData.subraceSourceStatic){
+					for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
+						if(rSB.parentID.toLowerCase().equals(selected.toLowerCase())){
+							subRaceTempList.add(rSB.name);
+						}
+					}
+					
+					/*for (String entry: GenerateSourceData.subraceSourceStatic){
 						
 						//DEBUG TOOL - SUBRACE FOR LOOP
 						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
 						//TODO
 						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
-							System.out.println("Adding to subRaceTempList: " + entry);
+							//System.out.println("[FormPanel]Adding to subRaceTempList: " + entry);
 							subRaceTempList.add(entry);
 							//DEBUG TOOL
 							//System.out.println("SubRace TempList added: " + subRaceTempList);
 						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
-							System.out.println("Removing to subRaceTempList: " + entry);
+							//System.out.println("FP207 | Removing to subRaceTempList: " + entry);
 							subRaceTempList.remove(entry);
-							System.out.println(entry);
-							System.out.println(selected);
+							//System.out.println("FP209 | " + entry);
+							//System.out.println("FP210 | " + selected);
 						} else if(selected.matches("Elf") && entry.toLowerCase().contains("half-")){
-							System.out.println("Removing -Elf from Elf: " + entry);
+							//System.out.println(""FP212 | " + Removing -Elf from Elf: " + entry);
 							subRaceTempList.remove(entry);
 						}
 						
-					}				
+					}*/	
+					subRaceTempList.add(0, "Any " + selected);
 					int subRaceTLCount = subRaceTempList.size();
 					subRaceCB = new String[subRaceTLCount];
 					for(int i = 0; i < subRaceTLCount; i++){
