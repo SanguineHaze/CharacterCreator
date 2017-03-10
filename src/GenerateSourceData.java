@@ -49,9 +49,9 @@ public class GenerateSourceData {
 
 	////////CONSTRUCTOR////////
 	GenerateSourceData(){
-		raceSourceStatic.add(0, "Any Race");
-		generateRaceData();
 		generateRacialStatsSourceData();
+		raceSourceStatic.add(0, "Any Race");
+		generateRaceData();		
 		generateSubraceNames();
 		generateProfessionData();
 		generateNameSourceData();
@@ -65,7 +65,15 @@ public class GenerateSourceData {
 	
 	////////METHODS////////
 	private void generateRaceData() {
-		File targetFile = new File("Race.txt");
+		for(RacialStatBlock raceEntry: GenerateSourceData.raceStatBlock){
+			if(!raceEntry.isSubrace){
+				raceSourceStatic.add(raceEntry.name);
+				System.out.println(raceSourceStatic);
+			}
+		}
+		
+	//PRE_DELETE: TEST THOROUGHLY BEFORE REMOVING(Mar10,2017)	
+	/*File targetFile = new File("Race.txt");
    	 
    	 try {
    		    ReadFromFile file = new ReadFromFile(targetFile);
@@ -76,7 +84,7 @@ public class GenerateSourceData {
    		    }   		   
    		} catch (Exception e) {
    		    System.out.println(e.getMessage());
-   		}
+   		}*/
 	}
 	
 	private void generateProfessionData(){
@@ -495,7 +503,6 @@ public class GenerateSourceData {
 		return tempRace;
 	}
 	
-
 	public void generateSubraceNames(){
 		subraceSourceStatic.clear();
 		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){

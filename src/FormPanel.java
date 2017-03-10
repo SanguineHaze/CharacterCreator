@@ -50,7 +50,6 @@ public class FormPanel extends JPanel {
 	private JComboBox ageComboBox;
 	private JComboBox professionComboBox;	
 	
-	private FormListener formListener;
 	private JButton setBtn;
 	private int numGenInt;
 	
@@ -135,26 +134,28 @@ public class FormPanel extends JPanel {
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		Dimension dim = getPreferredSize();
-		dim.width = 300;
+		dim.width = 250;
+		Dimension dimTF = getPreferredSize();
+		dimTF.width = 8;
 		setPreferredSize(dim);
 		
 		//LABELS
-		numGenLabel = new JLabel("# of NPCs:");
-		numGenLabel2 = new JLabel("(0 for Default)");
+		numGenLabel = new JLabel("# of NPCs (0 for Default):");
 		raceLabel = new JLabel("Race:");
 		subRaceLabel = new JLabel("Sub-Race:");
 		sexLabel = new JLabel("Sex:");
 		ageLabel = new JLabel("Age:");
 		professionLabel = new JLabel("Profession:");
-		nicknameLabel = new JLabel("Nickname Chance % :");
-		nicknameLabel2 = new JLabel("(0 to 100) ");
-		detailsChanceLabel = new JLabel("Details Chance % :");
-		detailsChanceLabel2 = new JLabel("(0 to 100)");
+		nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
+		detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
-		nicknameChance = new JTextField(6);
-		detailsChanceField = new JTextField(6);
+		numGenTextField.setColumns(10);
+		nicknameChance = new JTextField(8);
+		nicknameChance.setColumns(8);
+		detailsChanceField = new JTextField(8);
+		detailsChanceField.setColumns(8);
 		
 		//RACE ComboBox
 		int count = GenerateSourceData.getRaceSourceStatic().size();	
@@ -217,9 +218,9 @@ public class FormPanel extends JPanel {
 						subRaceComboBox.setSelectedItem(0);	
 						gbc.weightx = 1;
 						gbc.weighty = 0.1;
-						gbc.gridx = 1;
-						gbc.gridy = 2;
-						gbc.insets = new Insets(0,0,0,0);
+						gbc.gridx = 0;
+						gbc.gridy = 5;
+						gbc.insets = new Insets(0,5,0,0);
 						gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 						add(subRaceComboBox, gbc);
 						revalidate();
@@ -272,53 +273,49 @@ public class FormPanel extends JPanel {
 		
 		gbc.weightx = 1;
 		gbc.weighty = 0.1;
-		gbc.insets = new Insets(0, 0, 0, 5);
+		gbc.insets = new Insets(10, 0, 0, 5);
 		
 		// ROW 1 - # NPCs
 		gbc.anchor = GridBagConstraints.RELATIVE;
 		gbc.gridx = 0; //Row 1 is actually Row 0. Don't question it, just add to it.
 		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;		
+		gbc.insets = new Insets(0, 5, 0, 5);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;		
 		add(numGenLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(numGenTextField, gbc);
 		
-		gbc.gridx = 0;
-		gbc.anchor = GridBagConstraints.LAST_LINE_END;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		add(numGenLabel2, gbc);
-		
-		
 		// ROW 2 - RACE
-		gbc.weightx = 1;
+		gbc.weightx = 0.1;
 		gbc.weighty = 0.1;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 2;
+		gbc.insets = new Insets(0,5,0,0);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(raceLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(raceComboBox, gbc);
 		
 		// ROW 3 - SUBRACE
 		gbc.weighty = 0.1;
 		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 4;
+		gbc.insets = new Insets(0,5,0,0);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(subRaceLabel, gbc);		
 		
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		subRaceComboBox.setEnabled(false);
 		add(subRaceComboBox, gbc);
@@ -329,9 +326,9 @@ public class FormPanel extends JPanel {
 		gbc.weighty = 0.1;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.LINE_END; //Line up the Label to the radio buttons
-		gbc.insets = new Insets(0,0,0,5);
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.LINE_START; //Line up the Label to the radio buttons
+		gbc.insets = new Insets(0,5,0,0);
 		add(sexLabel, gbc);
 		
 		ButtonGroup sexGroup = new ButtonGroup(); //group the selections
@@ -339,67 +336,65 @@ public class FormPanel extends JPanel {
 		sexGroup.add(sexM);
 		sexGroup.add(sexR);
 		
+		gbc.gridy = 7;
 		gbc.insets = new Insets(0,0,0,2); //Add a bit of padding
 		sexR.setMargin(gbc.insets);
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.WEST; //sexF to display LEFT column
 		add(sexF, gbc);
 		gbc.insets = new Insets(0,0,0,20); //Add a bunch of padding to sexM (displays on right)
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.EAST; //sexM to display RIGHT column
 		add(sexM, gbc);
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.CENTER; //sexR to display CENTER column | This prevents overlaps or collisions. 
 		sexR.setSelected(true);
 		add(sexR, gbc);
 		
 		//ROW 5 - AGE
-		gbc.insets = new Insets(0,0,0,5);
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		add(ageLabel, gbc);
+		gbc.gridy = 8;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gbc.gridx = 1;
+		add(ageLabel, gbc);
+		gbc.gridx = 0;
+		gbc.gridy = 9;
 		add(ageComboBox, gbc);
 		
 		//ROW 6 - PROFESSION
 		gbc.gridx = 0;
-		gbc.gridy = 5;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 10;
 		add(professionLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.gridy = 5;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbc.gridx = 0;
+		gbc.gridy = 11;
 		add(professionComboBox, gbc);
 		
 		//ROW 7 - NICKNAMES
 		gbc.gridx = 0;
-		gbc.gridy = 6;
+		gbc.gridy = 12;
 		add(nicknameLabel, gbc);
 		
-		gbc.gridx = 1;
-		add(nicknameChance, gbc);
 		gbc.gridx = 0;
-		gbc.anchor = GridBagConstraints.LAST_LINE_END;
-		add(nicknameLabel2, gbc);
+		gbc.gridy = 13;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(nicknameChance, gbc);
+		
 		
 		//ROW 8 - ADDITIONAL DETAILS 
 		gbc.gridx = 0;
-		gbc.gridy= 7;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		add(detailsChanceLabel, gbc);
+		gbc.gridy= 14;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gbc.gridx = 1;
-		add(detailsChanceField, gbc);
+		add(detailsChanceLabel, gbc);
+		
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbc.gridx = 0;
-		gbc.anchor= GridBagConstraints.LAST_LINE_END;
-		add(detailsChanceLabel2, gbc);
+		gbc.gridy = 15;
+		add(detailsChanceField, gbc);
 		
 		//ROW 9 - SAVE BOX	
-		gbc.gridx = 1;
-		gbc.gridy = 9;
+		gbc.gridx = 0;
+		gbc.gridy = 16;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
@@ -408,8 +403,8 @@ public class FormPanel extends JPanel {
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
-		gbc.gridx = 1;
-		gbc.gridy = 10;
+		gbc.gridx = 0;
+		gbc.gridy = 17;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -489,9 +484,5 @@ public class FormPanel extends JPanel {
 		});
 		
 	}//end FormPanel()
-	
-	public void setFormListener(FormListener listener){
-		this.formListener = listener;
-	}
 	
 }//end CLASS

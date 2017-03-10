@@ -51,7 +51,6 @@ public class MainFrame extends JFrame {
 	public TextPanel textPanel;
 	private JButton generateBtn;
 	private FormPanel formPanel;
-	private FormListener formListener;
 	private boolean saveNext;
 	
 	FormEvent formEvent = new FormEvent(this, numGenInt);
@@ -74,13 +73,6 @@ public class MainFrame extends JFrame {
 		setSize(1200,800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		
-		formPanel.setFormListener(new FormListener() {
-			public void formEventOccured(FormEvent e) {
-				numGenInt = e.getNumGenInt();
-				System.out.println(numGenInt);
-			}
-		});
 		
 		// GENERATE BUTTON SECTION	
 		generateBtn.addActionListener(new ActionListener() {
