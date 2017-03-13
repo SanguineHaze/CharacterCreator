@@ -3,40 +3,33 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AdditionalFeatures {
+		
+	ArrayList<String> motivationList = GenerateSourceData.motivationSourceData;
+	ArrayList<String> personalityList = GenerateSourceData.personalitySourceData;
+	ArrayList<String> nicknameList = GenerateSourceData.nicknameSourceData;
+	ArrayList<String> detailsList = GenerateSourceData.detailsSourceData;
 	
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + File.separator).replace("%20", " ");
+	//Lists contained within DetailsList
+	ArrayList<String> theLocalList = GenerateSourceData.theLocalSourceData;
+	ArrayList<String> favorToList = GenerateSourceData.favorToSourceData;
+	ArrayList<String> protectedByList = GenerateSourceData.protectedBySourceData;
+	ArrayList<String> mapToList = GenerateSourceData.mapToSourceData;
+	ArrayList<String> possessesAList = GenerateSourceData.possessesASourceData;
+	ArrayList<String> obsessedByList = GenerateSourceData.obsessedBySourceData;
+	ArrayList<String> cursedByList = GenerateSourceData.cursedBySourceData;
 	
-	ArrayList<String> motivationList = new ArrayList<String>();
-	ArrayList<String> personalityList = new ArrayList<String>();
-	ArrayList<String> nicknameList = new ArrayList<String>();
-	ArrayList<String> detailsList = new ArrayList<String>();
-		ArrayList<String> theLocalList = new ArrayList<String>();
-		ArrayList<String> favorToList = new ArrayList<String>();
-		ArrayList<String> protectedByList = new ArrayList<String>();
-		ArrayList<String> mapToList = new ArrayList<String>();
-		ArrayList<String> possessesAList = new ArrayList<String>();
-		ArrayList<String> obsessedByList = new ArrayList<String>();
-		ArrayList<String> cursedByList = new ArrayList<String>();
-	String chosenPersonality;
-	String chosenMotivation;
-	String chosenNickname;
-	String chosenDetail;
-	private int nicknameChance;
-	private int detailChance;
+	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
+	private int nicknameChance, detailChance;
 	
 	public AdditionalFeatures(){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
-		loadMotivationList();
-		generateMotivation();
-		loadPersonalityList();
+		generateMotivation("");
 		generatePersonality();
-		loadNicknameList();
 		setNicknameChance(0);
-		generateNickname("adult", "none", "Dwarf");
-		loadDetailsList();
-		generateDetails("Dwarf", "none");
+		generateNickname(null, null, null);
+		generateDetails(null, null);
 		//DEBUG TOOL - CONSTRUCTOR 1
 		//System.out.println("AddFeat 1 NN: " + chosenNickname);
 	}
@@ -46,7 +39,7 @@ public class AdditionalFeatures {
 		chosenMotivation = "";
 		chosenDetail = "";
 		chosenNickname = "";
-		generateMotivation();
+		generateMotivation(chosenAge);
 		generatePersonality();
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
@@ -56,101 +49,46 @@ public class AdditionalFeatures {
 		//System.out.println("AddFeat 2 NN: " + chosenNickname);
 	}
 	
-	public void generateNewAdditionalFeatures(String chosenAge, String chosenProfession, String chosenRace){
-		chosenPersonality = "";
-		chosenMotivation = "";
-		chosenDetail = "";
-		nicknameChance = 30;
-		chosenNickname = "";
-		generateMotivation();
-		generatePersonality();
-		setNicknameChance(nicknameChance);
-		generateNickname(chosenAge, chosenProfession, chosenRace);
-		generateDetails(chosenRace, chosenProfession);
-		//DEBUG TOOL - CONSTRUCTOR 3
-		//System.out.println("AddFeat 3 NN: " + chosenNickname);
-	}
-	
 	public void setNicknameChance(int nicknameChance) {
 		this.nicknameChance = nicknameChance;
 	}
 	
 	//MOTIVATION SECTION
-	private void loadMotivationList(){
-		File motivationListTargetFile = new File(filesDirectory + "sourceData" + File.separator + "Motivations.txt");
-		
-		try {
-			ReadFromFile file = new ReadFromFile(motivationListTargetFile);
-			motivationList = file.OpenFile();
-			
-			//DEBUG TOOL: Check to see that the list is being created
-		    /*
-		    System.out.println("Motivation List:");
-		    for(String out: motivationList){
-		        System.out.println(out);
-		    }
-		    */
-			
-		} catch(Exception e) {
-			 System.out.println(e.getMessage());
-		}//end Try/Catch
-	}//end loadMotivationList()
 	
-	public void generateMotivation(){
-		Random randomMotivation = new Random();
-		int index = randomMotivation.nextInt(motivationList.size());
-		chosenMotivation = motivationList.get(index);
-	}//End generateMotivation()
+	public void generateMotivation(String chosenAge){
+		if(!"child".equals(chosenAge.toLowerCase())){
+			Random randomMotivation = new Random();
+			int index = randomMotivation.nextInt(motivationList.size());
+			chosenMotivation = motivationList.get(index);
+		} else if("child".equals(chosenAge.toLowerCase())){
+			
+			//TODO: CREATE CHILD MOTIVATION LIST!!!!!!!!!
+			
+			Random randomMotivation = new Random();
+			int index = randomMotivation.nextInt(motivationList.size());
+			chosenMotivation = motivationList.get(index);
+		}
+	}
 	
 	//PERSONALITY SECTION
-	private void loadPersonalityList() {
-		File personalityListTargetFile = new File(filesDirectory + "sourceData" + File.separator + "Personalities.txt");
-		
-		try {
-			ReadFromFile file = new ReadFromFile(personalityListTargetFile);
-			personalityList = file.OpenFile();
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}//end Try/Catch
-		
-		//DEBUG TOOL: Check to see that the list is being created - WARNING: 640+ ITEMS IN LIST
-	    /*
-	    System.out.println("Personalities List:");
-	    for(String out: personalityList){
-	        System.out.println(out);
-	    }
-	    */		
-	}//end loadPersonalityList()
 	
 	public void generatePersonality(){
 		Random randomPersonality = new Random();
 		int index = randomPersonality.nextInt(personalityList.size());
 		int index2 = randomPersonality.nextInt(personalityList.size());
 		int index3 = randomPersonality.nextInt(personalityList.size());
+			//Validate the selections
+			if(index2 == index || index2 == index3){
+				index2 = randomPersonality.nextInt(personalityList.size());
+			}
+			if(index3 == index2 || index3 == index){
+				index3 = randomPersonality.nextInt(personalityList.size());
+			}
 		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
-	}//end generatePersonality()
+	}
 	
 	//NICKNAME SECTION
-	private void loadNicknameList(){
-		File nicknameListTargetFile = new File(filesDirectory + "sourceData" + File.separator + "Nicknames.txt");
-		
-		try{
-			ReadFromFile file = new ReadFromFile(nicknameListTargetFile);
-			nicknameList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}//End Try/Catch
-		
-		//DEBUG TOOL: Check to see that the list is being created
-	    /*
-	    System.out.println("Nickname List:");
-	    for(String out: nicknameList){
-	        System.out.println(out);
-	    }
-	    */
-	}//End loadNicknameList()
-	
-	//Add in Nickname generation based off of profession and sex.
+	//TODO: Use Age, Profession, and Race in nickname creation!!
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
@@ -165,79 +103,17 @@ public class AdditionalFeatures {
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(nicknameList.size());
 			chosenNickname = nicknameList.get(index);
-			this.chosenNickname = "'" + chosenNickname + "'";
-		}//end if "hasNickname"		
-		
-	}//end generateNickname()
+			if(!chosenNickname.contains("the ")){
+				this.chosenNickname = "'" + chosenNickname + "'";
+			}
+		}		
+	}
 	
-	private void loadDetailsList(){
-		File detailsListTargetFile = new File (filesDirectory + "sourceData" + File.separator + "Details.txt");
-		try {
-			ReadFromFile file = new ReadFromFile(detailsListTargetFile);
-			detailsList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}//end Try/Catch - Default Details List
-		
-		File theLocalReplacementTargetFile = new File(filesDirectory + "sourceData" + File.separator + "TheLocalReplacement.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(theLocalReplacementTargetFile);
-			theLocalList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File favorToReplacementTargetFile = new File(filesDirectory + "sourceData" + File.separator + "OwesFavorTo.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(favorToReplacementTargetFile);
-			favorToList = file.OpenFile();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File protectedByReplacementFile = new File(filesDirectory + "sourceData" + File.separator + "ProtectedBy.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(protectedByReplacementFile);
-			protectedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File mapToReplacementFile = new File(filesDirectory + "sourceData" + File.separator + "MapTo.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(mapToReplacementFile);
-			mapToList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File possessesAReplacementFile = new File(filesDirectory + "sourceData" + File.separator + "PossessesA.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(possessesAReplacementFile);
-			possessesAList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File obsessedByReplacementFile = new File(filesDirectory + "sourceData" + File.separator + "ObsessedBy.txt");
-		try {
-			ReadFromFile file = new ReadFromFile(obsessedByReplacementFile);
-			obsessedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-		File cursedReplacementFile = new File(filesDirectory + "sourceData" + File.separator + "Cursed.txt");
-		try{
-			ReadFromFile file = new ReadFromFile(cursedReplacementFile);
-			cursedByList = file.OpenFile();
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-	}//end loadDetailsList()
+	///ADDITIONAL DETAILS SECTION///
 	
 	public void generateDetails(String race, String profession){
+		
+		//TODO: use Race and Profession. Consider that initial list generation requires a null (or value) passed in. Handle this.
 		Random detailsChanceRandomInt = new Random();
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){
@@ -281,9 +157,9 @@ public class AdditionalFeatures {
 					int indexC = assignCurse.nextInt(cursedByList.size());
 					String cReplace = cursedByList.get(indexC);
 					this.chosenDetail = chosenDetail.replace("...", cReplace);
-				}//end inner token replacement
-			}//end outer token replacement
-		}//end details chance %
-	}//end generateDetails()
+				}
+			}
+		}
+	}
 	
-}// end CLASS
+}

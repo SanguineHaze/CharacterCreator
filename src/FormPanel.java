@@ -37,7 +37,6 @@ public class FormPanel extends JPanel {
 	private JLabel sexLabel;
 	private JLabel ageLabel;
 	private JLabel professionLabel;
-	private JLabel saveLabel;
 	private JLabel nicknameLabel;
 	private JLabel nicknameLabel2;
 	private JLabel detailsChanceLabel;
@@ -51,7 +50,6 @@ public class FormPanel extends JPanel {
 	private JComboBox ageComboBox;
 	private JComboBox professionComboBox;	
 	
-	private FormListener formListener;
 	private JButton setBtn;
 	private int numGenInt;
 	
@@ -72,6 +70,7 @@ public class FormPanel extends JPanel {
 	private boolean saveNext;
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
+	private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
 
 	//GETTERS
 	public int getDetailsChance() {
@@ -133,46 +132,46 @@ public class FormPanel extends JPanel {
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		Race.raceStaticList.add(0, "Any Race"); //Set up the list to allow for a Random race
 		
 		Dimension dim = getPreferredSize();
-		dim.width = 300;
+		dim.width = 250;
+		Dimension dimTF = getPreferredSize();
+		dimTF.width = 8;
 		setPreferredSize(dim);
 		
 		//LABELS
-		numGenLabel = new JLabel("# of NPCs:");
-		numGenLabel2 = new JLabel("(0 for Default)");
+		numGenLabel = new JLabel("# of NPCs (0 for Default):");
 		raceLabel = new JLabel("Race:");
 		subRaceLabel = new JLabel("Sub-Race:");
 		sexLabel = new JLabel("Sex:");
 		ageLabel = new JLabel("Age:");
 		professionLabel = new JLabel("Profession:");
-		saveLabel = new JLabel("Save Next Results:");
-		nicknameLabel = new JLabel("Nickname Chance % :");
-		nicknameLabel2 = new JLabel("(0 to 100) ");
-		detailsChanceLabel = new JLabel("Details Chance % :");
-		detailsChanceLabel2 = new JLabel("(0 to 100)");
+		nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
+		detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
-		nicknameChance = new JTextField(6);
-		detailsChanceField = new JTextField(6);
+		numGenTextField.setColumns(10);
+		nicknameChance = new JTextField(8);
+		nicknameChance.setColumns(8);
+		detailsChanceField = new JTextField(8);
+		detailsChanceField.setColumns(8);
 		
 		//RACE ComboBox
-		int count = Race.raceStaticList.size();	
+		int count = GenerateSourceData.getRaceSourceStatic().size();	
 		String[] raceComboBoxItems = new String[count];
 		for(int i = 0; i < count; i++){
-			raceComboBoxItems[i] = Race.raceStaticList.get(i);
+			raceComboBoxItems[i] = GenerateSourceData.getRaceSourceStatic().get(i);
 		}
 		raceComboBox = new JComboBox(raceComboBoxItems);
 		raceComboBox.setSelectedItem(0);
 			
 		//SUBRACE ComboBox
-		SubRace.subRaceStaticList2.add(0, "Any Sub-Race"); //Add "Any" to avoid a locked subrace selection if no race is changed
-		int subRaceCount = SubRace.subRaceStaticList2.size();
+		GenerateSourceData.subraceSourceStatic.add(0, "Any Sub-Race");
+		int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
 		subRaceCB = new String[subRaceCount];
 		for(int i = 0; i < subRaceCount; i++){
-			subRaceCB[i] = SubRace.subRaceStaticList2.get(i);
+			subRaceCB[i] = GenerateSourceData.subraceSourceStatic.get(i);
 		}			
 		subRaceComboBox = new JComboBox(subRaceCB);
 		subRaceComboBox.setSelectedItem(0);
@@ -181,8 +180,8 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent a) {
 				JComboBox raceComboBox = (JComboBox) a.getSource();
 				String selected = (String) raceComboBox.getSelectedItem();
-								
-				SubRace.subRaceStaticList2.add(0, "Any " + selected);
+				
+				GenerateSourceData.subraceSourceStatic.add(0, "Any " + selected);
 								
 				subRaceTempList.clear();
 				//DEBUG TOOL
@@ -192,24 +191,16 @@ public class FormPanel extends JPanel {
 					//DEBUG TOOL
 					//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
 					
-					int subRaceCount = SubRace.subRaceStaticList2.size();
+					int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
 					subRaceCB = new String[subRaceCount];
 					//Set up a filtered list of SubRaces when Race is selected
-					for (String entry: SubRace.subRaceStaticList2){
+					for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
+						if(rSB.parentID.toLowerCase().equals(selected.toLowerCase())){
+							subRaceTempList.add(rSB.name);
+						}
+					}
 						
-						//DEBUG TOOL - SUBRACE FOR LOOP
-						//System.out.println("ForLoop; " + "Entry item: "+ entry + " | Selected item: "+selected);
-						
-						if(entry.toLowerCase().contains(selected.toLowerCase())) { 
-							
-							subRaceTempList.add(entry);
-							//DEBUG TOOL
-							//System.out.println("SubRace TempList added: " + subRaceTempList);
-						} else if (!(entry.toLowerCase().contains(selected.toLowerCase()))){
-							subRaceTempList.remove(entry);
-						} 
-						//end if
-					}//end for loop					
+					subRaceTempList.add(0, "Any " + selected);
 					int subRaceTLCount = subRaceTempList.size();
 					subRaceCB = new String[subRaceTLCount];
 					for(int i = 0; i < subRaceTLCount; i++){
@@ -217,7 +208,7 @@ public class FormPanel extends JPanel {
 						
 						//DEBUG TOOL - SUBRACE COMBOBOX
 						//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
-					}//end subRaceCB For loop
+					}
 					
 					if(!(subRaceTempList.isEmpty())){
 						subRaceComboBox.setEnabled(true);
@@ -227,9 +218,9 @@ public class FormPanel extends JPanel {
 						subRaceComboBox.setSelectedItem(0);	
 						gbc.weightx = 1;
 						gbc.weighty = 0.1;
-						gbc.gridx = 1;
-						gbc.gridy = 2;
-						gbc.insets = new Insets(0,0,0,0);
+						gbc.gridx = 0;
+						gbc.gridy = 5;
+						gbc.insets = new Insets(0,5,0,0);
 						gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 						add(subRaceComboBox, gbc);
 						revalidate();
@@ -238,37 +229,37 @@ public class FormPanel extends JPanel {
 						subRaceComboBox.setEnabled(false);
 					} else if ("Any Race".equals(selected)){
 						subRaceComboBox.setEnabled(false);
-					}//end If subRaceTempList Is Not empty
-				}//end If NOT "Any Race" selected
+					}
+				}
 				
-				SubRace.subRaceStaticList2.remove(0); //Remove the entry we added earlier
+				GenerateSourceData.subraceSourceStatic.remove(0); //Remove the entry we added earlier
 				
 				//DEBUG TOOLS - De-duping the subrace list
 				//System.out.println("SubRaceStatic: " + SubRace.subRaceStaticList2);
 				//System.out.println("SubRaceTemp" + subRaceTempList);
 				
-			}//end ActionPerformed (raceComboBox)			
-		});//end Action Listener (raceComboBox)			
+			}			
+		});		
 		
 		sexM = new JRadioButton(sexMString);
 		sexF = new JRadioButton(sexFString);
 		sexR = new JRadioButton(sexRString);
 		setBtn = new JButton("Set Changes!");
 		
-		Name.ageRangeStatic.add(0, "Any Age");
-		int ageCount = Name.ageRangeStatic.size();
+		ageRange.add(0, "Any Age");
+		int ageCount = ageRange.size();
 		ageCB = new String[ageCount];
 		for(int ii = 0; ii < ageCount; ii++){
-			ageCB[ii] = Name.ageRangeStatic.get(ii);
+			ageCB[ii] = ageRange.get(ii);
 		}
 		ageComboBox = new JComboBox(ageCB);
 		
-		Profession.professionStaticList2.sort(null); //Sort the list alphabetically
-		Profession.professionStaticList2.add(0, "Any Profession"); //Fuck up the sorting immediately after!		
-		int professionCount = Profession.professionStaticList2.size();
+		GenerateSourceData.adultProfessionSourceStatic.sort(null); //Sort the list alphabetically
+		GenerateSourceData.adultProfessionSourceStatic.add(0, "Any Profession"); //Fuck up the sorting immediately after!		
+		int professionCount = GenerateSourceData.adultProfessionSourceStatic.size();
 		professionCB = new String[professionCount];
 		for(int pi=0; pi < professionCount; pi++){
-			professionCB[pi] = Profession.professionStaticList2.get(pi);
+			professionCB[pi] = GenerateSourceData.adultProfessionSourceStatic.get(pi);
 		}
 		professionComboBox = new JComboBox(professionCB);
 		
@@ -282,53 +273,49 @@ public class FormPanel extends JPanel {
 		
 		gbc.weightx = 1;
 		gbc.weighty = 0.1;
-		gbc.insets = new Insets(0, 0, 0, 5);
+		gbc.insets = new Insets(10, 0, 0, 5);
 		
 		// ROW 1 - # NPCs
 		gbc.anchor = GridBagConstraints.RELATIVE;
 		gbc.gridx = 0; //Row 1 is actually Row 0. Don't question it, just add to it.
 		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;		
+		gbc.insets = new Insets(0, 5, 0, 5);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;		
 		add(numGenLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(numGenTextField, gbc);
 		
-		gbc.gridx = 0;
-		gbc.anchor = GridBagConstraints.LAST_LINE_END;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		add(numGenLabel2, gbc);
-		
-		
 		// ROW 2 - RACE
-		gbc.weightx = 1;
+		gbc.weightx = 0.1;
 		gbc.weighty = 0.1;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 2;
+		gbc.insets = new Insets(0,5,0,0);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(raceLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(raceComboBox, gbc);
 		
 		// ROW 3 - SUBRACE
 		gbc.weighty = 0.1;
 		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0, 0, 0, 5);
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 4;
+		gbc.insets = new Insets(0,5,0,0);
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(subRaceLabel, gbc);		
 		
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		subRaceComboBox.setEnabled(false);
 		add(subRaceComboBox, gbc);
@@ -339,9 +326,9 @@ public class FormPanel extends JPanel {
 		gbc.weighty = 0.1;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.LINE_END; //Line up the Label to the radio buttons
-		gbc.insets = new Insets(0,0,0,5);
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.LINE_START; //Line up the Label to the radio buttons
+		gbc.insets = new Insets(0,5,0,0);
 		add(sexLabel, gbc);
 		
 		ButtonGroup sexGroup = new ButtonGroup(); //group the selections
@@ -349,68 +336,65 @@ public class FormPanel extends JPanel {
 		sexGroup.add(sexM);
 		sexGroup.add(sexR);
 		
+		gbc.gridy = 7;
 		gbc.insets = new Insets(0,0,0,2); //Add a bit of padding
 		sexR.setMargin(gbc.insets);
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.WEST; //sexF to display LEFT column
 		add(sexF, gbc);
 		gbc.insets = new Insets(0,0,0,20); //Add a bunch of padding to sexM (displays on right)
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.EAST; //sexM to display RIGHT column
 		add(sexM, gbc);
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.anchor = GridBagConstraints.CENTER; //sexR to display CENTER column | This prevents overlaps or collisions. 
 		sexR.setSelected(true);
 		add(sexR, gbc);
 		
 		//ROW 5 - AGE
-		gbc.insets = new Insets(0,0,0,5);
+		gbc.insets = new Insets(0,5,0,0);
 		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		add(ageLabel, gbc);
+		gbc.gridy = 8;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gbc.gridx = 1;
+		add(ageLabel, gbc);
+		gbc.gridx = 0;
+		gbc.gridy = 9;
 		add(ageComboBox, gbc);
 		
 		//ROW 6 - PROFESSION
 		gbc.gridx = 0;
-		gbc.gridy = 5; //Shhh. I'm aware row counts are off. We don't talk about it.
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gbc.gridy = 10;
 		add(professionLabel, gbc);
 		
-		gbc.gridx = 1;
-		gbc.gridy = 5;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbc.gridx = 0;
+		gbc.gridy = 11;
 		add(professionComboBox, gbc);
 		
 		//ROW 7 - NICKNAMES
-		
 		gbc.gridx = 0;
-		gbc.gridy = 6;
+		gbc.gridy = 12;
 		add(nicknameLabel, gbc);
 		
-		gbc.gridx = 1;
-		add(nicknameChance, gbc);
 		gbc.gridx = 0;
-		gbc.anchor = GridBagConstraints.LAST_LINE_END;
-		add(nicknameLabel2, gbc);
+		gbc.gridy = 13;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(nicknameChance, gbc);
+		
 		
 		//ROW 8 - ADDITIONAL DETAILS 
 		gbc.gridx = 0;
-		gbc.gridy= 7;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
-		add(detailsChanceLabel, gbc);
+		gbc.gridy= 14;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gbc.gridx = 1;
-		add(detailsChanceField, gbc);
+		add(detailsChanceLabel, gbc);
+		
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbc.gridx = 0;
-		gbc.anchor= GridBagConstraints.LAST_LINE_END;
-		add(detailsChanceLabel2, gbc);
+		gbc.gridy = 15;
+		add(detailsChanceField, gbc);
 		
 		//ROW 9 - SAVE BOX	
-		gbc.gridx = 1;
-		gbc.gridy = 9;
+		gbc.gridx = 0;
+		gbc.gridy = 16;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
@@ -419,8 +403,8 @@ public class FormPanel extends JPanel {
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
-		gbc.gridx = 1;
-		gbc.gridy = 10;
+		gbc.gridx = 0;
+		gbc.gridy = 17;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -450,9 +434,10 @@ public class FormPanel extends JPanel {
 					} //again, no need to handle unset or invalid Details here. We'll do this in MainFrame the same as Nickname.
 					
 					//DEBUG TOOL: display numGenInt
-					//System.out.println(numGenInt);					
-				}				
-			}
+					//System.out.println(numGenInt);
+					
+				}//end If "Clicked: setBtn"				
+			}//end actionPerformed
 		});//end setBtn ActionListener
 		
 		sexM.addActionListener(new ActionListener() {
@@ -477,7 +462,7 @@ public class FormPanel extends JPanel {
 			}
 		});
 		
-		sexF.addActionListener(new ActionListener() {
+		sexR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JRadioButton clicked = (JRadioButton) e.getSource();
 				if(clicked == sexR){
@@ -499,9 +484,5 @@ public class FormPanel extends JPanel {
 		});
 		
 	}//end FormPanel()
-	
-	public void setFormListener(FormListener listener){
-		this.formListener = listener;
-	}
 	
 }//end CLASS

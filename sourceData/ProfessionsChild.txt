@@ -1,76 +1,76 @@
-CLASS:Cleric's apprentice
-CLASS:Fighter's apprentice
-CLASS:Paladin's apprentice
-CLASS:Wizard's apprentice
-CLASS:Warlock's apprentice
-CLASS:Monk's apprentice
-CLASS:Barbarian's apprentice
-CLASS:Rogue's apprentice
-CLASS:Sorcerer's apprentice
-CLASS:Bard's apprentice
-JOB:Cobbler's apprentice
-JOB:Shoemaker's apprentice
-JOB:Tinker's apprentice
-JOB:Blacksmith's apprentice
-JOB:Baker's apprentice
-JOB:Innkeep's apprentice
-JOB:Shopkeep's apprentice
-JOB:Scribe's apprentice
-JOB:Librarian's apprentice
-JOB:Dairymaid's apprentice
-JOB:Goatherd's apprentice
-JOB:Horse Trainer's apprentice
-JOB:Ferryman's apprentice
-JOB:Woodcutter's apprentice
-JOB:Sheepshearer's apprentice
-JOB:Hawker's apprentice
-JOB:Falconer's apprentice
-JOB:Hunter's apprentice
-JOB:Master of Hounds' apprentice
-JOB:Master of Horse's apprentice
+CLASS:Cleric
+CLASS:Fighter
+CLASS:Paladin
+CLASS:Wizard
+CLASS:Warlock
+CLASS:Monk
+CLASS:Barbarian
+CLASS:Rogue
+CLASS:Sorcerer
+CLASS:Bard
+JOB:Cobbler
+JOB:Shoemaker
+JOB:Tinker
+JOB:Blacksmith
+JOB:Baker
+JOB:Innkeep
+JOB:Shopkeep
+JOB:Scribe
+JOB:Librarian
+JOB:Dairymaid
+JOB:Goatherd
+JOB:Horse Trainer
+JOB:Ferryman
+JOB:Woodcutter
+JOB:Sheepshearer
+JOB:Hawker
+JOB:Falconer
+JOB:Hunter
+JOB:Master of Hounds
+JOB:Master of Horse
 JOB:Rat Catcher
 JOB:Trapper
-JOB:Artist's apprentice
-JOB:Painter's apprentice
-JOB:Sculpter's apprentice
-JOB:Composer's apprentice
-JOB:Playwright's apprentice
-JOB:Jeweler's apprentice
-JOB:Mason's apprentice
-JOB:Carpenter's apprentice
-JOB:Butcher's apprentice
-JOB:Leatherworker's apprentice
-JOB:Tanner's apprentice
-JOB:Saddle Maker's apprentice
-JOB:Locksmith's apprentice
-JOB:Weaponsmith's apprentice
-JOB:Apothecary's apprentice
-JOB:Minstrel's apprentice
-JOB:Musician's apprentice
-JOB:Singer in training
-JOB:Actor in training
-JOB:Dancer in training
-JOB:Jester in training
-JOB:Thatcher's apprentice
-JOB:Civic Engineer's apprentice
-JOB:Architect's apprentice
-JOB:Weaver's apprentice
+JOB:Artist
+JOB:Painter
+JOB:Sculpter
+JOB:Composer
+JOB:Playwright
+JOB:Jeweler
+JOB:Mason
+JOB:Carpenter
+JOB:Butcher
+JOB:Leatherworker
+JOB:Tanner
+JOB:Saddle Maker
+JOB:Locksmith
+JOB:Weaponsmith
+JOB:Apothecary
+JOB:Minstrel
+JOB:Musician
+JOB:Singer
+JOB:Actor
+JOB:Dancer
+JOB:Jester
+JOB:Thatcher
+JOB:Civic Engineer
+JOB:Architect
+JOB:Weaver
 JOB:Peddler
-JOB:Merchant's apprentice
-JOB:Surveyor's apprentice
-JOB:Archeologist's apprentice
-JOB:Botanist's apprentice
-JOB:Miller's apprentice
-JOB:Brewer's apprentice
-JOB:Abbot's apprentice
-JOB:Beekeeper's apprentice
-JOB:Politician's apprentice
+JOB:Merchant
+JOB:Surveyor
+JOB:Archeologist
+JOB:Botanist
+JOB:Miller
+JOB:Brewer
+JOB:Abbot
+JOB:Beekeeper
+JOB:Politician
 JOB:Squire
-JOB:Stable-Master's apprentice
-JOB:Thief's apprentice
-JOB:Sailor's apprentice
+JOB:Stable-Master
+JOB:Thief
+JOB:Sailor
 JOB:Shepherd
-JOB:Performer's apprentice
-JOB:Advisor's apprentice
-JOB:Mayor's apprentice
-JOB:Baron / Baroness in training
+JOB:Performer
+JOB:Advisor
+JOB:Mayor
+JOB:Baron / Baroness

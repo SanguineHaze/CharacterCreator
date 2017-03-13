@@ -1,19 +1,11 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Name {
-	String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + File.separator).replace("%20", " ");
 	
 	String sex = "";
-	boolean chosenSex;
-	ArrayList<String> nameList = new ArrayList<String>();
-	ArrayList<String> beginningName = new ArrayList<String>();
-	ArrayList<String> middleName = new ArrayList<String>();
-	ArrayList<String> endName = new ArrayList<String>();
-	ArrayList<String> ageRange = new ArrayList<String>();
-	public static ArrayList<String> ageRangeStatic = new ArrayList<String>();
+	boolean chosenSex;	
 	public String chosenBeginningName = "";
 	public String chosenMidName = "";
 	public String chosenEndName = "";
@@ -26,14 +18,16 @@ public class Name {
 	public String chosenName;
 	public String chosenAge;
 	public String chosenLastName;
+	private ArrayList<String> beginningName = GenerateSourceData.beginningName;
+	private ArrayList<String> middleName = GenerateSourceData.middleName;
+	private ArrayList<String> endName = GenerateSourceData.endName;
+	private ArrayList<String> ageRange = GenerateSourceData.ageRange;
 	
 	public Name(){
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
-		loadNameList();
 		generateSex();
-		generateNameLists();
 		generateFullName();
 		generateFullLastName();
 		generateAge();
@@ -51,7 +45,6 @@ public class Name {
 		//System.out.println("GenerateNewNameData - UserSex: " + userSex);
 	}
 	
-	//First, lets select a sex for our new character
 	private void generateSex() {
 		Random randomSex = new Random();
 		chosenSex = randomSex.nextBoolean();
@@ -63,10 +56,10 @@ public class Name {
 			sex = "Male";
 		} else {
 			sex = "Female";
-		}//end If statement
+		}
 		//DEBUG TOOL - Check to see what sex is being assigned
 		//System.out.println(sex);
-	}//end Sex()
+	}
 	
 	private void generateSex(String userSex){
 		if(userSex.equals("Male")){
@@ -79,68 +72,8 @@ public class Name {
 		//DEBUG TOOL
 		//System.out.println("GenerateSex - UserSex: " + userSex + ". ChosenSex: " + chosenSex);
 	}
-	
-	//Second, generate a list of names
-	private void loadNameList(){
-		//The master list containing all Name options
-		File nameListTargetFile = new File (filesDirectory + "sourceData" + File.separator + "NameDefault.txt"); //path to the file on local environment.
-		//TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
-		try {
-			ReadFromFile file = new ReadFromFile(nameListTargetFile);
-			nameList = file.OpenFile();
-			
-			//DEBUG TOOL: Check to see that the list is being created
-		    /*
-		    System.out.println("Name List:");
-		    for(String out: nameList){
-		        System.out.println(out);
-		    }
-		    */
-			
-			ageRange.add("Child");
-			ageRange.add("Young Adult");
-			ageRange.add("Adult");
-			ageRange.add("Old");
-			ageRange.add("Very Old");
-			
-			ageRangeStatic.add("Child");
-			ageRangeStatic.add("Young Adult");
-			ageRangeStatic.add("Adult");
-			ageRangeStatic.add("Old");
-			ageRangeStatic.add("Very Old");
-			
-		} catch(Exception e) {
-			 System.out.println(e.getMessage());
-		}//end Try/Catch
-	}//end loadNameList()
-	
-	public void generateNameLists(){
 		
-		for(String entry: nameList){
-			if(entry.contains("BEGINNING:")){
-				beginningName.add(entry);
-			} else if(entry.contains("MIDDLE:")) {
-				middleName.add(entry);
-			} else if(entry.contains("END:")) {
-				endName.add(entry);
-			}//end if
-
-		}//end for
-		
-		//DEBUG TOOL: Check to see what's made it to the lists
-		/*
-		System.out.println("Sub-Race List:");
-		for(String out: beginningName){
-			System.out.println(out);
-		}
-		for(String out: middleName){
-			System.out.println(out);
-		}
-		for(String out: endName){
-			System.out.println(out);
-		}		
-		*/
-	}//end generateNameList()
+	
 	
 	//BEGIN NAME!
 	private void generateBeginning() {		
@@ -152,9 +85,10 @@ public class Name {
 		lineNameBegin = lineContents[0];
 		lineValueBegin = lineContents[1];
 		chosenBeginningName = lineContents[1];
+		
 		//DEBUG TOOL
 		//System.out.println(chosenBeginningName);
-	}//end generateBeginning()
+	}
 	
 	//CONTINUE NAME!	
 	private void generateMiddle(){
@@ -169,7 +103,7 @@ public class Name {
 		
 		//DEBUG TOOL
 		//System.out.println(chosenMidName);		
-	}//end generateMiddle()
+	}
 	
 	//END NAME!
 	private void generateEnd(){
@@ -184,7 +118,7 @@ public class Name {
 		
 		//DEBUG TOOL
 		//System.out.println(chosenEndName);
-	}//end generateEnd()
+	}
 	
 	private void generateFullName(){
 		generateBeginning();
@@ -205,7 +139,7 @@ public class Name {
 		//DEBUG TOOL - check to see the actual full name
 		//System.out.println("Final Name: " + chosenName);
 		
-	}//end generateFullName
+	}
 	
 	private void generateFullLastName(){
 		generateBeginning();
@@ -223,16 +157,16 @@ public class Name {
 		//DEBUG TOOL - check to see the converted name
 		//System.out.println("Converted Name: " + fullNameConversion);
 		
-		//DEBUG TOOL - check to see the actual full name
+		//DEBUG TOOL - check to see the actual last name
 		//System.out.println("Final Name: " + chosenLastName);
 		
-	}//end generateFullName
+	}
 	
 	public void generateAge(){
 		Random randomAge = new Random();
 		int index = randomAge.nextInt(ageRange.size());
 		chosenAge = ageRange.get(index);
-	}//end generateAge()
+	}
 	
 	public void generateAge(String userAge){		
 		Random randomAge = new Random();
@@ -254,6 +188,6 @@ public class Name {
 			//DEBUG TOOL
 			//System.out.println("generateAge 3 - userAge: " + userAge + " chosenAge: " + chosenAge);
 		}
-	}//end generateAge(userAge)
+	}
 
-}//end CLASS (Name.java)
+}

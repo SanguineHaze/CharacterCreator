@@ -19,26 +19,39 @@ public class MainFrame extends JFrame {
     String userSex;
     String userAge;
     String userProfession;
+    String myRace = ""; 
+	String mySubRace = "";	
+	String mySex = "";	
+	String myName = "";
+	String myLastName = "";
+	String myAge = "";
+	String myMotivation = "";	
+	String myProfession = "";
+	String myPersonality = "";		
+	String myNickname = "";	
+	String myDetail = "";
+	
+	RacialStatBlock myRacialStats;
+	ArrayList<String> myLanguage, myExtra, myExtraChoice;
+	int myStr;
+	int myDex;
+	int myCon;
+	int myInt;
+	int myWis;
+	int myCha;
+	int mySpeed;
+	int myFlySpeed;
+	int mySwimSpeed;
+	
+	
     int nicknameChance;
     int detailChance;
-	    String myRace = ""; 
-		String mySubRace = "";	
-		String mySex = "";	
-		String myName = "";
-		String myLastName = "";
-		String myAge = "";
-		String myMotivation = "";	
-		String myPersonality = "";		
-		String myNickname = "";	
-		String myDetail = "";
-
+    int numGenInt;
 	
 	public TextPanel textPanel;
 	private JButton generateBtn;
 	private FormPanel formPanel;
-	private FormListener formListener;
 	private boolean saveNext;
-	int numGenInt;
 	
 	FormEvent formEvent = new FormEvent(this, numGenInt);
 	
@@ -61,33 +74,22 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
-		formPanel.setFormListener(new FormListener() {
-			public void formEventOccured(FormEvent e) {
-				numGenInt = e.getNumGenInt();
-				System.out.println(numGenInt);
-			}
-		});
-		
-		// GENERATE BUTTON SECTION
-	
+		// GENERATE BUTTON SECTION	
 		generateBtn.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent ev) {
-
 				JButton clicked = (JButton)ev.getSource();
-				
 				if(clicked == generateBtn){
 					
 					textPanel.clearText(); //Operation 'Clean Slate' is a go.
 									
 					long startTime = System.nanoTime();
-				    
 					
 			        Race thisRace = new Race();	
 			        SubRace thisSubRace = new SubRace();
 					Name thisName = new Name();
 					Profession thisProfession = new Profession(myAge);
 					AdditionalFeatures thisMotivation = new AdditionalFeatures();
+					RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
 					
 					saveNext = formPanel.isSaveNext();
 					
@@ -99,12 +101,12 @@ public class MainFrame extends JFrame {
 					
 					nicknameChance = formPanel.getNicknameChanceInt();
 					if(nicknameChance < 0 || nicknameChance > 100){
-						nicknameChance = 30; //handle unset nickname chance. Set a default
+						nicknameChance = 25; //handle unset nickname chance. Set a default
 					}
 					
 					detailChance = formPanel.getDetailsChance();
 					if(detailChance < 0 || detailChance > 100){
-						detailChance = 30; //Default AdditionalDetail chance.
+						detailChance = 25; //Default AdditionalDetail chance.
 					}
 					
 					//DEBUG TOOL - NICKNAME CHANCE %
@@ -117,7 +119,7 @@ public class MainFrame extends JFrame {
 						//USER INPUTS
 						userAge = formPanel.getAgeSelected();
 						userSex = formPanel.getSexSelected();
-						userRace = Race.raceStaticList.get(formPanel.getRaceSelected());
+						userRace = GenerateSourceData.getRaceSourceStatic().get(formPanel.getRaceSelected());
 						userProfession = formPanel.getProfessionSelected();
 							//DEBUG TOOL: See what index item is selected, what string that is inside formPanel, ensure that userRace is the same.
 							/*
@@ -171,7 +173,7 @@ public class MainFrame extends JFrame {
 							thisProfession.setChosenProfession(userProfession);
 						}
 						
-						String myProfession = thisProfession.chosenProfession;			
+						myProfession = thisProfession.chosenProfession;			
 						
 					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
 						
@@ -181,28 +183,24 @@ public class MainFrame extends JFrame {
 						myPersonality = thisMotivation.chosenPersonality;			 
 						myNickname = thisMotivation.chosenNickname;
 						myDetail = thisMotivation.chosenDetail;
+					
+					//CHARACTER STAT BLOCK
 						
+						thisRacialStatBlock.generateRacialStats(myRace, mySubRace);
+						myStr = RacialStatBlock.builtStats.bonusStr;
+						myDex = RacialStatBlock.builtStats.bonusDex;
+						myCon = RacialStatBlock.builtStats.bonusCon;
+						myInt = RacialStatBlock.builtStats.bonusInt;
+						myWis = RacialStatBlock.builtStats.bonusWis;
+						myCha = RacialStatBlock.builtStats.bonusCha;
+						myLanguage = RacialStatBlock.builtStats.language;
+						mySpeed = RacialStatBlock.builtStats.speed;
+						myFlySpeed = RacialStatBlock.builtStats.flySpeed;
+						mySwimSpeed = RacialStatBlock.builtStats.swimSpeed;
+						myExtra = RacialStatBlock.builtStats.extra;
+						myExtraChoice = RacialStatBlock.builtStats.extraChoice;
 						
-					//CHARACTER SYSOUT SECTION
-						
-						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
-						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
-						if(saveNext){
-							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
-						}
-						if(mySubRace != ""){
-							textPanel.appendText("Subrace: " + mySubRace + "\n");
-							System.out.println("Subrace: " + mySubRace);
-							if(saveNext){
-								characterResults.add("Subrace: " + mySubRace);
-							}
-						}
-						
-						textPanel.appendText("Sex: " + mySex + "\n");
-						System.out.println("Sex: " + mySex);
-						if(saveNext){
-							characterResults.add("Sex: " + mySex);
-						}
+					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
 						
 						if(!myNickname.isEmpty()){
 							if(myNickname.contains("the ")){
@@ -226,26 +224,45 @@ public class MainFrame extends JFrame {
 							}
 						}
 						
+						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
+						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
+						if(saveNext){
+							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
+						}
+						if(mySubRace != ""){
+							textPanel.appendText("Subrace: " + mySubRace + "\n");
+							System.out.println("Subrace: " + mySubRace);
+							if(saveNext){
+								characterResults.add("Subrace: " + mySubRace);
+							}
+						}
+						
+						textPanel.appendText("Sex: " + mySex + "\n");
+						System.out.println("Sex: " + mySex);
+						if(saveNext){
+							characterResults.add("Sex: " + mySex);
+						}			
+						
 						textPanel.appendText("Age: " + myAge + "\n");
 						System.out.println("Age: " + myAge);
 						if(saveNext){
 							characterResults.add("Age: " + myAge);
 						}
 						
-						if(!(myProfession.equals("None"))){
+						if(!myProfession.equals("None")){
 							textPanel.appendText("Profession: " + myProfession + "\n");
 							System.out.println("Profession: " + myProfession);
 							if(saveNext){
 								characterResults.add("Profession: " + myProfession);
 							}
 						}
-						
-						textPanel.appendText("Motivated by: " + myMotivation + "\n");
-						System.out.println("Motivated by: " + myMotivation);
-						if(saveNext){
-							characterResults.add("Motivated by: " + myMotivation);
-						}
-						
+						if(!myMotivation.isEmpty()){
+							textPanel.appendText("Motivated by: " + myMotivation + "\n");
+							System.out.println("Motivated by: " + myMotivation);
+							if(saveNext){
+								characterResults.add("Motivated by: " + myMotivation);
+							}
+						}						
 						textPanel.appendText("Personality Traits: " + myPersonality + "\n");
 						System.out.println("Personality Traits: " + myPersonality);
 						if(saveNext){
@@ -258,7 +275,76 @@ public class MainFrame extends JFrame {
 							if(saveNext){
 								characterResults.add("Additional Detail: " + myDetail);
 							}
+						}
+						//TODO
+						if(mySwimSpeed == 0 && myFlySpeed == 0){
+							textPanel.appendText("Speed: " + mySpeed + "\n");
+						} else if(mySwimSpeed > 0){
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed + "\n");
+						} else if(myFlySpeed > 0) {
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\n");
+						} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+							textPanel.appendText("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed + "\n");
+						}
+						textPanel.appendText("STR: " + myStr + "\t" + "DEX: " + myDex + "\n");
+						textPanel.appendText("CON: " + myCon + "\t" + "INT: " + myInt + "\n");
+						textPanel.appendText("WIS: " + myWis + "\t" + "CHA: " + myCha + "\n");
+						if(!myLanguage.isEmpty()){
+							textPanel.appendText("Languages: " + myLanguage + "\n");
 						}						
+						if(!myExtra.isEmpty()){
+							textPanel.appendText("Racial Extras:" + myExtra + "\n");
+						}						
+						if(!myExtraChoice.isEmpty()){
+							textPanel.appendText("Racial Choice: " + myExtraChoice);
+						}
+						
+						if(mySwimSpeed == 0 && myFlySpeed == 0){
+							System.out.println("Speed: " + mySpeed);
+						} else if(mySwimSpeed > 0){
+							System.out.println("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
+						} else if(myFlySpeed > 0) {
+							System.out.println("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
+						} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+							System.out.println("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed);
+						}
+						System.out.println("STR: " + myStr + "\t" + "DEX: " + myDex);	
+						System.out.println("CON: " + myCon + "\t" + "INT: " + myInt);
+						System.out.println("WIS: " + myWis + "\t" + "CHA: " + myCha);
+						if(!myLanguage.isEmpty()){
+							System.out.println("Languages: " + myLanguage);
+						}
+						if(!myExtra.isEmpty()){
+							System.out.println("Racial Extras:" + myExtra);
+						}						
+						if(!myExtraChoice.isEmpty()){
+							System.out.println("Racial Choice: " + myExtraChoice);
+						}
+						
+						if(saveNext){
+							if(mySwimSpeed == 0 && myFlySpeed == 0){
+								characterResults.add("Speed: " + mySpeed);
+							} else if(mySwimSpeed > 0){
+								characterResults.add("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
+							} else if(myFlySpeed > 0) {
+								characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
+							} else if(myFlySpeed > 0 && mySwimSpeed > 0){
+								characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: " + mySwimSpeed);
+							}
+							characterResults.add("STR: " + myStr + "\t" + "DEX: " + myDex);
+							characterResults.add("CON: " + myCon + "\t" + "INT: " + myInt);
+							characterResults.add("WIS: " + myWis + "\t" + "CHA: " + myCha);
+							if(!myLanguage.isEmpty()){
+								characterResults.add("Languages: " + myLanguage);
+							}
+							if(!myExtra.isEmpty()){
+								characterResults.add("Racial Extras:" + myExtra);
+							}							
+							if(!myExtraChoice.isEmpty()){
+								characterResults.add("Racial Choice: " + myExtraChoice);
+							}
+						}
+						
 						
 					//Line-split for multiple result tidiness
 						textPanel.appendText("\n");
@@ -270,21 +356,21 @@ public class MainFrame extends JFrame {
 					}//end FOR loop
 					
 					//CHARACTER WRITEOUT SECTION
-						if(saveNext){ //save if true
-							@SuppressWarnings("unused")
-							WriteToFile thisWrite = new WriteToFile(characterResults);
-							textPanel.appendText(thisWrite.getWTFLocation() + "\n");
-							textPanel.appendText("\n");
-							characterResults.removeAll(characterResults);
-						}						
-						
-						long endTime = System.nanoTime();
-						System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
-						
-						textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
+					if(saveNext){ //save if true
+						@SuppressWarnings("unused")
+						WriteToFile thisWrite = new WriteToFile(characterResults);
+						textPanel.appendText(thisWrite.getWTFLocation() + "\n");
 						textPanel.appendText("\n");
+						characterResults.removeAll(characterResults);
+					}						
+					
+					long endTime = System.nanoTime();
+					System.out.println("Runtime: "+((endTime - startTime)/1000000000.0) + " s"); 
+					
+					textPanel.appendText("Runtime: "+((endTime - startTime)/1000000000.0) + " s");
+					textPanel.appendText("\n");
 						
-				}//end if Clicked (GENERATE!)
+				}//end if: Clicked (GENERATE!)
 			}//end actionPerformed
 		});//end generate button actionListener
 	}//end MainFrame()
