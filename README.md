@@ -2,17 +2,23 @@
 ##DnD 5e Character Creator by SanguineHaze
 
 #Required items:
-- Java must be installed (www.java.com)
+- Java must be installed (www.java.com) & up to date
 
-#Planned Updates (As of Dec 9th, 2016):
+#Planned Updates (As of Mar 10, 2017):
 [Note: These are unordered. They will be completed in order of whatever I wish to tackle first]
-
-- Add Stat generation
-	- Str, dex, con, int, wis, cha
-	- Speed
-	- Size (S M L)
-	- Racial traits & bonuses
-	- Class traits & bonuses (where applicable)
+- Improve Race generation (Allow selections of races / race chance levels - common, rare, etc)
+- Category based Stat Generation [Weak, Average, Base PC, Above Average, Epic] /u/eastwood6510
+- Semi-Random Inventory Generation
+- Semi-Random Loot Generation
+- Handle Java Version issues [Will not work if java is out of date & fails silently]
+- Create version control & program updater [So I won't have to continue posting updates on reddit]
+- Webpage / Web Interface [Look into git.io pages]
+- Actual Age Value (Either supplementing or replacing age category)
+- Mobile App [Possibly being developed by /u/Kerooker
+- Ability Modifiers
+- Display & SaveFile printouts should look as close to a stat page as possible
+- Extra / Ability Descriptions (Or links / hover text / something)
+- NPC Portraits [[Extremely Tentative - May be dropped]]
 - Change Name generation so it is related to the chosen race
 	- Include name length changes to match PHB/DMG racial name average lengths
 	- Include clan names
@@ -22,6 +28,16 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###Mar 8th, 2017
+- Race & Subrace pairing improved
+- Language builder (Statblocks) fixed
+
+###Mar 6th - 7th, 2017
+- Racial Statblocks introduced
+
+###Mar 5th, 2017
+- Load all lists & sourceData in one class (GenerateSourceData.java)
+
 ###Feb 2nd, 2017
 - Fixed Bug: Bug noticed (2/2/2017): After successful generate, subrace list does not clear, and continues to duplicate entries.
 

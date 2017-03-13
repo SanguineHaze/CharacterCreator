@@ -68,23 +68,19 @@ public class GenerateSourceData {
 		for(RacialStatBlock raceEntry: GenerateSourceData.raceStatBlock){
 			if(!raceEntry.isSubrace){
 				raceSourceStatic.add(raceEntry.name);
-				System.out.println(raceSourceStatic);
+				//System.out.println(raceSourceStatic);
 			}
 		}
-		
-	//PRE_DELETE: TEST THOROUGHLY BEFORE REMOVING(Mar10,2017)	
-	/*File targetFile = new File("Race.txt");
-   	 
-   	 try {
-   		    ReadFromFile file = new ReadFromFile(targetFile);
-   		    
-   		    raceSourcePreStatic = file.OpenFile();
-   		    for(String s: raceSourcePreStatic){
-   		    	raceSourceStatic.add(s.replace("RACE:", ""));
-   		    }   		   
-   		} catch (Exception e) {
-   		    System.out.println(e.getMessage());
-   		}*/
+	}
+	
+
+	public void generateSubraceNames(){
+		subraceSourceStatic.clear();
+		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
+			if(entry.isSubrace){
+				subraceSourceStatic.add(entry.name);
+			}
+		}
 	}
 	
 	private void generateProfessionData(){
@@ -501,15 +497,6 @@ public class GenerateSourceData {
 			}
 		}
 		return tempRace;
-	}
-	
-	public void generateSubraceNames(){
-		subraceSourceStatic.clear();
-		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
-			if(entry.isSubrace){
-				subraceSourceStatic.add(entry.name);
-			}
-		}
 	}
 
 }
