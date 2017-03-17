@@ -39,7 +39,7 @@ public class RacialStatBlock {
 		
 		RacialStatBlock tempRace = new RacialStatBlock();
 		RacialStatBlock tempSubrace = new RacialStatBlock();
-		String name = "";
+		
 		int raceSpeed = 0, 
 				subraceSpeed = 0, 
 				raceFlySpeed = 0, 

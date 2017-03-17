@@ -52,6 +52,7 @@ public class MainFrame extends JFrame {
 	private JButton generateBtn;
 	private FormPanel formPanel;
 	private boolean saveNext;
+	private boolean includeStats;
 	
 	FormEvent formEvent = new FormEvent(this, numGenInt);
 	
@@ -338,7 +339,7 @@ public class MainFrame extends JFrame {
 								characterResults.add("Languages: " + myLanguage);
 							}
 							if(!myExtra.isEmpty()){
-								characterResults.add("Racial Extras:" + myExtra);
+								characterResults.add("Racial Extras: " + myExtra);
 							}							
 							if(!myExtraChoice.isEmpty()){
 								characterResults.add("Racial Choice: " + myExtraChoice);

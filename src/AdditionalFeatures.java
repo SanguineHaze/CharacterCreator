@@ -20,19 +20,6 @@ public class AdditionalFeatures {
 	
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
 	private int nicknameChance, detailChance;
-	
-	public AdditionalFeatures(){
-		chosenPersonality = "";
-		chosenMotivation = "";
-		chosenDetail = "";
-		generateMotivation("");
-		generatePersonality();
-		setNicknameChance(0);
-		generateNickname(null, null, null);
-		generateDetails(null, null);
-		//DEBUG TOOL - CONSTRUCTOR 1
-		//System.out.println("AddFeat 1 NN: " + chosenNickname);
-	}
 
 	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
 		chosenPersonality = "";
@@ -113,7 +100,7 @@ public class AdditionalFeatures {
 	
 	public void generateDetails(String race, String profession){
 		
-		//TODO: use Race and Profession. Consider that initial list generation requires a null (or value) passed in. Handle this.
+		//TODO: use Race and Profession
 		Random detailsChanceRandomInt = new Random();
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){

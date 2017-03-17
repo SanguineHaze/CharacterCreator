@@ -54,6 +54,7 @@ public class FormPanel extends JPanel {
 	private int numGenInt;
 	
 	private JCheckBox saveCheckBox;
+	private JCheckBox generateStats;
 
 	private JRadioButton sexM;
 	static String sexMString = "M";
@@ -68,6 +69,7 @@ public class FormPanel extends JPanel {
 	private String ageSelected = "";
 	private String professionSelected = "";
 	private boolean saveNext;
+	private boolean includeStats;
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
 	private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
@@ -264,6 +266,7 @@ public class FormPanel extends JPanel {
 		professionComboBox = new JComboBox(professionCB);
 		
 		saveCheckBox = new JCheckBox("Save Next Results");
+		generateStats = new JCheckBox("Generate Stats");
 		
 		
 		//SET BORDERS! MAKE BOXES!
@@ -392,9 +395,16 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 15;
 		add(detailsChanceField, gbc);
 		
-		//ROW 9 - SAVE BOX	
+		//ROW 9 - GENERATE STATS	
 		gbc.gridx = 0;
 		gbc.gridy = 16;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(generateStats, gbc);
+		generateStats.setSelected(true);
+		
+		//ROW 9 - SAVE BOX	
+		gbc.gridx = 0;
+		gbc.gridy = 17;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
@@ -404,7 +414,7 @@ public class FormPanel extends JPanel {
 		gbc.weighty = 3;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 17;
+		gbc.gridy = 18;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -479,6 +489,16 @@ public class FormPanel extends JPanel {
 					saveNext = false;
 				} else if (e.getStateChange() == ItemEvent.SELECTED){
 					saveNext = true;
+				}
+			}
+		});
+		
+		generateStats.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.DESELECTED){
+					includeStats = false;
+				} else if (e.getStateChange() == ItemEvent.SELECTED){
+					includeStats = true;
 				}
 			}
 		});
