@@ -69,52 +69,11 @@ public class FormPanel extends JPanel {
 	private String ageSelected = "";
 	private String professionSelected = "";
 	private boolean saveNext;
-	private boolean includeStats;
+	private boolean includeStats = true;
+
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
 	private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
-
-	//GETTERS
-	public int getDetailsChance() {
-		return detailsChance;
-	}
-	
-	public int getNicknameChanceInt() {
-		return nicknameChanceInt;
-	}
-
-	public boolean isSaveNext() {
-		return saveNext;
-	}
-	
-	public String getProfessionSelected() {
-		return professionSelected;
-	}
-
-	public String getAgeSelected() {
-		return ageSelected;
-	}
-
-	public String getSexSelected() {
-		return sexSelected;
-	}
-
-	public String getSubRaceSelected() {
-		return subRaceSelected;
-	}
-
-	public int getRaceSelected() {
-		return raceSelected;
-	}
-
-	public int getNumGenInt() {
-		return numGenInt;
-	}
-	
-	//SETTERS
-	public void setSubRaceSelected(String subRaceSelected) {
-		this.subRaceSelected = subRaceSelected;
-	}
 	
 	//VALIDATION
 	static boolean isValidNumber(String val) {
@@ -235,11 +194,6 @@ public class FormPanel extends JPanel {
 				}
 				
 				GenerateSourceData.subraceSourceStatic.remove(0); //Remove the entry we added earlier
-				
-				//DEBUG TOOLS - De-duping the subrace list
-				//System.out.println("SubRaceStatic: " + SubRace.subRaceStaticList2);
-				//System.out.println("SubRaceTemp" + subRaceTempList);
-				
 			}			
 		});		
 		
@@ -446,9 +400,9 @@ public class FormPanel extends JPanel {
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);
 					
-				}//end If "Clicked: setBtn"				
-			}//end actionPerformed
-		});//end setBtn ActionListener
+				}				
+			}
+		});
 		
 		sexM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -503,6 +457,54 @@ public class FormPanel extends JPanel {
 			}
 		});
 		
-	}//end FormPanel()
+	}
+	
+	//GETTERS & SETTERS//
+		public boolean isIncludeStats() {
+			return includeStats;
+		}
+
+		public void setIncludeStats(boolean includeStats) {
+			this.includeStats = includeStats;
+		}
+		public int getDetailsChance() {
+			return detailsChance;
+		}
+		
+		public int getNicknameChanceInt() {
+			return nicknameChanceInt;
+		}
+
+		public boolean isSaveNext() {
+			return saveNext;
+		}
+		
+		public String getProfessionSelected() {
+			return professionSelected;
+		}
+
+		public String getAgeSelected() {
+			return ageSelected;
+		}
+
+		public String getSexSelected() {
+			return sexSelected;
+		}
+
+		public String getSubRaceSelected() {
+			return subRaceSelected;
+		}
+
+		public int getRaceSelected() {
+			return raceSelected;
+		}
+
+		public int getNumGenInt() {
+			return numGenInt;
+		}
+		
+		public void setSubRaceSelected(String subRaceSelected) {
+			this.subRaceSelected = subRaceSelected;
+		}
 	
 }//end CLASS
