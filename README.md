@@ -18,7 +18,6 @@
 - Ability Modifiers
 - Display & SaveFile printouts should look as close to a stat page as possible
 - Extra / Ability Descriptions (Or links / hover text / something)
-- NPC Portraits [[Extremely Tentative - May be dropped]]
 - Change Name generation so it is related to the chosen race
 	- Include name length changes to match PHB/DMG racial name average lengths
 	- Include clan names

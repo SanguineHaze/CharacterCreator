@@ -6,6 +6,8 @@ public class CharacterCreator {
     	//Initial Data List Setup work:
     	@SuppressWarnings("unused")
 		GenerateSourceData sourceData = new GenerateSourceData(); 
+    	
+    	//TODO: Create version checker and auto-updater
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

@@ -73,7 +73,6 @@ public class GenerateSourceData {
 		}
 	}
 	
-
 	public void generateSubraceNames(){
 		subraceSourceStatic.clear();
 		for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){

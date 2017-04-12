@@ -8,7 +8,6 @@ public class SubRace {
 	
 	public SubRace() {
 		chosenSubRace = "";
-		//System.out.println(chosenSubRace); 
 	}
 	
 	public void setChosenSubRace(String chosenSubRace) {
@@ -18,14 +17,12 @@ public class SubRace {
 	public SubRace(String chosenRace) {
 		chosenSubRace = "";
 		generateSubRace(chosenRace);
-		//System.out.println(chosenSubRace); 
 	}
 	
 	public void generateSubRace(String chosenRace){
 		
 		ArrayList<String> tempList = new ArrayList<String>();
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
-			//System.out.println(GenerateSourceData.subraceSourceStatic);
 			if(entry.parentID.toLowerCase().equals(chosenRace.toLowerCase())) {
 				tempList.add(entry.name);
 			} else {

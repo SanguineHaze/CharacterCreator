@@ -356,8 +356,7 @@ public class MainFrame extends JFrame {
 						if(saveNext){
 							characterResults.add("\n");
 						}
-						
-					}//end FOR loop
+					}
 					
 					//CHARACTER WRITEOUT SECTION
 					if(saveNext){ //save if true
@@ -377,5 +376,6 @@ public class MainFrame extends JFrame {
 				}//end if: Clicked (GENERATE!)
 			}//end actionPerformed
 		});//end generate button actionListener
-	}//end MainFrame()
-}//end CLASS
+		
+	}
+}

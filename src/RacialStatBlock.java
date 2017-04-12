@@ -294,19 +294,15 @@ public class RacialStatBlock {
 	public void addExtraChoice(String extChoice) {
 		extraChoice.add(extChoice);
 	}
-
 	public boolean isSubrace() {
 		return isSubrace;
 	}
-
 	public void setIsSubrace(boolean isSubrace) {
 		this.isSubrace = isSubrace;
 	}
-
 	public ArrayList<RacialStatBlock> getRaceSubraces() {
 		return raceSubraces;
 	}
-
 	public void setRaceSubraces(ArrayList<RacialStatBlock> arrayList) {
 		this.raceSubraces = arrayList;
 	}

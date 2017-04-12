@@ -32,16 +32,13 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		this.detailChance = detailChance;
 		generateDetails(chosenRace, chosenProfession);
-		//DEBUG TOOL - CONSTRUCTOR 2
-		//System.out.println("AddFeat 2 NN: " + chosenNickname);
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
 		this.nicknameChance = nicknameChance;
 	}
 	
-	//MOTIVATION SECTION
-	
+	//MOTIVATION SECTION	
 	public void generateMotivation(String chosenAge){
 		if(!"child".equals(chosenAge.toLowerCase())){
 			Random randomMotivation = new Random();
@@ -57,8 +54,7 @@ public class AdditionalFeatures {
 		}
 	}
 	
-	//PERSONALITY SECTION
-	
+	//PERSONALITY SECTION	
 	public void generatePersonality(){
 		Random randomPersonality = new Random();
 		int index = randomPersonality.nextInt(personalityList.size());
@@ -97,7 +93,6 @@ public class AdditionalFeatures {
 	}
 	
 	///ADDITIONAL DETAILS SECTION///
-	
 	public void generateDetails(String race, String profession){
 		
 		//TODO: use Race and Profession
