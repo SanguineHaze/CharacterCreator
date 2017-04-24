@@ -5,7 +5,6 @@ public class RacialStatBlock {
 	ArrayList<String> language, extra, extraChoice;
 	int bonusStr, bonusDex, bonusCon, bonusInt, bonusWis, bonusCha, speed, flySpeed, swimSpeed;
 	boolean isSubrace;
-	ArrayList<RacialStatBlock> raceSubraces;
 	int  baseValue = 10;
 	
 	static RacialStatBlock builtStats = new RacialStatBlock();
@@ -23,11 +22,10 @@ public class RacialStatBlock {
 		bonusInt = 0;
 		bonusWis = 0;
 		bonusCha = 0;
-		language = new ArrayList<String>();
-		extra = new ArrayList<String>();
-		extraChoice = new ArrayList<String>();
+		language = new ArrayList<>();
+		extra = new ArrayList<>();
+		extraChoice = new ArrayList<>();
 		source = "Not Set";
-		raceSubraces = new ArrayList<RacialStatBlock>();
 		isSubrace = false;
 	}
 	
@@ -299,12 +297,6 @@ public class RacialStatBlock {
 	}
 	public void setIsSubrace(boolean isSubrace) {
 		this.isSubrace = isSubrace;
-	}
-	public ArrayList<RacialStatBlock> getRaceSubraces() {
-		return raceSubraces;
-	}
-	public void setRaceSubraces(ArrayList<RacialStatBlock> arrayList) {
-		this.raceSubraces = arrayList;
 	}
 	public RacialStatBlock(String chosenRace, String chosenSubRace){
 		generateRacialStats(chosenRace, chosenSubRace);

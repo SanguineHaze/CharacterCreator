@@ -12,7 +12,7 @@ import javax.swing.border.Border;
 
 public class MainFrame extends JFrame {
 	
-	ArrayList<String> characterResults = new ArrayList<String>();
+	ArrayList<String> characterResults = new ArrayList<>();
 	
     String userRace;
     String userSubRace;

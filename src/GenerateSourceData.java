@@ -10,33 +10,33 @@ import org.w3c.dom.NodeList;
 
 public class GenerateSourceData {
 	
-	protected ArrayList<String> raceSourcePreStatic = new ArrayList<String>();
-	protected static ArrayList<String> raceSourceStatic = new ArrayList<String>();
-	protected ArrayList<String> subraceSourcePreStatic = new ArrayList<String>();
-	protected static ArrayList<String> subraceSourceStatic = new ArrayList<String>();
-	protected ArrayList<String> adultProfessionSourcePreStatic = new ArrayList<String>();
-	protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<String>();
-	protected ArrayList<String> childProfessionSourcePreStatic = new ArrayList<String>();
-	protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<String>();
-	protected static ArrayList<String> nameData = new ArrayList<String>();
-	protected static ArrayList<String> beginningName = new ArrayList<String>();
-	protected static ArrayList<String> middleName = new ArrayList<String>();
-	protected static ArrayList<String> endName = new ArrayList<String>();
-	protected static ArrayList<String> ageRange = new ArrayList<String>();
-	protected static ArrayList<String> ageRangeStatic = new ArrayList<String>();
-	protected static ArrayList<String> motivationSourceData = new ArrayList<String>();
-	protected static ArrayList<String> personalitySourceData = new ArrayList<String>();
-	protected static ArrayList<String> nicknameSourceData = new ArrayList<String>();
-	protected static ArrayList<String> detailsSourceData = new ArrayList<String>();
+	protected ArrayList<String> raceSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> raceSourceStatic = new ArrayList<>();
+	protected ArrayList<String> subraceSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> subraceSourceStatic = new ArrayList<>();
+	protected ArrayList<String> adultProfessionSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
+	protected ArrayList<String> childProfessionSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+	protected static ArrayList<String> nameData = new ArrayList<>();
+	protected static ArrayList<String> beginningName = new ArrayList<>();
+	protected static ArrayList<String> middleName = new ArrayList<>();
+	protected static ArrayList<String> endName = new ArrayList<>();
+	protected static ArrayList<String> ageRange = new ArrayList<>();
+	protected static ArrayList<String> ageRangeStatic = new ArrayList<>();
+	protected static ArrayList<String> motivationSourceData = new ArrayList<>();
+	protected static ArrayList<String> personalitySourceData = new ArrayList<>();
+	protected static ArrayList<String> nicknameSourceData = new ArrayList<>();
+	protected static ArrayList<String> detailsSourceData = new ArrayList<>();
 	//Data for "Details" Subsection //
-	protected static ArrayList<String> theLocalSourceData = new ArrayList<String>();
-	protected static ArrayList<String> favorToSourceData = new ArrayList<String>();
-	protected static ArrayList<String> protectedBySourceData = new ArrayList<String>();
-	protected static ArrayList<String> mapToSourceData = new ArrayList<String>();
-	protected static ArrayList<String> possessesASourceData = new ArrayList<String>();
-	protected static ArrayList<String> obsessedBySourceData = new ArrayList<String>();
-	protected static ArrayList<String> cursedBySourceData = new ArrayList<String>();
-	protected static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<RacialStatBlock>();
+	protected static ArrayList<String> theLocalSourceData = new ArrayList<>();
+	protected static ArrayList<String> favorToSourceData = new ArrayList<>();
+	protected static ArrayList<String> protectedBySourceData = new ArrayList<>();
+	protected static ArrayList<String> mapToSourceData = new ArrayList<>();
+	protected static ArrayList<String> possessesASourceData = new ArrayList<>();
+	protected static ArrayList<String> obsessedBySourceData = new ArrayList<>();
+	protected static ArrayList<String> cursedBySourceData = new ArrayList<>();
+	protected static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
 	private NodeList raceTag;
 	private NodeList subraceTag;
 	
@@ -383,119 +383,10 @@ public class GenerateSourceData {
 							tempRace.setSource(cNode.getTextContent());
 						}
 						break;
-					case "subrace":
-						if(!"subrace".isEmpty()){
-							tempRace.raceSubraces.add(parseSubraceNodeData(cNode.getChildNodes()));
-							break;
-						}
 					}
 				}
 			raceStatBlock.add(tempRace);
 		}
-	}
-	
-	private static RacialStatBlock parseSubraceNodeData(NodeList nodeList) {
-		RacialStatBlock tempRace = new RacialStatBlock();
-		NodeList nList = nodeList;
-
-		// start looping through races
-		for (int i = 0; i < nList.getLength(); i++) {
-			// set up items
-			Node raceNode = nList.item(i);
-			NodeList raceList = raceNode.getChildNodes();
-
-			// go through races child nodes
-			for (int j = 0; j < raceList.getLength(); j++) {
-				Node cNode = raceList.item(j);
-				// parse children
-				if (cNode.getParentNode().getNodeName().equals("subRace")) {
-
-					switch (cNode.getNodeName().toLowerCase()) {
-
-					case "name":
-						if (!"name".isEmpty()) {
-							tempRace.setName(cNode.getTextContent());
-						}
-						break;
-					case "parentid":
-						if (!"parentID".isEmpty()) {
-							tempRace.setParentID(cNode.getTextContent());
-						}
-					case "size":
-						if (!"size".isEmpty()) {
-							tempRace.setSize(cNode.getTextContent());
-						}
-						break;
-					case "speed":
-						if (!"speed".isEmpty()) {
-							tempRace.setSpeed(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "speedfly":
-						if (!"speedfly".isEmpty()) {
-							tempRace.setFlySpeed(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "speedswim":
-						if (!"speedswim".isEmpty()) {
-							tempRace.setSwimSpeed(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "language":
-						if (!"language".isEmpty()) {
-							tempRace.addLanguage(cNode.getTextContent());
-						}
-						break;
-					case "bonusstr":
-						if (!"bonusstr".isEmpty()) {
-							tempRace.setBonusStr(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "bonusdex":
-						if (!"bonusdex".isEmpty()) {
-							tempRace.setBonusDex(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "bonuscon":
-						if (!"bonuscon".isEmpty()) {
-							tempRace.setBonusCon(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "bonusint":
-						if (!"bonusint".isEmpty()) {
-							tempRace.setBonusInt(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "bonuswis":
-						if (!"bonuswis".isEmpty()) {
-							tempRace.setBonusWis(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "bonuscha":
-						if (!"bonuscha".isEmpty()) {
-							tempRace.setBonusCha(Integer.parseInt(cNode.getTextContent()));
-						}
-						break;
-					case "extra":
-						if (!"extra".isEmpty()) {
-							tempRace.addExtra(cNode.getTextContent());
-						}
-						break;
-					case "extrachoice":
-						if (!"extrachoice".isEmpty()) {
-							tempRace.addExtraChoice(cNode.getTextContent());
-						}
-						break;
-					case "source":
-						if (!"source".isEmpty()) {
-							tempRace.setSource(cNode.getTextContent());
-						}
-						break;
-					}
-				}
-			}
-		}
-		return tempRace;
 	}
 
 }

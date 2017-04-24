@@ -22,8 +22,8 @@ import javax.swing.border.Border;
 public class FormPanel extends JPanel {
 	
 	//DECLARATIONS
-	ArrayList<String> subRaceTempList = new ArrayList<String>();
-	ArrayList<String> lastSelected = new ArrayList<String>();
+	ArrayList<String> subRaceTempList = new ArrayList<>();
+	ArrayList<String> lastSelected = new ArrayList<>();
 	
 	protected boolean itemChanged;
 	protected String[] subRaceCB;
