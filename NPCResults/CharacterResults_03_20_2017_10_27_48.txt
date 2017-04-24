@@ -1,0 +1,236 @@
+Name: Fahalin Maturus
+Race: Half-Elf
+Subrace: Half Drow
+Sex: Male
+Age: Young Adult
+Profession: Construction Worker
+Motivated by: Necessity
+Personality Traits: Uncooperative, Dreamy, Perfectionist
+
+
+Name: Obar Sikelal
+Race: Firbolg
+Sex: Female
+Age: Adult
+Profession: Weaver
+Motivated by: Greed
+Personality Traits: Serious, Spontaneous, Folksy
+
+
+Name: Elcheda Elvashai
+Race: Aarakocra
+Sex: Male
+Age: Very Old
+Profession: Retired Rat Catcher
+Motivated by: Sense of accomplishment
+Personality Traits: Unreliable, Emotional, Dedicated
+
+
+Name: Limer Redellea the Heroic
+Race: Triton
+Sex: Female
+Age: Child
+Profession: Apprentice Scribe
+Motivated by: Unfulfillment
+Personality Traits: Nonauthoritarian, Planful, Articulate
+
+
+Name: Johaler Dedellis
+Race: Triton
+Sex: Female
+Age: Young Adult
+Profession: Fighter
+Motivated by: Competitive spirit
+Personality Traits: Winning, Constant, Noncompetitive
+
+
+Name: Kichedess Kilimac the Fearful
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Male
+Age: Old
+Profession: Senior Composer
+Motivated by: Love
+Personality Traits: Earnest, Erratic, Subjective
+
+
+Name: Payoral Vashic
+Race: Genasi
+Subrace: Air Genasi
+Sex: Female
+Age: Child
+Profession: Apprentice Actor
+Motivated by: Dishonor
+Personality Traits: Individualistic, Idealistic, Obedient
+
+
+Name: Papennin Mor
+Race: Aasimar
+Subrace: Fallen Aasimar
+Sex: Female
+Age: Very Old
+Profession: Retired Storyteller
+Motivated by: Fear of loss
+Personality Traits: Sadistic, Guileless, Familial
+
+
+Name: Berondid Resarkea the Swindler
+Race: Dwarf
+Subrace: Duergar
+Sex: Male
+Age: Very Old
+Profession: Retired Lawyer
+Motivated by: Fear of loss
+Personality Traits: Perfectionist, Indecisive, Strong-willed
+
+
+Name: Patura Jenan
+Race: Kenku
+Sex: Male
+Age: Adult
+Profession: Soldier
+Motivated by: Unfulfillment
+Personality Traits: Amoral, Complacent, Noncommittal
+
+
+Name: Pabaric Rekelai the Smiler
+Race: Aarakocra
+Sex: Male
+Age: Young Adult
+Profession: Warlock
+Motivated by: Hope for the future
+Personality Traits: Demanding, Alert, Whimsical
+
+
+Name: Regranett Vashis the Wise
+Race: Triton
+Sex: Female
+Age: Adult
+Profession: Hunter
+Motivated by: Wealth & Status
+Personality Traits: Flamboyant, Unstable, Crazy
+
+
+Name: Nasarkic Reshenar
+Race: Kenku
+Sex: Male
+Age: Adult
+Profession: Goatherd
+Motivated by: Greed
+Personality Traits: Ambitious, Smooth, Amoral
+
+
+Name: Chedus Makelan
+Race: Half-Elf
+Subrace: Half Drow
+Sex: Male
+Age: Very Old
+Profession: Retired Librarian
+Motivated by: Curiosity
+Personality Traits: Unaggressive, Grim, Irascible
+
+
+Name: Retura Vasarkal
+Race: Gnome
+Subrace: Rock Gnome
+Sex: Male
+Age: Child
+Motivated by: Reputation
+Personality Traits: Old-fashined, Misguided, Cute
+
+
+Name: Kihaless Fagrana
+Race: Genasi
+Subrace: Water Genasi
+Sex: Male
+Age: Young Adult
+Profession: Beast-Tamer (Circus)
+Motivated by: Hope for the future
+Personality Traits: Friendly, One-dimensional, Courageous
+
+
+Name: Netus Jonetus
+Race: Goliath
+Sex: Male
+Age: Child
+Motivated by: Social contact
+Personality Traits: Artificial, Cultured, Prudent
+
+
+Name: Sark Kelai
+Race: Dragonborn
+Subrace: Red Dragonborn
+Sex: Male
+Age: Adult
+Profession: Bard
+Motivated by: Social contact
+Personality Traits: Thorough, Empathetic, Discouraging
+
+
+Name: Nachedar Zenam
+Race: Firbolg
+Sex: Female
+Age: Very Old
+Profession: Retired Knight
+Motivated by: Honor
+Personality Traits: Proud, Domineering, Troublesome
+
+
+Name: Narondel Famorer the Fearful
+Race: Elf
+Subrace: Wood Elf
+Sex: Male
+Age: Adult
+Profession: Cleric
+Motivated by: Jealousy
+Personality Traits: Desperate, Tasteful, Pugnacious
+
+
+Name: Bejenea Vavashor the Fearful
+Race: Dwarf
+Subrace: Duergar
+Sex: Female
+Age: Old
+Profession: Construction Worker
+Motivated by: Desire
+Personality Traits: Compassionate, Unfoolable, Unrealistic
+
+
+Name: Pennic Oshenar
+Race: Half-Elf
+Subrace: Half Sun Elf
+Sex: Male
+Age: Old
+Profession: Geneologist
+Motivated by: Fear of shame
+Personality Traits: Maticulous, Tolerant, Strict
+
+
+Name: Mazenett Pamor
+Race: Half-Elf
+Subrace: Half Aquatic Elf
+Sex: Male
+Age: Adult
+Profession: Druid
+Motivated by: Love
+Personality Traits: Messy, Well-meaning, Fun-loving
+
+
+Name: Tasarka Vadellor
+Race: Aarakocra
+Sex: Male
+Age: Old
+Profession: Brigand
+Motivated by: Family
+Personality Traits: Familial, Secure, Pompous
+
+
+Name: Zenac Taquilor
+Race: Tabaxi
+Sex: Female
+Age: Young Adult
+Profession: Rogue
+Motivated by: Desire
+Personality Traits: Helpful, Unreliable, Intelligent
+
+

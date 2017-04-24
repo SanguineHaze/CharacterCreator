@@ -4,7 +4,10 @@ public class CharacterCreator {
     public static void main(String[] args) {
     	
     	//Initial Data List Setup work:
-    	GenerateSourceData sourceData = new GenerateSourceData(); 
+    	@SuppressWarnings("unused")
+		GenerateSourceData sourceData = new GenerateSourceData(); 
+    	
+    	//TODO: Create version checker and auto-updater
 	    
 	    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
