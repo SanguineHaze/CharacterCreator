@@ -29,11 +29,11 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
-[history]
+[history]Mar 8, 2017: Race & Subrace pairing improved. Language Builder (Statblocks) fixed.[/history]
 ###Mar 8th, 2017
 - Race & Subrace pairing improved
 - Language builder (Statblocks) fixed
-[/history]
+
 ###Mar 6th - 7th, 2017
 - Racial Statblocks introduced
 
