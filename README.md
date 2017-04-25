@@ -28,12 +28,12 @@
 	- Change "Child" nicknames to be 100% child oriented
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
-[history]
 #Recent Updates
+[history]
 ###Mar 8th, 2017
 - Race & Subrace pairing improved
 - Language builder (Statblocks) fixed
-
+[/history]
 ###Mar 6th - 7th, 2017
 - Racial Statblocks introduced
 
@@ -60,4 +60,3 @@
 Race > Subrace > M/F toggle > Name > Class || Job > defining features, personality, motivations
 	-Features added beyond original idea: Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)
 	-Features dropped: alignment (fuck alignment & the headaches it causes. My friends, be not distracted by such arbitrary definitions of good and evil!)
-[/history]
