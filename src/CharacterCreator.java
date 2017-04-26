@@ -1,27 +1,27 @@
 import javax.swing.SwingUtilities;
 
 public class CharacterCreator {
-    public static void main(String[] args) {
-    	
-    	//Check for Updates
-    	try {
-			if (Integer.parseInt(UpdateChecker.getLatestVersion()) > 0) {
-				//new UpdateInfo(UpdateChecker.getWhatsNew()); //TODO: Create UpdateInfo class.
-			}
+	
+	static double thisVersion = 0;
+
+	public static void main(String[] args) {
+		try {
+			if (Double.parseDouble(UpdateChecker.getLatestVersion()) > thisVersion) {
+				new UpdateInfo(UpdateChecker.getWhatsNew());
+			} else {
+				// Initial Data List Setup work:
+				@SuppressWarnings("unused")
+				GenerateSourceData sourceData = new GenerateSourceData();
+
+				SwingUtilities.invokeLater(new Runnable() {
+					public void run() {
+						new MainFrame();
+					}
+				});
+			} 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-    	
-    	//Initial Data List Setup work:
-    	@SuppressWarnings("unused")
-		GenerateSourceData sourceData = new GenerateSourceData(); 
-    	
-    	//TODO: Create version checker and auto-updater
-	    
-	    SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new MainFrame();
-			}
-	    });
-    }
+	}
+	
 }

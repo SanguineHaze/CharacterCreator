@@ -3,7 +3,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class UpdateChecker {
-	
+
 	private final static String versionURL = "https://sanguinehaze.github.io/CharacterCreator/";
 	private final static String historyURL = "https://sanguinehaze.github.io/CharacterCreator/";
 	
