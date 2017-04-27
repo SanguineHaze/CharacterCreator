@@ -13,10 +13,9 @@
 - Semi-Random Inventory Generation
 - Semi-Random Loot Generation
 - Handle Java Version issues [Will not work if java is out of date & fails silently]
-- Create version control & program updater [So I won't have to continue posting updates on reddit]
 - Webpage / Web Interface [Look into git.io pages]
 - Actual Age Value (Either supplementing or replacing age category)
-- Mobile App [Possibly being developed by /u/Kerooker
+- Mobile App
 - Ability Modifiers
 - Display & SaveFile printouts should look as close to a stat page as possible
 - Extra / Ability Descriptions (Or links / hover text / something)
@@ -29,6 +28,10 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###April 26th, 2017
+- Created program updater
+- Created website for program hosting / updater use
+
 ###Mar 8th, 2017
 - Race & Subrace pairing improved
 - Language builder (Statblocks) fixed
@@ -55,7 +58,13 @@
 - Add user choice for Nickname chance (completed Dec 9/16)
 - Add user choice for Additional Details chance (completed Dec 9/16)
 
-#The initial plan (Begun Aug 24th, 2016 - Completed Nov 2, 2016):
+##The initial plan (Begun Aug 24th, 2016 - Completed Nov 2, 2016):
 Race > Subrace > M/F toggle > Name > Class || Job > defining features, personality, motivations
-	-Features added beyond original idea: Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)
-	-Features dropped: alignment (fuck alignment & the headaches it causes. My friends, be not distracted by such arbitrary definitions of good and evil!)
+
+##Features added beyond original idea: 
+- Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)
+- Create version control & program updater [So I won't have to continue posting updates on reddit]
+
+##Features dropped: 
+- alignment (fuck alignment & the headaches it causes. My friends, be not distracted by such arbitrary definitions of good and evil!)
+- NPC photos
