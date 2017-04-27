@@ -4,8 +4,8 @@ import java.net.URL;
 
 public class UpdateChecker {
 
-	private final static String versionURL = "https://sanguinehaze.github.io/CharacterCreator/";
-	private final static String historyURL = "https://sanguinehaze.github.io/CharacterCreator/";
+	private final static String versionURL = "http://programs.hazegaming.com/npcgenstatus";
+	private final static String historyURL = "http://programs.hazegaming.com/npcgenstatus";
 	
 	public static String getLatestVersion() throws Exception{
 		String data = getData(versionURL);
