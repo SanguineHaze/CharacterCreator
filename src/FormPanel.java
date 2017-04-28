@@ -92,7 +92,7 @@ public class FormPanel extends JPanel {
 	public FormPanel() {
 		
 		setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
+		final GridBagConstraints gbc = new GridBagConstraints();
 		
 		Dimension dim = getPreferredSize();
 		dim.width = 250;
