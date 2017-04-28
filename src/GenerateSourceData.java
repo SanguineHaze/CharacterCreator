@@ -55,14 +55,10 @@ public class GenerateSourceData {
         raceSourceStatic.add(0, "Any Race");
         generateRaceData();
         generateSubraceNames();
-        generateProfessionData();
         generateNameSourceData();
         generateNameSectionData();
         generateAgeData();
-        generateMotivationSourceData();
-        generatePersonalitySourceData();
-        generateNicknameSourceData();
-        generateDetailsSourceData();
+        generateSourceData();
     }
 
     ////////METHODS////////
@@ -82,21 +78,6 @@ public class GenerateSourceData {
                 subraceSourceStatic.add(entry.name);
             }
         }
-    }
-
-    private void generateProfessionData(){
-
-        adultProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("Professions"));
-        childProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("ProfessionsChild"));
-    }
-
-    private ArrayList<String> DeserializeData(ArrayList<String> list) {
-        ArrayList<String> newList = new ArrayList<>();
-        for(String s: list){
-            String[] line = s.split(":");
-            newList.add(line[1]);
-        }
-        return newList;
     }
 
     private void generateNameSourceData(){
@@ -140,20 +121,14 @@ public class GenerateSourceData {
         ageRange.add("Very Old");
     }
 
-    private void generateMotivationSourceData(){
+    private void generateSourceData(){
+
+        adultProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("Professions"));
+        childProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("ProfessionsChild"));
+
         motivationSourceData = _sourcePersistance.GetData("Motivations");
-    }
-
-    private void generatePersonalitySourceData() {
         personalitySourceData = _sourcePersistance.GetData("Personalities");
-    }
-
-    private void generateNicknameSourceData(){
         nicknameSourceData = _sourcePersistance.GetData("Nicknames");
-    }
-
-    private void generateDetailsSourceData(){
-
         detailsSourceData = _sourcePersistance.GetData("Details");
         theLocalSourceData =_sourcePersistance.GetData("TheLocalReplacement");
         favorToSourceData = _sourcePersistance.GetData("OwesFavorTo");
@@ -162,6 +137,15 @@ public class GenerateSourceData {
         possessesASourceData = _sourcePersistance.GetData("PossessesA");
         obsessedBySourceData = _sourcePersistance.GetData("ObsessedBy");
         cursedBySourceData = _sourcePersistance.GetData("Cursed");
+    }
+
+    private ArrayList<String> DeserializeData(ArrayList<String> list) {
+        ArrayList<String> newList = new ArrayList<>();
+        for(String s: list){
+            String[] line = s.split(":");
+            newList.add(line[1]);
+        }
+        return newList;
     }
 
     private void generateRacialStatsSourceData(){
