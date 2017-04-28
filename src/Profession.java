@@ -28,7 +28,11 @@ public class Profession {
 		chosenProfession = GenerateSourceData.adultProfessionSourceStatic.get(index);
 		
 		if("Child".equals(chosenAge)){
-			int indexR = randomProfession.nextInt(GenerateSourceData.childProfessionSourceStatic.size());
+			int size = GenerateSourceData.childProfessionSourceStatic.size();
+			int indexR = randomProfession.nextInt(size);
+			if (indexR < 1) {
+				int i =1;
+			}
 			chosenProfession = GenerateSourceData.childProfessionSourceStatic.get(indexR);
 			
 			Random childRandom = new Random();
