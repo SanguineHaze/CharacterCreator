@@ -1,8 +1,6 @@
 #CharacterCreator
 ##DnD 5e Character Creator by SanguineHaze
 
-[version]1[/version]
-
 #Required items:
 - Java must be installed (www.java.com) & up to date
 
