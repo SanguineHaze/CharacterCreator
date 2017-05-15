@@ -6,14 +6,14 @@
 
 #Planned Updates (As of Mar 10, 2017):
 [Note: These are unordered. They will be completed in order of whatever I wish to tackle first]
-- Improve Race generation (Allow selections of races / race chance levels - common, rare, etc)
+- Improve Race generation (Allow selections of races //and or// race chance levels - common, rare, etc)
 - Category based Stat Generation [Weak, Average, Base PC, Above Average, Epic] /u/eastwood6510
 - Semi-Random Inventory Generation
 - Semi-Random Loot Generation
 - Handle Java Version issues [Will not work if java is out of date & fails silently]
-- Webpage / Web Interface [Look into git.io pages]
+- Webpage / Web Interface [Look into git.io pages] (In Progress: May 15, 2017)
 - Actual Age Value (Either supplementing or replacing age category)
-- Mobile App
+- Mobile App 
 - Ability Modifiers
 - Display & SaveFile printouts should look as close to a stat page as possible
 - Extra / Ability Descriptions (Or links / hover text / something)
@@ -26,6 +26,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###May 11th, 2017
+- Merged changes suggested by B.S. for Persistence.
+
 ###April 26th, 2017
 - Created program updater
 - Created website for program hosting / updater use

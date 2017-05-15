@@ -48,7 +48,7 @@ public class GenerateSourceData {
 
     private SourcePersistence _sourcePersistance;
 
-        ////////CONSTRUCTOR////////
+    ////////CONSTRUCTOR////////
     GenerateSourceData(SourcePersistence sourcePersistance){
         _sourcePersistance = sourcePersistance;
         generateRacialStatsSourceData();
@@ -66,7 +66,6 @@ public class GenerateSourceData {
         for(RacialStatBlock raceEntry: GenerateSourceData.raceStatBlock){
             if(!raceEntry.isSubrace){
                 raceSourceStatic.add(raceEntry.name);
-                //System.out.println(raceSourceStatic);
             }
         }
     }
@@ -81,21 +80,11 @@ public class GenerateSourceData {
     }
 
     private void generateNameSourceData(){
-        //The master list containing all Name options
         //TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
         nameData = _sourcePersistance.GetData("NameDefault");
-
-        //DEBUG TOOL: Check to see that the list is being created
-        /*
-        System.out.println("Name List:");
-        for(String out: nameList){
-            System.out.println(out);
-        }
-        */
     }
 
     private void generateNameSectionData(){
-
         for(String entry: nameData){
             if(entry.contains("BEGINNING:")){
                 beginningName.add(entry);

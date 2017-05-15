@@ -203,7 +203,7 @@ public class MainFrame extends JFrame {
 						myExtraChoice = RacialStatBlock.builtStats.extraChoice;
 						
 					//CHARACTER SYSOUT, DISPLAY & SAVE SECTION
-						
+					//TODO: Look into cleaning this fucking mess up. It's awful. There's gotta be a better way.
 						if(!myNickname.isEmpty()){
 							if(myNickname.contains("the ")){
 								textPanel.appendText("Name: " + myName + " " + myLastName + " " + myNickname + "\n"); //Set "title" nicknames (ex: 'the Epic') to the end
@@ -226,10 +226,10 @@ public class MainFrame extends JFrame {
 							}
 						}
 						
-						textPanel.appendText("Race: " + myRace + "\n"); //textPanel = Print to the GUI
-						System.out.println("Race: " + myRace); //Sysout = Print to the IDE
+						textPanel.appendText("Race: " + myRace + "\n");
+						System.out.println("Race: " + myRace); 
 						if(saveNext){
-							characterResults.add("Race: " + myRace); //characterResults = Add to the array used for Saving characters
+							characterResults.add("Race: " + myRace);
 						}
 						if(mySubRace != ""){
 							textPanel.appendText("Subrace: " + mySubRace + "\n");
