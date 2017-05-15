@@ -4,7 +4,7 @@ import persistence.SourcePersistanceFactory;
 import persistence.SourcePersistence;
 
 public class CharacterCreator {
-
+    
     static int thisVersion = 1;
 
     public static void main(String[] args) {
@@ -15,7 +15,6 @@ public class CharacterCreator {
             if (Integer.parseInt(UpdateChecker.getLatestVersion()) > thisVersion) {
                 new UpdateInfo(UpdateChecker.getWhatsNew());
             } else {
-              
                 @SuppressWarnings("unused")
                 GenerateSourceData sourceData = new GenerateSourceData(sourcePersistance);
 
