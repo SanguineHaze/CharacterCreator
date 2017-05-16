@@ -28,6 +28,7 @@
 #Recent Updates
 ###May 16th, 2017
 - Refactored how results are printed for the user and within the IDE. Removed nearly 100 lines of un-necessary code.
+- Created a pane to display that we're checking for updates to the user.
 
 ###May 11th, 2017
 - Merged changes suggested by B.S. for Persistence.
