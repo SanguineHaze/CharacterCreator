@@ -34,6 +34,9 @@ public class MainFrame extends JFrame {
     RacialStatBlock myRacialStats;
     ArrayList<String> myLanguage, myExtra, myExtraChoice;
     int myStr, myDex, myCon, myInt, myWis, myCha, mySpeed, myFlySpeed, mySwimSpeed;
+    
+    int defaultDetail = 25;
+    int defaultNickname = 25;
 
     int nicknameChance, detailChance, numGenInt;
 
@@ -92,18 +95,14 @@ public class MainFrame extends JFrame {
 
                     nicknameChance = formPanel.getNicknameChanceInt();
                     if (nicknameChance < 0 || nicknameChance > 100) {
-                        nicknameChance = 25; // handle unset nickname chance.
-                                             // Set a default
+                        nicknameChance = defaultNickname;
                     }
 
                     detailChance = formPanel.getDetailsChance();
+                    System.out.println(defaultDetail);
                     if (detailChance < 0 || detailChance > 100) {
-                        detailChance = 25; // Default AdditionalDetail chance.
+                        detailChance = defaultDetail;
                     }
-
-                    // DEBUG TOOL - NICKNAME CHANCE %
-                    // System.out.println("MainFrame - NicknameChance:" +
-                    // nicknameChance);
 
                     textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
                     textPanel.appendText("\n");
@@ -158,11 +157,9 @@ public class MainFrame extends JFrame {
                         } else if (!(userProfession.isEmpty())) {
                             thisProfession.setChosenProfession(userProfession);
                         }
-
                         myProfession = thisProfession.chosenProfession;
 
                         // ADDITIONAL FEATURES SECTION
-
                         thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
                                 detailChance);
 
@@ -172,7 +169,6 @@ public class MainFrame extends JFrame {
                         myDetail = thisMotivation.chosenDetail;
 
                         // CHARACTER STAT BLOCK
-
                         thisRacialStatBlock.generateRacialStats(myRace, mySubRace);
                         myStr = RacialStatBlock.builtStats.bonusStr;
                         myDex = RacialStatBlock.builtStats.bonusDex;
@@ -200,7 +196,6 @@ public class MainFrame extends JFrame {
                             characterResults.add("Name: " + myName + " " + myLastName);
                         }
                         characterResults.add("Race: " + myRace);
-
                         if (mySubRace != "") {
                             characterResults.add("Subrace: " + mySubRace);
                         }
