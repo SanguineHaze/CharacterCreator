@@ -10,10 +10,11 @@ public class CharacterCreator {
     public static void main(String[] args) {
         SourcePersistence sourcePersistance = SourcePersistanceFactory.Create();
         
-        //TODO: Create a "Checking Version" popup. Currently doesn't display anything, and the lag time where it's "not doing anything" is avoidable.
+        UpdateNotice notice = new UpdateNotice(); 
         try {
             if (Integer.parseInt(UpdateChecker.getLatestVersion()) > thisVersion) {
                 new UpdateInfo(UpdateChecker.getWhatsNew());
+                notice.dispose();
             } else {
                 @SuppressWarnings("unused")
                 GenerateSourceData sourceData = new GenerateSourceData(sourcePersistance);
@@ -23,8 +24,11 @@ public class CharacterCreator {
                         new MainFrame();
                     }
                 });
+                notice.dispose();
             }
+            notice.dispose();
         } catch (Exception ex) {
+            
             ex.printStackTrace();
 
             // In case there's no internet connection, just launch. 

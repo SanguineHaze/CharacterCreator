@@ -1,9 +1,11 @@
-import java.io.IOException;
+import java.awt.BorderLayout;
 import java.io.InputStream;
 import java.net.URL;
 
-public class UpdateChecker {
+import javax.swing.JPanel;
 
+public class UpdateChecker{
+    
 	private final static String versionURL = "http://programs.hazegaming.com/npcgenstatus";
 	private final static String historyURL = "http://programs.hazegaming.com/npcgenstatus";
 	
@@ -31,5 +33,4 @@ public class UpdateChecker {
 		}
 		return buffer.toString();
 	}
-	
 }
