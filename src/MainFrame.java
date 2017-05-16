@@ -13,32 +13,15 @@ import javax.swing.border.Border;
 public class MainFrame extends JFrame {
 
     ArrayList<String> characterResults = new ArrayList<>();
-
-    String userRace;
-    String userSubRace;
-    String userSex;
-    String userAge;
-    String userProfession;
-    String myRace = "";
-    String mySubRace = "";
-    String mySex = "";
-    String myName = "";
-    String myLastName = "";
-    String myAge = "";
-    String myMotivation = "";
-    String myProfession = "";
-    String myPersonality = "";
-    String myNickname = "";
-    String myDetail = "";
-
-    RacialStatBlock myRacialStats;
     ArrayList<String> myLanguage, myExtra, myExtraChoice;
+    String userRace, userSubRace, userSex, userAge, userProfession;
+    String myRace, mySubRace, mySex, myName, myLastName, myAge, myMotivation, myProfession, myPersonality, myNickname,
+            myDetail;
+    RacialStatBlock myRacialStats;
     int myStr, myDex, myCon, myInt, myWis, myCha, mySpeed, myFlySpeed, mySwimSpeed;
-    
+    int nicknameChance, detailChance, numGenInt;
     int defaultDetail = 25;
     int defaultNickname = 25;
-
-    int nicknameChance, detailChance, numGenInt;
 
     public TextPanel textPanel;
     private JButton generateBtn;
@@ -86,9 +69,7 @@ public class MainFrame extends JFrame {
                     saveNext = formPanel.isSaveNext();
                     includeStats = formPanel.isIncludeStats();
 
-                    numGenInt = formPanel.getNumGenInt(); // Check to see user's
-                                                          // input
-                    // If user hasn't specified, set default:
+                    numGenInt = formPanel.getNumGenInt();
                     if (numGenInt < 1) {
                         numGenInt = 25;
                     }
@@ -122,8 +103,6 @@ public class MainFrame extends JFrame {
                         if (userRace.isEmpty()) {
                             thisRace.pickNewRace();
                         } else {
-                            // System.out.println("MainFrame: userRace: " +
-                            // userRace);
                             thisRace.pickNewRace(userRace);
                         }
                         myRace = thisRace.chosenRace;
@@ -235,11 +214,10 @@ public class MainFrame extends JFrame {
                                 characterResults.add("Racial Choice: " + myExtraChoice);
                             }
                         }
-                        // Line-split for multiple result tidiness
                         characterResults.add("\n");
                     }
-                    
-                    //PRINT RESULTS OUT
+
+                    // PRINT RESULTS OUT
                     for (String out : characterResults) {
                         if (out != "\n") {
                             textPanel.appendText(out + "\n");
@@ -256,20 +234,18 @@ public class MainFrame extends JFrame {
                         textPanel.appendText(thisWrite.getWTFLocation() + "\n");
                         textPanel.appendText("\n");
                     }
-                    
-                    //NUKE LIST
+
+                    // NUKE LIST
                     characterResults.removeAll(characterResults);
-                    
-                    //SPIT OUT TIME
+
+                    // SPIT OUT TIME
                     long endTime = System.nanoTime();
                     System.out.println("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
 
                     textPanel.appendText("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
                     textPanel.appendText("\n");
-
-                } // end if: Clicked (GENERATE!)
-            }// end actionPerformed
-        });// end generate button actionListener
-
+                }
+            }
+        });
     }
 }
