@@ -26,6 +26,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###May 16th, 2017
+- Refactored how results are printed for the user and within the IDE. Removed nearly 100 lines of un-necessary code.
+
 ###May 11th, 2017
 - Merged changes suggested by B.S. for Persistence.
 
