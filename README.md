@@ -28,6 +28,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###May 24th, 2017
+- Corrected bug where selecting a subrace, saving selection, and then returning to Any Race would not clear the previous subrace selection.
+
 ###April 26th, 2017
 - Created program updater
 - Created website for program hosting / updater use

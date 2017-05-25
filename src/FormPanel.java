@@ -191,6 +191,11 @@ public class FormPanel extends JPanel {
 					} else if ("Any Race".equals(selected)){
 						subRaceComboBox.setEnabled(false);
 					}
+				} else if("Any Race".equals(selected)){
+					remove(subRaceComboBox);
+					add(subRaceComboBox);
+					subRaceComboBox.setSelectedIndex(0);
+					subRaceComboBox.setEnabled(false);
 				}
 				
 				GenerateSourceData.subraceSourceStatic.remove(0); //Remove the entry we added earlier
