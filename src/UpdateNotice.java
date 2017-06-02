@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UpdateNotice extends JFrame {
+    private static final long serialVersionUID = -8305252079471718733L;
     private JPanel pan1;
     private JLabel label;
     

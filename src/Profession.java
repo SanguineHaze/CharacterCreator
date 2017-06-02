@@ -1,7 +1,5 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.Random;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Profession {
 
@@ -30,9 +28,7 @@ public class Profession {
         if("Child".equals(chosenAge)){
             int size = GenerateSourceData.childProfessionSourceStatic.size();
             int indexR = randomProfession.nextInt(size);
-            if (indexR < 1) {
-                int i =1;
-            }
+            
             chosenProfession = GenerateSourceData.childProfessionSourceStatic.get(indexR);
 
             Random childRandom = new Random();
@@ -77,9 +73,4 @@ public class Profession {
         }
 
     }
-
-    //Inspiration fodder: http://arcana.wikidot.com/list-of-medieval-european-professions
-    //http://www222.pair.com/sjohn/blueroom/demog.htm
-
-
 }
