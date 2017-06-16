@@ -21,7 +21,9 @@ import javax.swing.border.Border;
 
 public class FormPanel extends JPanel {
 	
-	//DECLARATIONS
+    private static final long serialVersionUID = -8719247449665634249L;
+    
+    //DECLARATIONS
 	ArrayList<String> subRaceTempList = new ArrayList<>();
 	ArrayList<String> lastSelected = new ArrayList<>();
 	
@@ -31,24 +33,21 @@ public class FormPanel extends JPanel {
 	protected String[] professionCB;
 	
 	private JLabel numGenLabel;
-	private JLabel numGenLabel2;
 	private JLabel raceLabel;
 	private JLabel subRaceLabel;
 	private JLabel sexLabel;
 	private JLabel ageLabel;
 	private JLabel professionLabel;
 	private JLabel nicknameLabel;
-	private JLabel nicknameLabel2;
 	private JLabel detailsChanceLabel;
-	private JLabel detailsChanceLabel2;
 	
 	private JTextField numGenTextField;
 	private JTextField nicknameChance;
 	private JTextField detailsChanceField;
-	private JComboBox raceComboBox;
-	private JComboBox subRaceComboBox;
-	private JComboBox ageComboBox;
-	private JComboBox professionComboBox;	
+	private JComboBox<String> raceComboBox;
+	private JComboBox<String> subRaceComboBox;
+	private JComboBox<String> ageComboBox;
+	private JComboBox<String> professionComboBox;	
 	
 	private JButton setBtn;
 	private int numGenInt;
@@ -77,7 +76,6 @@ public class FormPanel extends JPanel {
 	
 	//VALIDATION
 	static boolean isValidNumber(String val) {
-		// return output if characters are digits
 		Boolean output = false;
 		try {
 			Integer.parseInt(val);
@@ -124,7 +122,7 @@ public class FormPanel extends JPanel {
 		for(int i = 0; i < count; i++){
 			raceComboBoxItems[i] = GenerateSourceData.getRaceSourceStatic().get(i);
 		}
-		raceComboBox = new JComboBox(raceComboBoxItems);
+		raceComboBox = new JComboBox<String>(raceComboBoxItems);
 		raceComboBox.setSelectedItem(0);
 			
 		//SUBRACE ComboBox
@@ -134,26 +132,23 @@ public class FormPanel extends JPanel {
 		for(int i = 0; i < subRaceCount; i++){
 			subRaceCB[i] = GenerateSourceData.subraceSourceStatic.get(i);
 		}			
-		subRaceComboBox = new JComboBox(subRaceCB);
+		subRaceComboBox = new JComboBox<String>(subRaceCB);
 		subRaceComboBox.setSelectedItem(0);
 		
 		raceComboBox.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a) {
-				JComboBox raceComboBox = (JComboBox) a.getSource();
+			    @SuppressWarnings("unchecked") //Java isn't sure ActionEvent 'a' is a string. It is.
+				JComboBox<String> raceComboBox = (JComboBox<String>) a.getSource();
 				String selected = (String) raceComboBox.getSelectedItem();
 				
 				GenerateSourceData.subraceSourceStatic.add(0, "Any " + selected);
 								
 				subRaceTempList.clear();
-				//DEBUG TOOL
-				//System.out.println(selected); //Check what object is selected
 				
 				if(!("Any Race".equals(selected))){
-					//DEBUG TOOL
-					//System.out.println("SubRace ActionListener If!(AnyRace); Selected item: " + selected);
-					
+									
 					int subRaceCount = GenerateSourceData.subraceSourceStatic.size();
-					subRaceCB = new String[subRaceCount];
+					subRaceCB = new String[subRaceCount];					
 					//Set up a filtered list of SubRaces when Race is selected
 					for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
 						if(rSB.parentID.toLowerCase().equals(selected.toLowerCase())){
@@ -166,16 +161,13 @@ public class FormPanel extends JPanel {
 					subRaceCB = new String[subRaceTLCount];
 					for(int i = 0; i < subRaceTLCount; i++){
 						subRaceCB[i] = subRaceTempList.get(i);
-						
-						//DEBUG TOOL - SUBRACE COMBOBOX
-						//System.out.println("SubRace ComboBox Items: " + subRaceCB[i]);
 					}
 					
-					if(!(subRaceTempList.isEmpty())){
+					if(!subRaceTempList.isEmpty()){
 						subRaceComboBox.setEnabled(true);
 						//Remove and rebuild the SubRace list
 						remove(subRaceComboBox);
-						subRaceComboBox = new JComboBox(subRaceCB);
+						subRaceComboBox = new JComboBox<String>(subRaceCB);
 						subRaceComboBox.setSelectedItem(0);	
 						gbc.weightx = 1;
 						gbc.weighty = 0.1;
@@ -191,9 +183,14 @@ public class FormPanel extends JPanel {
 					} else if ("Any Race".equals(selected)){
 						subRaceComboBox.setEnabled(false);
 					}
+				} else if("Any Race".equals(selected)){
+					remove(subRaceComboBox);
+					add(subRaceComboBox);
+					subRaceComboBox.setSelectedIndex(0);
+					subRaceComboBox.setEnabled(false);
 				}
-				
-				GenerateSourceData.subraceSourceStatic.remove(0); //Remove the entry we added earlier
+				//Remove the entry we added earlier for clean lists.
+				GenerateSourceData.subraceSourceStatic.remove(0); 
 			}			
 		});		
 		
@@ -208,16 +205,17 @@ public class FormPanel extends JPanel {
 		for(int ii = 0; ii < ageCount; ii++){
 			ageCB[ii] = ageRange.get(ii);
 		}
-		ageComboBox = new JComboBox(ageCB);
-		
-		GenerateSourceData.adultProfessionSourceStatic.sort(null); //Sort the list alphabetically
-		GenerateSourceData.adultProfessionSourceStatic.add(0, "Any Profession"); //Fuck up the sorting immediately after!		
+		ageComboBox = new JComboBox<String>(ageCB);
+		//Sort the list alphabetically
+		GenerateSourceData.adultProfessionSourceStatic.sort(null); 
+		//Fuck up the sorting immediately after!
+		GenerateSourceData.adultProfessionSourceStatic.add(0, "Any Profession"); 		
 		int professionCount = GenerateSourceData.adultProfessionSourceStatic.size();
 		professionCB = new String[professionCount];
 		for(int pi=0; pi < professionCount; pi++){
 			professionCB[pi] = GenerateSourceData.adultProfessionSourceStatic.get(pi);
 		}
-		professionComboBox = new JComboBox(professionCB);
+		professionComboBox = new JComboBox<String>(professionCB);
 		
 		saveCheckBox = new JCheckBox("Save Next Results");
 		generateStats = new JCheckBox("Generate Stats");
@@ -234,7 +232,7 @@ public class FormPanel extends JPanel {
 		
 		// ROW 1 - # NPCs
 		gbc.anchor = GridBagConstraints.RELATIVE;
-		gbc.gridx = 0; //Row 1 is actually Row 0. Don't question it, just add to it.
+		gbc.gridx = 0; 
 		gbc.gridy = 0;
 		gbc.insets = new Insets(0, 5, 0, 5);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;		
@@ -389,17 +387,13 @@ public class FormPanel extends JPanel {
 						if(isValidNumber(nicknameChanceTransform)){
 							nicknameChanceInt = Integer.parseInt(nicknameChanceTransform);
 						} 
-					} // no need to handle unset or invalid Nickname chance here - we can do that in MainFrame when Generate is clicked.
+					}
 					String detailsChanceTransform = detailsChanceField.getText();
 					if(!(detailsChanceTransform.isEmpty())){
 						if(isValidNumber(detailsChanceTransform)){
 							detailsChance = Integer.parseInt(detailsChanceTransform);
 						}
-					} //again, no need to handle unset or invalid Details here. We'll do this in MainFrame the same as Nickname.
-					
-					//DEBUG TOOL: display numGenInt
-					//System.out.println(numGenInt);
-					
+					}			
 				}				
 			}
 		});
@@ -408,9 +402,7 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JRadioButton clicked = (JRadioButton) e.getSource();
 				if(clicked == sexM){
-					sexSelected = "Male";
-					//DEBUG TOOL
-					//System.out.println(sexSelected);					
+					sexSelected = "Male";				
 				} 
 			}
 		});
@@ -419,9 +411,7 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JRadioButton clicked = (JRadioButton) e.getSource();
 				if(clicked == sexF){
-					sexSelected = "Female";
-					//DEBUG TOOL
-					//System.out.println(sexSelected);					
+					sexSelected = "Female";				
 				} 
 			}
 		});
@@ -430,9 +420,7 @@ public class FormPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JRadioButton clicked = (JRadioButton) e.getSource();
 				if(clicked == sexR){
-					sexSelected = ""; //Blank sex forces the constructor in Name.java to flip a boolean to choose randomly.
-					//DEBUG TOOL
-					//System.out.println(sexSelected);					
+					sexSelected = "";				
 				} 
 			}
 		});
@@ -507,4 +495,4 @@ public class FormPanel extends JPanel {
 			this.subRaceSelected = subRaceSelected;
 		}
 	
-}//end CLASS
+}

@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -8,8 +7,10 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 public class TextPanel extends JPanel {
-	
-	private JTextArea textArea;
+
+    private static final long serialVersionUID = 1560118535609406301L;
+    
+    private JTextArea textArea;
 
 	public TextPanel() {
 		textArea = new JTextArea();
