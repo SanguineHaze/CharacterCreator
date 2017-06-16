@@ -25,10 +25,9 @@ public class CharacterCreator {
                     }
                 });
                 notice.dispose();
-            }
-            notice.dispose();
+            }            
         } catch (Exception ex) {
-            
+            notice.dispose();
             ex.printStackTrace();
 
             // In case there's no internet connection, just launch. 
