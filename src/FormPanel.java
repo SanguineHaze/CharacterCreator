@@ -13,10 +13,12 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
 public class FormPanel extends JPanel {
@@ -50,6 +52,7 @@ public class FormPanel extends JPanel {
 	private JComboBox<String> professionComboBox;	
 	
 	private JButton setBtn;
+	protected JButton raceBtn;
 	private int numGenInt;
 	
 	private JCheckBox saveCheckBox;
@@ -198,6 +201,7 @@ public class FormPanel extends JPanel {
 		sexF = new JRadioButton(sexFString);
 		sexR = new JRadioButton(sexRString);
 		setBtn = new JButton("Set Changes!");
+		raceBtn = new JButton("Race Options");
 		
 		ageRange.add(0, "Any Age");
 		int ageCount = ageRange.size();
@@ -252,6 +256,9 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 2;
 		gbc.insets = new Insets(0,5,0,0);
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(raceBtn, gbc);
+		
+		//TODO: Remove & Replace raceLabel & raceComboBox
 		add(raceLabel, gbc);
 		
 		gbc.gridx = 0;

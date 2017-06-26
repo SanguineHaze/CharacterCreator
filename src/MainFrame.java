@@ -46,6 +46,19 @@ public class MainFrame extends JFrame {
         setSize(1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        
+        formPanel.raceBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton clicked = (JButton) e.getSource();
+                if(clicked == formPanel.raceBtn){
+                    formPanel.setVisible(false);
+                    textPanel.setVisible(false);
+                    RacePanel racePanel = new RacePanel();
+                    add(racePanel, BorderLayout.CENTER);
+                    setVisible(true);
+                }
+            }
+        });
 
         // GENERATE BUTTON SECTION
         generateBtn.addActionListener(new ActionListener() {

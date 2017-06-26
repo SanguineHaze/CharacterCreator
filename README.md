@@ -26,6 +26,10 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###Jun 26, 2017
+-Merged dev branch to Main (including changes up to May 25th)
+-Began implementing a separate panel for Race options.
+
 ###May 25, 2017
 - Corrected bug where selecting a subrace, saving selection, and then returning to Any Race would not clear the previous subrace selection.
 
