@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class MainFrame extends JFrame {
 	
@@ -24,6 +25,7 @@ public class MainFrame extends JFrame {
     public TextPanel textPanel;
     private JButton generateBtn;
     private FormPanel formPanel;
+    private RacePanel racePanel;
     private boolean saveNext, includeStats;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
@@ -32,11 +34,11 @@ public class MainFrame extends JFrame {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
-
         setLayout(new BorderLayout());
 
         textPanel = new TextPanel();
         formPanel = new FormPanel();
+        racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
         add(formPanel, BorderLayout.WEST);
@@ -53,9 +55,22 @@ public class MainFrame extends JFrame {
                 if(clicked == formPanel.raceBtn){
                     formPanel.setVisible(false);
                     textPanel.setVisible(false);
-                    RacePanel racePanel = new RacePanel();
+                    generateBtn.setVisible(false);
+                    racePanel.setVisible(true);
                     add(racePanel, BorderLayout.CENTER);
                     setVisible(true);
+                }
+            }
+        });
+        
+        racePanel.rpSaveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton clicked = (JButton) e.getSource();
+                if(clicked == racePanel.rpSaveBtn){
+                    racePanel.setVisible(false);
+                    formPanel.setVisible(true);
+                    textPanel.setVisible(true);
+                    generateBtn.setVisible(true);
                 }
             }
         });
