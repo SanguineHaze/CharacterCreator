@@ -1,13 +1,14 @@
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.border.Border;
 
@@ -17,18 +18,14 @@ public class RacePanel extends JPanel{
     
     protected JButton rpSaveBtn;
     private int boxRow = 0;
+    protected ArrayList<String> selectedRaces = new ArrayList<>();
     
     RacePanel(){
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        
-        Dimension dim = getPreferredSize();
-        dim.width = 250;
-        setPreferredSize(dim);
-        
+
         Border innerBorder = BorderFactory.createTitledBorder("Race Options");
-        Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 0);
-        setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+        setBorder(innerBorder);
         
         rpSaveBtn = new JButton("Save");
 
@@ -42,6 +39,12 @@ public class RacePanel extends JPanel{
             gbc.fill = GridBagConstraints.NONE;
             int boxCol = 0;
             JCheckBox optionBox = new JCheckBox(races.get(i));
+            optionBox.setName(races.get(i));
+            optionBox.addItemListener(boxListener);
+            if(optionBox.getName().toLowerCase().equals("any race")){
+                optionBox.setSelected(true);
+            }
+            
             gbc.gridy = boxRow;
             gbc.gridx = 0;
             add(optionBox, gbc);
@@ -49,6 +52,8 @@ public class RacePanel extends JPanel{
             for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
                 if(rSB.parentID.toLowerCase().equals(races.get(i).toLowerCase())){
                     JCheckBox optionBox2 = new JCheckBox(rSB.name);
+                    optionBox2.setName(rSB.name);
+                    optionBox2.addItemListener(boxListener);
                     gbc.gridy = boxRow;
                     gbc.gridx = boxCol;
                     add(optionBox2, gbc);
@@ -65,7 +70,7 @@ public class RacePanel extends JPanel{
             gbc.gridy = boxRow;
             gbc.gridx = 0;
             gbc.weightx = 1;
-            gbc.gridwidth = GridBagConstraints.RELATIVE;
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
             gbc.fill = GridBagConstraints.HORIZONTAL;
             add(new JSeparator(), gbc);
             boxRow++;
@@ -74,5 +79,26 @@ public class RacePanel extends JPanel{
         // Layout
         gbc.gridy = boxRow +1;
         add(rpSaveBtn, gbc);
+        
+    }
+    // Listener
+    ItemListener boxListener = new ItemListener(){
+        public void itemStateChanged(ItemEvent e) {
+            JCheckBox check = (JCheckBox)e.getSource();
+            String name = check.getName();
+            if(e.getStateChange() == ItemEvent.SELECTED){
+                selectedRaces.add(name);
+            } else if (e.getStateChange() == ItemEvent.DESELECTED){
+                selectedRaces.remove(name);
+            }
+        }
+    };
+    
+    // GETTERS & SETTERS
+    public ArrayList<String> getSelectedRaces() {
+        return selectedRaces;
+    }
+    public void setSelectedRaces(ArrayList<String> selectedRaces) {
+        this.selectedRaces = selectedRaces;
     }
 }

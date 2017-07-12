@@ -26,6 +26,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###Jul 12, 2017
+- Separate panel for Race options completed. Features a checkbox option system, so you can select exactly the races and subraces desired. (Making Version 1 worth sending to the public)
+
 ###Jun 26, 2017
 -Merged dev branch to Main (including changes up to May 25th)
 -Began implementing a separate panel for Race options.
@@ -39,7 +42,6 @@
 
 ###May 11th, 2017
 - Merged changes suggested by B.S. for Persistence.
->>>>>>> origin/Development-Branch
 
 ###April 26th, 2017
 - Created program updater
