@@ -1,4 +1,3 @@
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ItemEvent;
@@ -76,12 +75,12 @@ public class RacePanel extends JPanel{
             boxRow++;
         }
         
-        // Layout
+        // LAYOUT
         gbc.gridy = boxRow +1;
         add(rpSaveBtn, gbc);
         
     }
-    // Listener
+    // LISTENER
     ItemListener boxListener = new ItemListener(){
         public void itemStateChanged(ItemEvent e) {
             JCheckBox check = (JCheckBox)e.getSource();
