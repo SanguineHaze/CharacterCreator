@@ -2,7 +2,9 @@ import java.util.EventObject;
 
 public class FormEvent extends EventObject {
 	
-	private int numGenInt;
+    private static final long serialVersionUID = 3302432343515592238L;
+    
+    private int numGenInt;
 	
 	public int getNumGenInt() {
 		return numGenInt;

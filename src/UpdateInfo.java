@@ -11,7 +11,9 @@ import javax.swing.JScrollPane;
 
 public class UpdateInfo extends JFrame{
 	
-	private JEditorPane infoPane;
+    private static final long serialVersionUID = -8171551293250183053L;
+    
+    private JEditorPane infoPane;
 	private JScrollPane scp;
 	private JButton okBtn;
 	private JButton cancelBtn;
