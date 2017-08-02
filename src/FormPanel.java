@@ -41,10 +41,13 @@ public class FormPanel extends JPanel {
 	private JLabel nicknameLabel2;
 	private JLabel detailsChanceLabel;
 	private JLabel detailsChanceLabel2;
+	private JLabel itemChanceLabel;
+	private JLabel itemChanceLabel2;
 	
 	private JTextField numGenTextField;
 	private JTextField nicknameChance;
 	private JTextField detailsChanceField;
+	private JTextField itemChanceField;
 	private JComboBox raceComboBox;
 	private JComboBox subRaceComboBox;
 	private JComboBox ageComboBox;
@@ -73,6 +76,7 @@ public class FormPanel extends JPanel {
 
 	protected int nicknameChanceInt = -1;
 	protected int detailsChance;
+	protected int itemChance=25;
 	private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
 	
 	//VALIDATION
@@ -88,7 +92,7 @@ public class FormPanel extends JPanel {
 		return output;
 	}	
 	
-	//THE MAGIC HAPPENS HERE. ALSO, HERE THERE BE DRAGONS.
+	//THE MAGIC HAPPENS HERE. ALSO, HERE THERE BE DRAGONS. 
 	public FormPanel() {
 		
 		setLayout(new GridBagLayout());
@@ -109,6 +113,7 @@ public class FormPanel extends JPanel {
 		professionLabel = new JLabel("Profession:");
 		nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
 		detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
+		itemChanceLabel = new JLabel("Item Chance (0 to 100):");
 		
 		//FIELDS
 		numGenTextField = new JTextField(10);
@@ -117,6 +122,8 @@ public class FormPanel extends JPanel {
 		nicknameChance.setColumns(8);
 		detailsChanceField = new JTextField(8);
 		detailsChanceField.setColumns(8);
+		itemChanceField = new JTextField(8);
+		itemChanceField.setColumns(8);
 		
 		//RACE ComboBox
 		int count = GenerateSourceData.getRaceSourceStatic().size();	
@@ -349,26 +356,38 @@ public class FormPanel extends JPanel {
 		gbc.gridy = 15;
 		add(detailsChanceField, gbc);
 		
+		//ROW 12 - ITEM
+		gbc.gridx = 0;
+		gbc.gridy= 16;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(itemChanceLabel, gbc);
+		
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbc.gridx = 0;
+		gbc.gridy = 17;
+		add(itemChanceField, gbc);
+		
 		//ROW 9 - GENERATE STATS	
 		gbc.gridx = 0;
-		gbc.gridy = 16;
+		gbc.gridy = 18;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(generateStats, gbc);
 		generateStats.setSelected(true);
 		
 		//ROW 9 - SAVE BOX	
 		gbc.gridx = 0;
-		gbc.gridy = 17;
+		gbc.gridy = 19;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(saveCheckBox, gbc);
 		
 		
-		//ROW 9 - SET BUTTON
+		
+		//ROW 10 - SET BUTTON
 		gbc.weightx = 1;
 		gbc.weighty = 3;
 		
 		gbc.gridx = 0;
-		gbc.gridy = 18;
+		gbc.gridy = 20;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(setBtn, gbc);
 
@@ -396,6 +415,13 @@ public class FormPanel extends JPanel {
 							detailsChance = Integer.parseInt(detailsChanceTransform);
 						}
 					} //again, no need to handle unset or invalid Details here. We'll do this in MainFrame the same as Nickname.
+					
+					String itemChanceTransform=itemChanceField.getText();
+					if(!(itemChanceTransform.isEmpty())){
+						if(isValidNumber(itemChanceTransform)){
+							itemChance = Integer.parseInt(itemChanceTransform);
+						}
+					}						//just copied over the listing of details. nothing too special.
 					
 					//DEBUG TOOL: display numGenInt
 					//System.out.println(numGenInt);
@@ -467,8 +493,13 @@ public class FormPanel extends JPanel {
 		public void setIncludeStats(boolean includeStats) {
 			this.includeStats = includeStats;
 		}
+		
 		public int getDetailsChance() {
 			return detailsChance;
+		}
+		
+		public int getItemChance() { 
+		return itemChance;
 		}
 		
 		public int getNicknameChanceInt() {

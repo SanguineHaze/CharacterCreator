@@ -28,6 +28,7 @@ public class GenerateSourceData {
 	protected static ArrayList<String> personalitySourceData = new ArrayList<>();
 	protected static ArrayList<String> nicknameSourceData = new ArrayList<>();
 	protected static ArrayList<String> detailsSourceData = new ArrayList<>();
+	protected static ArrayList<String> itemsSourceData = new ArrayList<>();
 	//Data for "Details" Subsection //
 	protected static ArrayList<String> theLocalSourceData = new ArrayList<>();
 	protected static ArrayList<String> favorToSourceData = new ArrayList<>();
@@ -61,6 +62,7 @@ public class GenerateSourceData {
 		generatePersonalitySourceData();
 		generateNicknameSourceData();
 		generateDetailsSourceData();
+		generateItemSourceData();
 	}
 	
 	////////METHODS////////
@@ -263,6 +265,20 @@ public class GenerateSourceData {
 		}
 		
 	}
+	
+	private void generateItemSourceData(){
+		File itemListTargetFile = new File ("Items.txt");
+		try {
+			ReadFromFile file = new ReadFromFile(itemListTargetFile);
+			itemsSourceData = file.OpenFile();
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	
+	
+	}
+	
+	
 	
 	private void generateRacialStatsSourceData(){
 		String filesDirectory = (new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + File.separator).replace("%20", " ");
