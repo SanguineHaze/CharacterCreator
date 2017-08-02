@@ -11,9 +11,7 @@ import persistence.SourcePersistence;
 
 public class GenerateSourceData {
 
-    protected ArrayList<String> raceSourcePreStatic = new ArrayList<>();
     protected static ArrayList<String> raceSourceStatic = new ArrayList<>();
-    protected ArrayList<String> subraceSourcePreStatic = new ArrayList<>();
     protected static ArrayList<String> subraceSourceStatic = new ArrayList<>();
     protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
     protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
