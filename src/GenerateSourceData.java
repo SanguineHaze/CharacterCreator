@@ -10,36 +10,38 @@ import org.w3c.dom.NodeList;
 import persistence.SourcePersistence;
 
 public class GenerateSourceData {
-
-    protected ArrayList<String> raceSourcePreStatic = new ArrayList<>();
-    protected static ArrayList<String> raceSourceStatic = new ArrayList<>();
-    protected ArrayList<String> subraceSourcePreStatic = new ArrayList<>();
-    protected static ArrayList<String> subraceSourceStatic = new ArrayList<>();
-    protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
-    protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
-    protected static ArrayList<String> nameData = new ArrayList<>();
-    protected static ArrayList<String> beginningName = new ArrayList<>();
-    protected static ArrayList<String> middleName = new ArrayList<>();
-    protected static ArrayList<String> endName = new ArrayList<>();
-    protected static ArrayList<String> ageRange = new ArrayList<>();
-    protected static ArrayList<String> ageRangeStatic = new ArrayList<>();
-    protected static ArrayList<String> motivationSourceData = new ArrayList<>();
-    protected static ArrayList<String> personalitySourceData = new ArrayList<>();
-    protected static ArrayList<String> nicknameSourceData = new ArrayList<>();
-    protected static ArrayList<String> detailsSourceData = new ArrayList<>();
-    //Data for "Details" Subsection //
-    protected static ArrayList<String> theLocalSourceData = new ArrayList<>();
-    protected static ArrayList<String> favorToSourceData = new ArrayList<>();
-    protected static ArrayList<String> protectedBySourceData = new ArrayList<>();
-    protected static ArrayList<String> mapToSourceData = new ArrayList<>();
-    protected static ArrayList<String> possessesASourceData = new ArrayList<>();
-    protected static ArrayList<String> obsessedBySourceData = new ArrayList<>();
-    protected static ArrayList<String> cursedBySourceData = new ArrayList<>();
-    protected static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
-    private NodeList raceTag;
-    private NodeList subraceTag;
-
-
+	
+	protected ArrayList<String> raceSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> raceSourceStatic = new ArrayList<>();
+	protected ArrayList<String> subraceSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> subraceSourceStatic = new ArrayList<>();
+	protected ArrayList<String> adultProfessionSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
+	protected ArrayList<String> childProfessionSourcePreStatic = new ArrayList<>();
+	protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+	protected static ArrayList<String> nameData = new ArrayList<>();
+	protected static ArrayList<String> beginningName = new ArrayList<>();
+	protected static ArrayList<String> middleName = new ArrayList<>();
+	protected static ArrayList<String> endName = new ArrayList<>();
+	protected static ArrayList<String> ageRange = new ArrayList<>();
+	protected static ArrayList<String> ageRangeStatic = new ArrayList<>();
+	protected static ArrayList<String> motivationSourceData = new ArrayList<>();
+	protected static ArrayList<String> personalitySourceData = new ArrayList<>();
+	protected static ArrayList<String> nicknameSourceData = new ArrayList<>();
+	protected static ArrayList<String> detailsSourceData = new ArrayList<>();
+	protected static ArrayList<String> itemsSourceData = new ArrayList<>();
+	//Data for "Details" Subsection //
+	protected static ArrayList<String> theLocalSourceData = new ArrayList<>();
+	protected static ArrayList<String> favorToSourceData = new ArrayList<>();
+	protected static ArrayList<String> protectedBySourceData = new ArrayList<>();
+	protected static ArrayList<String> mapToSourceData = new ArrayList<>();
+	protected static ArrayList<String> possessesASourceData = new ArrayList<>();
+	protected static ArrayList<String> obsessedBySourceData = new ArrayList<>();
+	protected static ArrayList<String> cursedBySourceData = new ArrayList<>();
+	protected static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
+	private NodeList raceTag;
+	private NodeList subraceTag;
+	
     ////////GETTERS & SETTERS////////
 
     public static ArrayList<String> getRaceSourceStatic() {
@@ -126,6 +128,7 @@ public class GenerateSourceData {
         possessesASourceData = _sourcePersistance.GetData("PossessesA");
         obsessedBySourceData = _sourcePersistance.GetData("ObsessedBy");
         cursedBySourceData = _sourcePersistance.GetData("Cursed");
+        itemsSourceData = _sourcePersistance.GetData("Items");
     }
 
     private ArrayList<String> DeserializeData(ArrayList<String> list) {

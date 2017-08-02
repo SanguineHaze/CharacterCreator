@@ -7,6 +7,7 @@ public class AdditionalFeatures {
 	ArrayList<String> personalityList = GenerateSourceData.personalitySourceData;
 	ArrayList<String> nicknameList = GenerateSourceData.nicknameSourceData;
 	ArrayList<String> detailsList = GenerateSourceData.detailsSourceData;
+	ArrayList<String> itemList = GenerateSourceData.itemsSourceData;
 	
 	//Lists contained within DetailsList
 	ArrayList<String> theLocalList = GenerateSourceData.theLocalSourceData;
@@ -17,13 +18,14 @@ public class AdditionalFeatures {
 	ArrayList<String> obsessedByList = GenerateSourceData.obsessedBySourceData;
 	ArrayList<String> cursedByList = GenerateSourceData.cursedBySourceData;
 	
-	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
-	private int nicknameChance, detailChance;
+	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail, chosenItem;
+	private int nicknameChance, detailChance, itemChance;
 
-	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance,int itemChance){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
+		chosenItem="";
 		chosenNickname = "";
 		generateMotivation(chosenAge);
 		generatePersonality();
@@ -31,6 +33,8 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		this.detailChance = detailChance;
 		generateDetails(chosenRace, chosenProfession);
+		this.itemChance = itemChance;
+		generateItem(); //Currently no inputs, could easily take in race or profession -- Max
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
@@ -90,6 +94,30 @@ public class AdditionalFeatures {
 			}
 		}		
 	}
+	//ITEM SECTION
+	public void generateItem(){
+	Random assignItem = new Random();
+	int hasItem = assignItem.nextInt(101); //Randomly decide if character has itemChance
+	
+	//DEBUG TOOL: Check nickname chance rolls
+	
+	//System.out.println("HNN#: " + hasItem);
+	//System.out.println("NNC#: " + itemChance);
+	
+	
+
+			if(hasItem <= itemChance){
+			Random randomItem = new Random();
+			int index = randomItem.nextInt(itemList.size());
+			chosenItem = itemList.get(index);
+			if(chosenItem.contains("+")){
+				this.chosenItem = "" + chosenItem + "!";
+			}
+		}		
+	}
+		
+	
+	
 	
 	///ADDITIONAL DETAILS SECTION///
 	public void generateDetails(String race, String profession){
