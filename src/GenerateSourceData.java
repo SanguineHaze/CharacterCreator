@@ -80,7 +80,7 @@ public class GenerateSourceData {
     }
 
     private void generateNameSourceData(){
-        //TODO: Expand this section to have different files for the different races. Should be able to if/else if this, the same as subrace.
+        //TODO: Expand this section to have different files for the different races.
         nameData = _sourcePersistance.GetData("NameDefault");
     }
 

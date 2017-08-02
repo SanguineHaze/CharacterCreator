@@ -28,12 +28,12 @@ public class WriteToFile {
             pw.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
-        }//end PrintWriter try/catch
-	}//end WriteToFile()
+        }
+	}
 	
 	public String getWTFLocation() {
 		String location = "Created File: " + filePath + theDate  + ".txt";
 		return location;
 	}
 	
-}//end CLASS
+}

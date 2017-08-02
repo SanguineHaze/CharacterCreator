@@ -2,9 +2,12 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class MainFrame extends JFrame {
 	
@@ -24,7 +27,10 @@ public class MainFrame extends JFrame {
     public TextPanel textPanel;
     private JButton generateBtn;
     private FormPanel formPanel;
+    private RacePanel racePanel;
     private boolean saveNext, includeStats;
+    private JPanel formTemplate;
+    private JScrollPane scrollTemplate;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
 
@@ -32,28 +38,59 @@ public class MainFrame extends JFrame {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
-
         setLayout(new BorderLayout());
 
+        formTemplate = new JPanel();
+        scrollTemplate = new JScrollPane();
         textPanel = new TextPanel();
         formPanel = new FormPanel();
+        racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
-        add(formPanel, BorderLayout.WEST);
+        add(formTemplate, BorderLayout.WEST);
+        formTemplate.add(formPanel);
         add(textPanel, BorderLayout.CENTER);
         add(generateBtn, BorderLayout.SOUTH);
 
-        setSize(1200, 800);
+        setSize(1200, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        
+        formPanel.raceBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton clicked = (JButton) e.getSource();
+                if(clicked == formPanel.raceBtn){
+                    formPanel.setVisible(false);
+                    textPanel.setVisible(false);
+                    generateBtn.setVisible(false);
+                    add(scrollTemplate);
+                    scrollTemplate.setViewportView(racePanel);
+                    racePanel.setVisible(true);
+                    setVisible(true);
+                }
+            }
+        });
+        
+        racePanel.rpSaveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton clicked = (JButton) e.getSource();
+                if(clicked == racePanel.rpSaveBtn){
+                    racePanel.setVisible(false);
+                    formPanel.setVisible(true);
+                    textPanel.setVisible(true);
+                    generateBtn.setVisible(true);
+                }
+            }
+        });
 
         // GENERATE BUTTON SECTION
         generateBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 JButton clicked = (JButton) ev.getSource();
                 if (clicked == generateBtn) {
-
+                    
                     textPanel.clearText(); // Operation 'Clean Slate' is a go.
+                    formPanel.getFormChanges();
 
                     long startTime = System.nanoTime();
 
@@ -78,7 +115,6 @@ public class MainFrame extends JFrame {
                     }
 
                     detailChance = formPanel.getDetailsChance();
-                    System.out.println(defaultDetail);
                     if (detailChance < 0 || detailChance > 100) {
                         detailChance = defaultDetail;
                     }
@@ -88,28 +124,55 @@ public class MainFrame extends JFrame {
 
                     for (int i = 0; i < numGenInt; i++) {
                         // USER INPUTS
+                        userRace = "";
+                        userSubRace = "";
+                        
+                        ArrayList<String> chars = racePanel.getSelectedRaces();
+                        Random rand = new Random();
+                        int randChoice = rand.nextInt(chars.size());
+                        String choice = chars.get(randChoice);
+                        for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
+                            if(rSB.name.toLowerCase().equals(choice.toLowerCase())){
+                                if(rSB.isSubrace){
+                                    userRace = rSB.parentID;
+                                    userSubRace = choice;
+                                } else if(!rSB.isSubrace){
+                                    userRace = choice;
+                                    userSubRace = "";
+                                }
+                            }
+                        }
+                        
                         userAge = formPanel.getAgeSelected();
                         userSex = formPanel.getSexSelected();
-                        userRace = GenerateSourceData.getRaceSourceStatic().get(formPanel.getRaceSelected());
                         userProfession = formPanel.getProfessionSelected();
-
+                        
                         if (userRace.equals("Any Race")) {
                             userRace = "";
                         }
 
                         // RACE SECTION
-                        if (userRace.isEmpty()) {
+                        if (userRace.isEmpty() && userSubRace.isEmpty()) {
                             thisRace.pickNewRace();
-                        } else {
+                        } else if(!userRace.isEmpty() && userSubRace.isEmpty()){
                             thisRace.pickNewRace(userRace);
+                        } else if(userRace.isEmpty() && !userSubRace.isEmpty()){
+                            for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
+                                if(rSB.name.toLowerCase().equals(userSubRace.toLowerCase())){
+                                    userRace = rSB.parentID;
+                                    thisRace.pickNewRace(userRace);
+                                }
+                            }
+                        } else if(!userRace.isEmpty() && !userSubRace.isEmpty()){
+                            thisRace.pickNewRace(userRace);
+                            thisSubRace.setChosenSubRace(userSubRace);
                         }
                         myRace = thisRace.chosenRace;
 
                         // SUBRACE SECTION
-                        userSubRace = formPanel.getSubRaceSelected();
                         if (userSubRace.isEmpty()) {
                             thisSubRace.generateSubRace(myRace);
-                        } else if (!(userSubRace.isEmpty())) {
+                        } else if (!userSubRace.isEmpty()) {
                             if (userSubRace.contains("Any")) {
                                 thisSubRace.generateSubRace(myRace);
                             } else {
