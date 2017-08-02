@@ -31,19 +31,22 @@ public class MainFrame extends JFrame {
     private boolean saveNext, includeStats;
     private JPanel formTemplate;
     private JScrollPane scrollTemplate;
+    private final GenerateSourceData data;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
 
-    public MainFrame() {
+    public MainFrame(GenerateSourceData data) {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
+        this.data = data;
+
         setLayout(new BorderLayout());
 
         formTemplate = new JPanel();
         scrollTemplate = new JScrollPane();
         textPanel = new TextPanel();
-        formPanel = new FormPanel();
+        formPanel = new FormPanel(this.data);
         racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
@@ -85,6 +88,7 @@ public class MainFrame extends JFrame {
 
         // GENERATE BUTTON SECTION
         generateBtn.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent ev) {
                 JButton clicked = (JButton) ev.getSource();
                 if (clicked == generateBtn) {
@@ -97,7 +101,7 @@ public class MainFrame extends JFrame {
                     Race thisRace = new Race();
                     SubRace thisSubRace = new SubRace();
                     Name thisName = new Name();
-                    Profession thisProfession = new Profession(myAge);
+                    Profession thisProfession = new Profession(myAge, data);
                     AdditionalFeatures thisMotivation = new AdditionalFeatures();
                     RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
 

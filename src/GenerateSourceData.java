@@ -15,7 +15,7 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
+    private static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
     static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
     private static ArrayList<String> nameData = new ArrayList<>();
     static ArrayList<String> beginningName = new ArrayList<>();
@@ -45,6 +45,10 @@ public class GenerateSourceData {
     }
 
     private SourcePersistence _sourcePersistence;
+
+    public ArrayList<String> getAdultProfessionSourceStatic() {
+        return adultProfessionSourceStatic;
+    }
 
     ////////CONSTRUCTOR////////
     GenerateSourceData(SourcePersistence sourcePersistence){
