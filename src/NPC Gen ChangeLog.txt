@@ -1,3 +1,4 @@
 NPCGen Changelog
 
 - Added Method: textClear() to TextPanel.java -- Solves problem of text infinitely appending the current list.
+-ADDED items

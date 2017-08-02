@@ -30,6 +30,7 @@ public class MainFrame extends JFrame {
 	String myPersonality = "";		
 	String myNickname = "";	
 	String myDetail = "";
+	String myItem ="";
 	
 	RacialStatBlock myRacialStats;
 	ArrayList<String> myLanguage, myExtra, myExtraChoice;
@@ -46,6 +47,7 @@ public class MainFrame extends JFrame {
 	
     int nicknameChance;
     int detailChance;
+	int itemChance;
     int numGenInt;
 	
 	public TextPanel textPanel;
@@ -111,6 +113,11 @@ public class MainFrame extends JFrame {
 						detailChance = 25; //Default AdditionalDetail chance.
 					}
 					
+					itemChance = formPanel.getItemChance();
+					if(itemChance < 0 || itemChance > 100){
+						itemChance = 25; //Default AdditionalItem chance.
+					}					
+					System.out.println("MainFrame - ItemChance:" + itemChance);
 					//DEBUG TOOL - NICKNAME CHANCE %
 					//System.out.println("MainFrame - NicknameChance:" + nicknameChance);
 					
@@ -177,14 +184,15 @@ public class MainFrame extends JFrame {
 						
 						myProfession = thisProfession.chosenProfession;			
 						
-					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS) SECTION
+					//ADDITIONAL FEATURES (MOTIVATION, PERSONALITY, NICKNAME, DETAILS, ITEMS) SECTION
 						
-						thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace, detailChance);
+						thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace, detailChance,itemChance);
 						
 						myMotivation = thisMotivation.chosenMotivation;			
 						myPersonality = thisMotivation.chosenPersonality;			 
 						myNickname = thisMotivation.chosenNickname;
 						myDetail = thisMotivation.chosenDetail;
+						myItem = thisMotivation.chosenItem;
 					
 					//CHARACTER STAT BLOCK
 						
@@ -278,6 +286,20 @@ public class MainFrame extends JFrame {
 								characterResults.add("Additional Detail: " + myDetail);
 							}
 						}
+						
+						//if(myItem.isEmpty()) {
+						//	System.out.println("my item is empty");
+					    //	}
+						
+						
+						if(!myItem.isEmpty()){
+							textPanel.appendText("Additional Item: " + myItem + "\n");
+							System.out.println("Additional Item: " + myItem);
+							if(saveNext){
+								characterResults.add("Additional Item: " + myItem);
+							}
+						}
+						
 						
 						if(includeStats){
 							if(mySwimSpeed == 0 && myFlySpeed == 0){
