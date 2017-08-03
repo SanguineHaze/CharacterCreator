@@ -5,6 +5,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import data.dtos.AdultProfessionList;
+import data.dtos.ChildProfessionList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -16,8 +17,8 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    private static AdultProfessionList adultProfessionList;
-    private static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+    private AdultProfessionList adultProfessionList;
+    private ChildProfessionList childProfessionList;
     private static ArrayList<String> nameData = new ArrayList<>();
     private static ArrayList<String> beginningName = new ArrayList<>();
     private static ArrayList<String> middleName = new ArrayList<>();
@@ -51,8 +52,8 @@ public class GenerateSourceData {
         return this.adultProfessionList;
     }
 
-    ArrayList<String> getChildProfessionSourceStatic() {
-        return childProfessionSourceStatic;
+    ChildProfessionList getChildProfessionSourceStatic() {
+        return this.childProfessionList;
     }
 
     ArrayList<String> getBeginningName() {
@@ -185,7 +186,7 @@ public class GenerateSourceData {
     private void generateSourceData(){
 
         adultProfessionList = AdultProfessionList.of(DeserializeData(_sourcePersistence.GetData("Professions")));
-        childProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("ProfessionsChild"));
+        childProfessionList = ChildProfessionList.of(DeserializeData(_sourcePersistence.GetData("ProfessionsChild")));
 
         motivationSourceData = _sourcePersistence.GetData("Motivations");
         personalitySourceData = _sourcePersistence.GetData("Personalities");
