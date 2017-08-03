@@ -123,7 +123,7 @@ public class FormPanel extends JPanel {
             ageCB[ii] = ageRange.get(ii);
         }
         ageComboBox = new JComboBox<String>(ageCB);
-        AdultProfessionList adultProfessionSourceStatic = data.getAdultProfessionSourceStatic();
+        AdultProfessionList adultProfessionSourceStatic = data.getAdultProfessionList();
         adultProfessionSourceStatic.sortAlphabetically();
         adultProfessionSourceStatic.addToTop("Any Profession");
         int professionCount = adultProfessionSourceStatic.size();

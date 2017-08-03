@@ -27,12 +27,12 @@ public class Profession {
     public void generateProfession(String chosenAge){
 
         Random randomProfession = new Random();
-        AdultProfessionList adultProfessionList = data.getAdultProfessionSourceStatic();
+        AdultProfessionList adultProfessionList = data.getAdultProfessionList();
         int index = randomProfession.nextInt(adultProfessionList.size());
         chosenProfession = adultProfessionList.get(index);
 
         if("Child".equals(chosenAge)){
-            ChildProfessionList childProfessionList = data.getChildProfessionSourceStatic();
+            ChildProfessionList childProfessionList = data.getChildProfessionList();
             int size = childProfessionList.size();
             int indexR = randomProfession.nextInt(size);
             

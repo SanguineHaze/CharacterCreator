@@ -6,6 +6,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import data.dtos.AdultProfessionList;
 import data.dtos.ChildProfessionList;
+import data.dtos.MotivationList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -17,15 +18,15 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    private AdultProfessionList adultProfessionList;
-    private ChildProfessionList childProfessionList;
+    private AdultProfessionList _adultProfessionList;
+    private ChildProfessionList _childProfessionList;
     private static ArrayList<String> nameData = new ArrayList<>();
     private static ArrayList<String> beginningName = new ArrayList<>();
     private static ArrayList<String> middleName = new ArrayList<>();
     private static ArrayList<String> endName = new ArrayList<>();
     private static ArrayList<String> ageRange = new ArrayList<>();
     private static ArrayList<String> ageRangeStatic = new ArrayList<>();
-    private static ArrayList<String> motivationSourceData = new ArrayList<>();
+    private MotivationList _motivationList;
     private static ArrayList<String> personalitySourceData = new ArrayList<>();
     private static ArrayList<String> nicknameSourceData = new ArrayList<>();
     private static ArrayList<String> detailsSourceData = new ArrayList<>();
@@ -48,12 +49,12 @@ public class GenerateSourceData {
 
     private SourcePersistence _sourcePersistence;
 
-    AdultProfessionList getAdultProfessionSourceStatic() {
-        return this.adultProfessionList;
+    AdultProfessionList getAdultProfessionList() {
+        return this._adultProfessionList;
     }
 
-    ChildProfessionList getChildProfessionSourceStatic() {
-        return this.childProfessionList;
+    ChildProfessionList getChildProfessionList() {
+        return this._childProfessionList;
     }
 
     ArrayList<String> getBeginningName() {
@@ -76,8 +77,8 @@ public class GenerateSourceData {
         return ageRangeStatic;
     }
 
-    ArrayList<String> getMotivationSourceData() {
-        return motivationSourceData;
+    MotivationList getMotivationList() {
+        return this._motivationList;
     }
 
     ArrayList<String> getPersonalitySourceData() {
@@ -185,10 +186,10 @@ public class GenerateSourceData {
 
     private void generateSourceData(){
 
-        adultProfessionList = AdultProfessionList.of(DeserializeData(_sourcePersistence.GetData("Professions")));
-        childProfessionList = ChildProfessionList.of(DeserializeData(_sourcePersistence.GetData("ProfessionsChild")));
+        _adultProfessionList = AdultProfessionList.of(DeserializeData(_sourcePersistence.GetData("Professions")));
+        _childProfessionList = ChildProfessionList.of(DeserializeData(_sourcePersistence.GetData("ProfessionsChild")));
 
-        motivationSourceData = _sourcePersistence.GetData("Motivations");
+        _motivationList = MotivationList.of(_sourcePersistence.GetData("Motivations"));
         personalitySourceData = _sourcePersistence.GetData("Personalities");
         nicknameSourceData = _sourcePersistence.GetData("Nicknames");
         detailsSourceData = _sourcePersistence.GetData("Details");

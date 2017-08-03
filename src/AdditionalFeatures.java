@@ -1,10 +1,12 @@
+import data.dtos.MotivationList;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class AdditionalFeatures {
 
 	private final GenerateSourceData data;
-	private final ArrayList<String> motivationList;
+	private final MotivationList _motivationList;
 	private final ArrayList<String> personalityList;
 	private final ArrayList<String> nicknameList;
 	private final ArrayList<String> detailsList;
@@ -23,7 +25,7 @@ public class AdditionalFeatures {
 
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
-		motivationList = data.getMotivationSourceData();
+		_motivationList = data.getMotivationList();
 		personalityList = data.getPersonalitySourceData();
 		nicknameList = data.getNicknameSourceData();
 		detailsList = data.getDetailsSourceData();
@@ -57,15 +59,15 @@ public class AdditionalFeatures {
 	public void generateMotivation(String chosenAge){
 		if(!"child".equals(chosenAge.toLowerCase())){
 			Random randomMotivation = new Random();
-			int index = randomMotivation.nextInt(motivationList.size());
-			chosenMotivation = motivationList.get(index);
+			int index = randomMotivation.nextInt(_motivationList.size());
+			chosenMotivation = _motivationList.get(index);
 		} else if("child".equals(chosenAge.toLowerCase())){
 			
 			//TODO: CREATE CHILD MOTIVATION LIST!!!!!!!!!
 			
 			Random randomMotivation = new Random();
-			int index = randomMotivation.nextInt(motivationList.size());
-			chosenMotivation = motivationList.get(index);
+			int index = randomMotivation.nextInt(_motivationList.size());
+			chosenMotivation = _motivationList.get(index);
 		}
 	}
 	
