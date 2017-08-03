@@ -8,6 +8,7 @@ public class RacialStatBlock {
 	int  baseValue = 10;
 	
 	static RacialStatBlock builtStats = new RacialStatBlock();
+
 	
 	public RacialStatBlock(){
 		name = "Not Set";
@@ -51,7 +52,7 @@ public class RacialStatBlock {
 				subraceExtra = new ArrayList<String>(),
 				builtExtra = new ArrayList<String>(),
 				builtExtraChoice = new ArrayList<String>();
-		
+
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
 			if(entry.getName().toLowerCase().equals(chosenRace.toLowerCase())) {
 				tempRace.setName(entry.name);

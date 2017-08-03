@@ -21,7 +21,7 @@ public class CharacterCreator {
 
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        new MainFrame();
+                        new MainFrame(sourceData);
                     }
                 });
                 notice.dispose();
@@ -37,7 +37,7 @@ public class CharacterCreator {
 
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    new MainFrame();
+                    new MainFrame(sourceData);
                 }
             });
         }
