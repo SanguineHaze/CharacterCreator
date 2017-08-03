@@ -6,7 +6,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import data.dtos.AdultProfessionList;
 import data.dtos.ChildProfessionList;
+import data.dtos.DetailsList;
 import data.dtos.MotivationList;
+import data.dtos.NicknameList;
+import data.dtos.PersonalityList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -27,9 +30,9 @@ public class GenerateSourceData {
     private static ArrayList<String> ageRange = new ArrayList<>();
     private static ArrayList<String> ageRangeStatic = new ArrayList<>();
     private MotivationList _motivationList;
-    private static ArrayList<String> personalitySourceData = new ArrayList<>();
-    private static ArrayList<String> nicknameSourceData = new ArrayList<>();
-    private static ArrayList<String> detailsSourceData = new ArrayList<>();
+    private PersonalityList _personalityList;
+    private NicknameList _nicknameList;
+    private DetailsList _detailsList;
     //Data for "Details" Subsection //
     private static ArrayList<String> theLocalSourceData = new ArrayList<>();
     private static ArrayList<String> favorToSourceData = new ArrayList<>();
@@ -81,16 +84,16 @@ public class GenerateSourceData {
         return this._motivationList;
     }
 
-    ArrayList<String> getPersonalitySourceData() {
-        return personalitySourceData;
+    PersonalityList getPersonalityList() {
+        return this._personalityList;
     }
 
-    ArrayList<String> getNicknameSourceData() {
-        return nicknameSourceData;
+    NicknameList getNicknameList() {
+        return this._nicknameList;
     }
 
-    ArrayList<String> getDetailsSourceData() {
-        return detailsSourceData;
+    DetailsList getDetailsList() {
+        return this._detailsList;
     }
 
     ArrayList<String> getTheLocalSourceData() {
@@ -190,9 +193,9 @@ public class GenerateSourceData {
         _childProfessionList = ChildProfessionList.of(DeserializeData(_sourcePersistence.GetData("ProfessionsChild")));
 
         _motivationList = MotivationList.of(_sourcePersistence.GetData("Motivations"));
-        personalitySourceData = _sourcePersistence.GetData("Personalities");
-        nicknameSourceData = _sourcePersistence.GetData("Nicknames");
-        detailsSourceData = _sourcePersistence.GetData("Details");
+        _personalityList = PersonalityList.of(_sourcePersistence.GetData("Personalities"));
+        _nicknameList = NicknameList.of(_sourcePersistence.GetData("Nicknames"));
+        _detailsList = DetailsList.of(_sourcePersistence.GetData("Details"));
         theLocalSourceData = _sourcePersistence.GetData("TheLocalReplacement");
         favorToSourceData = _sourcePersistence.GetData("OwesFavorTo");
         protectedBySourceData = _sourcePersistence.GetData("ProtectedBy");

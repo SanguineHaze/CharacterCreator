@@ -5,30 +5,22 @@ public class Name {
 	
 	String sex = "";
 	boolean chosenSex;	
-	public String chosenBeginningName = "";
-	public String chosenMidName = "";
-	public String chosenEndName = "";
-	public String lineNameBegin;
-	public String lineValueBegin;
-	public String lineNameMid;
-	public String lineValueMid;
-	public String lineNameEnd;
-	public String lineValueEnd;
-	public String chosenName;
-	public String chosenAge;
-	public String chosenLastName;
-	private GenerateSourceData data;
+	private String chosenBeginningName = "";
+	private String chosenMidName = "";
+	private String chosenEndName = "";
+	private String chosenName;
+	private String chosenAge;
 	private ArrayList<String> beginningName;
 	private ArrayList<String> middleName;
 	private ArrayList<String> endName;
 	private ArrayList<String> ageRange;
 	
 	public Name(GenerateSourceData data){
-		this.data = data;
-		beginningName = this.data.getBeginningName();
-		middleName = this.data.getMiddleName();
-		endName = this.data.getEndName();
-		ageRange = this.data.getAgeRange();
+		GenerateSourceData data1 = data;
+		beginningName = data1.getBeginningName();
+		middleName = data1.getMiddleName();
+		endName = data1.getEndName();
+		ageRange = data1.getAgeRange();
 		sex = "";
 		chosenName = "";
 		chosenAge = "";
@@ -76,8 +68,8 @@ public class Name {
 		chosenBeginningName = beginningName.get(index);
 		String line = chosenBeginningName;
 		String[] lineContents = line.split(":");
-		lineNameBegin = lineContents[0];
-		lineValueBegin = lineContents[1];
+		String lineNameBegin = lineContents[0];
+		String lineValueBegin = lineContents[1];
 		chosenBeginningName = lineContents[1];
 	}
 	
@@ -88,8 +80,8 @@ public class Name {
 		chosenMidName = middleName.get(index);
 		String line = chosenMidName;
 		String[] lineContents = line.split(":");
-		lineNameMid = lineContents[0];
-		lineValueMid = lineContents[1];
+		String lineNameMid = lineContents[0];
+		String lineValueMid = lineContents[1];
 		chosenMidName = lineContents[1];
 	}
 	
@@ -100,8 +92,8 @@ public class Name {
 		chosenEndName = endName.get(index);
 		String line = chosenEndName;
 		String[] lineContents = line.split(":");
-		lineNameEnd = lineContents[0];
-		lineValueEnd = lineContents[1];
+		String lineNameEnd = lineContents[0];
+		String lineValueEnd = lineContents[1];
 		chosenEndName = lineContents[1];
 	}
 	//Full first name
@@ -124,7 +116,7 @@ public class Name {
 
 		String fullNameConversion = fullNameBuilder.replaceAll("\\'", "");
 
-		chosenLastName = fullNameConversion.substring(0,1).toUpperCase() + fullNameConversion.substring(1);
+		String chosenLastName = fullNameConversion.substring(0, 1).toUpperCase() + fullNameConversion.substring(1);
 	}
 	
 	//Age

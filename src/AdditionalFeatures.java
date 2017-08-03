@@ -1,4 +1,7 @@
+import data.dtos.DetailsList;
 import data.dtos.MotivationList;
+import data.dtos.NicknameList;
+import data.dtos.PersonalityList;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,9 +10,9 @@ public class AdditionalFeatures {
 
 	private final GenerateSourceData data;
 	private final MotivationList _motivationList;
-	private final ArrayList<String> personalityList;
-	private final ArrayList<String> nicknameList;
-	private final ArrayList<String> detailsList;
+	private final PersonalityList _personalityList;
+	private final NicknameList _nicknameList;
+	private final DetailsList _detailsList;
 	
 	//Lists contained within DetailsList
 	private final ArrayList<String> theLocalList;
@@ -26,9 +29,9 @@ public class AdditionalFeatures {
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
 		_motivationList = data.getMotivationList();
-		personalityList = data.getPersonalitySourceData();
-		nicknameList = data.getNicknameSourceData();
-		detailsList = data.getDetailsSourceData();
+		_personalityList = data.getPersonalityList();
+		_nicknameList = data.getNicknameList();
+		_detailsList = data.getDetailsList();
 		theLocalList = data.getTheLocalSourceData();
 		favorToList = data.getFavorToSourceData();
 		protectedByList = data.getProtectedBySourceData();
@@ -74,17 +77,17 @@ public class AdditionalFeatures {
 	//PERSONALITY SECTION	
 	public void generatePersonality(){
 		Random randomPersonality = new Random();
-		int index = randomPersonality.nextInt(personalityList.size());
-		int index2 = randomPersonality.nextInt(personalityList.size());
-		int index3 = randomPersonality.nextInt(personalityList.size());
+		int index = randomPersonality.nextInt(_personalityList.size());
+		int index2 = randomPersonality.nextInt(_personalityList.size());
+		int index3 = randomPersonality.nextInt(_personalityList.size());
 			//Validate the selections
 			if(index2 == index || index2 == index3){
-				index2 = randomPersonality.nextInt(personalityList.size());
+				index2 = randomPersonality.nextInt(_personalityList.size());
 			}
 			if(index3 == index2 || index3 == index){
-				index3 = randomPersonality.nextInt(personalityList.size());
+				index3 = randomPersonality.nextInt(_personalityList.size());
 			}
-		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
+		chosenPersonality = _personalityList.get(index) + ", " + _personalityList.get(index2) + ", " + _personalityList.get(index3);
 	}
 	
 	//NICKNAME SECTION
@@ -101,8 +104,8 @@ public class AdditionalFeatures {
 		
 		if(hasNickname <= nicknameChance){
 			Random randomNickname = new Random();
-			int index = randomNickname.nextInt(nicknameList.size());
-			chosenNickname = nicknameList.get(index);
+			int index = randomNickname.nextInt(_nicknameList.size());
+			chosenNickname = _nicknameList.get(index);
 			if(!chosenNickname.contains("the ")){
 				this.chosenNickname = "'" + chosenNickname + "'";
 			}
@@ -117,8 +120,8 @@ public class AdditionalFeatures {
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){
 			Random assignDetails = new Random();
-			int index = assignDetails.nextInt(detailsList.size());
-			chosenDetail = detailsList.get(index);
+			int index = assignDetails.nextInt(_detailsList.size());
+			chosenDetail = _detailsList.get(index);
 			
 			if(chosenDetail.contains("...")){
 				if(chosenDetail.contains("owed a favor by")){
