@@ -1,3 +1,5 @@
+import data.dtos.AdultProfessionList;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -24,9 +26,9 @@ public class Profession {
     public void generateProfession(String chosenAge){
 
         Random randomProfession = new Random();
-        ArrayList<String> adultProfessionSource = data.getAdultProfessionSourceStatic();
-        int index = randomProfession.nextInt(adultProfessionSource.size());
-        chosenProfession = adultProfessionSource.get(index);
+        AdultProfessionList adultProfessionList = data.getAdultProfessionSourceStatic();
+        int index = randomProfession.nextInt(adultProfessionList.size());
+        chosenProfession = adultProfessionList.get(index);
 
         if("Child".equals(chosenAge)){
             ArrayList<String> childProfessionSource = data.getChildProfessionSourceStatic();

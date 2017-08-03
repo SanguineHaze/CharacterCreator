@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import data.dtos.AdultProfessionList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -15,7 +16,7 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    private static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
+    private static AdultProfessionList adultProfessionList;
     private static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
     private static ArrayList<String> nameData = new ArrayList<>();
     private static ArrayList<String> beginningName = new ArrayList<>();
@@ -46,75 +47,75 @@ public class GenerateSourceData {
 
     private SourcePersistence _sourcePersistence;
 
-    public ArrayList<String> getAdultProfessionSourceStatic() {
-        return adultProfessionSourceStatic;
+    AdultProfessionList getAdultProfessionSourceStatic() {
+        return this.adultProfessionList;
     }
 
-    public ArrayList<String> getChildProfessionSourceStatic() {
+    ArrayList<String> getChildProfessionSourceStatic() {
         return childProfessionSourceStatic;
     }
 
-    public ArrayList<String> getBeginningName() {
+    ArrayList<String> getBeginningName() {
         return beginningName;
     }
 
-    public ArrayList<String> getMiddleName() {
+    ArrayList<String> getMiddleName() {
         return middleName;
     }
 
-    public ArrayList<String> getEndName() {
+    ArrayList<String> getEndName() {
         return endName;
     }
 
-    public ArrayList<String> getAgeRange() {
+    ArrayList<String> getAgeRange() {
         return ageRange;
     }
 
-    public ArrayList<String> getAgeRangeStatic() {
+    ArrayList<String> getAgeRangeStatic() {
         return ageRangeStatic;
     }
 
-    public ArrayList<String> getMotivationSourceData() {
+    ArrayList<String> getMotivationSourceData() {
         return motivationSourceData;
     }
 
-    public ArrayList<String> getPersonalitySourceData() {
+    ArrayList<String> getPersonalitySourceData() {
         return personalitySourceData;
     }
 
-    public ArrayList<String> getNicknameSourceData() {
+    ArrayList<String> getNicknameSourceData() {
         return nicknameSourceData;
     }
 
-    public ArrayList<String> getDetailsSourceData() {
+    ArrayList<String> getDetailsSourceData() {
         return detailsSourceData;
     }
 
-    public ArrayList<String> getTheLocalSourceData() {
+    ArrayList<String> getTheLocalSourceData() {
         return theLocalSourceData;
     }
 
-    public ArrayList<String> getFavorToSourceData() {
+    ArrayList<String> getFavorToSourceData() {
         return favorToSourceData;
     }
 
-    public ArrayList<String> getProtectedBySourceData() {
+    ArrayList<String> getProtectedBySourceData() {
         return protectedBySourceData;
     }
 
-    public ArrayList<String> getMapToSourceData() {
+    ArrayList<String> getMapToSourceData() {
         return mapToSourceData;
     }
 
-    public ArrayList<String> getPossessesASourceData() {
+    ArrayList<String> getPossessesASourceData() {
         return possessesASourceData;
     }
 
-    public ArrayList<String> getObsessedBySourceData() {
+    ArrayList<String> getObsessedBySourceData() {
         return obsessedBySourceData;
     }
 
-    public ArrayList<String> getCursedBySourceData() {
+    ArrayList<String> getCursedBySourceData() {
         return cursedBySourceData;
     }
 
@@ -183,7 +184,7 @@ public class GenerateSourceData {
 
     private void generateSourceData(){
 
-        adultProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("Professions"));
+        adultProfessionList = AdultProfessionList.of(DeserializeData(_sourcePersistence.GetData("Professions")));
         childProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("ProfessionsChild"));
 
         motivationSourceData = _sourcePersistence.GetData("Motivations");

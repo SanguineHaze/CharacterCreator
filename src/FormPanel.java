@@ -1,3 +1,5 @@
+import data.dtos.AdultProfessionList;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -121,11 +123,9 @@ public class FormPanel extends JPanel {
             ageCB[ii] = ageRange.get(ii);
         }
         ageComboBox = new JComboBox<String>(ageCB);
-        //Sort the list alphabetically
-        ArrayList<String> adultProfessionSourceStatic = data.getAdultProfessionSourceStatic();
-        adultProfessionSourceStatic.sort(null);
-        //Fuck up the sorting immediately after!
-        adultProfessionSourceStatic.add(0, "Any Profession");
+        AdultProfessionList adultProfessionSourceStatic = data.getAdultProfessionSourceStatic();
+        adultProfessionSourceStatic.sortAlphabetically();
+        adultProfessionSourceStatic.addToTop("Any Profession");
         int professionCount = adultProfessionSourceStatic.size();
         professionCB = new String[professionCount];
         for(int pi=0; pi < professionCount; pi++){
