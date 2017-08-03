@@ -16,25 +16,25 @@ public class GenerateSourceData {
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
     private static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
-    static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+    private static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
     private static ArrayList<String> nameData = new ArrayList<>();
-    static ArrayList<String> beginningName = new ArrayList<>();
-    static ArrayList<String> middleName = new ArrayList<>();
-    static ArrayList<String> endName = new ArrayList<>();
-    static ArrayList<String> ageRange = new ArrayList<>();
-    static ArrayList<String> ageRangeStatic = new ArrayList<>();
-    static ArrayList<String> motivationSourceData = new ArrayList<>();
-    static ArrayList<String> personalitySourceData = new ArrayList<>();
-    static ArrayList<String> nicknameSourceData = new ArrayList<>();
-    static ArrayList<String> detailsSourceData = new ArrayList<>();
+    private static ArrayList<String> beginningName = new ArrayList<>();
+    private static ArrayList<String> middleName = new ArrayList<>();
+    private static ArrayList<String> endName = new ArrayList<>();
+    private static ArrayList<String> ageRange = new ArrayList<>();
+    private static ArrayList<String> ageRangeStatic = new ArrayList<>();
+    private static ArrayList<String> motivationSourceData = new ArrayList<>();
+    private static ArrayList<String> personalitySourceData = new ArrayList<>();
+    private static ArrayList<String> nicknameSourceData = new ArrayList<>();
+    private static ArrayList<String> detailsSourceData = new ArrayList<>();
     //Data for "Details" Subsection //
-    static ArrayList<String> theLocalSourceData = new ArrayList<>();
-    static ArrayList<String> favorToSourceData = new ArrayList<>();
-    static ArrayList<String> protectedBySourceData = new ArrayList<>();
-    static ArrayList<String> mapToSourceData = new ArrayList<>();
-    static ArrayList<String> possessesASourceData = new ArrayList<>();
-    static ArrayList<String> obsessedBySourceData = new ArrayList<>();
-    static ArrayList<String> cursedBySourceData = new ArrayList<>();
+    private static ArrayList<String> theLocalSourceData = new ArrayList<>();
+    private static ArrayList<String> favorToSourceData = new ArrayList<>();
+    private static ArrayList<String> protectedBySourceData = new ArrayList<>();
+    private static ArrayList<String> mapToSourceData = new ArrayList<>();
+    private static ArrayList<String> possessesASourceData = new ArrayList<>();
+    private static ArrayList<String> obsessedBySourceData = new ArrayList<>();
+    private static ArrayList<String> cursedBySourceData = new ArrayList<>();
     static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
 
 
@@ -49,6 +49,75 @@ public class GenerateSourceData {
     public ArrayList<String> getAdultProfessionSourceStatic() {
         return adultProfessionSourceStatic;
     }
+
+    public ArrayList<String> getChildProfessionSourceStatic() {
+        return childProfessionSourceStatic;
+    }
+
+    public ArrayList<String> getBeginningName() {
+        return beginningName;
+    }
+
+    public ArrayList<String> getMiddleName() {
+        return middleName;
+    }
+
+    public ArrayList<String> getEndName() {
+        return endName;
+    }
+
+    public ArrayList<String> getAgeRange() {
+        return ageRange;
+    }
+
+    public ArrayList<String> getAgeRangeStatic() {
+        return ageRangeStatic;
+    }
+
+    public ArrayList<String> getMotivationSourceData() {
+        return motivationSourceData;
+    }
+
+    public ArrayList<String> getPersonalitySourceData() {
+        return personalitySourceData;
+    }
+
+    public ArrayList<String> getNicknameSourceData() {
+        return nicknameSourceData;
+    }
+
+    public ArrayList<String> getDetailsSourceData() {
+        return detailsSourceData;
+    }
+
+    public ArrayList<String> getTheLocalSourceData() {
+        return theLocalSourceData;
+    }
+
+    public ArrayList<String> getFavorToSourceData() {
+        return favorToSourceData;
+    }
+
+    public ArrayList<String> getProtectedBySourceData() {
+        return protectedBySourceData;
+    }
+
+    public ArrayList<String> getMapToSourceData() {
+        return mapToSourceData;
+    }
+
+    public ArrayList<String> getPossessesASourceData() {
+        return possessesASourceData;
+    }
+
+    public ArrayList<String> getObsessedBySourceData() {
+        return obsessedBySourceData;
+    }
+
+    public ArrayList<String> getCursedBySourceData() {
+        return cursedBySourceData;
+    }
+
 
     ////////CONSTRUCTOR////////
     GenerateSourceData(SourcePersistence sourcePersistence){

@@ -2,23 +2,39 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AdditionalFeatures {
-		
-	ArrayList<String> motivationList = GenerateSourceData.motivationSourceData;
-	ArrayList<String> personalityList = GenerateSourceData.personalitySourceData;
-	ArrayList<String> nicknameList = GenerateSourceData.nicknameSourceData;
-	ArrayList<String> detailsList = GenerateSourceData.detailsSourceData;
+
+	private final GenerateSourceData data;
+	private final ArrayList<String> motivationList;
+	private final ArrayList<String> personalityList;
+	private final ArrayList<String> nicknameList;
+	private final ArrayList<String> detailsList;
 	
 	//Lists contained within DetailsList
-	ArrayList<String> theLocalList = GenerateSourceData.theLocalSourceData;
-	ArrayList<String> favorToList = GenerateSourceData.favorToSourceData;
-	ArrayList<String> protectedByList = GenerateSourceData.protectedBySourceData;
-	ArrayList<String> mapToList = GenerateSourceData.mapToSourceData;
-	ArrayList<String> possessesAList = GenerateSourceData.possessesASourceData;
-	ArrayList<String> obsessedByList = GenerateSourceData.obsessedBySourceData;
-	ArrayList<String> cursedByList = GenerateSourceData.cursedBySourceData;
+	private final ArrayList<String> theLocalList;
+	private final ArrayList<String> favorToList;
+	private final ArrayList<String> protectedByList;
+	private final ArrayList<String> mapToList;
+	private final ArrayList<String> possessesAList;
+	private final ArrayList<String> obsessedByList;
+	private final ArrayList<String> cursedByList;
 	
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
 	private int nicknameChance, detailChance;
+
+	public AdditionalFeatures(GenerateSourceData data) {
+		this.data = data;
+		motivationList = data.getMotivationSourceData();
+		personalityList = data.getPersonalitySourceData();
+		nicknameList = data.getNicknameSourceData();
+		detailsList = data.getDetailsSourceData();
+		theLocalList = data.getTheLocalSourceData();
+		favorToList = data.getFavorToSourceData();
+		protectedByList = data.getProtectedBySourceData();
+		mapToList = data.getMapToSourceData();
+		possessesAList = data.getPossessesASourceData();
+		obsessedByList = data.getObsessedBySourceData();
+		cursedByList = data.getCursedBySourceData();
+	}
 
 	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
 		chosenPersonality = "";

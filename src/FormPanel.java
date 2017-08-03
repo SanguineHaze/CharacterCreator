@@ -68,7 +68,7 @@ public class FormPanel extends JPanel {
 
     protected int nicknameChanceInt = -1;
     protected int detailsChance;
-    private ArrayList<String> ageRange = GenerateSourceData.ageRangeStatic;
+    private ArrayList<String> ageRange;
 
     //VALIDATION
     static boolean isValidNumber(String val) {
@@ -85,6 +85,7 @@ public class FormPanel extends JPanel {
     //THE MAGIC HAPPENS HERE. ALSO, HERE THERE BE DRAGONS.
     public FormPanel(GenerateSourceData data) {
 
+        ageRange = data.getAgeRangeStatic();
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 

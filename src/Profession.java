@@ -29,10 +29,11 @@ public class Profession {
         chosenProfession = adultProfessionSource.get(index);
 
         if("Child".equals(chosenAge)){
-            int size = GenerateSourceData.childProfessionSourceStatic.size();
+            ArrayList<String> childProfessionSource = data.getChildProfessionSourceStatic();
+            int size = childProfessionSource.size();
             int indexR = randomProfession.nextInt(size);
             
-            chosenProfession = GenerateSourceData.childProfessionSourceStatic.get(indexR);
+            chosenProfession = childProfessionSource.get(indexR);
 
             Random childRandom = new Random();
             int isEmployed = childRandom.nextInt(11); //0 -> 10

@@ -100,9 +100,9 @@ public class MainFrame extends JFrame {
 
                     Race thisRace = new Race();
                     SubRace thisSubRace = new SubRace();
-                    Name thisName = new Name();
+                    Name thisName = new Name(data);
                     Profession thisProfession = new Profession(myAge, data);
-                    AdditionalFeatures thisMotivation = new AdditionalFeatures();
+                    AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
                     RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
 
                     saveNext = formPanel.isSaveNext();
