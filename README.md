@@ -13,7 +13,7 @@
 - Handle Java Version issues [Will not work if java is out of date & fails silently]
 - Webpage / Web Interface [Look into git.io pages] (In Progress: May 15, 2017)
 - Actual Age Value (Either supplementing or replacing age category)
-- Mobile App 
+- Mobile App (Eventually)
 - Ability Modifiers
 - Display & SaveFile printouts should look as close to a stat page as possible
 - Extra / Ability Descriptions (Or links / hover text / something)
@@ -26,6 +26,7 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+
 ###Jul 12, 2017
 - Separate panel for Race options completed. Features a checkbox option system, so you can select exactly the races and subraces desired. (Making Version 1 worth sending to the public)
 
@@ -75,6 +76,9 @@
 
 ##The initial plan (Begun Aug 24th, 2016 - Completed Nov 2, 2016):
 Race > Subrace > M/F toggle > Name > Class || Job > defining features, personality, motivations
+-Features added beyond original idea: Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)
+-Features dropped: alignment (fuck alignment & the headaches it causes. My friends, be not distracted by such arbitrary definitions of good and evil!)
+
 
 ##Features added beyond original idea: 
 - Swing GUI & a WriteToFile method (necessary for users & breaking out of IDE)

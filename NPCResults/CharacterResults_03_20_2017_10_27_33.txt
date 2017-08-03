@@ -1,0 +1,386 @@
+Name: Elmorin Degranus
+Race: Elf
+Subrace: High Elf
+Sex: Male
+Age: Child
+Profession: Apprentice Thatcher
+Motivated by: Personal goals or dreams
+Personality Traits: Frightening, Driving, Abrasive
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 11
+WIS: 10	CHA: 10
+Languages: [Common, Elvish, +1 Language]
+Racial Extras: [Darkvision, Elf Weapon Training, +1 Cantrip, Keen Senses, Fey Ancestry, Trance]
+
+
+Name: Moris Situran
+Race: Tabaxi
+Sex: Male
+Age: Old
+Profession: Explorer
+Motivated by: Failure
+Personality Traits: Grand, Methodical, Amoral
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, +1 Language]
+Racial Extras: [Darkvision, Feline Agility, Cat's Claws, Cat's Talent]
+
+
+Name: Bebaress Halea
+Race: Genasi
+Subrace: Water Genasi
+Sex: Female
+Age: Young Adult
+Profession: Smuggler
+Motivated by: A need to improve inequality
+Personality Traits: Well-meaning, Humorous, Moralistic
+Speed: 30
+STR: 10	DEX: 10
+CON: 12	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Primordial]
+
+
+Name: Sihalac Anetett
+Race: Elf
+Subrace: Wood Elf
+Sex: Female
+Age: Child
+Profession: Apprentice Falconer
+Motivated by: Basic needs
+Personality Traits: Understanding, Thorough, Skillful
+Speed: 35
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Elvish]
+Racial Extras: [Darkvision, Elf Weapon Training, Mask of the Wild, Keen Senses, Fey Ancestry, Trance]
+
+
+Name: Besarkus Silimis
+Race: Tiefling
+Sex: Male
+Age: Adult
+Profession: Artist
+Motivated by: Tales of old heroes
+Personality Traits: Inoffensive, Compassionate, Big-thinking
+Speed: 30
+STR: 10	DEX: 10
+CON: 10	INT: 11
+WIS: 10	CHA: 12
+Languages: [Common, Infernal]
+Racial Extras: [Darkvision, Hellish Resistance, Hellish Legacy]
+
+
+Name: Kirondic Narondus the Mad
+Race: Half-Elf
+Subrace: Half Moon Elf
+Sex: Male
+Age: Adult
+Profession: Locksmith
+Motivated by: Personal goals or dreams
+Personality Traits: Uncreative, Conciliatory, Responsible
+Speed: 30
+STR: 10	DEX: 10
+CON: 10	INT: 10
+WIS: 10	CHA: 12
+Languages: [Common, Elvish]
+Racial Extras: [+1 ASI, -Skill Versatility, Darkvision, Fey Ancestry, Skill Versatility]
+
+
+Name: Lajenus Elfaral
+Race: Elf
+Subrace: Eladrin
+Sex: Female
+Age: Young Adult
+Profession: Brewer
+Motivated by: Sense of accomplishment
+Personality Traits: Alert, Regimental, Skillful
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 11
+WIS: 10	CHA: 10
+Languages: [Common, Elvish]
+Racial Extras: [Darkvision, Elf Weapon Training, Fey Step, Keen Senses, Fey Ancestry, Trance]
+
+
+Name: Faturor Onetic
+Race: Tabaxi
+Sex: Female
+Age: Old
+Profession: Abbot
+Motivated by: Dishonor
+Personality Traits: Hidebound, Restrained, Frivolous
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, +1 Language]
+Racial Extras: [Darkvision, Feline Agility, Cat's Claws, Cat's Talent]
+
+
+Name: Granar Jorondal the Wise
+Race: Tiefling
+Sex: Female
+Age: Young Adult
+Profession: Courier
+Motivated by: Prestige
+Personality Traits: Silly, Responsible, Extraordinary
+Speed: 30
+STR: 10	DEX: 10
+CON: 10	INT: 11
+WIS: 10	CHA: 12
+Languages: [Common, Infernal]
+Racial Extras: [Darkvision, Hellish Resistance, Hellish Legacy]
+
+
+Name: Revashan Fayorer the Fire Watcher
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Male
+Age: Very Old
+Profession: Retired Surveyor
+Motivated by: Prestige
+Personality Traits: Energetic, Enervated, Weak
+Speed: 30	Fly: 50
+STR: 10	DEX: 10
+CON: 10	INT: 10
+WIS: 12	CHA: 12
+Languages: [Common, Celestial]
+Racial Extras: [Darkvision, Radiant Soul, Celestial Resistance, Healing Hands, Light Bearer]
+
+
+Name: Maquilus Kelal
+Race: Halfling
+Subrace: Ghostwise Halfling
+Sex: Male
+Age: Young Adult
+Profession: Cleric
+Motivated by: Unfulfillment
+Personality Traits: Punctual, Proud, Observant
+Speed: 25
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Halfling, Silent Speech]
+Racial Extras: [Lucky, Brave, Halfling Nimbleness]
+
+
+Name: Masarkam Besarker the Heroic
+Race: Gnome
+Subrace: Rock Gnome
+Sex: Male
+Age: Adult
+Profession: Shoemaker
+Motivated by: Social contact
+Personality Traits: Strict, Shallow, Noncompetitive
+Speed: 25
+STR: 10	DEX: 10
+CON: 11	INT: 12
+WIS: 10	CHA: 10
+Languages: [Common, Gnomish]
+Racial Extras: [Darkvision, Artificer's Lore, Tinker, Gnome Cunning]
+
+
+Name: Rond Jenel the Thinker
+Race: Kenku
+Sex: Female
+Age: Old
+Profession: Senior Rancher
+Motivated by: Necessity
+Personality Traits: Conformist, Daring, Genuine
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Auran]
+Racial Extras: [Expert Forgery, Kenku Training, Mimicry]
+
+
+Name: Sibaril Remorin
+Race: Tabaxi
+Sex: Female
+Age: Adult
+Profession: Lawyer
+Motivated by: Loyalty
+Personality Traits: Astigmatic, Perceptive, Absentminded
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, +1 Language]
+Racial Extras: [Darkvision, Feline Agility, Cat's Claws, Cat's Talent]
+
+
+Name: Lagranin Jenea
+Race: Human
+Subrace: Human Variant
+Sex: Male
+Age: Very Old
+Profession: Retired Elected Official
+Motivated by: Fear of shame
+Personality Traits: Flamboyant, Unceremonious, Unfriendly
+Speed: 30
+STR: 10	DEX: 10
+CON: 10	INT: 10
+WIS: 10	CHA: 10
+Languages: [Common, +1 Language]
+
+
+Name: Elzenid Paronda
+Race: Elf
+Subrace: High Elf
+Sex: Female
+Age: Old
+Profession: Elder / Chief
+Motivated by: Obedience
+Personality Traits: Mystical, Perceptive, Regimental
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 11
+WIS: 10	CHA: 10
+Languages: [Common, Elvish, +1 Language]
+Racial Extras: [Darkvision, Elf Weapon Training, +1 Cantrip, Keen Senses, Fey Ancestry, Trance]
+
+
+Name: Debaran Machedac
+Race: Halfling
+Subrace: Ghostwise Halfling
+Sex: Female
+Age: Adult
+Profession: Master of Hounds
+Motivated by: Fear of death
+Personality Traits: Imitative, Sordid, Clean
+Speed: 25
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Halfling, Silent Speech]
+Racial Extras: [Lucky, Brave, Halfling Nimbleness]
+
+
+Name: Faquilett Oshenid
+Race: Lizardfolk
+Sex: Male
+Age: Very Old
+Profession: Retired Musician
+Motivated by: Hope for the future
+Personality Traits: Mistaken, Uncomplaining, Coarse
+Speed: 30	Swim: 30
+STR: 10	DEX: 10
+CON: 12	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Draconic]
+Racial Extras: [Bite, Cunning Artisan, Hold Breath, Hunter's Lore, Natural Armor, Hungry Jaws]
+
+
+Name: Demorar Varondess
+Race: Dragonborn
+Subrace: Silver Dragonborn
+Sex: Female
+Age: Child
+Profession: Apprentice Hunter
+Motivated by: Ambition
+Personality Traits: Vacuous, Wise, Self-critical
+Speed: 30
+STR: 12	DEX: 10
+CON: 10	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, Draconic]
+Racial Extras: [Breath Weapon, Damage Resistance]
+
+
+Name: Eldellor Kiyoral
+Race: Half-Orc
+Sex: Male
+Age: Adult
+Profession: Servant
+Motivated by: Revenge
+Personality Traits: Slow, Stiff, Planful
+Speed: 30
+STR: 12	DEX: 10
+CON: 11	INT: 10
+WIS: 10	CHA: 10
+Languages: [Common, Orc]
+Racial Extras: [Darkvision, Menacing, Relentless Endurance, Savage Attacks]
+
+
+Name: Nadellus Oshenin
+Race: Lizardfolk
+Sex: Male
+Age: Very Old
+Profession: Retired Maid
+Motivated by: Hatred
+Personality Traits: Neurotic, Dutiful, Sharing
+Speed: 30	Swim: 30
+STR: 10	DEX: 10
+CON: 12	INT: 10
+WIS: 11	CHA: 10
+Languages: [Common, Draconic]
+Racial Extras: [Bite, Cunning Artisan, Hold Breath, Hunter's Lore, Natural Armor, Hungry Jaws]
+
+
+Name: Fanetam 'One-Eye' Ellimor
+Race: Tabaxi
+Sex: Female
+Age: Child
+Profession: Apprentice Warlock
+Motivated by: A family legacy
+Personality Traits: Fair, Willful, Impractical
+Speed: 30
+STR: 10	DEX: 12
+CON: 10	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, +1 Language]
+Racial Extras: [Darkvision, Feline Agility, Cat's Claws, Cat's Talent]
+
+
+Name: Rondis Obarus
+Race: Genasi
+Subrace: Air Genasi
+Sex: Female
+Age: Young Adult
+Profession: Governor / Governess
+Motivated by: A family legacy
+Personality Traits: Fixed, Curious, Experimental
+Speed: 30
+STR: 10	DEX: 11
+CON: 12	INT: 10
+WIS: 10	CHA: 10
+Languages: [Common, Primordial]
+
+
+Name: Detura Beyoror
+Race: Aasimar
+Subrace: Protector Aasimar
+Sex: Female
+Age: Young Adult
+Profession: Miller
+Motivated by: Pride
+Personality Traits: Outrageous, Flamboyant, Self-indulgent
+Speed: 30	Fly: 50
+STR: 10	DEX: 10
+CON: 10	INT: 10
+WIS: 12	CHA: 12
+Languages: [Common, Celestial]
+Racial Extras: [Darkvision, Radiant Soul, Celestial Resistance, Healing Hands, Light Bearer]
+
+
+Name: Pachedan Vasher the Six-fingered
+Race: Triton
+Sex: Female
+Age: Very Old
+Profession: Retired Shepherd
+Motivated by: A need to improve inequality
+Personality Traits: Proud, Contemplative, Hedonistic
+Speed: 30	Swim: 30
+STR: 11	DEX: 10
+CON: 11	INT: 10
+WIS: 10	CHA: 11
+Languages: [Common, Primordial]
+Racial Extras: [Amphibious, Control Air and Water, Emissary of the Sea, Guardians of the Depths]
+
+

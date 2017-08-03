@@ -1,0 +1,47 @@
+Race: Goliath
+Sex: Female
+Name: Limic Ofarett
+Age: Old
+Profession: Senior Courier
+Motivated by: Personal pride
+Personality Traits: Knowledge, Benevolent, Shallow
+
+
+Race: Goliath
+Sex: Male
+Name: Nachedett Bezen
+Age: Adult
+Profession: Goatherd
+Motivated by: Competitive spirit
+Personality Traits: Dull, Systematic, Uncreative
+
+
+Race: Aarakocra
+Sex: Female
+Name: Faror Elpennis 'the Boorish'
+Age: Very Old
+Profession: Retired Squire
+Motivated by: Family
+Personality Traits: Superficial, Adaptable, Folksy
+
+
+Race: Gnome
+Subrace: Deep Gnome
+Sex: Female
+Name: Apennai Sarkor 'the Mystic'
+Age: Young Adult
+Profession: Cleric
+Motivated by: Lust
+Personality Traits: Condemnatory, Dreamy, Popular
+
+
+Race: Aasimar
+Subrace: Scourge Aasimar
+Sex: Female
+Name: Tanetess Jojena 'the Fool'
+Age: Adult
+Profession: Bard
+Motivated by: Obedience
+Personality Traits: Dutiful, Capable, Soft
+
+
