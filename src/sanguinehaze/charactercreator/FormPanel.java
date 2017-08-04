@@ -116,8 +116,8 @@ public class FormPanel extends JPanel {
         nicknameChance.setColumns(10);
         detailsChanceField = new JTextField(10);
         detailsChanceField.setColumns(10);
-        itemChanceField = new JTextField(8);
-        itemChanceField.setColumns(8);
+        itemChanceField = new JTextField(10);
+        itemChanceField.setColumns(10);
 
         sexM = new JRadioButton(sexMString);
         sexF = new JRadioButton(sexFString);
