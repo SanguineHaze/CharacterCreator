@@ -1,5 +1,8 @@
 package sanguinehaze.charactercreator;
 
+import sanguinehaze.charactercreator.data.NameBuilder;
+import sanguinehaze.charactercreator.data.dtos.FullName;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,14 +37,18 @@ public class MainFrame extends JFrame {
     private JPanel formTemplate;
     private JScrollPane scrollTemplate;
     private final GenerateSourceData data;
+    private NameBuilder nameBuilder;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
 
-    public MainFrame(GenerateSourceData data) {
+    public MainFrame(
+            GenerateSourceData data,
+            NameBuilder nameBuilder) {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
         this.data = data;
+        this.nameBuilder = nameBuilder;
 
         setLayout(new BorderLayout());
 
@@ -102,7 +109,7 @@ public class MainFrame extends JFrame {
 
                     Race thisRace = new Race();
                     SubRace thisSubRace = new SubRace();
-                    Name thisName = new Name(data);
+                    AgeAndSex thisAgeAndSex = new AgeAndSex(data);
                     Profession thisProfession = new Profession(myAge, data);
                     AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
                     RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
@@ -188,12 +195,13 @@ public class MainFrame extends JFrame {
                         mySubRace = thisSubRace.chosenSubRace;
 
                         // NAME (& SEX & AGE) SECTION
-                        thisName.generateNewNameData(userSex, userAge);
+                        FullName fullName = nameBuilder.build();
+                        thisAgeAndSex.generateData(userSex, userAge);
 
-                        mySex = thisName.sex;
-                        myName = thisName.chosenName;
-                        myLastName = thisName.chosenLastName;
-                        myAge = thisName.chosenAge;
+                        mySex = thisAgeAndSex.sex;
+                        myName = fullName.getFirstname();
+                        myLastName = fullName.getLastname();
+                        myAge = thisAgeAndSex.chosenAge;
 
                         // PROFESSION SECTION
                         if (userProfession.isEmpty()) {

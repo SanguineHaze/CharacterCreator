@@ -62,15 +62,15 @@ public class GenerateSourceData {
         return this._childProfessionList;
     }
 
-    ArrayList<String> getBeginningName() {
+    public ArrayList<String> getBeginningName() {
         return beginningName;
     }
 
-    ArrayList<String> getMiddleName() {
+    public ArrayList<String> getMiddleName() {
         return middleName;
     }
 
-    ArrayList<String> getEndName() {
+    public ArrayList<String> getEndName() {
         return endName;
     }
 
@@ -128,7 +128,7 @@ public class GenerateSourceData {
 
 
     ////////CONSTRUCTOR////////
-    GenerateSourceData(SourcePersistence sourcePersistence){
+    public GenerateSourceData(SourcePersistence sourcePersistence){
         _sourcePersistence = sourcePersistence;
         generateRacialStatsSourceData();
         raceSourceStatic.add(0, "Any Race");
