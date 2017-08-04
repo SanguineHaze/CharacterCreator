@@ -101,7 +101,7 @@ public class FormPanel extends JPanel {
         numGenLabel = new JLabel("# of NPCs (0 for Default):");
         sexLabel = new JLabel("Sex:");
         ageLabel = new JLabel("Age:");
-        professionLabel = new JLabel("sanguinehaze.charactercreator.Profession:");
+        professionLabel = new JLabel("Profession:");
         nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
         detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
 
@@ -116,7 +116,7 @@ public class FormPanel extends JPanel {
         sexM = new JRadioButton(sexMString);
         sexF = new JRadioButton(sexFString);
         sexR = new JRadioButton(sexRString);
-        raceBtn = new JButton("sanguinehaze.charactercreator.Race Options");
+        raceBtn = new JButton("Race Options");
 
         ageRange.add(0, "Any Age");
         int ageCount = ageRange.size();
@@ -127,7 +127,7 @@ public class FormPanel extends JPanel {
         ageComboBox = new JComboBox<String>(ageCB);
         AdultProfessionList adultProfessionSourceStatic = data.getAdultProfessionList();
         adultProfessionSourceStatic.sortAlphabetically();
-        adultProfessionSourceStatic.addToTop("Any sanguinehaze.charactercreator.Profession");
+        adultProfessionSourceStatic.addToTop("Any Profession");
         int professionCount = adultProfessionSourceStatic.size();
         professionCB = new String[professionCount];
         for(int pi=0; pi < professionCount; pi++){

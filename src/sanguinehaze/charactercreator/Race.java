@@ -15,7 +15,7 @@ public class Race {
     	chosenRace= "";
 	   	int index = randomGenerator.nextInt(GenerateSourceData.getRaceSourceStatic().size());
 	   	chosenRace = GenerateSourceData.getRaceSourceStatic().get(index);
-	   	if(chosenRace.equals("Any sanguinehaze.charactercreator.Race")){
+	   	if(chosenRace.equals("Any Race")){
 	   		pickNewRace();
 	   	}
      }

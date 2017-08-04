@@ -25,7 +25,7 @@ public class RacePanel extends JPanel{
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        Border innerBorder = BorderFactory.createTitledBorder("sanguinehaze.charactercreator.Race Options");
+        Border innerBorder = BorderFactory.createTitledBorder("Race Options");
         setBorder(innerBorder);
         
         rpSaveBtn = new JButton("Save");

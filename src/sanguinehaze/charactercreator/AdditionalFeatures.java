@@ -93,7 +93,7 @@ public class AdditionalFeatures {
 	}
 	
 	//NICKNAME SECTION
-	//TODO: Use Age, sanguinehaze.charactercreator.Profession, and sanguinehaze.charactercreator.Race in nickname creation!!
+	//TODO: Use Age, Profession, and Race in nickname creation!!
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
 		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
@@ -117,7 +117,7 @@ public class AdditionalFeatures {
 	///ADDITIONAL DETAILS SECTION///
 	public void generateDetails(String race, String profession){
 		
-		//TODO: use sanguinehaze.charactercreator.Race and sanguinehaze.charactercreator.Profession
+		//TODO: use Race and Profession
 		Random detailsChanceRandomInt = new Random();
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){

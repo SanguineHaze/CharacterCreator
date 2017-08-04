@@ -131,7 +131,7 @@ public class GenerateSourceData {
     GenerateSourceData(SourcePersistence sourcePersistence){
         _sourcePersistence = sourcePersistence;
         generateRacialStatsSourceData();
-        raceSourceStatic.add(0, "Any sanguinehaze.charactercreator.Race");
+        raceSourceStatic.add(0, "Any Race");
         generateRaceData();
         generateSubraceNames();
         generateNameSourceData();

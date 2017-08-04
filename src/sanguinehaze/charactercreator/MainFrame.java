@@ -153,7 +153,7 @@ public class MainFrame extends JFrame {
                         userSex = formPanel.getSexSelected();
                         userProfession = formPanel.getProfessionSelected();
                         
-                        if (userRace.equals("Any sanguinehaze.charactercreator.Race")) {
+                        if (userRace.equals("Any Race")) {
                             userRace = "";
                         }
 
@@ -198,7 +198,7 @@ public class MainFrame extends JFrame {
                         // PROFESSION SECTION
                         if (userProfession.isEmpty()) {
                             thisProfession.generateNewProfession(myAge);
-                        } else if ("Any sanguinehaze.charactercreator.Profession".equals(userProfession)) {
+                        } else if ("Any Profession".equals(userProfession)) {
                             thisProfession.generateNewProfession(myAge);
                         } else if (!(userProfession.isEmpty())) {
                             thisProfession.setChosenProfession(userProfession);
@@ -233,22 +233,22 @@ public class MainFrame extends JFrame {
                         if (!myNickname.isEmpty()) {
                             // Title nicknames (ex: Eckhart Rackvis The Just)
                             if (myNickname.contains("the ")) {
-                                characterResults.add("sanguinehaze.charactercreator.Name: " + myName + " " + myLastName + " " + myNickname);
+                                characterResults.add("Name: " + myName + " " + myLastName + " " + myNickname);
                             } else {
                                 // Non-Title nicknames
-                                characterResults.add("sanguinehaze.charactercreator.Name: " + myName + " " + myNickname + " " + myLastName);
+                                characterResults.add("Name: " + myName + " " + myNickname + " " + myLastName);
                             }
                         } else {
-                            characterResults.add("sanguinehaze.charactercreator.Name: " + myName + " " + myLastName);
+                            characterResults.add("Name: " + myName + " " + myLastName);
                         }
-                        characterResults.add("sanguinehaze.charactercreator.Race: " + myRace);
+                        characterResults.add("Race: " + myRace);
                         if (mySubRace != "") {
                             characterResults.add("Subrace: " + mySubRace);
                         }
                         characterResults.add("Sex: " + mySex);
                         characterResults.add("Age: " + myAge);
                         if (!myProfession.equals("None")) {
-                            characterResults.add("sanguinehaze.charactercreator.Profession: " + myProfession);
+                            characterResults.add("Profession: " + myProfession);
                         }
                         if (!myMotivation.isEmpty()) {
                             characterResults.add("Motivated by: " + myMotivation);
