@@ -10,49 +10,118 @@ import org.w3c.dom.NodeList;
 import persistence.SourcePersistence;
 
 public class GenerateSourceData {
-	
-	protected ArrayList<String> raceSourcePreStatic = new ArrayList<>();
-	protected static ArrayList<String> raceSourceStatic = new ArrayList<>();
-	protected ArrayList<String> subraceSourcePreStatic = new ArrayList<>();
-	protected static ArrayList<String> subraceSourceStatic = new ArrayList<>();
-	protected ArrayList<String> adultProfessionSourcePreStatic = new ArrayList<>();
-	protected static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
-	protected ArrayList<String> childProfessionSourcePreStatic = new ArrayList<>();
-	protected static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
-	protected static ArrayList<String> nameData = new ArrayList<>();
-	protected static ArrayList<String> beginningName = new ArrayList<>();
-	protected static ArrayList<String> middleName = new ArrayList<>();
-	protected static ArrayList<String> endName = new ArrayList<>();
-	protected static ArrayList<String> ageRange = new ArrayList<>();
-	protected static ArrayList<String> ageRangeStatic = new ArrayList<>();
-	protected static ArrayList<String> motivationSourceData = new ArrayList<>();
-	protected static ArrayList<String> personalitySourceData = new ArrayList<>();
-	protected static ArrayList<String> nicknameSourceData = new ArrayList<>();
-	protected static ArrayList<String> detailsSourceData = new ArrayList<>();
-	protected static ArrayList<String> itemsSourceData = new ArrayList<>();
-	//Data for "Details" Subsection //
-	protected static ArrayList<String> theLocalSourceData = new ArrayList<>();
-	protected static ArrayList<String> favorToSourceData = new ArrayList<>();
-	protected static ArrayList<String> protectedBySourceData = new ArrayList<>();
-	protected static ArrayList<String> mapToSourceData = new ArrayList<>();
-	protected static ArrayList<String> possessesASourceData = new ArrayList<>();
-	protected static ArrayList<String> obsessedBySourceData = new ArrayList<>();
-	protected static ArrayList<String> cursedBySourceData = new ArrayList<>();
-	protected static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
-	private NodeList raceTag;
-	private NodeList subraceTag;
-	
+
+    private static ArrayList<String> raceSourceStatic = new ArrayList<>();
+    //TODO: Look into why this is here, it is being filled but never used.
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
+    private static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
+    private static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+    private static ArrayList<String> nameData = new ArrayList<>();
+    private static ArrayList<String> beginningName = new ArrayList<>();
+    private static ArrayList<String> middleName = new ArrayList<>();
+    private static ArrayList<String> endName = new ArrayList<>();
+    private static ArrayList<String> ageRange = new ArrayList<>();
+    private static ArrayList<String> ageRangeStatic = new ArrayList<>();
+    private static ArrayList<String> motivationSourceData = new ArrayList<>();
+    private static ArrayList<String> personalitySourceData = new ArrayList<>();
+    private static ArrayList<String> nicknameSourceData = new ArrayList<>();
+    private static ArrayList<String> detailsSourceData = new ArrayList<>();
+    //Data for "Details" Subsection //
+    private static ArrayList<String> theLocalSourceData = new ArrayList<>();
+    private static ArrayList<String> favorToSourceData = new ArrayList<>();
+    private static ArrayList<String> protectedBySourceData = new ArrayList<>();
+    private static ArrayList<String> mapToSourceData = new ArrayList<>();
+    private static ArrayList<String> possessesASourceData = new ArrayList<>();
+    private static ArrayList<String> obsessedBySourceData = new ArrayList<>();
+    private static ArrayList<String> cursedBySourceData = new ArrayList<>();
+    static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
+
+
     ////////GETTERS & SETTERS////////
 
-    public static ArrayList<String> getRaceSourceStatic() {
+    static ArrayList<String> getRaceSourceStatic() {
         return raceSourceStatic;
     }
 
-    private SourcePersistence _sourcePersistance;
+    private SourcePersistence _sourcePersistence;
+
+    public ArrayList<String> getAdultProfessionSourceStatic() {
+        return adultProfessionSourceStatic;
+    }
+
+    public ArrayList<String> getChildProfessionSourceStatic() {
+        return childProfessionSourceStatic;
+    }
+
+    public ArrayList<String> getBeginningName() {
+        return beginningName;
+    }
+
+    public ArrayList<String> getMiddleName() {
+        return middleName;
+    }
+
+    public ArrayList<String> getEndName() {
+        return endName;
+    }
+
+    public ArrayList<String> getAgeRange() {
+        return ageRange;
+    }
+
+    public ArrayList<String> getAgeRangeStatic() {
+        return ageRangeStatic;
+    }
+
+    public ArrayList<String> getMotivationSourceData() {
+        return motivationSourceData;
+    }
+
+    public ArrayList<String> getPersonalitySourceData() {
+        return personalitySourceData;
+    }
+
+    public ArrayList<String> getNicknameSourceData() {
+        return nicknameSourceData;
+    }
+
+    public ArrayList<String> getDetailsSourceData() {
+        return detailsSourceData;
+    }
+
+    public ArrayList<String> getTheLocalSourceData() {
+        return theLocalSourceData;
+    }
+
+    public ArrayList<String> getFavorToSourceData() {
+        return favorToSourceData;
+    }
+
+    public ArrayList<String> getProtectedBySourceData() {
+        return protectedBySourceData;
+    }
+
+    public ArrayList<String> getMapToSourceData() {
+        return mapToSourceData;
+    }
+
+    public ArrayList<String> getPossessesASourceData() {
+        return possessesASourceData;
+    }
+
+    public ArrayList<String> getObsessedBySourceData() {
+        return obsessedBySourceData;
+    }
+
+    public ArrayList<String> getCursedBySourceData() {
+        return cursedBySourceData;
+    }
+
 
     ////////CONSTRUCTOR////////
-    GenerateSourceData(SourcePersistence sourcePersistance){
-        _sourcePersistance = sourcePersistance;
+    GenerateSourceData(SourcePersistence sourcePersistence){
+        _sourcePersistence = sourcePersistence;
         generateRacialStatsSourceData();
         raceSourceStatic.add(0, "Any Race");
         generateRaceData();
@@ -72,18 +141,18 @@ public class GenerateSourceData {
         }
     }
 
-    public void generateSubraceNames(){
-        subraceSourceStatic.clear();
+    private void generateSubraceNames(){
+        subRaceSourceStatic.clear();
         for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
             if(entry.isSubrace){
-                subraceSourceStatic.add(entry.name);
+                subRaceSourceStatic.add(entry.name);
             }
         }
     }
 
     private void generateNameSourceData(){
         //TODO: Expand this section to have different files for the different races.
-        nameData = _sourcePersistance.GetData("NameDefault");
+        nameData = _sourcePersistence.GetData("NameDefault");
     }
 
     private void generateNameSectionData(){
@@ -114,21 +183,20 @@ public class GenerateSourceData {
 
     private void generateSourceData(){
 
-        adultProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("Professions"));
-        childProfessionSourceStatic = DeserializeData(_sourcePersistance.GetData("ProfessionsChild"));
+        adultProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("Professions"));
+        childProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("ProfessionsChild"));
 
-        motivationSourceData = _sourcePersistance.GetData("Motivations");
-        personalitySourceData = _sourcePersistance.GetData("Personalities");
-        nicknameSourceData = _sourcePersistance.GetData("Nicknames");
-        detailsSourceData = _sourcePersistance.GetData("Details");
-        theLocalSourceData =_sourcePersistance.GetData("TheLocalReplacement");
-        favorToSourceData = _sourcePersistance.GetData("OwesFavorTo");
-        protectedBySourceData = _sourcePersistance.GetData("ProtectedBy");
-        mapToSourceData = _sourcePersistance.GetData("MapTo");
-        possessesASourceData = _sourcePersistance.GetData("PossessesA");
-        obsessedBySourceData = _sourcePersistance.GetData("ObsessedBy");
-        cursedBySourceData = _sourcePersistance.GetData("Cursed");
-        itemsSourceData = _sourcePersistance.GetData("Items");
+        motivationSourceData = _sourcePersistence.GetData("Motivations");
+        personalitySourceData = _sourcePersistence.GetData("Personalities");
+        nicknameSourceData = _sourcePersistence.GetData("Nicknames");
+        detailsSourceData = _sourcePersistence.GetData("Details");
+        theLocalSourceData = _sourcePersistence.GetData("TheLocalReplacement");
+        favorToSourceData = _sourcePersistence.GetData("OwesFavorTo");
+        protectedBySourceData = _sourcePersistence.GetData("ProtectedBy");
+        mapToSourceData = _sourcePersistence.GetData("MapTo");
+        possessesASourceData = _sourcePersistence.GetData("PossessesA");
+        obsessedBySourceData = _sourcePersistence.GetData("ObsessedBy");
+        cursedBySourceData = _sourcePersistence.GetData("Cursed");
     }
 
     private ArrayList<String> DeserializeData(ArrayList<String> list) {
@@ -149,10 +217,10 @@ public class GenerateSourceData {
             Document doc = docBuilder.parse(xmlSourceFile);
             doc.getDocumentElement().normalize();
 
-            raceTag = doc.getElementsByTagName("race");
+            NodeList raceTag = doc.getElementsByTagName("race");
             parseRacialStatSourceData(raceTag);
 
-            subraceTag = doc.getElementsByTagName("subRace");
+            NodeList subraceTag = doc.getElementsByTagName("subRace");
             parseRacialStatSourceData(subraceTag);
 
         } catch(Exception e){
@@ -162,13 +230,11 @@ public class GenerateSourceData {
 
     private static void parseRacialStatSourceData(NodeList nodeList){
 
-        NodeList nList = nodeList;
-
         //start looping through races
-        for(int i = 0; i < nList.getLength(); i++){
+        for(int i = 0; i < nodeList.getLength(); i++){
             //set up items
             RacialStatBlock tempRace = new RacialStatBlock();
-            Node raceNode = nList.item(i);
+            Node raceNode = nodeList.item(i);
             NodeList raceList = raceNode.getChildNodes();
 
             //go through races child nodes

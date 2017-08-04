@@ -17,12 +17,18 @@ public class Name {
 	public String chosenName;
 	public String chosenAge;
 	public String chosenLastName;
-	private ArrayList<String> beginningName = GenerateSourceData.beginningName;
-	private ArrayList<String> middleName = GenerateSourceData.middleName;
-	private ArrayList<String> endName = GenerateSourceData.endName;
-	private ArrayList<String> ageRange = GenerateSourceData.ageRange;
+	private GenerateSourceData data;
+	private ArrayList<String> beginningName;
+	private ArrayList<String> middleName;
+	private ArrayList<String> endName;
+	private ArrayList<String> ageRange;
 	
-	public Name(){
+	public Name(GenerateSourceData data){
+		this.data = data;
+		beginningName = this.data.getBeginningName();
+		middleName = this.data.getMiddleName();
+		endName = this.data.getEndName();
+		ageRange = this.data.getAgeRange();
 		sex = "";
 		chosenName = "";
 		chosenAge = "";

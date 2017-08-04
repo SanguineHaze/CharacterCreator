@@ -3,9 +3,11 @@ import java.util.Random;
 
 public class Profession {
 
+    private final GenerateSourceData data;
     public String chosenProfession;
 
-    public Profession(String chosenAge){
+    public Profession(String chosenAge, GenerateSourceData data){
+        this.data = data;
         chosenProfession = "";
         generateProfession(chosenAge);
     }
@@ -22,14 +24,16 @@ public class Profession {
     public void generateProfession(String chosenAge){
 
         Random randomProfession = new Random();
-        int index = randomProfession.nextInt(GenerateSourceData.adultProfessionSourceStatic.size());
-        chosenProfession = GenerateSourceData.adultProfessionSourceStatic.get(index);
+        ArrayList<String> adultProfessionSource = data.getAdultProfessionSourceStatic();
+        int index = randomProfession.nextInt(adultProfessionSource.size());
+        chosenProfession = adultProfessionSource.get(index);
 
         if("Child".equals(chosenAge)){
-            int size = GenerateSourceData.childProfessionSourceStatic.size();
+            ArrayList<String> childProfessionSource = data.getChildProfessionSourceStatic();
+            int size = childProfessionSource.size();
             int indexR = randomProfession.nextInt(size);
             
-            chosenProfession = GenerateSourceData.childProfessionSourceStatic.get(indexR);
+            chosenProfession = childProfessionSource.get(indexR);
 
             Random childRandom = new Random();
             int isEmployed = childRandom.nextInt(11); //0 -> 10
