@@ -36,6 +36,7 @@ public class GenerateSourceData {
     private static ArrayList<String> obsessedBySourceData = new ArrayList<>();
     private static ArrayList<String> cursedBySourceData = new ArrayList<>();
     static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
+    private ArrayList<String> itemSourceData = new ArrayList<>();
 
 
     ////////GETTERS & SETTERS////////
@@ -118,6 +119,10 @@ public class GenerateSourceData {
         return cursedBySourceData;
     }
 
+    public ArrayList<String> getItemSourceData() {
+        return itemSourceData;
+    }
+
 
     ////////CONSTRUCTOR////////
     GenerateSourceData(SourcePersistence sourcePersistence){
@@ -197,6 +202,7 @@ public class GenerateSourceData {
         possessesASourceData = _sourcePersistence.GetData("PossessesA");
         obsessedBySourceData = _sourcePersistence.GetData("ObsessedBy");
         cursedBySourceData = _sourcePersistence.GetData("Cursed");
+        itemSourceData = _sourcePersistence.GetData("Items");
     }
 
     private ArrayList<String> DeserializeData(ArrayList<String> list) {
@@ -330,6 +336,7 @@ public class GenerateSourceData {
             raceStatBlock.add(tempRace);
         }
     }
+
 
 }
 

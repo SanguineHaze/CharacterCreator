@@ -38,10 +38,12 @@ public class FormPanel extends JPanel {
     private JLabel professionLabel;
     private JLabel nicknameLabel;
     private JLabel detailsChanceLabel;
+    private JLabel itemChanceLabel;
 
     private JTextField numGenTextField;
     private JTextField nicknameChance;
     private JTextField detailsChanceField;
+    private JTextField itemChanceField;
     private JComboBox<String> ageComboBox;
     private JComboBox<String> professionComboBox;
 
@@ -69,6 +71,7 @@ public class FormPanel extends JPanel {
     protected int nicknameChanceInt = -1;
     protected int detailsChance;
     private ArrayList<String> ageRange;
+    private int itemChance;
 
     //VALIDATION
     static boolean isValidNumber(String val) {
@@ -100,6 +103,7 @@ public class FormPanel extends JPanel {
         professionLabel = new JLabel("Profession:");
         nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
         detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
+        itemChanceLabel = new JLabel("Item Chance (0 to 100):");
 
         //FIELDS
         numGenTextField = new JTextField(10);
@@ -108,6 +112,8 @@ public class FormPanel extends JPanel {
         nicknameChance.setColumns(10);
         detailsChanceField = new JTextField(10);
         detailsChanceField.setColumns(10);
+        itemChanceField = new JTextField(8);
+        itemChanceField.setColumns(8);
 
         sexM = new JRadioButton(sexMString);
         sexF = new JRadioButton(sexFString);
@@ -240,16 +246,27 @@ public class FormPanel extends JPanel {
         gbc.gridy = 12;
         add(detailsChanceField, gbc);
 
+        //ITEMS
+        gbc.gridx = 0;
+        gbc.gridy= 13;
+        gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+        add(itemChanceLabel, gbc);
+
+        gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+        gbc.gridx = 0;
+        gbc.gridy = 14;
+        add(itemChanceField, gbc);
+
         //ROW 9 - GENERATE STATS
         gbc.gridx = 0;
-        gbc.gridy = 13;
+        gbc.gridy = 15;
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
         add(generateStats, gbc);
         generateStats.setSelected(true);
 
         //ROW 9 - SAVE BOX
         gbc.gridx = 0;
-        gbc.gridy = 14;
+        gbc.gridy = 16;
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
         add(saveCheckBox, gbc);
 

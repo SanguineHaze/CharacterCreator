@@ -1,3 +1,4 @@
+import javax.management.openmbean.TabularDataSupport;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,9 +18,11 @@ public class AdditionalFeatures {
 	private final ArrayList<String> possessesAList;
 	private final ArrayList<String> obsessedByList;
 	private final ArrayList<String> cursedByList;
+	private final ArrayList<String> itemList;
 	
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail, chosenItem;
 	private int nicknameChance, detailChance, itemChance;
+
 
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
@@ -34,9 +37,10 @@ public class AdditionalFeatures {
 		possessesAList = data.getPossessesASourceData();
 		obsessedByList = data.getObsessedBySourceData();
 		cursedByList = data.getCursedBySourceData();
+		itemList = data.getItemSourceData();
 	}
 
-	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance, int itemChance){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
