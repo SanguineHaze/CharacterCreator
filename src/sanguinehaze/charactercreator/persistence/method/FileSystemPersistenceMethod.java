@@ -1,4 +1,4 @@
-package persistence.method;
+package sanguinehaze.charactercreator.persistence.method;
 
 import java.io.File;
 import java.io.FileNotFoundException;

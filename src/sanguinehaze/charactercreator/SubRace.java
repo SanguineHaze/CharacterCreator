@@ -1,3 +1,5 @@
+package sanguinehaze.charactercreator;
+
 import java.util.ArrayList;
 import java.util.Random;
 

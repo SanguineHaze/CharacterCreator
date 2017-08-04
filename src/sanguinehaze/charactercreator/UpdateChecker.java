@@ -1,3 +1,5 @@
+package sanguinehaze.charactercreator;
+
 import java.io.InputStream;
 import java.net.URL;
 

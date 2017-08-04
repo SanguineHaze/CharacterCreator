@@ -1,3 +1,5 @@
+package sanguinehaze.charactercreator;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.text.DateFormat;

@@ -1,3 +1,5 @@
+package sanguinehaze.charactercreator;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;

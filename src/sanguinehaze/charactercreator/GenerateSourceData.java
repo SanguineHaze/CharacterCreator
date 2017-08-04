@@ -1,13 +1,21 @@
+package sanguinehaze.charactercreator;
+
 import java.io.File;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import sanguinehaze.charactercreator.data.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.data.dtos.ChildProfessionList;
+import sanguinehaze.charactercreator.data.dtos.DetailsList;
+import sanguinehaze.charactercreator.data.dtos.MotivationList;
+import sanguinehaze.charactercreator.data.dtos.NicknameList;
+import sanguinehaze.charactercreator.data.dtos.PersonalityList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import persistence.SourcePersistence;
+import sanguinehaze.charactercreator.persistence.SourcePersistence;
 
 public class GenerateSourceData {
 
@@ -15,18 +23,18 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    private static ArrayList<String> adultProfessionSourceStatic = new ArrayList<>();
-    private static ArrayList<String> childProfessionSourceStatic = new ArrayList<>();
+    private AdultProfessionList _adultProfessionList;
+    private ChildProfessionList _childProfessionList;
     private static ArrayList<String> nameData = new ArrayList<>();
     private static ArrayList<String> beginningName = new ArrayList<>();
     private static ArrayList<String> middleName = new ArrayList<>();
     private static ArrayList<String> endName = new ArrayList<>();
     private static ArrayList<String> ageRange = new ArrayList<>();
     private static ArrayList<String> ageRangeStatic = new ArrayList<>();
-    private static ArrayList<String> motivationSourceData = new ArrayList<>();
-    private static ArrayList<String> personalitySourceData = new ArrayList<>();
-    private static ArrayList<String> nicknameSourceData = new ArrayList<>();
-    private static ArrayList<String> detailsSourceData = new ArrayList<>();
+    private MotivationList _motivationList;
+    private PersonalityList _personalityList;
+    private NicknameList _nicknameList;
+    private DetailsList _detailsList;
     //Data for "Details" Subsection //
     private static ArrayList<String> theLocalSourceData = new ArrayList<>();
     private static ArrayList<String> favorToSourceData = new ArrayList<>();
@@ -47,12 +55,12 @@ public class GenerateSourceData {
 
     private SourcePersistence _sourcePersistence;
 
-    public ArrayList<String> getAdultProfessionSourceStatic() {
-        return adultProfessionSourceStatic;
+    AdultProfessionList getAdultProfessionList() {
+        return this._adultProfessionList;
     }
 
-    public ArrayList<String> getChildProfessionSourceStatic() {
-        return childProfessionSourceStatic;
+    ChildProfessionList getChildProfessionList() {
+        return this._childProfessionList;
     }
 
     public ArrayList<String> getBeginningName() {
@@ -67,55 +75,55 @@ public class GenerateSourceData {
         return endName;
     }
 
-    public ArrayList<String> getAgeRange() {
+    ArrayList<String> getAgeRange() {
         return ageRange;
     }
 
-    public ArrayList<String> getAgeRangeStatic() {
+    ArrayList<String> getAgeRangeStatic() {
         return ageRangeStatic;
     }
 
-    public ArrayList<String> getMotivationSourceData() {
-        return motivationSourceData;
+    MotivationList getMotivationList() {
+        return this._motivationList;
     }
 
-    public ArrayList<String> getPersonalitySourceData() {
-        return personalitySourceData;
+    PersonalityList getPersonalityList() {
+        return this._personalityList;
     }
 
-    public ArrayList<String> getNicknameSourceData() {
-        return nicknameSourceData;
+    NicknameList getNicknameList() {
+        return this._nicknameList;
     }
 
-    public ArrayList<String> getDetailsSourceData() {
-        return detailsSourceData;
+    DetailsList getDetailsList() {
+        return this._detailsList;
     }
 
-    public ArrayList<String> getTheLocalSourceData() {
+    ArrayList<String> getTheLocalSourceData() {
         return theLocalSourceData;
     }
 
-    public ArrayList<String> getFavorToSourceData() {
+    ArrayList<String> getFavorToSourceData() {
         return favorToSourceData;
     }
 
-    public ArrayList<String> getProtectedBySourceData() {
+    ArrayList<String> getProtectedBySourceData() {
         return protectedBySourceData;
     }
 
-    public ArrayList<String> getMapToSourceData() {
+    ArrayList<String> getMapToSourceData() {
         return mapToSourceData;
     }
 
-    public ArrayList<String> getPossessesASourceData() {
+    ArrayList<String> getPossessesASourceData() {
         return possessesASourceData;
     }
 
-    public ArrayList<String> getObsessedBySourceData() {
+    ArrayList<String> getObsessedBySourceData() {
         return obsessedBySourceData;
     }
 
-    public ArrayList<String> getCursedBySourceData() {
+    ArrayList<String> getCursedBySourceData() {
         return cursedBySourceData;
     }
 
@@ -125,7 +133,7 @@ public class GenerateSourceData {
 
 
     ////////CONSTRUCTOR////////
-    GenerateSourceData(SourcePersistence sourcePersistence){
+    public GenerateSourceData(SourcePersistence sourcePersistence){
         _sourcePersistence = sourcePersistence;
         generateRacialStatsSourceData();
         raceSourceStatic.add(0, "Any Race");
@@ -188,13 +196,13 @@ public class GenerateSourceData {
 
     private void generateSourceData(){
 
-        adultProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("Professions"));
-        childProfessionSourceStatic = DeserializeData(_sourcePersistence.GetData("ProfessionsChild"));
+        _adultProfessionList = AdultProfessionList.of(DeserializeData(_sourcePersistence.GetData("Professions")));
+        _childProfessionList = ChildProfessionList.of(DeserializeData(_sourcePersistence.GetData("ProfessionsChild")));
 
-        motivationSourceData = _sourcePersistence.GetData("Motivations");
-        personalitySourceData = _sourcePersistence.GetData("Personalities");
-        nicknameSourceData = _sourcePersistence.GetData("Nicknames");
-        detailsSourceData = _sourcePersistence.GetData("Details");
+        _motivationList = MotivationList.of(_sourcePersistence.GetData("Motivations"));
+        _personalityList = PersonalityList.of(_sourcePersistence.GetData("Personalities"));
+        _nicknameList = NicknameList.of(_sourcePersistence.GetData("Nicknames"));
+        _detailsList = DetailsList.of(_sourcePersistence.GetData("Details"));
         theLocalSourceData = _sourcePersistence.GetData("TheLocalReplacement");
         favorToSourceData = _sourcePersistence.GetData("OwesFavorTo");
         protectedBySourceData = _sourcePersistence.GetData("ProtectedBy");

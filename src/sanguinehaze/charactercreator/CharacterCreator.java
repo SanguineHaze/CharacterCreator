@@ -1,7 +1,10 @@
+package sanguinehaze.charactercreator;
+
 import javax.swing.SwingUtilities;
 
-import persistence.SourcePersistanceFactory;
-import persistence.SourcePersistence;
+import sanguinehaze.charactercreator.factories.MainFrameFactory;
+import sanguinehaze.charactercreator.persistence.SourcePersistanceFactory;
+import sanguinehaze.charactercreator.persistence.SourcePersistence;
 
 public class CharacterCreator {
     
@@ -16,12 +19,9 @@ public class CharacterCreator {
                 new UpdateInfo(UpdateChecker.getWhatsNew());
                 notice.dispose();
             } else {
-                @SuppressWarnings("unused")
-                GenerateSourceData sourceData = new GenerateSourceData(sourcePersistance);
-
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        new MainFrame(sourceData);
+                        MainFrameFactory.create(sourcePersistance);
                     }
                 });
                 notice.dispose();
@@ -32,12 +32,9 @@ public class CharacterCreator {
 
             // In case there's no internet connection, just launch. 
             //TODO: deal with outputting stacktrace
-            @SuppressWarnings("unused")
-            GenerateSourceData sourceData = new GenerateSourceData(sourcePersistance);
-
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    new MainFrame(sourceData);
+                    MainFrameFactory.create(sourcePersistance);
                 }
             });
         }

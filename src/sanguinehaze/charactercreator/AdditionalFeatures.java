@@ -1,14 +1,20 @@
-import javax.management.openmbean.TabularDataSupport;
+package sanguinehaze.charactercreator;
+
+import sanguinehaze.charactercreator.data.dtos.DetailsList;
+import sanguinehaze.charactercreator.data.dtos.MotivationList;
+import sanguinehaze.charactercreator.data.dtos.NicknameList;
+import sanguinehaze.charactercreator.data.dtos.PersonalityList;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class AdditionalFeatures {
 
 	private final GenerateSourceData data;
-	private final ArrayList<String> motivationList;
-	private final ArrayList<String> personalityList;
-	private final ArrayList<String> nicknameList;
-	private final ArrayList<String> detailsList;
+	private final MotivationList _motivationList;
+	private final PersonalityList _personalityList;
+	private final NicknameList _nicknameList;
+	private final DetailsList _detailsList;
 	
 	//Lists contained within DetailsList
 	private final ArrayList<String> theLocalList;
@@ -18,18 +24,16 @@ public class AdditionalFeatures {
 	private final ArrayList<String> possessesAList;
 	private final ArrayList<String> obsessedByList;
 	private final ArrayList<String> cursedByList;
-	private final ArrayList<String> itemList;
 	
-	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail, chosenItem;
-	private int nicknameChance, detailChance, itemChance;
-
+	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
+	private int nicknameChance, detailChance;
 
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
-		motivationList = data.getMotivationSourceData();
-		personalityList = data.getPersonalitySourceData();
-		nicknameList = data.getNicknameSourceData();
-		detailsList = data.getDetailsSourceData();
+		_motivationList = data.getMotivationList();
+		_personalityList = data.getPersonalityList();
+		_nicknameList = data.getNicknameList();
+		_detailsList = data.getDetailsList();
 		theLocalList = data.getTheLocalSourceData();
 		favorToList = data.getFavorToSourceData();
 		protectedByList = data.getProtectedBySourceData();
@@ -37,14 +41,12 @@ public class AdditionalFeatures {
 		possessesAList = data.getPossessesASourceData();
 		obsessedByList = data.getObsessedBySourceData();
 		cursedByList = data.getCursedBySourceData();
-		itemList = data.getItemSourceData();
 	}
 
-	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance, int itemChance){
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
-		chosenItem="";
 		chosenNickname = "";
 		generateMotivation(chosenAge);
 		generatePersonality();
@@ -52,8 +54,6 @@ public class AdditionalFeatures {
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		this.detailChance = detailChance;
 		generateDetails(chosenRace, chosenProfession);
-		this.itemChance = itemChance;
-		generateItem(); //Currently no inputs, could easily take in race or profession -- Max
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
@@ -64,32 +64,32 @@ public class AdditionalFeatures {
 	public void generateMotivation(String chosenAge){
 		if(!"child".equals(chosenAge.toLowerCase())){
 			Random randomMotivation = new Random();
-			int index = randomMotivation.nextInt(motivationList.size());
-			chosenMotivation = motivationList.get(index);
+			int index = randomMotivation.nextInt(_motivationList.size());
+			chosenMotivation = _motivationList.get(index);
 		} else if("child".equals(chosenAge.toLowerCase())){
 			
 			//TODO: CREATE CHILD MOTIVATION LIST!!!!!!!!!
 			
 			Random randomMotivation = new Random();
-			int index = randomMotivation.nextInt(motivationList.size());
-			chosenMotivation = motivationList.get(index);
+			int index = randomMotivation.nextInt(_motivationList.size());
+			chosenMotivation = _motivationList.get(index);
 		}
 	}
 	
 	//PERSONALITY SECTION	
 	public void generatePersonality(){
 		Random randomPersonality = new Random();
-		int index = randomPersonality.nextInt(personalityList.size());
-		int index2 = randomPersonality.nextInt(personalityList.size());
-		int index3 = randomPersonality.nextInt(personalityList.size());
+		int index = randomPersonality.nextInt(_personalityList.size());
+		int index2 = randomPersonality.nextInt(_personalityList.size());
+		int index3 = randomPersonality.nextInt(_personalityList.size());
 			//Validate the selections
 			if(index2 == index || index2 == index3){
-				index2 = randomPersonality.nextInt(personalityList.size());
+				index2 = randomPersonality.nextInt(_personalityList.size());
 			}
 			if(index3 == index2 || index3 == index){
-				index3 = randomPersonality.nextInt(personalityList.size());
+				index3 = randomPersonality.nextInt(_personalityList.size());
 			}
-		chosenPersonality = personalityList.get(index) + ", " + personalityList.get(index2) + ", " + personalityList.get(index3);
+		chosenPersonality = _personalityList.get(index) + ", " + _personalityList.get(index2) + ", " + _personalityList.get(index3);
 	}
 	
 	//NICKNAME SECTION
@@ -106,37 +106,13 @@ public class AdditionalFeatures {
 		
 		if(hasNickname <= nicknameChance){
 			Random randomNickname = new Random();
-			int index = randomNickname.nextInt(nicknameList.size());
-			chosenNickname = nicknameList.get(index);
+			int index = randomNickname.nextInt(_nicknameList.size());
+			chosenNickname = _nicknameList.get(index);
 			if(!chosenNickname.contains("the ")){
 				this.chosenNickname = "'" + chosenNickname + "'";
 			}
 		}		
 	}
-	//ITEM SECTION
-	public void generateItem(){
-	Random assignItem = new Random();
-	int hasItem = assignItem.nextInt(101); //Randomly decide if character has itemChance
-	
-	//DEBUG TOOL: Check nickname chance rolls
-	
-	//System.out.println("HNN#: " + hasItem);
-	//System.out.println("NNC#: " + itemChance);
-	
-	
-
-			if(hasItem <= itemChance){
-			Random randomItem = new Random();
-			int index = randomItem.nextInt(itemList.size());
-			chosenItem = itemList.get(index);
-			if(chosenItem.contains("+")){
-				this.chosenItem = "" + chosenItem + "!";
-			}
-		}		
-	}
-		
-	
-	
 	
 	///ADDITIONAL DETAILS SECTION///
 	public void generateDetails(String race, String profession){
@@ -146,8 +122,8 @@ public class AdditionalFeatures {
 		int recieves = detailsChanceRandomInt.nextInt(101);
 		if (recieves <= detailChance ){
 			Random assignDetails = new Random();
-			int index = assignDetails.nextInt(detailsList.size());
-			chosenDetail = detailsList.get(index);
+			int index = assignDetails.nextInt(_detailsList.size());
+			chosenDetail = _detailsList.get(index);
 			
 			if(chosenDetail.contains("...")){
 				if(chosenDetail.contains("owed a favor by")){

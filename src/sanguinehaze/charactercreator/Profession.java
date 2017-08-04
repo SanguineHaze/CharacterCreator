@@ -1,3 +1,8 @@
+package sanguinehaze.charactercreator;
+
+import sanguinehaze.charactercreator.data.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.data.dtos.ChildProfessionList;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -24,16 +29,16 @@ public class Profession {
     public void generateProfession(String chosenAge){
 
         Random randomProfession = new Random();
-        ArrayList<String> adultProfessionSource = data.getAdultProfessionSourceStatic();
-        int index = randomProfession.nextInt(adultProfessionSource.size());
-        chosenProfession = adultProfessionSource.get(index);
+        AdultProfessionList adultProfessionList = data.getAdultProfessionList();
+        int index = randomProfession.nextInt(adultProfessionList.size());
+        chosenProfession = adultProfessionList.get(index);
 
         if("Child".equals(chosenAge)){
-            ArrayList<String> childProfessionSource = data.getChildProfessionSourceStatic();
-            int size = childProfessionSource.size();
+            ChildProfessionList childProfessionList = data.getChildProfessionList();
+            int size = childProfessionList.size();
             int indexR = randomProfession.nextInt(size);
             
-            chosenProfession = childProfessionSource.get(indexR);
+            chosenProfession = childProfessionList.get(indexR);
 
             Random childRandom = new Random();
             int isEmployed = childRandom.nextInt(11); //0 -> 10
