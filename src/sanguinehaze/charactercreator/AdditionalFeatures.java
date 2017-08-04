@@ -24,9 +24,12 @@ public class AdditionalFeatures {
 	private final ArrayList<String> possessesAList;
 	private final ArrayList<String> obsessedByList;
 	private final ArrayList<String> cursedByList;
-	
+	private final ArrayList<String> itemList;
+
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
 	private int nicknameChance, detailChance;
+	private int itemChance;
+	public String chosenItem;
 
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
@@ -41,9 +44,10 @@ public class AdditionalFeatures {
 		possessesAList = data.getPossessesASourceData();
 		obsessedByList = data.getObsessedBySourceData();
 		cursedByList = data.getCursedBySourceData();
+		itemList = data.getItemSourceData();
 	}
 
-	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance){
+	public void generateNewAdditionalFeatures(int nicknameChance, String chosenAge, String chosenProfession, String chosenRace, int detailChance, int itemChance){
 		chosenPersonality = "";
 		chosenMotivation = "";
 		chosenDetail = "";
@@ -53,7 +57,9 @@ public class AdditionalFeatures {
 		setNicknameChance(nicknameChance);
 		generateNickname(chosenAge, chosenProfession, chosenRace);
 		this.detailChance = detailChance;
+		this.itemChance = itemChance;
 		generateDetails(chosenRace, chosenProfession);
+		generateItem();
 	}
 	
 	public void setNicknameChance(int nicknameChance) {
@@ -68,7 +74,7 @@ public class AdditionalFeatures {
 			chosenMotivation = _motivationList.get(index);
 		} else if("child".equals(chosenAge.toLowerCase())){
 			
-			//TODO: CREATE CHILD MOTIVATION LIST!!!!!!!!!
+			//TODO: CREATE CHILD MOTIVATION LIST (LOW PRIORITY)
 			
 			Random randomMotivation = new Random();
 			int index = randomMotivation.nextInt(_motivationList.size());
@@ -96,14 +102,8 @@ public class AdditionalFeatures {
 	//TODO: Use Age, Profession, and Race in nickname creation!!
 	public void generateNickname(String age, String profession, String race) {	
 		Random assignNickname = new Random();  
-		int hasNickname = assignNickname.nextInt(101); //Randomly decide if character has nickname
-		
-		//DEBUG TOOL: Check nickname chance rolls
-		/*
-		System.out.println("HNN#: " + hasNickname);
-		System.out.println("NNC#: " + nicknameChance);
-		*/
-		
+		int hasNickname = assignNickname.nextInt(101);
+
 		if(hasNickname <= nicknameChance){
 			Random randomNickname = new Random();
 			int index = randomNickname.nextInt(_nicknameList.size());
@@ -162,6 +162,19 @@ public class AdditionalFeatures {
 					String cReplace = cursedByList.get(indexC);
 					this.chosenDetail = chosenDetail.replace("...", cReplace);
 				}
+			}
+		}
+	}
+	//ITEM SECTION\
+	public void generateItem(){
+		Random assignItem = new Random();
+		int hasItem = assignItem.nextInt(101);
+		if(hasItem <= itemChance){
+			Random randomItem = new Random();
+			int index = randomItem.nextInt(itemList.size());
+			chosenItem = itemList.get(index);
+			if(chosenItem.contains("+")){
+				this.chosenItem = "" + chosenItem + "!";
 			}
 		}
 	}
