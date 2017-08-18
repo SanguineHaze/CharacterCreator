@@ -1,5 +1,7 @@
 package sanguinehaze.charactercreator;
 
+import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ItemEvent;
@@ -50,16 +52,18 @@ public class RacePanel extends JPanel{
             gbc.gridx = 0;
             add(optionBox, gbc);
             boxRow++;
-            for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
-                if(rSB.parentID.toLowerCase().equals(races.get(i).toLowerCase())){
-                    JCheckBox optionBox2 = new JCheckBox(rSB.name);
-                    optionBox2.setName(rSB.name);
+            for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
+                if(racialStatBlock.getParentId().toLowerCase().equals(races.get(i).toLowerCase())){
+
+                    JCheckBox optionBox2 = new JCheckBox(racialStatBlock.getName());
+                    optionBox2.setName(racialStatBlock.getName());
                     optionBox2.addItemListener(boxListener);
                     gbc.gridy = boxRow;
                     gbc.gridx = boxCol;
                     add(optionBox2, gbc);
                     boxCol++;
                     subraceCount++;
+
                     if(subraceCount == 4){
                         subraceCount = 0;
                         boxRow++;

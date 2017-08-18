@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class WriteToFile {
 	
@@ -16,7 +17,7 @@ public class WriteToFile {
 	String theDate;
 	private String filePath = filesDirectory + "NPCResults" + File.separator + "CharacterResults";
 	
-	public WriteToFile(ArrayList<String> characterResults) {
+	public WriteToFile(List<String> characterResults) {
 		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_HH_mm_ss");
 		theDate = dateFormat.format(date);
 		String filePath = filesDirectory + "NPCResults" + File.separator + "CharacterResults";
