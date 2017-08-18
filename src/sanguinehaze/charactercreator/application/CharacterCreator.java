@@ -1,8 +1,8 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.application;
 
 import javax.swing.SwingUtilities;
 
-import sanguinehaze.charactercreator.adapter.factories.MainFrameFactory;
+import sanguinehaze.charactercreator.adapter.views.factories.MainFrameFactory;
 import sanguinehaze.charactercreator.adapter.persistence.SourcePersistanceFactory;
 import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
@@ -13,7 +13,7 @@ public class CharacterCreator {
     public static void main(String[] args) {
         SourcePersistence sourcePersistance = SourcePersistanceFactory.Create();
         
-        UpdateNotice notice = new UpdateNotice(); 
+        UpdateNotice notice = new UpdateNotice();
         try {
             if (Integer.parseInt(UpdateChecker.getLatestVersion()) > thisVersion) {
                 new UpdateInfo(UpdateChecker.getWhatsNew());
