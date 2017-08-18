@@ -1,7 +1,7 @@
-package sanguinehaze.charactercreator.data;
+package sanguinehaze.charactercreator.domain;
 
-import sanguinehaze.charactercreator.data.dtos.Sex;
-import sanguinehaze.charactercreator.data.exceptions.InvalidArgumentException;
+import sanguinehaze.charactercreator.domain.dtos.Sex;
+import sanguinehaze.charactercreator.domain.InvalidArgumentException;
 
 import java.util.List;
 import java.util.Random;

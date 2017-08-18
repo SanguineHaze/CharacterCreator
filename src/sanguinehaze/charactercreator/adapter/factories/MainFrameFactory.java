@@ -1,9 +1,9 @@
-package sanguinehaze.charactercreator.factories;
+package sanguinehaze.charactercreator.adapter.factories;
 
 import sanguinehaze.charactercreator.GenerateSourceData;
-import sanguinehaze.charactercreator.MainFrame;
-import sanguinehaze.charactercreator.data.NameBuilder;
-import sanguinehaze.charactercreator.persistence.SourcePersistence;
+import sanguinehaze.charactercreator.adapter.views.MainFrame;
+import sanguinehaze.charactercreator.domain.NameBuilder;
+import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
 public class MainFrameFactory {
 

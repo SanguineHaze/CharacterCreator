@@ -2,9 +2,9 @@ package sanguinehaze.charactercreator;
 
 import javax.swing.SwingUtilities;
 
-import sanguinehaze.charactercreator.factories.MainFrameFactory;
-import sanguinehaze.charactercreator.persistence.SourcePersistanceFactory;
-import sanguinehaze.charactercreator.persistence.SourcePersistence;
+import sanguinehaze.charactercreator.adapter.factories.MainFrameFactory;
+import sanguinehaze.charactercreator.adapter.persistence.SourcePersistanceFactory;
+import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
 public class CharacterCreator {
     

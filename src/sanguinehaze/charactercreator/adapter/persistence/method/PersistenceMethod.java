@@ -1,4 +1,4 @@
-package sanguinehaze.charactercreator.persistence.method;
+package sanguinehaze.charactercreator.adapter.persistence.method;
 
 import java.util.ArrayList;
 

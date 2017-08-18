@@ -1,4 +1,4 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.adapter.views;
 
 import java.awt.BorderLayout;
 

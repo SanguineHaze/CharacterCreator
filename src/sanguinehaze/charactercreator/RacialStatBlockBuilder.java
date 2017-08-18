@@ -1,6 +1,6 @@
 package sanguinehaze.charactercreator;
 
-import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
+import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
 
 import java.util.ArrayList;
 import java.util.List;

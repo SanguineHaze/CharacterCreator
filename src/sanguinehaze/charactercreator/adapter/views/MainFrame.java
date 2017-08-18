@@ -1,9 +1,18 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.adapter.views;
 
-import sanguinehaze.charactercreator.data.CharacterCreatorRandom;
-import sanguinehaze.charactercreator.data.NameBuilder;
-import sanguinehaze.charactercreator.data.dtos.FullName;
-import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
+import sanguinehaze.charactercreator.AdditionalFeatures;
+import sanguinehaze.charactercreator.AgeGenerator;
+import sanguinehaze.charactercreator.FormEvent;
+import sanguinehaze.charactercreator.GenerateSourceData;
+import sanguinehaze.charactercreator.Profession;
+import sanguinehaze.charactercreator.Race;
+import sanguinehaze.charactercreator.RacialStatBlockBuilder;
+import sanguinehaze.charactercreator.SubRace;
+import sanguinehaze.charactercreator.WriteToFile;
+import sanguinehaze.charactercreator.domain.CharacterCreatorRandom;
+import sanguinehaze.charactercreator.domain.NameBuilder;
+import sanguinehaze.charactercreator.domain.dtos.FullName;
+import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
