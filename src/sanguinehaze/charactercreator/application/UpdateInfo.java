@@ -1,4 +1,4 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.application;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

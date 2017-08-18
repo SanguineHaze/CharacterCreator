@@ -2,7 +2,7 @@ package sanguinehaze.charactercreator.adapter.views;
 
 import sanguinehaze.charactercreator.AdditionalFeatures;
 import sanguinehaze.charactercreator.AgeGenerator;
-import sanguinehaze.charactercreator.FormEvent;
+import sanguinehaze.charactercreator.adapter.views.events.FormEvent;
 import sanguinehaze.charactercreator.GenerateSourceData;
 import sanguinehaze.charactercreator.Profession;
 import sanguinehaze.charactercreator.Race;

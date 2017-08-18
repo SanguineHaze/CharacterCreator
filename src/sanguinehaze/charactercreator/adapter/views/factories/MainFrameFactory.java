@@ -1,4 +1,4 @@
-package sanguinehaze.charactercreator.adapter.factories;
+package sanguinehaze.charactercreator.adapter.views.factories;
 
 import sanguinehaze.charactercreator.GenerateSourceData;
 import sanguinehaze.charactercreator.adapter.views.MainFrame;
