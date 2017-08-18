@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -22,7 +23,8 @@ public class MainFrame extends JFrame {
     ArrayList<String> myLanguage, myExtra, myExtraChoice;
     String userRace, userSubRace, userSex, userAge, userProfession;
     String myRace, mySubRace, mySex, myName, myLastName, myAge, myMotivation, myProfession, myPersonality, myNickname,
-            myDetail, myItem;
+            myDetail;
+    private Optional<String> myItem;
     RacialStatBlock myRacialStats;
     int myStr, myDex, myCon, myInt, myWis, myCha, mySpeed, myFlySpeed, mySwimSpeed;
     int nicknameChance, detailChance, numGenInt, itemChance;
@@ -222,11 +224,13 @@ public class MainFrame extends JFrame {
                         thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
                                 detailChance, itemChance);
 
+
+
                         myMotivation = thisMotivation.chosenMotivation;
                         myPersonality = thisMotivation.chosenPersonality;
                         myNickname = thisMotivation.chosenNickname;
                         myDetail = thisMotivation.chosenDetail;
-                        myItem = thisMotivation.chosenItem;
+                        myItem = thisMotivation.getItem();
 
                         // CHARACTER STAT BLOCK
                         thisRacialStatBlock.generateRacialStats(myRace, mySubRace);
@@ -271,9 +275,9 @@ public class MainFrame extends JFrame {
                         if (!myDetail.isEmpty()) {
                             characterResults.add("Additional Detail: " + myDetail);
                         }
-                        if (!myItem.isEmpty()) {
-                            characterResults.add("Additional Item: " + myItem);
-                        }
+
+                        myItem.ifPresent(s -> characterResults.add("Additional Item: " + s));
+
                         if (includeStats) {
                             if (mySwimSpeed == 0 && myFlySpeed == 0) {
                                 characterResults.add("Speed: " + mySpeed);

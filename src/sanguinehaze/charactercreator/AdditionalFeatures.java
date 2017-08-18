@@ -6,6 +6,7 @@ import sanguinehaze.charactercreator.data.dtos.NicknameList;
 import sanguinehaze.charactercreator.data.dtos.PersonalityList;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Random;
 
 public class AdditionalFeatures {
@@ -29,7 +30,7 @@ public class AdditionalFeatures {
 	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
 	private int nicknameChance, detailChance;
 	private int itemChance;
-	public String chosenItem;
+	private String chosenItem;
 
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
@@ -178,5 +179,9 @@ public class AdditionalFeatures {
 			}
 		}
 	}
+	public Optional<String> getItem() {
+		return Optional.ofNullable(this.chosenItem);
+	}
+
 	
 }
