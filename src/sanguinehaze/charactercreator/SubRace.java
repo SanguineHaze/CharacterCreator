@@ -1,5 +1,7 @@
 package sanguinehaze.charactercreator;
 
+import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,8 +27,8 @@ public class SubRace {
 		
 		ArrayList<String> tempList = new ArrayList<String>();
 		for (RacialStatBlock entry: GenerateSourceData.raceStatBlock){
-			if(entry.parentID.toLowerCase().equals(chosenRace.toLowerCase())) {
-				tempList.add(entry.name);
+			if(entry.getParentId().toLowerCase().equals(chosenRace.toLowerCase())) {
+				tempList.add(entry.getName());
 			} else {
 				chosenSubRace = "";
 			}

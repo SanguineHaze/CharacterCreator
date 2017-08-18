@@ -3,11 +3,13 @@ package sanguinehaze.charactercreator;
 import sanguinehaze.charactercreator.data.CharacterCreatorRandom;
 import sanguinehaze.charactercreator.data.NameBuilder;
 import sanguinehaze.charactercreator.data.dtos.FullName;
+import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.swing.JButton;
@@ -19,13 +21,13 @@ public class MainFrame extends JFrame {
 	
     private static final long serialVersionUID = 3320499509997731807L;
     
-    ArrayList<String> characterResults = new ArrayList<>();
-    ArrayList<String> myLanguage, myExtra, myExtraChoice;
+    List<String> characterResults = new ArrayList<>();
+    List<String> myLanguage, myExtra, myExtraChoice;
     String userRace, userSubRace, userSex, userAge, userProfession;
     String myRace, mySubRace, mySex, myName, myLastName, myAge, myMotivation, myProfession, myPersonality, myNickname,
             myDetail;
     private Optional<String> myItem;
-    RacialStatBlock myRacialStats;
+    RacialStatBlockBuilder myRacialStats;
     int myStr, myDex, myCon, myInt, myWis, myCha, mySpeed, myFlySpeed, mySwimSpeed;
     int nicknameChance, detailChance, numGenInt, itemChance;
     int defaultDetail = 25;
@@ -39,7 +41,6 @@ public class MainFrame extends JFrame {
     private JPanel formTemplate;
     private JScrollPane scrollTemplate;
     private final GenerateSourceData data;
-    private NameBuilder nameBuilder;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
 
@@ -50,7 +51,7 @@ public class MainFrame extends JFrame {
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
         this.data = data;
-        this.nameBuilder = nameBuilder;
+        NameBuilder nameBuilder1 = nameBuilder;
 
         setLayout(new BorderLayout());
 
@@ -114,7 +115,7 @@ public class MainFrame extends JFrame {
                     AgeGenerator thisAgeGenerator = new AgeGenerator(data);
                     Profession thisProfession = new Profession(myAge, data);
                     AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
-                    RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
+                    RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
                     CharacterCreatorRandom rand = new CharacterCreatorRandom();
 
                     saveNext = formPanel.isSaveNext();
@@ -151,12 +152,12 @@ public class MainFrame extends JFrame {
                         ArrayList<String> chars = racePanel.getSelectedRaces();
                         int randChoice = rand.nextInt(chars.size());
                         String choice = chars.get(randChoice);
-                        for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
-                            if(rSB.name.toLowerCase().equals(choice.toLowerCase())){
-                                if(rSB.isSubrace){
-                                    userRace = rSB.parentID;
+                        for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
+                            if(racialStatBlock.getName().toLowerCase().equals(choice.toLowerCase())){
+                                if(racialStatBlock.isSubrace()){
+                                    userRace = racialStatBlock.getParentId();
                                     userSubRace = choice;
-                                } else if(!rSB.isSubrace){
+                                } else if(!racialStatBlock.isSubrace()){
                                     userRace = choice;
                                     userSubRace = "";
                                 }
@@ -178,8 +179,8 @@ public class MainFrame extends JFrame {
                             thisRace.pickNewRace(userRace);
                         } else if(userRace.isEmpty() && !userSubRace.isEmpty()){
                             for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
-                                if(rSB.name.toLowerCase().equals(userSubRace.toLowerCase())){
-                                    userRace = rSB.parentID;
+                                if(rSB.getName().toLowerCase().equals(userSubRace.toLowerCase())){
+                                    userRace = rSB.getParentId();
                                     thisRace.pickNewRace(userRace);
                                 }
                             }
@@ -234,19 +235,20 @@ public class MainFrame extends JFrame {
                         myItem = thisMotivation.getItem();
 
                         // CHARACTER STAT BLOCK
-                        thisRacialStatBlock.generateRacialStats(myRace, mySubRace);
-                        myStr = RacialStatBlock.builtStats.bonusStr;
-                        myDex = RacialStatBlock.builtStats.bonusDex;
-                        myCon = RacialStatBlock.builtStats.bonusCon;
-                        myInt = RacialStatBlock.builtStats.bonusInt;
-                        myWis = RacialStatBlock.builtStats.bonusWis;
-                        myCha = RacialStatBlock.builtStats.bonusCha;
-                        myLanguage = RacialStatBlock.builtStats.language;
-                        mySpeed = RacialStatBlock.builtStats.speed;
-                        myFlySpeed = RacialStatBlock.builtStats.flySpeed;
-                        mySwimSpeed = RacialStatBlock.builtStats.swimSpeed;
-                        myExtra = RacialStatBlock.builtStats.extra;
-                        myExtraChoice = RacialStatBlock.builtStats.extraChoice;
+                        RacialStatBlock racialStatBlock = thisRacialStatBlockBuilder.setChosenRace(myRace).setChosenSubRace(mySubRace).build();
+
+                        myStr = racialStatBlock.getBonusStr();
+                        myDex = racialStatBlock.getBonusDex();
+                        myCon = racialStatBlock.getBonusCon();
+                        myInt = racialStatBlock.getBonusInt();
+                        myWis = racialStatBlock.getBonusWis();
+                        myCha = racialStatBlock.getBonusCha();
+                        myLanguage = racialStatBlock.getLanguage();
+                        mySpeed = racialStatBlock.getSpeed();
+                        myFlySpeed = racialStatBlock.getFlySpeed();
+                        mySwimSpeed = racialStatBlock.getSwimSpeed();
+                        myExtra = racialStatBlock.getExtra();
+                        myExtraChoice = racialStatBlock.getExtraChoice();
 
                         // GATHER RESULTS
                         if (!myNickname.isEmpty()) {

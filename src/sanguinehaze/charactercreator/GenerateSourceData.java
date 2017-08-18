@@ -15,6 +15,7 @@ import sanguinehaze.charactercreator.data.dtos.PersonalityList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
 import sanguinehaze.charactercreator.persistence.SourcePersistence;
 
 public class GenerateSourceData {
@@ -148,8 +149,8 @@ public class GenerateSourceData {
     ////////METHODS////////
     private void generateRaceData() {
         for(RacialStatBlock raceEntry: GenerateSourceData.raceStatBlock){
-            if(!raceEntry.isSubrace){
-                raceSourceStatic.add(raceEntry.name);
+            if(!raceEntry.isSubrace()){
+                raceSourceStatic.add(raceEntry.getName());
             }
         }
     }
@@ -157,8 +158,8 @@ public class GenerateSourceData {
     private void generateSubraceNames(){
         subRaceSourceStatic.clear();
         for(RacialStatBlock entry: GenerateSourceData.raceStatBlock){
-            if(entry.isSubrace){
-                subRaceSourceStatic.add(entry.name);
+            if(entry.isSubrace()){
+                subRaceSourceStatic.add(entry.getName());
             }
         }
     }
@@ -264,9 +265,9 @@ public class GenerateSourceData {
                         break;
                     case "parentid":
                         if(!"parentid".isEmpty()){
-                            tempRace.setParentID(cNode.getTextContent());
-                            if(!tempRace.parentID.equals("Not Set")){
-                                tempRace.setIsSubrace(true);
+                            tempRace.setParentId(cNode.getTextContent());
+                            if(!tempRace.getParentId().equals("Not Set")){
+                                tempRace.setSubrace(true);
                             }
                         }
                     case "size":
