@@ -1,10 +1,8 @@
 package sanguinehaze.charactercreator;
 
-import sanguinehaze.charactercreator.data.CharacterCreatorRandom;
-import sanguinehaze.charactercreator.data.dtos.Sex;
+import sanguinehaze.charactercreator.domain.CharacterCreatorRandom;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class AgeGenerator {
 
@@ -12,7 +10,7 @@ public class AgeGenerator {
     private ArrayList<String> ageRange;
     private CharacterCreatorRandom random;
 
-    AgeGenerator(GenerateSourceData data){
+    public AgeGenerator(GenerateSourceData data){
         random = new CharacterCreatorRandom();
         ageRange = data.getAgeRange();
         generateData();

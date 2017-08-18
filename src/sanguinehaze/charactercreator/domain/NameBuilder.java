@@ -1,7 +1,7 @@
-package sanguinehaze.charactercreator.data;
+package sanguinehaze.charactercreator.domain;
 
 import sanguinehaze.charactercreator.GenerateSourceData;
-import sanguinehaze.charactercreator.data.dtos.FullName;
+import sanguinehaze.charactercreator.domain.dtos.FullName;
 
 import java.util.ArrayList;
 import java.util.Random;

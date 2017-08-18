@@ -1,7 +1,7 @@
-package sanguinehaze.charactercreator.persistence;
+package sanguinehaze.charactercreator.adapter.persistence;
 
-import sanguinehaze.charactercreator.persistence.method.FileSystemPersistenceMethod;
-import sanguinehaze.charactercreator.persistence.method.PersistenceMethod;
+import sanguinehaze.charactercreator.adapter.persistence.method.FileSystemPersistenceMethod;
+import sanguinehaze.charactercreator.adapter.persistence.method.PersistenceMethod;
 
 public class SourcePersistanceFactory {
     public static SourcePersistence Create() {

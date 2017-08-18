@@ -1,7 +1,7 @@
 package sanguinehaze.charactercreator;
 
-import sanguinehaze.charactercreator.data.dtos.AdultProfessionList;
-import sanguinehaze.charactercreator.data.dtos.ChildProfessionList;
+import sanguinehaze.charactercreator.domain.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.domain.dtos.ChildProfessionList;
 
 import java.util.ArrayList;
 import java.util.Random;

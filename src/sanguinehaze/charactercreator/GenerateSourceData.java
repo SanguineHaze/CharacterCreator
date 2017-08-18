@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import sanguinehaze.charactercreator.data.dtos.AdultProfessionList;
-import sanguinehaze.charactercreator.data.dtos.ChildProfessionList;
-import sanguinehaze.charactercreator.data.dtos.DetailsList;
-import sanguinehaze.charactercreator.data.dtos.MotivationList;
-import sanguinehaze.charactercreator.data.dtos.NicknameList;
-import sanguinehaze.charactercreator.data.dtos.PersonalityList;
+import sanguinehaze.charactercreator.domain.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.domain.dtos.ChildProfessionList;
+import sanguinehaze.charactercreator.domain.dtos.DetailsList;
+import sanguinehaze.charactercreator.domain.dtos.MotivationList;
+import sanguinehaze.charactercreator.domain.dtos.NicknameList;
+import sanguinehaze.charactercreator.domain.dtos.PersonalityList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
-import sanguinehaze.charactercreator.persistence.SourcePersistence;
+import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
+import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
 public class GenerateSourceData {
 
@@ -44,19 +44,19 @@ public class GenerateSourceData {
     private static ArrayList<String> possessesASourceData = new ArrayList<>();
     private static ArrayList<String> obsessedBySourceData = new ArrayList<>();
     private static ArrayList<String> cursedBySourceData = new ArrayList<>();
-    static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
+    public static ArrayList<RacialStatBlock> raceStatBlock = new ArrayList<>();
     private ArrayList<String> itemSourceData = new ArrayList<>();
 
 
     ////////GETTERS & SETTERS////////
 
-    static ArrayList<String> getRaceSourceStatic() {
+    public static ArrayList<String> getRaceSourceStatic() {
         return raceSourceStatic;
     }
 
     private SourcePersistence _sourcePersistence;
 
-    AdultProfessionList getAdultProfessionList() {
+    public AdultProfessionList getAdultProfessionList() {
         return this._adultProfessionList;
     }
 
@@ -80,7 +80,7 @@ public class GenerateSourceData {
         return ageRange;
     }
 
-    ArrayList<String> getAgeRangeStatic() {
+    public ArrayList<String> getAgeRangeStatic() {
         return ageRangeStatic;
     }
 

@@ -1,4 +1,4 @@
-package sanguinehaze.charactercreator.data.dtos;
+package sanguinehaze.charactercreator.domain.dtos;
 
 public class FullName {
     private String firstname;

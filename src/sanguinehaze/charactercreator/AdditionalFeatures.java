@@ -1,9 +1,9 @@
 package sanguinehaze.charactercreator;
 
-import sanguinehaze.charactercreator.data.dtos.DetailsList;
-import sanguinehaze.charactercreator.data.dtos.MotivationList;
-import sanguinehaze.charactercreator.data.dtos.NicknameList;
-import sanguinehaze.charactercreator.data.dtos.PersonalityList;
+import sanguinehaze.charactercreator.domain.dtos.DetailsList;
+import sanguinehaze.charactercreator.domain.dtos.MotivationList;
+import sanguinehaze.charactercreator.domain.dtos.NicknameList;
+import sanguinehaze.charactercreator.domain.dtos.PersonalityList;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -27,7 +27,10 @@ public class AdditionalFeatures {
 	private final ArrayList<String> cursedByList;
 	private final ArrayList<String> itemList;
 
-	String chosenPersonality, chosenMotivation, chosenNickname, chosenDetail;
+	public String chosenPersonality;
+	public String chosenMotivation;
+	public String chosenNickname;
+	public String chosenDetail;
 	private int nicknameChance, detailChance;
 	private int itemChance;
 	private String chosenItem;

@@ -1,6 +1,7 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.adapter.views;
 
-import sanguinehaze.charactercreator.data.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.GenerateSourceData;
+import sanguinehaze.charactercreator.domain.dtos.AdultProfessionList;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

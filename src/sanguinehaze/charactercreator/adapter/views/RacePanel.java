@@ -1,6 +1,7 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.adapter.views;
 
-import sanguinehaze.charactercreator.data.dtos.RacialStatBlock;
+import sanguinehaze.charactercreator.GenerateSourceData;
+import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
