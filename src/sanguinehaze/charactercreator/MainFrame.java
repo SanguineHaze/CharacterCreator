@@ -1,5 +1,6 @@
 package sanguinehaze.charactercreator;
 
+import sanguinehaze.charactercreator.data.CharacterCreatorRandom;
 import sanguinehaze.charactercreator.data.NameBuilder;
 import sanguinehaze.charactercreator.data.dtos.FullName;
 
@@ -8,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -111,10 +111,11 @@ public class MainFrame extends JFrame {
 
                     Race thisRace = new Race();
                     SubRace thisSubRace = new SubRace();
-                    AgeAndSex thisAgeAndSex = new AgeAndSex(data);
+                    AgeGenerator thisAgeGenerator = new AgeGenerator(data);
                     Profession thisProfession = new Profession(myAge, data);
                     AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
                     RacialStatBlock thisRacialStatBlock = new RacialStatBlock();
+                    CharacterCreatorRandom rand = new CharacterCreatorRandom();
 
                     saveNext = formPanel.isSaveNext();
                     includeStats = formPanel.isIncludeStats();
@@ -148,7 +149,6 @@ public class MainFrame extends JFrame {
                         userSubRace = "";
                         
                         ArrayList<String> chars = racePanel.getSelectedRaces();
-                        Random rand = new Random();
                         int randChoice = rand.nextInt(chars.size());
                         String choice = chars.get(randChoice);
                         for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
@@ -203,12 +203,13 @@ public class MainFrame extends JFrame {
 
                         // NAME (& SEX & AGE) SECTION
                         FullName fullName = nameBuilder.build();
-                        thisAgeAndSex.generateData(userSex, userAge);
 
-                        mySex = thisAgeAndSex.sex;
+                        mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
                         myName = fullName.getFirstname();
                         myLastName = fullName.getLastname();
-                        myAge = thisAgeAndSex.chosenAge;
+
+                        thisAgeGenerator.generateData(userAge);
+                        myAge = thisAgeGenerator.getGeneratedAge();
 
                         // PROFESSION SECTION
                         if (userProfession.isEmpty()) {
