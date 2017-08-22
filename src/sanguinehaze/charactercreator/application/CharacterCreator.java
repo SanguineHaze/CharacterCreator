@@ -8,7 +8,7 @@ import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
 public class CharacterCreator {
     
-    static int thisVersion = 1;
+    static int thisVersion = 2;
 
     public static void main(String[] args) {
         SourcePersistence sourcePersistance = SourcePersistanceFactory.Create();
