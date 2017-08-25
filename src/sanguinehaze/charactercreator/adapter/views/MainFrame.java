@@ -1,6 +1,7 @@
 package sanguinehaze.charactercreator.adapter.views;
 
 import sanguinehaze.charactercreator.AdditionalFeatures;
+import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterResultViewModel;
 import sanguinehaze.charactercreator.domain.AgeGenerator;
 import sanguinehaze.charactercreator.adapter.views.events.FormEvent;
 import sanguinehaze.charactercreator.GenerateSourceData;
@@ -30,26 +31,19 @@ public class MainFrame extends JFrame {
 	
     private static final long serialVersionUID = 3320499509997731807L;
     
-    List<String> characterResults = new ArrayList<>();
-    List<String> myLanguage, myExtra, myExtraChoice;
-    String userRace, userSubRace, userSex, userAge, userProfession;
-    String myRace, mySubRace, mySex, myName, myLastName, myAge, myMotivation, myProfession, myPersonality, myNickname,
-            myDetail;
-    private Optional<String> myItem;
+    private List<String> characterResults = new ArrayList<>();
+    private String myAge;
     RacialStatBlockBuilder myRacialStats;
-    int myStr, myDex, myCon, myInt, myWis, myCha, mySpeed, myFlySpeed, mySwimSpeed;
-    int nicknameChance, detailChance, numGenInt, itemChance;
-    int defaultDetail = 25;
-    int defaultNickname = 25;
+    private int nicknameChance, detailChance, numGenInt, itemChance;
+    private int defaultDetail = 25;
+    private int defaultNickname = 25;
 
-    public TextPanel textPanel;
+    private TextPanel textPanel;
     private JButton generateBtn;
     private FormPanel formPanel;
     private RacePanel racePanel;
     private boolean saveNext, includeStats;
-    private JPanel formTemplate;
     private JScrollPane scrollTemplate;
-    private final GenerateSourceData data;
 
     FormEvent formEvent = new FormEvent(this, numGenInt);
 
@@ -59,15 +53,15 @@ public class MainFrame extends JFrame {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
-        this.data = data;
+        GenerateSourceData data1 = data;
         NameBuilder nameBuilder1 = nameBuilder;
 
         setLayout(new BorderLayout());
 
-        formTemplate = new JPanel();
+        JPanel formTemplate = new JPanel();
         scrollTemplate = new JScrollPane();
         textPanel = new TextPanel();
-        formPanel = new FormPanel(this.data);
+        formPanel = new FormPanel(data1);
         racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
@@ -154,7 +148,7 @@ public class MainFrame extends JFrame {
                     textPanel.appendText("\n");
 
                     for (int i = 0; i < numGenInt; i++) {
-                        characterResults.addAll(generateCharacter(thisRace, thisSubRace, thisAgeGenerator, thisProfession, thisMotivation, thisRacialStatBlockBuilder, rand, nameBuilder));
+                        characterResults.addAll(viewModelToStringArray(generateCharacter(thisRace, thisSubRace, thisAgeGenerator, thisProfession, thisMotivation, thisRacialStatBlockBuilder, rand, nameBuilder), includeStats));
                     }
 
                     // PRINT RESULTS OUT
@@ -188,12 +182,68 @@ public class MainFrame extends JFrame {
         });
     }
 
-    private List<String> generateCharacter(Race thisRace, SubRace thisSubRace, AgeGenerator thisAgeGenerator, Profession thisProfession, AdditionalFeatures thisMotivation, RacialStatBlockBuilder thisRacialStatBlockBuilder, CharacterCreatorRandom rand, NameBuilder nameBuilder) {
+    private List<String> viewModelToStringArray(CharacterResultViewModel viewModel, boolean includeStats) {
         List<String> characterResults = new ArrayList<>();
 
+        characterResults.add(String.format("Name: %s", viewModel.getName()));
+        characterResults.add(String.format("Race: %s", viewModel.getRace()));
+        if (viewModel.getSubrace().isPresent()) {
+            characterResults.add(String.format("Subrace: %s", viewModel.getSubrace().get()));
+        }
+        characterResults.add(String.format("Sex: %s", viewModel.getSex()));
+        characterResults.add(String.format("Age: %s", viewModel.getAge()));
+        if (viewModel.getProfession().isPresent()) {
+            characterResults.add(String.format("Profession: %s", viewModel.getProfession().get()));
+        }
+        if (viewModel.getMotivation().isPresent()) {
+            characterResults.add(String.format("Motivated by: %s", viewModel.getMotivation().get()));
+        }
+        characterResults.add(String.format("Personality Traits: %s", viewModel.getPersonalityTraits()));
+        if (viewModel.getAdditionalDetail().isPresent()) {
+            characterResults.add(String.format("Additional Detail: %s", viewModel.getAdditionalDetail().get()));
+        }
+        if (viewModel.getAdditionalItem().isPresent()) {
+            characterResults.add(String.format("Additional Item: %s", viewModel.getAdditionalItem().get()));
+        }
+
+        if (includeStats) {
+            String speedString = String.format("Speed: %s", viewModel.getSpeed());
+            if (viewModel.getFlySpeed().isPresent()) {
+                speedString = String.format("%s \t Fly: %s", speedString, viewModel.getFlySpeed().get());
+            }
+            if (viewModel.getSwimSpeed().isPresent()) {
+                speedString = String.format("%s \t Swim: %s", speedString, viewModel.getSwimSpeed().get());
+            }
+            characterResults.add(speedString);
+            characterResults.add(String.format("STR: %s \tDEX: %s \nCON: %s \tINT: %s \nWIS: %s \tCHA: %s",
+                    viewModel.getStrength(),
+                    viewModel.getDexterity(),
+                    viewModel.getConstitution(),
+                    viewModel.getIntellect(),
+                    viewModel.getWisdom(),
+                    viewModel.getCharisma()));
+
+            if (!viewModel.getLanguages().isEmpty()) {
+                characterResults.add(String.format("Languages: %s", viewModel.getLanguages()));
+            }
+            if (!viewModel.getExtras().isEmpty()) {
+                characterResults.add(String.format("Racial Extras: %s", viewModel.getExtras()));
+            }
+            if (!viewModel.getExtraChoice().isEmpty()) {
+                characterResults.add(String.format("Racial Choice: %s", viewModel.getExtraChoice()));
+            }
+        }
+        characterResults.add("\n");
+
+        return characterResults;
+    }
+
+    private CharacterResultViewModel generateCharacter(Race thisRace, SubRace thisSubRace, AgeGenerator thisAgeGenerator, Profession thisProfession, AdditionalFeatures thisMotivation, RacialStatBlockBuilder thisRacialStatBlockBuilder, CharacterCreatorRandom rand, NameBuilder nameBuilder) {
+        CharacterResultViewModel viewModel = new CharacterResultViewModel();
+
         // USER INPUTS
-        userRace = "";
-        userSubRace = "";
+        String userRace = "";
+        String userSubRace = "";
 
         ArrayList<String> chars = racePanel.getSelectedRaces();
         int randChoice = rand.nextInt(chars.size());
@@ -210,9 +260,9 @@ public class MainFrame extends JFrame {
             }
         }
 
-        userAge = formPanel.getAgeSelected();
-        userSex = formPanel.getSexSelected();
-        userProfession = formPanel.getProfessionSelected();
+        String userAge = formPanel.getAgeSelected();
+        String userSex = formPanel.getSexSelected();
+        String userProfession = formPanel.getProfessionSelected();
 
         if (userRace.equals("Any Race")) {
             userRace = "";
@@ -234,7 +284,7 @@ public class MainFrame extends JFrame {
             thisRace.pickNewRace(userRace);
             thisSubRace.setChosenSubRace(userSubRace);
         }
-        myRace = thisRace.chosenRace;
+        String myRace = thisRace.chosenRace;
 
         // SUBRACE SECTION
         if (userSubRace.isEmpty()) {
@@ -246,14 +296,14 @@ public class MainFrame extends JFrame {
                 thisSubRace.setChosenSubRace(userSubRace);
             }
         }
-        mySubRace = thisSubRace.chosenSubRace;
+        String mySubRace = thisSubRace.chosenSubRace;
 
         // NAME (& SEX & AGE) SECTION
         FullName fullName = nameBuilder.build();
 
-        mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
-        myName = fullName.getFirstname();
-        myLastName = fullName.getLastname();
+        String mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
+        String myName = fullName.getFirstname();
+        String myLastName = fullName.getLastname();
 
         thisAgeGenerator.generateData(userAge);
         myAge = thisAgeGenerator.getGeneratedAge();
@@ -266,93 +316,88 @@ public class MainFrame extends JFrame {
         } else if (!(userProfession.isEmpty())) {
             thisProfession.setChosenProfession(userProfession);
         }
-        myProfession = thisProfession.chosenProfession;
+        String myProfession = thisProfession.chosenProfession;
 
         // ADDITIONAL FEATURES SECTION
         thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
                 detailChance, itemChance);
 
 
-        myMotivation = thisMotivation.chosenMotivation;
-        myPersonality = thisMotivation.chosenPersonality;
-        myNickname = thisMotivation.chosenNickname;
-        myDetail = thisMotivation.chosenDetail;
-        myItem = thisMotivation.getItem();
+        String myMotivation = thisMotivation.chosenMotivation;
+        String myPersonality = thisMotivation.chosenPersonality;
+        String myNickname = thisMotivation.chosenNickname;
+        String myDetail = thisMotivation.chosenDetail;
+        Optional<String> myItem = thisMotivation.getItem();
 
         // CHARACTER STAT BLOCK
         RacialStatBlock racialStatBlock = thisRacialStatBlockBuilder.setChosenRace(myRace).setChosenSubRace(mySubRace).build();
 
-        myStr = racialStatBlock.getBonusStr();
-        myDex = racialStatBlock.getBonusDex();
-        myCon = racialStatBlock.getBonusCon();
-        myInt = racialStatBlock.getBonusInt();
-        myWis = racialStatBlock.getBonusWis();
-        myCha = racialStatBlock.getBonusCha();
-        myLanguage = racialStatBlock.getLanguage();
-        mySpeed = racialStatBlock.getSpeed();
-        myFlySpeed = racialStatBlock.getFlySpeed();
-        mySwimSpeed = racialStatBlock.getSwimSpeed();
-        myExtra = racialStatBlock.getExtra();
-        myExtraChoice = racialStatBlock.getExtraChoice();
+        int myStr = racialStatBlock.getBonusStr();
+        int myDex = racialStatBlock.getBonusDex();
+        int myCon = racialStatBlock.getBonusCon();
+        int myInt = racialStatBlock.getBonusInt();
+        int myWis = racialStatBlock.getBonusWis();
+        int myCha = racialStatBlock.getBonusCha();
+        List<String> myLanguage = racialStatBlock.getLanguage();
+        int mySpeed = racialStatBlock.getSpeed();
+        int myFlySpeed = racialStatBlock.getFlySpeed();
+        int mySwimSpeed = racialStatBlock.getSwimSpeed();
+        List<String> myExtra = racialStatBlock.getExtra();
+        List<String> myExtraChoice = racialStatBlock.getExtraChoice();
 
         // GATHER RESULTS
         if (!myNickname.isEmpty()) {
             // Title nicknames (ex: Eckhart Rackvis The Just)
             if (myNickname.contains("the ")) {
-                characterResults.add("Name: " + myName + " " + myLastName + " " + myNickname);
+                viewModel.setName(myName + " " + myLastName + " " + myNickname);
             } else {
                 // Non-Title nicknames
-                characterResults.add("Name: " + myName + " " + myNickname + " " + myLastName);
+                viewModel.setName(myName + " " + myNickname + " " + myLastName);
             }
         } else {
-            characterResults.add("Name: " + myName + " " + myLastName);
+            viewModel.setName(myName + " " + myLastName);
         }
-        characterResults.add("Race: " + myRace);
+        viewModel.setRace(myRace);
         if (mySubRace != "") {
-            characterResults.add("Subrace: " + mySubRace);
+            viewModel.setSubrace(mySubRace);
         }
-        characterResults.add("Sex: " + mySex);
-        characterResults.add("Age: " + myAge);
+        viewModel.setSex(mySex);
+        viewModel.setAge(myAge);
         if (!myProfession.equals("None")) {
-            characterResults.add("Profession: " + myProfession);
+            viewModel.setProfession(myProfession);
         }
         if (!myMotivation.isEmpty()) {
-            characterResults.add("Motivated by: " + myMotivation);
+            viewModel.setMotivation(myMotivation);
         }
-        characterResults.add("Personality Traits: " + myPersonality);
+        viewModel.setPersonalityTraits(myPersonality);
         if (!myDetail.isEmpty()) {
-            characterResults.add("Additional Detail: " + myDetail);
+            viewModel.setAdditionalDetail(myDetail);
         }
 
-        myItem.ifPresent(s -> characterResults.add("Additional Item: " + s));
+        myItem.ifPresent(viewModel::setAdditionalItem);
 
         if (includeStats) {
-            if (mySwimSpeed == 0 && myFlySpeed == 0) {
-                characterResults.add("Speed: " + mySpeed);
-            } else if (mySwimSpeed > 0) {
-                characterResults.add("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
-            } else if (myFlySpeed > 0) {
-                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
-            } else if (myFlySpeed > 0 && mySwimSpeed > 0) {
-                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: "
-                        + mySwimSpeed);
-            }
-            characterResults.add("STR: " + myStr + "\t" + "DEX: " + myDex);
-            characterResults.add("CON: " + myCon + "\t" + "INT: " + myInt);
-            characterResults.add("WIS: " + myWis + "\t" + "CHA: " + myCha);
+            viewModel.setSpeed(String.valueOf(mySpeed));
+            viewModel.setSwimSpeed(String.valueOf(mySwimSpeed));
+            viewModel.setFlySpeed(String.valueOf(myFlySpeed));
+            viewModel.setStrength(String.valueOf(myStr));
+            viewModel.setDexterity(String.valueOf(myDex));
+            viewModel.setConstitution(String.valueOf(myCon));
+            viewModel.setIntellect(String.valueOf(myInt));
+            viewModel.setWisdom(String.valueOf(myWis));
+            viewModel.setCharisma(String.valueOf(myCha));
             if (!myLanguage.isEmpty()) {
-                characterResults.add("Languages: " + myLanguage);
+                viewModel.setLanguages(myLanguage);
             }
             if (!myExtra.isEmpty()) {
-                characterResults.add("Racial Extras: " + myExtra);
+                viewModel.setExtras(myExtra);
             }
             if (!myExtraChoice.isEmpty()) {
-                characterResults.add("Racial Choice: " + myExtraChoice);
+                viewModel.setExtraChoice(myExtraChoice);
             }
         }
-        characterResults.add("\n");
 
-        return characterResults;
+        return viewModel;
     }
 
 }
