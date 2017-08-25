@@ -53,7 +53,6 @@ public class MainFrame extends JFrame {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
-        GenerateSourceData data1 = data;
         NameBuilder nameBuilder1 = nameBuilder;
 
         setLayout(new BorderLayout());
@@ -61,7 +60,7 @@ public class MainFrame extends JFrame {
         JPanel formTemplate = new JPanel();
         scrollTemplate = new JScrollPane();
         textPanel = new TextPanel();
-        formPanel = new FormPanel(data1);
+        formPanel = new FormPanel(data);
         racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
@@ -113,14 +112,6 @@ public class MainFrame extends JFrame {
 
                     long startTime = System.nanoTime();
 
-                    Race thisRace = new Race();
-                    SubRace thisSubRace = new SubRace();
-                    AgeGenerator thisAgeGenerator = new AgeGenerator(data);
-                    Profession thisProfession = new Profession(myAge, data);
-                    AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
-                    RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
-                    CharacterCreatorRandom rand = new CharacterCreatorRandom();
-
                     saveNext = formPanel.isSaveNext();
                     includeStats = formPanel.isIncludeStats();
 
@@ -138,7 +129,7 @@ public class MainFrame extends JFrame {
                     if (detailChance < 0 || detailChance > 100) {
                         detailChance = defaultDetail;
                     }
-                    
+
                     itemChance = formPanel.getItemChance();
                     if(itemChance < 0 || itemChance > 100){
                         itemChance = 25; //Default AdditionalItem chance.
@@ -148,7 +139,7 @@ public class MainFrame extends JFrame {
                     textPanel.appendText("\n");
 
                     for (int i = 0; i < numGenInt; i++) {
-                        characterResults.addAll(viewModelToStringArray(generateCharacter(thisRace, thisSubRace, thisAgeGenerator, thisProfession, thisMotivation, thisRacialStatBlockBuilder, rand, nameBuilder), includeStats));
+                        characterResults.addAll(viewModelToStringArray(generateCharacter(data, nameBuilder), includeStats));
                     }
 
                     // PRINT RESULTS OUT
@@ -238,8 +229,18 @@ public class MainFrame extends JFrame {
         return characterResults;
     }
 
-    private CharacterResultViewModel generateCharacter(Race thisRace, SubRace thisSubRace, AgeGenerator thisAgeGenerator, Profession thisProfession, AdditionalFeatures thisMotivation, RacialStatBlockBuilder thisRacialStatBlockBuilder, CharacterCreatorRandom rand, NameBuilder nameBuilder) {
+    private CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder) {
         CharacterResultViewModel viewModel = new CharacterResultViewModel();
+
+        Race thisRace = new Race();
+        SubRace thisSubRace = new SubRace();
+        AgeGenerator thisAgeGenerator = new AgeGenerator(data);
+        Profession thisProfession = new Profession(myAge, data);
+        AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
+        RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
+        CharacterCreatorRandom rand = new CharacterCreatorRandom();
+
+
 
         // USER INPUTS
         String userRace = "";
