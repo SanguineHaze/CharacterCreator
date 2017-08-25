@@ -154,167 +154,7 @@ public class MainFrame extends JFrame {
                     textPanel.appendText("\n");
 
                     for (int i = 0; i < numGenInt; i++) {
-                        // USER INPUTS
-                        userRace = "";
-                        userSubRace = "";
-                        
-                        ArrayList<String> chars = racePanel.getSelectedRaces();
-                        int randChoice = rand.nextInt(chars.size());
-                        String choice = chars.get(randChoice);
-                        for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
-                            if(racialStatBlock.getName().toLowerCase().equals(choice.toLowerCase())){
-                                if(racialStatBlock.isSubrace()){
-                                    userRace = racialStatBlock.getParentId();
-                                    userSubRace = choice;
-                                } else if(!racialStatBlock.isSubrace()){
-                                    userRace = choice;
-                                    userSubRace = "";
-                                }
-                            }
-                        }
-                        
-                        userAge = formPanel.getAgeSelected();
-                        userSex = formPanel.getSexSelected();
-                        userProfession = formPanel.getProfessionSelected();
-                        
-                        if (userRace.equals("Any Race")) {
-                            userRace = "";
-                        }
-
-                        // RACE SECTION
-                        if (userRace.isEmpty() && userSubRace.isEmpty()) {
-                            thisRace.pickNewRace();
-                        } else if(!userRace.isEmpty() && userSubRace.isEmpty()){
-                            thisRace.pickNewRace(userRace);
-                        } else if(userRace.isEmpty() && !userSubRace.isEmpty()){
-                            for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
-                                if(rSB.getName().toLowerCase().equals(userSubRace.toLowerCase())){
-                                    userRace = rSB.getParentId();
-                                    thisRace.pickNewRace(userRace);
-                                }
-                            }
-                        } else if(!userRace.isEmpty() && !userSubRace.isEmpty()){
-                            thisRace.pickNewRace(userRace);
-                            thisSubRace.setChosenSubRace(userSubRace);
-                        }
-                        myRace = thisRace.chosenRace;
-
-                        // SUBRACE SECTION
-                        if (userSubRace.isEmpty()) {
-                            thisSubRace.generateSubRace(myRace);
-                        } else if (!userSubRace.isEmpty()) {
-                            if (userSubRace.contains("Any")) {
-                                thisSubRace.generateSubRace(myRace);
-                            } else {
-                                thisSubRace.setChosenSubRace(userSubRace);
-                            }
-                        }
-                        mySubRace = thisSubRace.chosenSubRace;
-
-                        // NAME (& SEX & AGE) SECTION
-                        FullName fullName = nameBuilder.build();
-
-                        mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
-                        myName = fullName.getFirstname();
-                        myLastName = fullName.getLastname();
-
-                        thisAgeGenerator.generateData(userAge);
-                        myAge = thisAgeGenerator.getGeneratedAge();
-
-                        // PROFESSION SECTION
-                        if (userProfession.isEmpty()) {
-                            thisProfession.generateNewProfession(myAge);
-                        } else if ("Any Profession".equals(userProfession)) {
-                            thisProfession.generateNewProfession(myAge);
-                        } else if (!(userProfession.isEmpty())) {
-                            thisProfession.setChosenProfession(userProfession);
-                        }
-                        myProfession = thisProfession.chosenProfession;
-
-                        // ADDITIONAL FEATURES SECTION
-                        thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
-                                detailChance, itemChance);
-
-
-
-                        myMotivation = thisMotivation.chosenMotivation;
-                        myPersonality = thisMotivation.chosenPersonality;
-                        myNickname = thisMotivation.chosenNickname;
-                        myDetail = thisMotivation.chosenDetail;
-                        myItem = thisMotivation.getItem();
-
-                        // CHARACTER STAT BLOCK
-                        RacialStatBlock racialStatBlock = thisRacialStatBlockBuilder.setChosenRace(myRace).setChosenSubRace(mySubRace).build();
-
-                        myStr = racialStatBlock.getBonusStr();
-                        myDex = racialStatBlock.getBonusDex();
-                        myCon = racialStatBlock.getBonusCon();
-                        myInt = racialStatBlock.getBonusInt();
-                        myWis = racialStatBlock.getBonusWis();
-                        myCha = racialStatBlock.getBonusCha();
-                        myLanguage = racialStatBlock.getLanguage();
-                        mySpeed = racialStatBlock.getSpeed();
-                        myFlySpeed = racialStatBlock.getFlySpeed();
-                        mySwimSpeed = racialStatBlock.getSwimSpeed();
-                        myExtra = racialStatBlock.getExtra();
-                        myExtraChoice = racialStatBlock.getExtraChoice();
-
-                        // GATHER RESULTS
-                        if (!myNickname.isEmpty()) {
-                            // Title nicknames (ex: Eckhart Rackvis The Just)
-                            if (myNickname.contains("the ")) {
-                                characterResults.add("Name: " + myName + " " + myLastName + " " + myNickname);
-                            } else {
-                                // Non-Title nicknames
-                                characterResults.add("Name: " + myName + " " + myNickname + " " + myLastName);
-                            }
-                        } else {
-                            characterResults.add("Name: " + myName + " " + myLastName);
-                        }
-                        characterResults.add("Race: " + myRace);
-                        if (mySubRace != "") {
-                            characterResults.add("Subrace: " + mySubRace);
-                        }
-                        characterResults.add("Sex: " + mySex);
-                        characterResults.add("Age: " + myAge);
-                        if (!myProfession.equals("None")) {
-                            characterResults.add("Profession: " + myProfession);
-                        }
-                        if (!myMotivation.isEmpty()) {
-                            characterResults.add("Motivated by: " + myMotivation);
-                        }
-                        characterResults.add("Personality Traits: " + myPersonality);
-                        if (!myDetail.isEmpty()) {
-                            characterResults.add("Additional Detail: " + myDetail);
-                        }
-
-                        myItem.ifPresent(s -> characterResults.add("Additional Item: " + s));
-
-                        if (includeStats) {
-                            if (mySwimSpeed == 0 && myFlySpeed == 0) {
-                                characterResults.add("Speed: " + mySpeed);
-                            } else if (mySwimSpeed > 0) {
-                                characterResults.add("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
-                            } else if (myFlySpeed > 0) {
-                                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
-                            } else if (myFlySpeed > 0 && mySwimSpeed > 0) {
-                                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: "
-                                        + mySwimSpeed);
-                            }
-                            characterResults.add("STR: " + myStr + "\t" + "DEX: " + myDex);
-                            characterResults.add("CON: " + myCon + "\t" + "INT: " + myInt);
-                            characterResults.add("WIS: " + myWis + "\t" + "CHA: " + myCha);
-                            if (!myLanguage.isEmpty()) {
-                                characterResults.add("Languages: " + myLanguage);
-                            }
-                            if (!myExtra.isEmpty()) {
-                                characterResults.add("Racial Extras: " + myExtra);
-                            }
-                            if (!myExtraChoice.isEmpty()) {
-                                characterResults.add("Racial Choice: " + myExtraChoice);
-                            }
-                        }
-                        characterResults.add("\n");
+                        characterResults.addAll(generateCharacter(thisRace, thisSubRace, thisAgeGenerator, thisProfession, thisMotivation, thisRacialStatBlockBuilder, rand, nameBuilder));
                     }
 
                     // PRINT RESULTS OUT
@@ -346,6 +186,173 @@ public class MainFrame extends JFrame {
                 }
             }
         });
+    }
+
+    private List<String> generateCharacter(Race thisRace, SubRace thisSubRace, AgeGenerator thisAgeGenerator, Profession thisProfession, AdditionalFeatures thisMotivation, RacialStatBlockBuilder thisRacialStatBlockBuilder, CharacterCreatorRandom rand, NameBuilder nameBuilder) {
+        List<String> characterResults = new ArrayList<>();
+
+        // USER INPUTS
+        userRace = "";
+        userSubRace = "";
+
+        ArrayList<String> chars = racePanel.getSelectedRaces();
+        int randChoice = rand.nextInt(chars.size());
+        String choice = chars.get(randChoice);
+        for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
+            if(racialStatBlock.getName().toLowerCase().equals(choice.toLowerCase())){
+                if(racialStatBlock.isSubrace()){
+                    userRace = racialStatBlock.getParentId();
+                    userSubRace = choice;
+                } else if(!racialStatBlock.isSubrace()){
+                    userRace = choice;
+                    userSubRace = "";
+                }
+            }
+        }
+
+        userAge = formPanel.getAgeSelected();
+        userSex = formPanel.getSexSelected();
+        userProfession = formPanel.getProfessionSelected();
+
+        if (userRace.equals("Any Race")) {
+            userRace = "";
+        }
+
+        // RACE SECTION
+        if (userRace.isEmpty() && userSubRace.isEmpty()) {
+            thisRace.pickNewRace();
+        } else if(!userRace.isEmpty() && userSubRace.isEmpty()){
+            thisRace.pickNewRace(userRace);
+        } else if(userRace.isEmpty() && !userSubRace.isEmpty()){
+            for(RacialStatBlock rSB: GenerateSourceData.raceStatBlock){
+                if(rSB.getName().toLowerCase().equals(userSubRace.toLowerCase())){
+                    userRace = rSB.getParentId();
+                    thisRace.pickNewRace(userRace);
+                }
+            }
+        } else if(!userRace.isEmpty() && !userSubRace.isEmpty()){
+            thisRace.pickNewRace(userRace);
+            thisSubRace.setChosenSubRace(userSubRace);
+        }
+        myRace = thisRace.chosenRace;
+
+        // SUBRACE SECTION
+        if (userSubRace.isEmpty()) {
+            thisSubRace.generateSubRace(myRace);
+        } else if (!userSubRace.isEmpty()) {
+            if (userSubRace.contains("Any")) {
+                thisSubRace.generateSubRace(myRace);
+            } else {
+                thisSubRace.setChosenSubRace(userSubRace);
+            }
+        }
+        mySubRace = thisSubRace.chosenSubRace;
+
+        // NAME (& SEX & AGE) SECTION
+        FullName fullName = nameBuilder.build();
+
+        mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
+        myName = fullName.getFirstname();
+        myLastName = fullName.getLastname();
+
+        thisAgeGenerator.generateData(userAge);
+        myAge = thisAgeGenerator.getGeneratedAge();
+
+        // PROFESSION SECTION
+        if (userProfession.isEmpty()) {
+            thisProfession.generateNewProfession(myAge);
+        } else if ("Any Profession".equals(userProfession)) {
+            thisProfession.generateNewProfession(myAge);
+        } else if (!(userProfession.isEmpty())) {
+            thisProfession.setChosenProfession(userProfession);
+        }
+        myProfession = thisProfession.chosenProfession;
+
+        // ADDITIONAL FEATURES SECTION
+        thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
+                detailChance, itemChance);
+
+
+        myMotivation = thisMotivation.chosenMotivation;
+        myPersonality = thisMotivation.chosenPersonality;
+        myNickname = thisMotivation.chosenNickname;
+        myDetail = thisMotivation.chosenDetail;
+        myItem = thisMotivation.getItem();
+
+        // CHARACTER STAT BLOCK
+        RacialStatBlock racialStatBlock = thisRacialStatBlockBuilder.setChosenRace(myRace).setChosenSubRace(mySubRace).build();
+
+        myStr = racialStatBlock.getBonusStr();
+        myDex = racialStatBlock.getBonusDex();
+        myCon = racialStatBlock.getBonusCon();
+        myInt = racialStatBlock.getBonusInt();
+        myWis = racialStatBlock.getBonusWis();
+        myCha = racialStatBlock.getBonusCha();
+        myLanguage = racialStatBlock.getLanguage();
+        mySpeed = racialStatBlock.getSpeed();
+        myFlySpeed = racialStatBlock.getFlySpeed();
+        mySwimSpeed = racialStatBlock.getSwimSpeed();
+        myExtra = racialStatBlock.getExtra();
+        myExtraChoice = racialStatBlock.getExtraChoice();
+
+        // GATHER RESULTS
+        if (!myNickname.isEmpty()) {
+            // Title nicknames (ex: Eckhart Rackvis The Just)
+            if (myNickname.contains("the ")) {
+                characterResults.add("Name: " + myName + " " + myLastName + " " + myNickname);
+            } else {
+                // Non-Title nicknames
+                characterResults.add("Name: " + myName + " " + myNickname + " " + myLastName);
+            }
+        } else {
+            characterResults.add("Name: " + myName + " " + myLastName);
+        }
+        characterResults.add("Race: " + myRace);
+        if (mySubRace != "") {
+            characterResults.add("Subrace: " + mySubRace);
+        }
+        characterResults.add("Sex: " + mySex);
+        characterResults.add("Age: " + myAge);
+        if (!myProfession.equals("None")) {
+            characterResults.add("Profession: " + myProfession);
+        }
+        if (!myMotivation.isEmpty()) {
+            characterResults.add("Motivated by: " + myMotivation);
+        }
+        characterResults.add("Personality Traits: " + myPersonality);
+        if (!myDetail.isEmpty()) {
+            characterResults.add("Additional Detail: " + myDetail);
+        }
+
+        myItem.ifPresent(s -> characterResults.add("Additional Item: " + s));
+
+        if (includeStats) {
+            if (mySwimSpeed == 0 && myFlySpeed == 0) {
+                characterResults.add("Speed: " + mySpeed);
+            } else if (mySwimSpeed > 0) {
+                characterResults.add("Speed: " + mySpeed + "\t" + "Swim: " + mySwimSpeed);
+            } else if (myFlySpeed > 0) {
+                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed);
+            } else if (myFlySpeed > 0 && mySwimSpeed > 0) {
+                characterResults.add("Speed: " + mySpeed + "\t" + "Fly: " + myFlySpeed + "\t" + "Swim: "
+                        + mySwimSpeed);
+            }
+            characterResults.add("STR: " + myStr + "\t" + "DEX: " + myDex);
+            characterResults.add("CON: " + myCon + "\t" + "INT: " + myInt);
+            characterResults.add("WIS: " + myWis + "\t" + "CHA: " + myCha);
+            if (!myLanguage.isEmpty()) {
+                characterResults.add("Languages: " + myLanguage);
+            }
+            if (!myExtra.isEmpty()) {
+                characterResults.add("Racial Extras: " + myExtra);
+            }
+            if (!myExtraChoice.isEmpty()) {
+                characterResults.add("Racial Choice: " + myExtraChoice);
+            }
+        }
+        characterResults.add("\n");
+
+        return characterResults;
     }
 
 }
