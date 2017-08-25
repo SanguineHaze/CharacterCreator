@@ -1,6 +1,7 @@
 package sanguinehaze.charactercreator.adapter.views;
 
 import sanguinehaze.charactercreator.AdditionalFeatures;
+import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterGenerationRequestViewModel;
 import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterResultViewModel;
 import sanguinehaze.charactercreator.domain.AgeGenerator;
 import sanguinehaze.charactercreator.adapter.views.events.FormEvent;
@@ -33,16 +34,15 @@ public class MainFrame extends JFrame {
     
     private List<String> characterResults = new ArrayList<>();
     private String myAge;
-    private int nicknameChance, detailChance, numGenInt, itemChance;
-    private int defaultDetail = 25;
-    private int defaultNickname = 25;
 
     private TextPanel textPanel;
     private JButton generateBtn;
+
     private FormPanel formPanel;
     private RacePanel racePanel;
-    private boolean saveNext, includeStats;
+
     private JScrollPane scrollTemplate;
+    private CharacterCreatorRandom rand = new CharacterCreatorRandom();
 
     public MainFrame(
             GenerateSourceData data,
@@ -98,38 +98,15 @@ public class MainFrame extends JFrame {
             if (clicked == generateBtn) {
 
                 textPanel.clearText(); // Operation 'Clean Slate' is a go.
-                formPanel.getFormChanges();
-
                 long startTime = System.nanoTime();
 
-                saveNext = formPanel.isSaveNext();
-                includeStats = formPanel.isIncludeStats();
+                CharacterGenerationRequestViewModel request = getUiViewModel(formPanel, racePanel);
 
-                numGenInt = formPanel.getNumGenInt();
-                if (numGenInt < 1) {
-                    numGenInt = 25;
-                }
-
-                nicknameChance = formPanel.getNicknameChanceInt();
-                if (nicknameChance < 0 || nicknameChance > 100) {
-                    nicknameChance = defaultNickname;
-                }
-
-                detailChance = formPanel.getDetailsChance();
-                if (detailChance < 0 || detailChance > 100) {
-                    detailChance = defaultDetail;
-                }
-
-                itemChance = formPanel.getItemChance();
-                if(itemChance < 0 || itemChance > 100){
-                    itemChance = 25; //Default AdditionalItem chance.
-                }
-
-                textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
+                textPanel.appendText("OUTPUTTING " + request.getNumGenInt() + " CHARACTER(S):" + "\n");
                 textPanel.appendText("\n");
 
-                for (int i = 0; i < numGenInt; i++) {
-                    characterResults.addAll(viewModelToStringArray(generateCharacter(data, nameBuilder), includeStats));
+                for (int i = 0; i < request.getNumGenInt(); i++) {
+                    characterResults.addAll(viewModelToStringArray(generateCharacter(data, nameBuilder, request), request.isIncludeStats()));
                 }
 
                 // PRINT RESULTS OUT
@@ -143,7 +120,7 @@ public class MainFrame extends JFrame {
                 }
 
                 // WRITE RESULTS TO FILE
-                if (saveNext) {
+                if (request.isSaveNext()) {
                     WriteToFile thisWrite = new WriteToFile(characterResults);
                     textPanel.appendText(thisWrite.getWTFLocation() + "\n");
                     textPanel.appendText("\n");
@@ -160,6 +137,23 @@ public class MainFrame extends JFrame {
                 textPanel.appendText("\n");
             }
         });
+    }
+
+    private CharacterGenerationRequestViewModel getUiViewModel(FormPanel formPanel, RacePanel racePanel) {
+        CharacterGenerationRequestViewModel viewModel = new CharacterGenerationRequestViewModel();
+        formPanel.getFormChanges();
+
+        ArrayList<String> chars = racePanel.getSelectedRaces();
+        int randChoice = rand.nextInt(chars.size());
+        viewModel.setSelectedRace(chars.get(randChoice));
+        viewModel.setSaveNext(formPanel.isSaveNext());
+        viewModel.setIncludeStats(formPanel.isIncludeStats());
+        viewModel.setNumGenInt(formPanel.getNumGenInt());
+        viewModel.setNicknameChance(formPanel.getNicknameChanceInt());
+        viewModel.setDetailsChance(formPanel.getDetailsChance());
+        viewModel.setItemChance(formPanel.getItemChance());
+
+        return viewModel;
     }
 
     private List<String> viewModelToStringArray(CharacterResultViewModel viewModel, boolean includeStats) {
@@ -218,7 +212,7 @@ public class MainFrame extends JFrame {
         return characterResults;
     }
 
-    private CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder) {
+    private CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder, CharacterGenerationRequestViewModel request) {
         CharacterResultViewModel viewModel = new CharacterResultViewModel();
 
         Race thisRace = new Race();
@@ -227,17 +221,13 @@ public class MainFrame extends JFrame {
         Profession thisProfession = new Profession(myAge, data);
         AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
         RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
-        CharacterCreatorRandom rand = new CharacterCreatorRandom();
-
-
 
         // USER INPUTS
         String userRace = "";
         String userSubRace = "";
 
-        ArrayList<String> chars = racePanel.getSelectedRaces();
-        int randChoice = rand.nextInt(chars.size());
-        String choice = chars.get(randChoice);
+        String choice = request.getSelectedRace();
+
         for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
             if(racialStatBlock.getName().toLowerCase().equals(choice.toLowerCase())){
                 if(racialStatBlock.isSubrace()){
@@ -250,9 +240,9 @@ public class MainFrame extends JFrame {
             }
         }
 
-        String userAge = formPanel.getAgeSelected();
-        String userSex = formPanel.getSexSelected();
-        String userProfession = formPanel.getProfessionSelected();
+        String userAge = request.getSelectedAge();
+        String userSex = request.getSelectedSex();
+        String userProfession = request.getSelectedProfession();
 
         if (userRace.equals("Any Race")) {
             userRace = "";
@@ -291,7 +281,7 @@ public class MainFrame extends JFrame {
         // NAME (& SEX & AGE) SECTION
         FullName fullName = nameBuilder.build();
 
-        String mySex = userSex.isEmpty() ? rand.nextSex().toString() : userSex;
+        String mySex = userSex == null ? rand.nextSex().toString() : userSex;
         String myName = fullName.getFirstname();
         String myLastName = fullName.getLastname();
 
@@ -299,7 +289,7 @@ public class MainFrame extends JFrame {
         myAge = thisAgeGenerator.getGeneratedAge();
 
         // PROFESSION SECTION
-        if (userProfession.isEmpty()) {
+        if (userProfession == null) {
             thisProfession.generateNewProfession(myAge);
         } else if ("Any Profession".equals(userProfession)) {
             thisProfession.generateNewProfession(myAge);
@@ -309,8 +299,8 @@ public class MainFrame extends JFrame {
         String myProfession = thisProfession.chosenProfession;
 
         // ADDITIONAL FEATURES SECTION
-        thisMotivation.generateNewAdditionalFeatures(nicknameChance, myAge, myProfession, myRace,
-                detailChance, itemChance);
+        thisMotivation.generateNewAdditionalFeatures(request.getNicknameChance(), myAge, myProfession, myRace,
+                request.getDetailsChance(), request.getItemChance());
 
 
         String myMotivation = thisMotivation.chosenMotivation;
@@ -366,7 +356,7 @@ public class MainFrame extends JFrame {
 
         myItem.ifPresent(viewModel::setAdditionalItem);
 
-        if (includeStats) {
+        if (request.isIncludeStats()) {
             viewModel.setSpeed(String.valueOf(mySpeed));
             viewModel.setSwimSpeed(String.valueOf(mySwimSpeed));
             viewModel.setFlySpeed(String.valueOf(myFlySpeed));
