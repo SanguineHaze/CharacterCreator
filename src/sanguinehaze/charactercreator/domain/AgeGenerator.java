@@ -1,5 +1,6 @@
-package sanguinehaze.charactercreator;
+package sanguinehaze.charactercreator.domain;
 
+import sanguinehaze.charactercreator.GenerateSourceData;
 import sanguinehaze.charactercreator.domain.CharacterCreatorRandom;
 
 import java.util.ArrayList;

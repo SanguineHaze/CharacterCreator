@@ -76,7 +76,7 @@ public class GenerateSourceData {
         return endName;
     }
 
-    ArrayList<String> getAgeRange() {
+    public ArrayList<String> getAgeRange() {
         return ageRange;
     }
 
