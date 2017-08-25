@@ -33,7 +33,6 @@ public class MainFrame extends JFrame {
     
     private List<String> characterResults = new ArrayList<>();
     private String myAge;
-    RacialStatBlockBuilder myRacialStats;
     private int nicknameChance, detailChance, numGenInt, itemChance;
     private int defaultDetail = 25;
     private int defaultNickname = 25;
@@ -45,15 +44,12 @@ public class MainFrame extends JFrame {
     private boolean saveNext, includeStats;
     private JScrollPane scrollTemplate;
 
-    FormEvent formEvent = new FormEvent(this, numGenInt);
-
     public MainFrame(
             GenerateSourceData data,
             NameBuilder nameBuilder) {
 
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
-        NameBuilder nameBuilder1 = nameBuilder;
 
         setLayout(new BorderLayout());
 
@@ -73,102 +69,95 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         
-        formPanel.raceBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JButton clicked = (JButton) e.getSource();
-                if(clicked == formPanel.raceBtn){
-                    formPanel.setVisible(false);
-                    textPanel.setVisible(false);
-                    generateBtn.setVisible(false);
-                    add(scrollTemplate);
-                    scrollTemplate.setViewportView(racePanel);
-                    racePanel.setVisible(true);
-                    setVisible(true);
-                }
+        formPanel.raceBtn.addActionListener(e -> {
+            JButton clicked = (JButton) e.getSource();
+            if(clicked == formPanel.raceBtn){
+                formPanel.setVisible(false);
+                textPanel.setVisible(false);
+                generateBtn.setVisible(false);
+                add(scrollTemplate);
+                scrollTemplate.setViewportView(racePanel);
+                racePanel.setVisible(true);
+                setVisible(true);
             }
         });
         
-        racePanel.rpSaveBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JButton clicked = (JButton) e.getSource();
-                if(clicked == racePanel.rpSaveBtn){
-                    racePanel.setVisible(false);
-                    formPanel.setVisible(true);
-                    textPanel.setVisible(true);
-                    generateBtn.setVisible(true);
-                }
+        racePanel.rpSaveBtn.addActionListener(e -> {
+            JButton clicked = (JButton) e.getSource();
+            if(clicked == racePanel.rpSaveBtn){
+                racePanel.setVisible(false);
+                formPanel.setVisible(true);
+                textPanel.setVisible(true);
+                generateBtn.setVisible(true);
             }
         });
 
         // GENERATE BUTTON SECTION
-        generateBtn.addActionListener(new ActionListener() {
+        generateBtn.addActionListener(ev -> {
+            JButton clicked = (JButton) ev.getSource();
+            if (clicked == generateBtn) {
 
-            public void actionPerformed(ActionEvent ev) {
-                JButton clicked = (JButton) ev.getSource();
-                if (clicked == generateBtn) {
-                    
-                    textPanel.clearText(); // Operation 'Clean Slate' is a go.
-                    formPanel.getFormChanges();
+                textPanel.clearText(); // Operation 'Clean Slate' is a go.
+                formPanel.getFormChanges();
 
-                    long startTime = System.nanoTime();
+                long startTime = System.nanoTime();
 
-                    saveNext = formPanel.isSaveNext();
-                    includeStats = formPanel.isIncludeStats();
+                saveNext = formPanel.isSaveNext();
+                includeStats = formPanel.isIncludeStats();
 
-                    numGenInt = formPanel.getNumGenInt();
-                    if (numGenInt < 1) {
-                        numGenInt = 25;
+                numGenInt = formPanel.getNumGenInt();
+                if (numGenInt < 1) {
+                    numGenInt = 25;
+                }
+
+                nicknameChance = formPanel.getNicknameChanceInt();
+                if (nicknameChance < 0 || nicknameChance > 100) {
+                    nicknameChance = defaultNickname;
+                }
+
+                detailChance = formPanel.getDetailsChance();
+                if (detailChance < 0 || detailChance > 100) {
+                    detailChance = defaultDetail;
+                }
+
+                itemChance = formPanel.getItemChance();
+                if(itemChance < 0 || itemChance > 100){
+                    itemChance = 25; //Default AdditionalItem chance.
+                }
+
+                textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
+                textPanel.appendText("\n");
+
+                for (int i = 0; i < numGenInt; i++) {
+                    characterResults.addAll(viewModelToStringArray(generateCharacter(data, nameBuilder), includeStats));
+                }
+
+                // PRINT RESULTS OUT
+                for (String out : characterResults) {
+                    if (out != "\n") {
+                        textPanel.appendText(out + "\n");
+                    } else {
+                        textPanel.appendText(out);
                     }
+                    System.out.println(out);
+                }
 
-                    nicknameChance = formPanel.getNicknameChanceInt();
-                    if (nicknameChance < 0 || nicknameChance > 100) {
-                        nicknameChance = defaultNickname;
-                    }
-
-                    detailChance = formPanel.getDetailsChance();
-                    if (detailChance < 0 || detailChance > 100) {
-                        detailChance = defaultDetail;
-                    }
-
-                    itemChance = formPanel.getItemChance();
-                    if(itemChance < 0 || itemChance > 100){
-                        itemChance = 25; //Default AdditionalItem chance.
-                    }
-
-                    textPanel.appendText("OUTPUTTING " + numGenInt + " CHARACTER(S):" + "\n");
-                    textPanel.appendText("\n");
-
-                    for (int i = 0; i < numGenInt; i++) {
-                        characterResults.addAll(viewModelToStringArray(generateCharacter(data, nameBuilder), includeStats));
-                    }
-
-                    // PRINT RESULTS OUT
-                    for (String out : characterResults) {
-                        if (out != "\n") {
-                            textPanel.appendText(out + "\n");
-                        } else {
-                            textPanel.appendText(out);
-                        }
-                        System.out.println(out);
-                    }
-
-                    // WRITE RESULTS TO FILE
-                    if (saveNext) {
-                        WriteToFile thisWrite = new WriteToFile(characterResults);
-                        textPanel.appendText(thisWrite.getWTFLocation() + "\n");
-                        textPanel.appendText("\n");
-                    }
-
-                    // NUKE LIST
-                    characterResults.removeAll(characterResults);
-
-                    // SPIT OUT TIME
-                    long endTime = System.nanoTime();
-                    System.out.println("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
-
-                    textPanel.appendText("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
+                // WRITE RESULTS TO FILE
+                if (saveNext) {
+                    WriteToFile thisWrite = new WriteToFile(characterResults);
+                    textPanel.appendText(thisWrite.getWTFLocation() + "\n");
                     textPanel.appendText("\n");
                 }
+
+                // NUKE LIST
+                characterResults.removeAll(characterResults);
+
+                // SPIT OUT TIME
+                long endTime = System.nanoTime();
+                System.out.println("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
+
+                textPanel.appendText("Runtime: " + ((endTime - startTime) / 1000000000.0) + " s");
+                textPanel.appendText("\n");
             }
         });
     }
