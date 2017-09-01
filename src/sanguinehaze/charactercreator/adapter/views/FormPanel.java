@@ -1,7 +1,10 @@
 package sanguinehaze.charactercreator.adapter.views;
 
 import sanguinehaze.charactercreator.GenerateSourceData;
+import sanguinehaze.charactercreator.adapter.persistence.repositories.AgeRepo;
 import sanguinehaze.charactercreator.domain.dtos.AdultProfessionList;
+import sanguinehaze.charactercreator.domain.dtos.Age;
+import sanguinehaze.common.utilities.TypeValidationUtil;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -12,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -34,16 +38,7 @@ public class FormPanel extends JPanel {
 
     protected boolean itemChanged;
     protected String[] subRaceCB;
-    protected String[] ageCB;
-    protected String[] professionCB;
-
-    private JLabel numGenLabel;
-    private JLabel sexLabel;
-    private JLabel ageLabel;
-    private JLabel professionLabel;
-    private JLabel nicknameLabel;
-    private JLabel detailsChanceLabel;
-    private JLabel itemChanceLabel;
+    private String[] ageCB;
 
     private JTextField numGenTextField;
     private JTextField nicknameChance;
@@ -52,18 +47,12 @@ public class FormPanel extends JPanel {
     private JComboBox<String> ageComboBox;
     private JComboBox<String> professionComboBox;
 
-    protected JButton raceBtn;
+    JButton raceBtn;
     private int numGenInt;
 
-    private JCheckBox saveCheckBox;
-    private JCheckBox generateStats;
-
     private JRadioButton sexM;
-    static String sexMString = "M";
     private JRadioButton sexF;
-    static String sexFString = "F";
     private JRadioButton sexR;
-    static String sexRString = "Random";
 
     private int raceSelected;
     private String subRaceSelected = "";
@@ -73,27 +62,16 @@ public class FormPanel extends JPanel {
     private boolean saveNext;
     private boolean includeStats = true;
 
-    protected int nicknameChanceInt = -1;
-    protected int detailsChance;
-    private ArrayList<String> ageRange;
+    private int nicknameChanceInt = -1;
+    private int detailsChance;
     private int itemChance;
 
-    //VALIDATION
-    static boolean isValidNumber(String val) {
-        Boolean output = false;
-        try {
-            Integer.parseInt(val);
-            output = true;
-        } catch (Exception ex) {
-            output = false;
-        }
-        return output;
-    }
-
     //THE MAGIC HAPPENS HERE. ALSO, HERE THERE BE DRAGONS.
-    public FormPanel(GenerateSourceData data) {
+    public FormPanel(
+            GenerateSourceData data,
+            AgeRepo ageRepo) {
 
-        ageRange = data.getAgeRangeStatic();
+        List<Age> allAges = ageRepo.getAllAges();
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -102,13 +80,13 @@ public class FormPanel extends JPanel {
         setPreferredSize(dim);
 
         //LABELS
-        numGenLabel = new JLabel("# of NPCs (0 for Default):");
-        sexLabel = new JLabel("Sex:");
-        ageLabel = new JLabel("Age:");
-        professionLabel = new JLabel("Profession:");
-        nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
-        detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
-        itemChanceLabel = new JLabel("Item Chance (0 to 100):");
+        JLabel numGenLabel = new JLabel("# of NPCs (0 for Default):");
+        JLabel sexLabel = new JLabel("Sex:");
+        JLabel ageLabel = new JLabel("Age:");
+        JLabel professionLabel = new JLabel("Profession:");
+        JLabel nicknameLabel = new JLabel("Nickname Chance (0 to 100):");
+        JLabel detailsChanceLabel = new JLabel("Details Chance (0 to 100):");
+        JLabel itemChanceLabel = new JLabel("Item Chance (0 to 100):");
 
         //FIELDS
         numGenTextField = new JTextField(10);
@@ -120,30 +98,29 @@ public class FormPanel extends JPanel {
         itemChanceField = new JTextField(10);
         itemChanceField.setColumns(10);
 
+        String sexMString = "M";
         sexM = new JRadioButton(sexMString);
+        String sexFString = "F";
         sexF = new JRadioButton(sexFString);
+        String sexRString = "Random";
         sexR = new JRadioButton(sexRString);
         raceBtn = new JButton("Race Options");
 
-        ageRange.add(0, "Any Age");
-        int ageCount = ageRange.size();
-        ageCB = new String[ageCount];
-        for(int ii = 0; ii < ageCount; ii++){
-            ageCB[ii] = ageRange.get(ii);
-        }
-        ageComboBox = new JComboBox<String>(ageCB);
+        getAgeCheckBoxArray(allAges);
+
+        ageComboBox = new JComboBox<>(ageCB);
         AdultProfessionList adultProfessionSourceStatic = data.getAdultProfessionList();
         adultProfessionSourceStatic.sortAlphabetically();
         adultProfessionSourceStatic.addToTop("Any Profession");
         int professionCount = adultProfessionSourceStatic.size();
-        professionCB = new String[professionCount];
+        String[] professionCB = new String[professionCount];
         for(int pi=0; pi < professionCount; pi++){
             professionCB[pi] = adultProfessionSourceStatic.get(pi);
         }
-        professionComboBox = new JComboBox<String>(professionCB);
+        professionComboBox = new JComboBox<>(professionCB);
 
-        saveCheckBox = new JCheckBox("Save Next Results");
-        generateStats = new JCheckBox("Generate Stats");
+        JCheckBox saveCheckBox = new JCheckBox("Save Next Results");
+        JCheckBox generateStats = new JCheckBox("Generate Stats");
 
 
         //SET BORDERS! MAKE BOXES!
@@ -273,57 +250,56 @@ public class FormPanel extends JPanel {
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
         add(saveCheckBox, gbc);
 
-        sexM.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JRadioButton clicked = (JRadioButton) e.getSource();
-                if(clicked == sexM){
-                    sexSelected = "Male";
-                }
+        sexM.addActionListener(e -> {
+            JRadioButton clicked = (JRadioButton) e.getSource();
+            if(clicked == sexM){
+                sexSelected = "Male";
             }
         });
 
-        sexF.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JRadioButton clicked = (JRadioButton) e.getSource();
-                if(clicked == sexF){
-                    sexSelected = "Female";
-                }
+        sexF.addActionListener(e -> {
+            JRadioButton clicked = (JRadioButton) e.getSource();
+            if(clicked == sexF){
+                sexSelected = "Female";
             }
         });
 
-        sexR.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JRadioButton clicked = (JRadioButton) e.getSource();
-                if(clicked == sexR){
-                    sexSelected = "";
-                }
+        sexR.addActionListener(e -> {
+            JRadioButton clicked = (JRadioButton) e.getSource();
+            if(clicked == sexR){
+                sexSelected = "";
             }
         });
 
-        saveCheckBox.addItemListener(new ItemListener(){
-            public void itemStateChanged(ItemEvent e) {
-                if(e.getStateChange() == ItemEvent.DESELECTED){
-                    saveNext = false;
-                } else if (e.getStateChange() == ItemEvent.SELECTED){
-                    saveNext = true;
-                }
+        saveCheckBox.addItemListener(e -> {
+            if(e.getStateChange() == ItemEvent.DESELECTED){
+                saveNext = false;
+            } else if (e.getStateChange() == ItemEvent.SELECTED){
+                saveNext = true;
             }
         });
 
-        generateStats.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent e) {
-                if(e.getStateChange() == ItemEvent.DESELECTED){
-                    includeStats = false;
-                } else if (e.getStateChange() == ItemEvent.SELECTED){
-                    includeStats = true;
-                }
+        generateStats.addItemListener(e -> {
+            if(e.getStateChange() == ItemEvent.DESELECTED){
+                includeStats = false;
+            } else if (e.getStateChange() == ItemEvent.SELECTED){
+                includeStats = true;
             }
         });
 
     }
 
+    private void getAgeCheckBoxArray(List<Age> allAges) {
+        ageCB = new String[allAges.size() + 1];
+        ageCB[0] = "Any Age";
+
+        for(int ii = 0; ii < allAges.size(); ii++){
+            ageCB[ii] = allAges.get(ii).getName();
+        }
+    }
+
     //GETTERS & SETTERS//
-    public void getFormChanges() {
+    void getFormChanges() {
         String numGenString = numGenTextField.getText();
         if (!(numGenString.isEmpty())) {
             numGenInt = Integer.parseInt(numGenString);
@@ -333,29 +309,31 @@ public class FormPanel extends JPanel {
         professionSelected = professionComboBox.getSelectedItem().toString();
         String nicknameChanceTransform = nicknameChance.getText();
         if (!(nicknameChanceTransform.isEmpty())) {
-            if (isValidNumber(nicknameChanceTransform)) {
+            if (TypeValidationUtil.isValidNumber(nicknameChanceTransform)) {
                 nicknameChanceInt = Integer.parseInt(nicknameChanceTransform);
             }
         }
         String detailsChanceTransform = detailsChanceField.getText();
         if (!(detailsChanceTransform.isEmpty())) {
-            if (isValidNumber(detailsChanceTransform)) {
+            if (TypeValidationUtil.isValidNumber(detailsChanceTransform)) {
                 detailsChance = Integer.parseInt(detailsChanceTransform);
             }
         }
 
         String itemChanceTransform = itemChanceField.getText();
         if (!(itemChanceTransform.isEmpty())) {
-            if (isValidNumber(itemChanceTransform)) {
+            if (TypeValidationUtil.isValidNumber(itemChanceTransform)) {
                 itemChance = Integer.parseInt(itemChanceTransform);
             }
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getItemChance() {
         return itemChance;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public boolean isIncludeStats() {
         return includeStats;
     }
@@ -364,14 +342,17 @@ public class FormPanel extends JPanel {
         this.includeStats = includeStats;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getDetailsChance() {
         return detailsChance;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getNicknameChanceInt() {
         return nicknameChanceInt;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public boolean isSaveNext() {
         return saveNext;
     }
@@ -396,6 +377,7 @@ public class FormPanel extends JPanel {
         return raceSelected;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getNumGenInt() {
         return numGenInt;
     }
