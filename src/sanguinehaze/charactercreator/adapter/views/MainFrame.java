@@ -153,6 +153,8 @@ public class MainFrame extends JFrame {
         viewModel.setNicknameChance(formPanel.getNicknameChanceInt());
         viewModel.setDetailsChance(formPanel.getDetailsChance());
         viewModel.setItemChance(formPanel.getItemChance());
+        viewModel.setSelectedSex(formPanel.getSexSelected());
+        viewModel.setSelectedProfession(formPanel.getProfessionSelected());
 
         return viewModel;
     }
