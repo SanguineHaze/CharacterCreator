@@ -20,10 +20,14 @@ import java.util.Optional;
 
 public class CharacterResultProvider {
 
-    private CharacterCreatorRandom rand;
+    private final CharacterCreatorRandom rand;
+    private final AgeGenerator ageGenerator;
 
-    public CharacterResultProvider(CharacterCreatorRandom rand) {
+    public CharacterResultProvider(
+            CharacterCreatorRandom rand,
+            AgeGenerator ageGenerator) {
         this.rand = rand;
+        this.ageGenerator = ageGenerator;
     }
 
     public CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder, CharacterGenerationRequestViewModel request) {
@@ -35,7 +39,6 @@ public class CharacterResultProvider {
 
         Race thisRace = new Race();
         SubRace thisSubRace = new SubRace();
-        AgeGenerator thisAgeGenerator = new AgeGenerator(data);
         Profession thisProfession = new Profession(userAge, data);
         AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
         RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
@@ -102,8 +105,8 @@ public class CharacterResultProvider {
         String myLastName = fullName.getLastname();
         String myAge;
 
-        thisAgeGenerator.generateData(userAge);
-        myAge = thisAgeGenerator.getGeneratedAge();
+        this.ageGenerator.generateData(userAge);
+        myAge = this.ageGenerator.getGeneratedAge();
 
         // PROFESSION SECTION
         if (userProfession == null) {

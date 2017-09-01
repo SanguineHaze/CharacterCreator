@@ -2,6 +2,7 @@ package sanguinehaze.charactercreator.adapter.views;
 
 import sanguinehaze.charactercreator.GenerateSourceData;
 import sanguinehaze.charactercreator.WriteToFile;
+import sanguinehaze.charactercreator.adapter.views.factories.FormPanelFactory;
 import sanguinehaze.charactercreator.adapter.views.mappers.CharacterResultViewModelMapper;
 import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterGenerationRequestViewModel;
 import sanguinehaze.charactercreator.application.CharacterResultProvider;
@@ -48,7 +49,7 @@ public class MainFrame extends JFrame {
         JPanel formTemplate = new JPanel();
         scrollTemplate = new JScrollPane();
         textPanel = new TextPanel();
-        formPanel = new FormPanel(data);
+        formPanel = FormPanelFactory.create(data);
         racePanel = new RacePanel();
         generateBtn = new JButton("GENERATE!");
 
