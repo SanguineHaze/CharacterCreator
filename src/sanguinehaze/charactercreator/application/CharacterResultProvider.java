@@ -178,8 +178,12 @@ public class CharacterResultProvider {
 
         if (request.isIncludeStats()) {
             viewModel.setSpeed(String.valueOf(mySpeed));
-            viewModel.setSwimSpeed(String.valueOf(mySwimSpeed));
-            viewModel.setFlySpeed(String.valueOf(myFlySpeed));
+            if (mySwimSpeed > 0){
+                viewModel.setSwimSpeed(String.valueOf(mySwimSpeed));
+            }
+            if (myFlySpeed > 0){
+                viewModel.setFlySpeed(String.valueOf(myFlySpeed));
+            }
             viewModel.setStrength(String.valueOf(myStr));
             viewModel.setDexterity(String.valueOf(myDex));
             viewModel.setConstitution(String.valueOf(myCon));
