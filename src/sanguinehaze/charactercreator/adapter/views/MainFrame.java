@@ -1,48 +1,34 @@
 package sanguinehaze.charactercreator.adapter.views;
 
-import sanguinehaze.charactercreator.AdditionalFeatures;
+import sanguinehaze.charactercreator.GenerateSourceData;
+import sanguinehaze.charactercreator.WriteToFile;
 import sanguinehaze.charactercreator.adapter.views.mappers.CharacterResultViewModelMapper;
 import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterGenerationRequestViewModel;
-import sanguinehaze.charactercreator.adapter.views.viewmodels.CharacterResultViewModel;
 import sanguinehaze.charactercreator.application.CharacterResultProvider;
-import sanguinehaze.charactercreator.domain.AgeGenerator;
-import sanguinehaze.charactercreator.GenerateSourceData;
-import sanguinehaze.charactercreator.Profession;
-import sanguinehaze.charactercreator.Race;
-import sanguinehaze.charactercreator.RacialStatBlockBuilder;
-import sanguinehaze.charactercreator.SubRace;
-import sanguinehaze.charactercreator.WriteToFile;
 import sanguinehaze.charactercreator.domain.CharacterCreatorRandom;
 import sanguinehaze.charactercreator.domain.NameBuilder;
-import sanguinehaze.charactercreator.domain.dtos.FullName;
-import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.Random;
-
-import javax.swing.*;
 
 public class MainFrame extends JFrame {
 	
     private static final long serialVersionUID = 3320499509997731807L;
     
-    private List<String> characterResults = new ArrayList<>();
-    private String myAge;
+    private final List<String> characterResults = new ArrayList<>();
 
-    private TextPanel textPanel;
-    private JButton generateBtn;
+    private final TextPanel textPanel;
+    private final JButton generateBtn;
 
-    private FormPanel formPanel;
-    private RacePanel racePanel;
+    private final FormPanel formPanel;
+    private final RacePanel racePanel;
 
-    private JScrollPane scrollTemplate;
-    private CharacterCreatorRandom rand;
-    private CharacterResultViewModelMapper characterResultViewModelMapper;
-    private CharacterResultProvider characterResultProvider;
+    private final JScrollPane scrollTemplate;
+    private final CharacterCreatorRandom rand;
+    private final CharacterResultProvider characterResultProvider;
 
     public MainFrame(
             GenerateSourceData data,
@@ -54,7 +40,6 @@ public class MainFrame extends JFrame {
         // LAYOUT SECTION
         super("HazeGaming NPC Generator");
 
-        this.characterResultViewModelMapper = characterResultViewModelMapper;
         this.characterResultProvider = characterResultProvider;
         this.rand = random;
 
@@ -118,8 +103,7 @@ public class MainFrame extends JFrame {
                                     this.characterResultProvider.generateCharacter(
                                             data,
                                             nameBuilder,
-                                            request,
-                                            myAge),
+                                            request),
                                     request.isIncludeStats()
                             )
                     );

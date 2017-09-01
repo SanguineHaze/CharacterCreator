@@ -26,13 +26,17 @@ public class CharacterResultProvider {
         this.rand = rand;
     }
 
-    public CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder, CharacterGenerationRequestViewModel request, String myAge) {
+    public CharacterResultViewModel generateCharacter(GenerateSourceData data, NameBuilder nameBuilder, CharacterGenerationRequestViewModel request) {
         CharacterResultViewModel viewModel = new CharacterResultViewModel();
+
+        String userAge = request.getSelectedAge();
+        String userSex = request.getSelectedSex();
+        String userProfession = request.getSelectedProfession();
 
         Race thisRace = new Race();
         SubRace thisSubRace = new SubRace();
         AgeGenerator thisAgeGenerator = new AgeGenerator(data);
-        Profession thisProfession = new Profession(myAge, data);
+        Profession thisProfession = new Profession(userAge, data);
         AdditionalFeatures thisMotivation = new AdditionalFeatures(data);
         RacialStatBlockBuilder thisRacialStatBlockBuilder = new RacialStatBlockBuilder();
 
@@ -54,9 +58,7 @@ public class CharacterResultProvider {
             }
         }
 
-        String userAge = request.getSelectedAge();
-        String userSex = request.getSelectedSex();
-        String userProfession = request.getSelectedProfession();
+
 
         if (userRace.equals("Any Race")) {
             userRace = "";
@@ -98,6 +100,7 @@ public class CharacterResultProvider {
         String mySex = userSex == null ? rand.nextSex().toString() : userSex;
         String myName = fullName.getFirstname();
         String myLastName = fullName.getLastname();
+        String myAge;
 
         thisAgeGenerator.generateData(userAge);
         myAge = thisAgeGenerator.getGeneratedAge();
