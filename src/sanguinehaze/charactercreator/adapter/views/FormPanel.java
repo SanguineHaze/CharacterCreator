@@ -290,8 +290,14 @@ public class FormPanel extends JPanel {
     }
 
     private void getAgeCheckBoxArray(List<Age> allAges) {
-        ageCB = new String[allAges.size() + 1];
-        ageCB[0] = "Any Age";
+        ageCB = new String[allAges.size()];
+
+        //Will not work
+        //Index 0 is set to Any Age, then promptly overwritten by ii 0 = child.
+        //Blair: For now, removed the +1 to size, and added Any Age to InMemoryAgeRepo.
+        //We can revisit this concept later, as I don't see a workaround without an ArrayList
+        
+        //ageCB[0] = "Any Age";
 
         for(int ii = 0; ii < allAges.size(); ii++){
             ageCB[ii] = allAges.get(ii).getName();
