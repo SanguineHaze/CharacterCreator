@@ -11,6 +11,7 @@ import sanguinehaze.charactercreator.domain.dtos.AdultProfessionList;
 import sanguinehaze.charactercreator.domain.dtos.ChildProfessionList;
 import sanguinehaze.charactercreator.domain.dtos.DetailsList;
 import sanguinehaze.charactercreator.domain.dtos.MotivationList;
+import sanguinehaze.charactercreator.domain.dtos.ChildMotivationList;
 import sanguinehaze.charactercreator.domain.dtos.NicknameList;
 import sanguinehaze.charactercreator.domain.dtos.PersonalityList;
 import org.w3c.dom.Document;
@@ -31,6 +32,7 @@ public class GenerateSourceData {
     private static ArrayList<String> middleName = new ArrayList<>();
     private static ArrayList<String> endName = new ArrayList<>();
     private MotivationList _motivationList;
+    private ChildMotivationList _childMotivationList;
     private PersonalityList _personalityList;
     private NicknameList _nicknameList;
     private DetailsList _detailsList;
@@ -59,7 +61,7 @@ public class GenerateSourceData {
         return this._adultProfessionList;
     }
 
-    ChildProfessionList getChildProfessionList() {
+    public ChildProfessionList getChildProfessionList() {
         return this._childProfessionList;
     }
 
@@ -77,6 +79,10 @@ public class GenerateSourceData {
 
     MotivationList getMotivationList() {
         return this._motivationList;
+    }
+
+    ChildMotivationList getChildMotivationList() {
+        return this._childMotivationList;
     }
 
     PersonalityList getPersonalityList() {
@@ -180,6 +186,7 @@ public class GenerateSourceData {
         _childProfessionList = ChildProfessionList.of(DeserializeData(sourcePersistence.GetData("ProfessionsChild")));
 
         _motivationList = MotivationList.of(sourcePersistence.GetData("Motivations"));
+        _childMotivationList = ChildMotivationList.of(sourcePersistence.GetData("ChildMotivations"));
         _personalityList = PersonalityList.of(sourcePersistence.GetData("Personalities"));
         _nicknameList = NicknameList.of(sourcePersistence.GetData("Nicknames"));
         _detailsList = DetailsList.of(sourcePersistence.GetData("Details"));
