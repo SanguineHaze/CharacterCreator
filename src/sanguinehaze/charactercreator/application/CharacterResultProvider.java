@@ -61,8 +61,6 @@ public class CharacterResultProvider {
             }
         }
 
-
-
         if (userRace.equals("Any Race")) {
             userRace = "";
         }

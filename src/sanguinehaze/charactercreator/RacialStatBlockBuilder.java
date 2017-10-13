@@ -38,7 +38,9 @@ public class RacialStatBlockBuilder {
                 subraceLanguage = new ArrayList<String>(),
                 combinedLanguage = new ArrayList<String>(),
                 raceExtra = new ArrayList<String>(),
+                raceExtraChoice = new ArrayList<String>(),
                 subraceExtra = new ArrayList<String>(),
+                subraceExtraChoice = new ArrayList<String>(),
                 builtExtra = new ArrayList<String>(),
                 builtExtraChoice = new ArrayList<String>();
 
@@ -58,12 +60,14 @@ public class RacialStatBlockBuilder {
                 tempRace.setFlySpeed(entry.getFlySpeed());
                 tempRace.setLanguage(entry.getLanguage());
                 tempRace.setExtra(entry.getExtra());
+                tempRace.setExtraChoice(entry.getExtraChoice());
 
                 raceSpeed = tempRace.getSpeed();
                 raceFlySpeed = tempRace.getFlySpeed();
                 raceSwimSpeed = tempRace.getSwimSpeed();
                 raceLanguage = tempRace.getLanguage();
                 raceExtra = tempRace.getExtra();
+                raceExtraChoice = tempRace.getExtraChoice();
             }
         }
 
@@ -84,12 +88,14 @@ public class RacialStatBlockBuilder {
                 tempSubrace.setFlySpeed(entry.getFlySpeed());
                 tempSubrace.setLanguage(entry.getLanguage());
                 tempSubrace.setExtra(entry.getExtra());
+                tempSubrace.setExtraChoice(entry.getExtraChoice());
 
                 subraceSpeed = tempSubrace.getSpeed();
                 subraceFlySpeed = tempSubrace.getFlySpeed();
                 subraceSwimSpeed = tempSubrace.getSwimSpeed();
                 subraceLanguage = tempSubrace.getLanguage();
                 subraceExtra = tempSubrace.getExtra();
+                subraceExtraChoice = tempSubrace.getExtraChoice();
             }
         }
 
@@ -158,15 +164,16 @@ public class RacialStatBlockBuilder {
         }
 
         statBlock.setExtra(builtExtra);
-        //System.out.println("BuiltStats - Extras: " + extra);
 
         //EXTRACHOICE
         builtExtraChoice.clear();
-        for(String entry: tempRace.getExtraChoice()){
-            if(!builtExtraChoice.contains(entry)){
+        for(String entry: raceExtraChoice) {
+            if (!builtExtraChoice.contains(entry)) {
                 builtExtraChoice.add(entry);
             }
-            for(String entry2: tempSubrace.getExtraChoice()){
+        }
+        if (subraceExtraChoice.size() >= 1){
+            for(String entry2: subraceExtraChoice){
                 if(!builtExtraChoice.contains(entry2)){
                     builtExtraChoice.add(entry2);
                 }
