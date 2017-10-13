@@ -26,6 +26,9 @@
 - Change Motivations so that Child has a special set of motivations (Current motivations don't make much sense for children)
 
 #Recent Updates
+###Oct 12, 2017
+- Bugfix: Age was not being set correctly
+- Added child specific motivations
 
 ###Jul 12, 2017
 - Separate panel for Race options completed. Features a checkbox option system, so you can select exactly the races and subraces desired. (Making Version 1 worth sending to the public)

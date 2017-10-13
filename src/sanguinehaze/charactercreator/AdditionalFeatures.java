@@ -2,6 +2,7 @@ package sanguinehaze.charactercreator;
 
 import sanguinehaze.charactercreator.domain.dtos.DetailsList;
 import sanguinehaze.charactercreator.domain.dtos.MotivationList;
+import sanguinehaze.charactercreator.domain.dtos.ChildMotivationList;
 import sanguinehaze.charactercreator.domain.dtos.NicknameList;
 import sanguinehaze.charactercreator.domain.dtos.PersonalityList;
 
@@ -13,6 +14,7 @@ public class AdditionalFeatures {
 
 	private final GenerateSourceData data;
 	private final MotivationList _motivationList;
+	private final ChildMotivationList _childMotivationList;
 	private final PersonalityList _personalityList;
 	private final NicknameList _nicknameList;
 	private final DetailsList _detailsList;
@@ -38,6 +40,7 @@ public class AdditionalFeatures {
 	public AdditionalFeatures(GenerateSourceData data) {
 		this.data = data;
 		_motivationList = data.getMotivationList();
+		_childMotivationList = data.getChildMotivationList();
 		_personalityList = data.getPersonalityList();
 		_nicknameList = data.getNicknameList();
 		_detailsList = data.getDetailsList();
@@ -81,8 +84,8 @@ public class AdditionalFeatures {
 			//TODO: CREATE CHILD MOTIVATION LIST (LOW PRIORITY)
 			
 			Random randomMotivation = new Random();
-			int index = randomMotivation.nextInt(_motivationList.size());
-			chosenMotivation = _motivationList.get(index);
+			int index = randomMotivation.nextInt(_childMotivationList.size());
+			chosenMotivation = _childMotivationList.get(index);
 		}
 	}
 	

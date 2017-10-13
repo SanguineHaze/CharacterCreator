@@ -154,6 +154,7 @@ public class MainFrame extends JFrame {
         viewModel.setDetailsChance(formPanel.getDetailsChance());
         viewModel.setItemChance(formPanel.getItemChance());
         viewModel.setSelectedSex(formPanel.getSexSelected());
+        viewModel.setSelectedAge(formPanel.getAgeSelected());
         viewModel.setSelectedProfession(formPanel.getProfessionSelected());
 
         return viewModel;
