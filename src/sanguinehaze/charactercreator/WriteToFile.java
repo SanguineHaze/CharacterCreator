@@ -15,28 +15,39 @@ public class WriteToFile {
 	private DateFormat dateFormat;
 	Date date = new Date();
 	String theDate;
-	private String filePath = filesDirectory + "NPCResults" + File.separator + "CharacterResults";
+	private String filePath;
 	
-	public WriteToFile(List<String> characterResults) {
-		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_HH_mm_ss");
-		theDate = dateFormat.format(date);
-		String filePath = filesDirectory + "NPCResults" + File.separator + "CharacterResults";
-		
-		try{
-            PrintWriter pw = new PrintWriter(filePath + theDate + ".txt");
-            for(String input: characterResults){
-                pw.println(input);
-            }
-            System.out.println("Created File: " + filePath + theDate  + ".txt" );
-            pw.close();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+	public WriteToFile(List<String> data, String path) {
+		preWrite(path);
+		write(data);
 	}
 	
 	public String getWTFLocation() {
-		String location = "Created File: " + filePath + theDate  + ".txt";
+		String location = "Created File: " + filePath + theDate + ".txt";
 		return location;
 	}
-	
+
+	public void preWrite(String path){
+		dateFormat = new SimpleDateFormat("_MM_dd_yyyy_HH_mm_ss");
+		theDate = dateFormat.format(date);
+		if(path.toLowerCase().equals("characterresults")){
+			this.filePath = filesDirectory + "NPCResults" + File.separator + "CharacterResults";
+		} else if(path.toLowerCase().equals("error")){
+			this.filePath = filesDirectory + "ErrorLog" + File.separator + "Error_Log";
+		}
+	}
+
+	public void write(List<String> data){
+		try{
+			PrintWriter pw = new PrintWriter(filePath + theDate + ".txt");
+			for(String input: data){
+				pw.println(input);
+			}
+			//System.out.println("Created File: " + filePath + theDate  + ".txt" ); //Debug Line
+			pw.close();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+
 }
