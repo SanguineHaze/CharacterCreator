@@ -122,7 +122,7 @@ public class MainFrame extends JFrame {
 
                 // WRITE RESULTS TO FILE
                 if (request.isSaveNext()) {
-                    WriteToFile thisWrite = new WriteToFile(characterResults); //WriteToFile thisWrite = new WriteToFile(characterResults, filePath, fileName);
+                    WriteToFile thisWrite = new WriteToFile(characterResults, "characterResults");
                     textPanel.appendText(thisWrite.getWTFLocation() + "\n");
                     textPanel.appendText("\n");
                 }

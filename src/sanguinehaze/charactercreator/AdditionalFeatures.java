@@ -80,9 +80,6 @@ public class AdditionalFeatures {
 			int index = randomMotivation.nextInt(_motivationList.size());
 			chosenMotivation = _motivationList.get(index);
 		} else if("child".equals(chosenAge.toLowerCase())){
-			
-			//TODO: CREATE CHILD MOTIVATION LIST (LOW PRIORITY)
-			
 			Random randomMotivation = new Random();
 			int index = randomMotivation.nextInt(_childMotivationList.size());
 			chosenMotivation = _childMotivationList.get(index);
