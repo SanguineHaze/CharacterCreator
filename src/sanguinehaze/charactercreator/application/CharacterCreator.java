@@ -7,6 +7,9 @@ import sanguinehaze.charactercreator.adapter.views.factories.MainFrameFactory;
 import sanguinehaze.charactercreator.adapter.persistence.SourcePersistanceFactory;
 import sanguinehaze.charactercreator.adapter.persistence.SourcePersistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CharacterCreator {
     
@@ -31,7 +34,9 @@ public class CharacterCreator {
         } catch (Exception ex) {
             notice.dispose();
             ex.printStackTrace();
-
+            List<String> errorStack = new ArrayList<>();
+            errorStack.add(ex.toString());
+            WriteToFile errorWrite = new WriteToFile(errorStack, "error");
             // In case there's no internet connection, just launch. 
             //TODO: deal with outputting stacktrace
             SwingUtilities.invokeLater(new Runnable() {
