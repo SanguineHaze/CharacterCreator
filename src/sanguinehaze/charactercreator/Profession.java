@@ -72,7 +72,7 @@ public class Profession {
             vOExceptionList.add("Baron / Baroness");
             vOExceptionList.add("Lord / Lady");
             Random veryOldDesignation = new Random();
-            int isRetired = veryOldDesignation.nextInt(10); // 0 -> 9
+            int isRetired = veryOldDesignation.nextInt(11); // 0 -> 9
             //Very rarely, allow Very Old age-group to still be employed. (1 / 10 chance)
             if(isRetired <= 9){
                 if(!vOExceptionList.contains(chosenProfession)){
