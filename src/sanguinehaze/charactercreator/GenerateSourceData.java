@@ -25,12 +25,15 @@ public class GenerateSourceData {
     //TODO: Look into why this is here, it is being filled but never used.
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static ArrayList<String> subRaceSourceStatic = new ArrayList<>();
-    private AdultProfessionList _adultProfessionList;
-    private ChildProfessionList _childProfessionList;
+    // "Name" Section //
     private static ArrayList<String> nameData = new ArrayList<>();
+    private static ArrayList<String> nameDataDwarfM = new ArrayList<>();
     private static ArrayList<String> beginningName = new ArrayList<>();
     private static ArrayList<String> middleName = new ArrayList<>();
     private static ArrayList<String> endName = new ArrayList<>();
+
+    private AdultProfessionList _adultProfessionList;
+    private ChildProfessionList _childProfessionList;
     private MotivationList _motivationList;
     private ChildMotivationList _childMotivationList;
     private PersonalityList _personalityList;
@@ -166,6 +169,7 @@ public class GenerateSourceData {
     private void generateNameSourceData(){
         //TODO: Expand this section to have different files for the different races.
         nameData = sourcePersistence.GetData("NameDefault");
+        nameDataDwarfM = sourcePersistence.GetData("DwarfMaleName");
     }
 
     private void generateNameSectionData(){
