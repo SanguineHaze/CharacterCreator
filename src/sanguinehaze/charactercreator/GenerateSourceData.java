@@ -28,9 +28,15 @@ public class GenerateSourceData {
     // "Name" Section //
     private static ArrayList<String> nameData = new ArrayList<>();
     private static ArrayList<String> nameDataDwarfM = new ArrayList<>();
+
     private static ArrayList<String> beginningName = new ArrayList<>();
+    private static ArrayList<String> beginningNameDwarfM = new ArrayList<>();
+
     private static ArrayList<String> middleName = new ArrayList<>();
+    private static ArrayList<String> middleNameDwarfM = new ArrayList<>();
+
     private static ArrayList<String> endName = new ArrayList<>();
+    private static ArrayList<String> endNameDwarfM = new ArrayList<>();
 
     private AdultProfessionList _adultProfessionList;
     private ChildProfessionList _childProfessionList;
@@ -78,6 +84,18 @@ public class GenerateSourceData {
 
     public ArrayList<String> getEndName() {
         return endName;
+    }
+
+    public ArrayList<String> getBeginningNameDwarfM() {
+        return beginningNameDwarfM;
+    }
+
+    public ArrayList<String> getMiddleNameDwarfM() {
+        return middleNameDwarfM;
+    }
+
+    public ArrayList<String> getEndNameDwarfM() {
+        return endNameDwarfM;
     }
 
     MotivationList getMotivationList() {
@@ -180,6 +198,16 @@ public class GenerateSourceData {
                 middleName.add(entry);
             } else if(entry.contains("END:")) {
                 endName.add(entry);
+            }
+        }
+
+        for(String entry: nameDataDwarfM){
+            if(entry.contains("BEGINNING:")){
+                beginningNameDwarfM.add(entry);
+            } else if(entry.contains("MIDDLE:")) {
+                middleNameDwarfM.add(entry);
+            } else if(entry.contains("END:")) {
+                endNameDwarfM.add(entry);
             }
         }
     }

@@ -98,7 +98,7 @@ public class CharacterResultProvider {
         // NAME (& SEX & AGE) SECTION
         String mySex = userSex == "" ? rand.nextSex().toString() : userSex;
 
-        FullName fullName = nameBuilder.build();
+        FullName fullName = nameBuilder.build(myRace, mySex);
         String myName = fullName.getFirstname();
         String myLastName = fullName.getLastname();
         String myAge;
