@@ -1,5 +1,7 @@
 package sanguinehaze.charactercreator.adapter.views.viewmodels;
 
+import java.util.ArrayList;
+
 public class CharacterGenerationRequestViewModel {
 
     private int itemChance;
@@ -12,7 +14,7 @@ public class CharacterGenerationRequestViewModel {
     private String selectedSex;
     private String selectedSubrace;
     private int numGenInt;
-    private String selectedRace;
+    private ArrayList<String> selectedRaces;
 
     public int getItemChance() {
         if (this.itemChance > 100 || this.itemChance < 0) {
@@ -95,12 +97,12 @@ public class CharacterGenerationRequestViewModel {
         this.selectedSubrace = selectedSubrace;
     }
 
-    public String getSelectedRace() {
-        return selectedRace;
+    public ArrayList<String> getSelectedRaces() {
+        return selectedRaces;
     }
 
-    public void setSelectedRace(String selectedRace) {
-        this.selectedRace = selectedRace;
+    public void setSelectedRaces(ArrayList<String> selectedRaces) {
+        this.selectedRaces = selectedRaces;
     }
 
     public int getNumGenInt() {

@@ -145,8 +145,8 @@ public class MainFrame extends JFrame {
         formPanel.getFormChanges();
 
         ArrayList<String> chars = racePanel.getSelectedRaces();
-        int randChoice = rand.nextInt(chars.size());
-        viewModel.setSelectedRace(chars.get(randChoice));
+        viewModel.setSelectedRaces(chars);
+
         viewModel.setSaveNext(formPanel.isSaveNext());
         viewModel.setIncludeStats(formPanel.isIncludeStats());
         viewModel.setNumGenInt(formPanel.getNumGenInt());

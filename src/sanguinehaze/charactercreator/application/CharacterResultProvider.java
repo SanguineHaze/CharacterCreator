@@ -14,6 +14,7 @@ import sanguinehaze.charactercreator.domain.NameBuilder;
 import sanguinehaze.charactercreator.domain.dtos.FullName;
 import sanguinehaze.charactercreator.domain.dtos.RacialStatBlock;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,7 +48,9 @@ public class CharacterResultProvider {
         String userRace = "";
         String userSubRace = "";
 
-        String choice = request.getSelectedRace();
+        ArrayList<String> raceChoices = request.getSelectedRaces();
+        int randChoice = rand.nextInt(raceChoices.size());
+        String choice = raceChoices.get(randChoice);
 
         for(RacialStatBlock racialStatBlock: GenerateSourceData.raceStatBlock){
             if(racialStatBlock.getName().toLowerCase().equals(choice.toLowerCase())){
@@ -101,8 +104,9 @@ public class CharacterResultProvider {
         FullName fullName = nameBuilder.build(myRace, mySex);
         String myName = fullName.getFirstname();
         String myLastName = fullName.getLastname();
-        String myAge;
+        //placeholder for third name type (clan name, etc). Remember to wrap in an if statement to remove from display if third type is null
 
+        String myAge;
         this.ageGenerator.generateData(userAge);
         myAge = this.ageGenerator.getGeneratedAge();
 
