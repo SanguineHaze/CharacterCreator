@@ -33,11 +33,13 @@ public class FormPanel extends JPanel {
     private static final long serialVersionUID = -8719247449665634249L;
 
     //DECLARATIONS
-    ArrayList<String> subRaceTempList = new ArrayList<>();
-    ArrayList<String> lastSelected = new ArrayList<>();
 
-    protected boolean itemChanged;
-    protected String[] subRaceCB;
+    //TODO: Propose deletion of commented declarations.
+    //ArrayList<String> subRaceTempList = new ArrayList<>();
+    //ArrayList<String> lastSelected = new ArrayList<>();
+
+    //protected boolean itemChanged;
+    //protected String[] subRaceCB;
     private String[] ageCB;
 
     private JTextField numGenTextField;
@@ -54,7 +56,7 @@ public class FormPanel extends JPanel {
     private JRadioButton sexF;
     private JRadioButton sexR;
 
-    private int raceSelected;
+    //private int raceSelected;
     private String subRaceSelected = "";
     private String sexSelected = "";
     private String ageSelected = "";
@@ -379,9 +381,11 @@ public class FormPanel extends JPanel {
         return subRaceSelected;
     }
 
-    public int getRaceSelected() {
+    //TODO: Propose deletion.
+
+    /*public int getRaceSelected() {
         return raceSelected;
-    }
+    }*/
 
     @SuppressWarnings("WeakerAccess")
     public int getNumGenInt() {
